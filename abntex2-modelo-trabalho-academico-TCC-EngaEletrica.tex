@@ -71,6 +71,8 @@
 % ---
 
 \graphicspath{{images/}}
+\usepackage{amsmath}
+\usepackage{IEEEtrantools}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -444,9 +446,75 @@
 %
 
 \section{Objetivo}
+
+O objetivo princiapl deste TCC é o estudo, projeto, simulação e análise de um sistema de geração de energia elétrica composto por painel fotovoltaico e conversores CC-CC e CC-CA. 
+
+As topologias de conversores que serão analisadas estão listadas a seguir e enquanto os conversores representam a coversão CC-CC, os inversores representam o estágio de
+
+\begin{itemize}
+	
+	\item Conversor Ćuk convecional com Inversor em Ponte Completa
+	\item Conversor Ćuk convecional com Inversor em Meia Ponte
+	\item Conversor Ćuk Entrelaçado de 2 fases com Inversor em Ponte Completa
+	\item Conversor Ćuk Entrelaçado de 2 fases com Inversor em Meia Ponte
+	\item Conversor Ćuk integrado com Inversor em Ponte Completa
+	\item Conversor Ćuk integrado com Inversor em Meia Ponte
+	
+\end{itemize}
+
 \section{Estrutura Geral do Trabalho}
 
+O capítulo 1 introduz o tema e o objeto de estudo, com uma breve explicação e contextualização do problema. No capítulo 2 é apresentado o estado da arte e apresetado o embasamento teórico necessário para o desenvolvimento do trabalho.
+
+No capítulo 3 é descrita a metodologia utilizada, sendo o capítulo 5 dedicado à exposição dos resultados obtidos através desta. O sexto e útlimo capítulo é dedicado à discussão do resultado e às conclusões obtidas pelo estudo.
+
 \chapter{Estado da Arte}
+
+\section{Modelo do PV}
+
+O circuito equivalente de células fotovoltaicas pode ser representado por uma fonte de corrente, como pode ser visto na figura ~\ref{fig:model_PV}. Este modelo é amplamente aceito e utilizado em trabalhos relacionados a energia fotovoltaica e seu comportamento do é descrito pelas equações~\ref{IPV_} a \ref{VOCPV}, nas quais $i_{pv}$ é a corrente e \emph{V} a tensão de saída da celula solar, respectivamente. 
+$I_{ph}$ é a fotocorrente e $I_r$ a corrente reversa de saturação da célula, $R_s$ e $R_p$ são as resistências série e shunt, \emph{q} é a carga do elétrone $\eta$ é o fator de idealidade da junção p-n. \emph{k} é a constante de Boltzmann, \emph{T} representa a temperatura ambiente, em Kelvins e \emph{G} representa a densidade de potência da irradiação solar. 
+$T_r$ é a temperatura nominal, em Kelvins (298K), $I_{sc}$ é a corrente de curto circuito em condições padrão de teste(\textit{STC}) ($T_r = 25ºC$ e $G =1kW/m^2$), $ \alpha $ é o coeficiente de temperatura, $I_rr$ é a corrente de saturação reversa em \textit{STC} e $E_g$ é o \textit{gap} de energia entre as bandas (1.1eV).
+$V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de células por painel e $M_s$ é o número de painéis conectados em série \cite{PV-Teory}.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{pv_model}
+		\caption{Circuito Equivalente de uma Célula Fotovoltaica \cite{PV-Teory}}
+		\label{fig:model_PV}
+	\end{center}
+\end{figure}
+
+\begin{IEEEeqnarray} {c}
+	i_{pv} = I_{ph} - I_r \left[ 
+		\mathrm{e}^{q\left(\left(V+i_{pv}R_s\right)/\eta kT\right)} -1
+		\right] - 
+		\frac{V+i_{pv}R_s}{R_p} 
+		\label{IPV_}\\
+	 I_{ph} = \left[I_{SC} + \alpha \left(T - T_r \right)\right] \frac{G}{1000}
+	 \label{IPH_}\\
+	I_r = I_{rr} \left(\frac{T}{T_r}\right)^3 \mathrm{e}^{\left[\left(qE_g/\eta k\right) \left(\left(1/T_r \right)-\left(1/T\right)\right)\right]} 
+	\label{IR_}\\
+	I_{rr} = \frac{I_{SC} - \left(V_{oc}/R_p\right)}{\mathrm{e}^{\left(qV_{oc}/\eta k T_r \right)} - 1 } 
+	\label{IRR_}\\
+	V_{pv} = V N_s M_s 
+	\label{VPV_}\\
+	V_{oc_{PV}} = V_{oc} N_s M_s
+	\label{VOCPV}
+\end{IEEEeqnarray}
+
+
+A partir das equações ~\ref{IPV_},~\ref{IPH_},~\ref{IR_} e ~\ref{IRR_} é possível inferir a existência das relações entre a corrente de saída do painel fotovoltaico, sua temperatura e a irradiação solar. De fato, quanto maior a temperatura da célula, menor sua tensão de circuito aberto e, portanto, mais rápida sua variação de corrente. Já em relação à irradiação solar, quanto menor a magnitude desta, menor a corrente máxima da célula, relação clara ao analisar a equação~\ref{IPH_}.
+
+Na figura~\ref{fig:IV_PVa} e~\ref{IV_PVb} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
+
+ADICIONAR FIGURAS!!!!!!!!!!!!!!!
+
+\chapter{Metodologia}
+
+\chapter{Resultados}
+
+\chapter{Conclusão}
 
 FALAR SOBRE  STATE OF THE ART EM INVERSORES X MICRONIVERSORES <---> FALAR SOBRE TOPOLOGIAS DE INVERSORES
 DIFERENÇAS ENTRE MICRONIVERSORES E INVERSORES
