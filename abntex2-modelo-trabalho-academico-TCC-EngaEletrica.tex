@@ -71,8 +71,10 @@
 % ---
 
 \graphicspath{{images/}}
+
 \usepackage{amsmath}
 \usepackage{IEEEtrantools}
+\usepackage{subfig}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -506,8 +508,16 @@ $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de cé
 
 A partir das equações ~\ref{IPV_},~\ref{IPH_},~\ref{IR_} e ~\ref{IRR_} é possível inferir a existência das relações entre a corrente de saída do painel fotovoltaico, sua temperatura e a irradiação solar. De fato, quanto maior a temperatura da célula, menor sua tensão de circuito aberto e, portanto, mais rápida sua variação de corrente. Já em relação à irradiação solar, quanto menor a magnitude desta, menor a corrente máxima da célula, relação clara ao analisar a equação~\ref{IPH_}.
 
-Na figura~\ref{fig:IV_PVa} e~\ref{IV_PVb} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
+Na figura~\ref{fig:iv_pv} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
 
+\begin{figure}%
+	\centering
+	\subfloat[]{{\includegraphics[width=0.4 \linewidth]{iv_PV} }}%
+	\qquad
+	\subfloat[]{{\includegraphics[width=0.4 \linewidth]{iv_pv2} }}%
+	\caption{Curvas IxV de painel fotovoltaico para diferentes (a) irradiâncias e (b) temperaturas}%
+	\label{fig:iv_pv_}%
+\end{figure}
 ADICIONAR FIGURAS!!!!!!!!!!!!!!!
 
 \chapter{Metodologia}
