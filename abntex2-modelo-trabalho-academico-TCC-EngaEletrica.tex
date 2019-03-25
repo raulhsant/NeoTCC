@@ -478,15 +478,6 @@ O circuito equivalente de células fotovoltaicas pode ser representado por uma f
 $I_{ph}$ é a fotocorrente e $I_r$ a corrente reversa de saturação da célula, $R_s$ e $R_p$ são as resistências série e shunt, \emph{q} é a carga do elétrone $\eta$ é o fator de idealidade da junção p-n. \emph{k} é a constante de Boltzmann, \emph{T} representa a temperatura ambiente, em Kelvins e \emph{G} representa a densidade de potência da irradiação solar. 
 $T_r$ é a temperatura nominal, em Kelvins (298K), $I_{sc}$ é a corrente de curto circuito em condições padrão de teste(\textit{STC}) ($T_r = 25ºC$ e $G =1kW/m^2$), $ \alpha $ é o coeficiente de temperatura, $I_rr$ é a corrente de saturação reversa em \textit{STC} e $E_g$ é o \textit{gap} de energia entre as bandas (1.1eV).
 $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de células por painel e $M_s$ é o número de painéis conectados em série \cite{PV-Teory}.
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=0.7\textwidth]{pv_model}
-		\caption{Circuito Equivalente de uma Célula Fotovoltaica \cite{PV-Teory}}
-		\label{fig:model_PV}
-	\end{center}
-\end{figure}
-
 \begin{IEEEeqnarray} {c}
 	i_{pv} = I_{ph} - I_r \left[ 
 		\mathrm{e}^{q\left(\left(V+i_{pv}R_s\right)/\eta kT\right)} -1
@@ -495,7 +486,7 @@ $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de cé
 		\label{IPV_}\\
 	 I_{ph} = \left[I_{SC} + \alpha \left(T - T_r \right)\right] \frac{G}{1000}
 	 \label{IPH_}\\
-	I_r = I_{rr} \left(\frac{T}{T_r}\right)^3 \mathrm{e}^{\left[\left(qE_g/\eta k\right) \left(\left(1/T_r \right)-\left(1/T\right)\right)\right]} 
+	I_r = I_{rr} \left(\frac{T}{T_r}\right)^3 \mathrm{e}^{\left[\left(qE_g/\eta k\right) \left(\left(1/T_r \right)-\left(1/T\right)\right)\right]}
 	\label{IR_}\\
 	I_{rr} = \frac{I_{SC} - \left(V_{oc}/R_p\right)}{\mathrm{e}^{\left(qV_{oc}/\eta k T_r \right)} - 1 } 
 	\label{IRR_}\\
@@ -505,10 +496,17 @@ $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de cé
 	\label{VOCPV}
 \end{IEEEeqnarray}
 
+\begin{figure}[h]%
+	\begin{center}
+		\includegraphics[width=0.55\linewidth]{pv_model}
+		\caption{Circuito Equivalente de uma Célula Fotovoltaica \cite{PV-Teory}}
+		\label{fig:model_PV}
+	\end{center}
+\end{figure}
 
 A partir das equações ~\ref{IPV_},~\ref{IPH_},~\ref{IR_} e ~\ref{IRR_} é possível inferir a existência das relações entre a corrente de saída do painel fotovoltaico, sua temperatura e a irradiação solar. De fato, quanto maior a temperatura da célula, menor sua tensão de circuito aberto e, portanto, mais rápida sua variação de corrente. Já em relação à irradiação solar, quanto menor a magnitude desta, menor a corrente máxima da célula, relação clara ao analisar a equação~\ref{IPH_}.
 
-Na figura~\ref{fig:iv_pv} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
+Na figura~\ref{fig:iv_pv_} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
 
 \begin{figure}%
 	\centering
@@ -518,7 +516,123 @@ Na figura~\ref{fig:iv_pv} são apresentadas curvas I-V para diferentes valores d
 	\caption{Curvas IxV de painel fotovoltaico para diferentes (a) irradiâncias e (b) temperaturas}%
 	\label{fig:iv_pv_}%
 \end{figure}
-ADICIONAR FIGURAS!!!!!!!!!!!!!!!
+
+
+\section{Conversores Estáticos CC/CC}
+%  BLABLABA SOBRE CONVERSORES ESTATICOS
+
+\subsection{Conversor Ćuk Convencional}
+
+Um conversor Ćuk é um conversor CC-CC baseado na transferência de energia capacitiva que é capaz de fornecer tensão maior ou menor que sua tensão de entrada, com polaridade invertida. Seu circuito pode ser visto na figura~\ref{fig:conv_cuk_circuit}. 
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.55 \linewidth]{conv_cuk_circuit}
+		\caption{Conversor Ćuk convencional \cite{RASHID_CUK}}
+		\label{fig:conv_cuk_circuit}
+	\end{center}
+\end{figure}
+
+Quando a chave \emph{S} está fechada (\textit{ON}), os indutores \emph{L1} e \emph{L2} são carregados pela tensão de entrada e capacitor \emph{C1}, respectivamente. O capacitor \emph{C1} polariza reversamente o diodo \emph{D} e descarrega fornecendo energia para a carga \emph{R}, o capacitor de filtro \emph{C} e o indutor de filtro \emph{L2}.
+Com o transistor representado pela chave \emph{S} em estado aberto(\textit{OFF}), o indutor de entrada \emph{L1} carrega o capacitor de transferência de energia \emph{C1}. O diodo \emph{D} conduz as correntes de ambos \emph{L1} e \emph{L2} e, portanto, o indutor \emph{L2} descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
+
+A função de transferência CC desse conversor é dada pela equação~\ref{eq:trans_func_cuk_conv}, na qual \emph{d} é o ciclo de trabalho (\textit{duty cycle}), $V_s$ a tensão de entrada e $V_o$ a tensão de saída \cite{RASHID_CUK} \cite{JOSEPH_2018_Intervelead_cuk}.
+\begin{equation}
+	M_v = \frac{V_o}{V_s}= - \frac{d}{1-d}
+	\label{eq:trans_func_cuk_conv}
+\end{equation}
+O conversor Ćuk opera em modo de condução contínua para $L1$ > $L_{b1}$ e $L2$ > $L_{b2}$ pelas equações~\ref{eq:cuk_conv_CCM_limits_l1} e ~\ref{eq:cuk_conv_CCM_limits_l2}.
+
+O capacitor de filtro \emph{C} mínimo para uma certa tensão de ripple $V_r$ pode ser encontrado utilizando a equação~\ref{eq:rip_filt_conv_cuk}. Já a tensão de ripple no capacitor \emph{C1} pode ser estimada pela equação~\ref{eq:conv_cuk_rip_c1}.
+\begin{IEEEeqnarray}{c}%
+	L_{b1} = \frac{(1-d)R}{2df} \label{eq:cuk_conv_CCM_limits_l1}\\
+	 L_{b2} = \frac{(1-d)R}{2f} \label{eq:cuk_conv_CCM_limits_l2} \\
+	C_{min} = \frac{(1-d) V_o}{8 V_r L_2 f^2} \label{eq:rip_filt_conv_cuk}\\
+	V_{r_{C1}} = \frac{dV_o}{C_1 R f} \label{eq:conv_cuk_rip_c1}
+\end{IEEEeqnarray}
+
+Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ é a frequência de chaveamento do transistor \emph{S}.
+
+% Vale notar que a função de transferência da equação~\ref{eq:trans_func_cuk_conv} é igual à de um conversor \textit{Buck-Boost}.
+
+% APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO
+\subsection{Conversor Ćuk Entrelaçado}
+
+Um conversor cuk entrelaçado consiste de um capacitor, dois indutores, um transistor e um diodo para cada fase, além do capacitor de filtro que pode ser comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de 2 fases.
+
+Segundo \citeonline{JOSEPH_2015_Intervealed_CUK}, essa topologia tem o intuito de reduzir o ripple de corrente na entrada e reduzir o stress de chaveamento, sem sacrificar sua eficiência. Para tal, os transistores são ligados um por vez, por um período de ${T_{on}}/{2}$, e somente após passado um período ${T_{off}}/{2}$ do desligamento do transistor anterior. Isso é feito  utilizando-se a técnica de modulação por largura de pulso com desvio de fase, \emph{PSPWM}, do inglês \textit{Phase Shifted Pulse Width Modulation}.
+
+O funcionamento do conversor cuk entrelaçado de 2 fases pode ser descrito em 3 modos~\cite{JOSEPH_2015_Intervealed_CUK}:
+\begin{itemize}%
+	\item Modo 1 ($t_0$-$t_1$): $S_1$ ligado e $S_2$ desligado;
+	\item Modo 2 ($t_1$-$t_2$ e $t_3$-$t_4$): $S_1$ e $S_2$ desligados;
+	\item Modo 3 ($t_2$-$t_3$): $S_1$ desligado e $S_2$ ligado.
+\end{itemize}
+
+No modo 1, ocorre a carga do indutor $L_{1a}$ e a descarga do indutor $L_{1b}$, que fornece energia ao capacitor $C_2$. Enquanto isso, o capacitor $C_1$ para a carga.
+
+Assumindo uma variação linear na corrente dos indutores, a corrente de ripple para os indutores nesse modo pode ser calculada com as equações~\ref{eq:rip_interv_1} a \ref{eq:rip_interv_3}, nas quais $t_1$ é o tempo em que o transistor $S_1$ está ligado, $V_d$ a tensão de entrada e $V_{C_1}$ e $V_{C_2}$ a tensão nos capacitores $C_1$ e $C_2$, respectivamente.
+\begin{IEEEeqnarray}{c}
+	\Delta I_{L_{1a}} = \frac{t_1 V_d}{L_{1a}} \label{eq:rip_interv_1} \\
+	\Delta I_{L_{1b}} = \frac{t_1 \left(V_{C_2} - V_d \right)}{L_{1b}} \label{eq:rip_interv_2} \\
+	\Delta I_{L_2} = \frac{t_1 \left( V_{C_1} + V_o\right)}{L_2} \label{eq:rip_interv_3}
+\end{IEEEeqnarray}
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.55 \linewidth]{interv_cuk_circuit}
+		\caption{Conversor Ćuk entrelaçado de 2 fases \cite{JOSEPH_2015_Intervealed_CUK}}
+		\label{fig:interv_cuk_conv} 
+	\end{center}
+\end{figure}
+
+Quando ambos os transistores estão desligados, ou seja, no modo 2, os indutores de entrada $L_{1a}$ e $L_{1b}$ são descarregados, fornecendo energia aos capacitores $C_1$ e $C_2$, respectivamente, de forma que, entre $t_1$ e $t_2$, $C_1$ carrega a energia que foi fornecida à carga no modo anterior, enquanto que entre $t_3$ e $t_4$, $C_2$ o faz. Além disso, os indutores $L_2$ e $L_3$ fornecem energia à carga e, portanto são descarregados.
+
+Os ripples de corrente para os indutores nesse modo são encontrados utilizando as equações~\ref{eq:rip_interv_4} a \ref{eq:rip_interv_6}
+\begin{IEEEeqnarray}{c}
+	\Delta I_{L_{1a}} = \frac{t_2 \left(V_{C_1} - V_d\right)}{L_{1a}} \label{eq:rip_interv_4} \\
+	\Delta I_{L_{1b}} = \frac{t_2 \left(V_{C_2} - V_d \right)}{L_{1b}}\label{eq:rip_interv_5} \\
+	\Delta I_{L_2} = - \frac{t_2 V_o}{L_2} \label{eq:rip_interv_6}
+\end{IEEEeqnarray}
+
+No terceiro modo, com $S_2$ ligado, enquanto o indutor $L_{1b}$ continua sendo carregado, o indutor $L_{1a}$ é descarregado, fornecendo energia ao capacitor $C_1$. Por sua vez, o capacitor $C_2$ fornece energia à carga e aos componentes $L_3$, $C_o$.
+
+Através das equações~\ref{eq:rip_interv_1}, \ref{eq:rip_interv_4},\ref{eq:rip_interv_3} e \ref{eq:rip_interv_6}, tem-se a equação da tensão de saída (\ref{eq:vo_interv}), onde $d = T_{on}/T$.
+\begin{equation}
+ V_o = - \frac{d \cdot V_d}{1 - d} \label{eq:vo_interv}
+\end{equation}
+
+\section{Conversores CC/CA - Inversores tipo fonte de tensão (\textit{VSI})}
+
+A configuração básica de um inversor tipo fonte de tensão,\textit{VSI}, do inglês \textit{Voltage Source Inverter} é apresentada na figura~\ref{fig:vsi_3fas}. Para a obtenção de um inversor monofásico a única alteração necessária é remover um dos braços do circuito trifásico.
+
+Havendo tensão na entrada do inversor, quando um transistor das semipontes superior ou inferior, nunca ao mesmo tempo, estiver em condução, a tensão CC aparecerá entre um par de condutores na saída alternada\cite{Pomilio_Cap_5}.
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=0.55 \linewidth]{vsi_3fas}
+		\caption{Inversor VSI trifásico \cite{Pomilio_Cap_5}}
+		\label{fig:vsi_3fas}
+	\end{center}
+\end{figure}
+
+\subsection{Inversor em Ponte Completa}
+APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO  E PWM
+\subsection{Inversor em Meia Ponte}
+APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO, DIFERENÇAS AO PONTE COMPLETA E PWM
+
+\section{Conversor Integrado (CC/CA)}
+\subsection{Conversor Ćuk Integrado}
+APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO
+\section{Rastreamento de máxima potência (\textit{MPPT})}
+
+EXPLICA OQ É, PQ É NECESSÁRIO E SOBRE TECNICAS, PROVAVELMENTE SÓ UMA MESMO
+
+\section{Modulação PWM}
+FALAR SOBRE PWM SENOIDAL E PWM COM DESVIO DE fase
+
+\section{PLL E FILTRO???????}
+AVALIAR necessidade
 
 \chapter{Metodologia}
 
