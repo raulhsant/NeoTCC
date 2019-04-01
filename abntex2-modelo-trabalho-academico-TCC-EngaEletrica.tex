@@ -75,6 +75,7 @@
 \usepackage{amsmath}
 \usepackage{IEEEtrantools}
 \usepackage{subfig}
+\usepackage[table,xcdraw]{xcolor}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -449,18 +450,22 @@
 
 \section{Objetivo}
 
-O objetivo princiapl deste TCC é o estudo, projeto, simulação e análise de um sistema de geração de energia elétrica composto por painel fotovoltaico e conversores CC-CC e CC-CA. 
+O objetivo principal deste TCC é o estudo, projeto, simulação e análise de um sistema de geração de energia elétrica composto por painel fotovoltaico e conversores CC-CC e CC-CA. 
 
-As topologias de conversores que serão analisadas estão listadas a seguir e enquanto os conversores representam a coversão CC-CC, os inversores representam o estágio de
+As topologias de conversores que serão analisadas estão listadas a seguir e serão combinadas com inversores em ponte completa bipolar e unipolar.
+% As topologias de conversores que serão analisadas estão listadas a seguir e enquanto os conversores representam a coversão CC-CC, os inversores representam o estágio de
 
 \begin{itemize}
 	
-	\item Conversor Ćuk convecional com Inversor em Ponte Completa
-	\item Conversor Ćuk convecional com Inversor em Meia Ponte
-	\item Conversor Ćuk Entrelaçado de 2 fases com Inversor em Ponte Completa
-	\item Conversor Ćuk Entrelaçado de 2 fases com Inversor em Meia Ponte
-	\item Conversor Ćuk integrado com Inversor em Ponte Completa
-	\item Conversor Ćuk integrado com Inversor em Meia Ponte
+	\item Conversor Ćuk convecional
+	% com Inversor em Ponte Completa Bipolar
+	%\item Conversor Ćuk convecional com Inversor em Ponte Completa Unipolar
+	\item Conversor Ćuk Entrelaçado de 2 fases
+	% com Inversor em Ponte Completa
+	%\item Conversor Ćuk Entrelaçado de 2 fases com Inversor em Meia Ponte
+	\item Conversor Ćuk integrado
+	% com Inversor em Ponte Completa
+	%\item Conversor Ćuk integrado com Inversor em Meia Ponte
 	
 \end{itemize}
 
@@ -560,7 +565,7 @@ Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ 
 
 Um conversor cuk entrelaçado consiste de um capacitor, dois indutores, um transistor e um diodo para cada fase, além do capacitor de filtro que pode ser comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de 2 fases.
 
-Segundo \citeonline{JOSEPH_2015_Intervealed_CUK}, essa topologia tem o intuito de reduzir o ripple de corrente na entrada e reduzir o stress de chaveamento, sem sacrificar sua eficiência. Para tal, os transistores são ligados um por vez, por um período de ${T_{on}}/{2}$, e somente após passado um período ${T_{off}}/{2}$ do desligamento do transistor anterior. Isso é feito  utilizando-se a técnica de modulação por largura de pulso com desvio de fase, \emph{PSPWM}, do inglês \textit{Phase Shifted Pulse Width Modulation}.
+Segundo \citeonline{JOSEPH_2015_Intervealed_CUK}, essa topologia tem o intuito de reduzir o ripple de corrente na entrada e reduzir o stress de chaveamento, sem sacrificar sua eficiência. Para tal, os transistores são ligados um por vez, por um período de ${T_{on}}/{2}$, e somente após passado um período ${T_{off}}/{2}$ do desligamento do transistor anterior. Isso é feito  utilizando-se a técnica de modulação por largura de pulso com deslocamento de fase, \emph{PSPWM}, do inglês \textit{Phase-Shifted Pulse Width Modulation}.
 
 O funcionamento do conversor cuk entrelaçado de 2 fases pode ser descrito em 3 modos~\cite{JOSEPH_2015_Intervealed_CUK}:
 \begin{itemize}%
@@ -604,35 +609,123 @@ Através das equações~\ref{eq:rip_interv_1}, \ref{eq:rip_interv_4},\ref{eq:rip
 
 \section{Conversores CC/CA - Inversores tipo fonte de tensão (\textit{VSI})}
 
-A configuração básica de um inversor tipo fonte de tensão,\textit{VSI}, do inglês \textit{Voltage Source Inverter} é apresentada na figura~\ref{fig:vsi_3fas}. Para a obtenção de um inversor monofásico a única alteração necessária é remover um dos braços do circuito trifásico.
+% A configuração básica de um inversor tipo fonte de tensão,\textit{VSI}, do inglês \textit{Voltage Source Inverter} é apresentada na figura~\ref{fig:vsi_3fas}. Para a obtenção de um inversor monofásico, em ponte completa, a única alteração necessária é remover um dos braços do circuito trifásico, como pode ser visto na figura~\ref{fig:vsi_1fas}.
 
-Havendo tensão na entrada do inversor, quando um transistor das semipontes superior ou inferior, nunca ao mesmo tempo, estiver em condução, a tensão CC aparecerá entre um par de condutores na saída alternada\cite{Pomilio_Cap_5}.
+% Havendo tensão na entrada do inversor, quando um transistor das semipontes superior ou inferior, nunca ao mesmo tempo, estiver em condução, a tensão CC aparecerá entre um par de condutores na saída alternada\cite{Pomilio_Cap_5}.
 
-\begin{figure}[h]
+% \begin{figure}[h]
+% 	\begin{center}
+% 		\includegraphics[width=0.55 \linewidth]{vsi_3fas}
+% 		\caption{Inversor VSI trifásico \cite{Pomilio_Cap_5}}
+% 		\label{fig:vsi_3fas}
+% 	\end{center}
+% \end{figure}
+
+O inversor de tensão é responsável por converter uma tensão contĩnua em outra alternada, com frequência e amplitude bem definidas. A topologia de um inversor tipo fonte de tensão, \emph{VSI}, do ingês \textit{Voltage Source Inverter} monofásico em ponte completa pode ser vista na figura~\ref{fig:vsi_1fas}. 
+
+É facilmente perceptível que, caso ambos um transistores de uma das pernas do circuito estejam em condução simultaneamente haverá um curto-circuito na tensão de entrada $v_i$, que corresponde á tensão de barramento CC que alimenta o circuito. Dessa forma deve-se sempre garantir que apenas um dos transistores em cada perna conduza em um certo período de tempo.
+
+No total o circuito apresenta cinco possíeis estados de operação, sendo quatro com tensão de saída definida(estados 1 a 4) e um com tensão indefinida(estado 5). O estados e sua tensão de saída correspondente são \cite{RASHID_VSI}:
+
+\begin{table}[h]%
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	\rowcolor[HTML]{C0C0C0} 
+	\textbf{Estado} & \textbf{$S_{1_+}$} & \textbf{$S_{1_-}$} & \textbf{$S_{2_+}$} & \textbf{$S_{2_-}$} & \textbf{Tensão de Saída} \\ \hline
+	\textit{1}      & Ligado             & Desligado          & Desligado          & Ligado             & $v_i$                    \\ \hline
+	\textit{2}      & Desligado          & Ligado             & Ligado             & Desligado          & $-v_i$                   \\ \hline
+	\textit{3}      & Ligado             & Desligado          & Ligado             & Desligado          & 0                        \\ \hline
+	\textit{4}      & Desligado          & Ligado             & Desligado          & Ligado             & 0                        \\ \hline
+	\textit{5}      & Desligado          & Desligado          & Desligado          & Desligado          & $v_i$ ou $-v_i$          \\ \hline
+	\end{tabular}
+	\caption{Possíveis estados de operação de um VSI em Ponte Completa}
+	\label{table:VSI_states}
+\end{table}
+
+\begin{figure}[]
 	\begin{center}
-		\includegraphics[width=0.55 \linewidth]{vsi_3fas}
-		\caption{Inversor VSI trifásico \cite{Pomilio_Cap_5}}
-		\label{fig:vsi_3fas}
+		\includegraphics[width=0.55 \linewidth]{vsi_1fas}
+		\caption{Inversor VSI monofásico em ponte completa \cite{RASHID_VSI}}
+		\label{fig:vsi_1fas}
 	\end{center}
 \end{figure}
 
-\subsection{Inversor em Ponte Completa}
-APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO  E PWM
-\subsection{Inversor em Meia Ponte}
-APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO, DIFERENÇAS AO PONTE COMPLETA E PWM
+Como um inversor deve ser capaz de fornecer tensão com amplitude \emph{bem definida}, o estado 5 deve ser evitado. Para isso, a modulação utilizada deve garantir que a todo momento um, e apenas um, dos transistores de cada perna esteja conduzindo corrente. Várias técnicas de modulação podem ser aplicadas a inversores VSI de ponte completa, entre elas as de PWM bipolar e unipolar\cite{RASHID_VSI}.
+
+\subsection{Inversor com Modulação por Largura de Pulso Bipolar}
+
+No inversor com PWM bipolar apenas os estados 1 e 2 da tabela~\ref{table:VSI_states} são utilizados para gerar o sinal de saída, de modo que este apresenta apenas dois valores, $v_i$ e $-v_i$.
+
+Deseja-se que a tensão alternada na saída siga uma forma de onda que,para este trabalho é senoidal. A técnica de PWM baseada em sinal de portadora atende a essa questão ao definir os estados dos trasistores a partir da comparação entre um sinal que corresponde à saída desejada $v_m$, chamado de modulante, e uma forma de onda triangular $v_p$, chamada de portadora.
+
+Define-se que, enquanto o sinal modulante é maior que a portadora, o estado 1 é acionado, ou seja, os transistores $S_{1_+}$ e $S_{2_-}$ entram em conduução, enquanto so transistores $S_{1_-}$ e $S_{2_+}$ são desligados. O estado 2 é acionado quando o sinal de portadora apresenta maior tensão que o sinal modulante. 
+
+O sinal obtido na saída de um inversor que segue esta técnica é, basicamente, uma forma de onda senoidal que apresenta amplitude fundamental $\hat{v}_o$ a qual satisfaz a expressão~\ref{eq:VSI_bip_vo}, onde $m_a$ é o índice de modulação, ou razão de modulação de amplitude, representada pela equação~\ref{eq:mod_ind_bip} \cite{RASHID_VSI}.
+\begin{IEEEeqnarray}{c}
+	\hat{v}_o = v_{ab} = v_i m_a \label{eq:VSI_bip_vo} \\
+	m_a = \frac{\hat{v}_m}{\hat{v}_p} \label{eq:mod_ind_bip}
+\end{IEEEeqnarray}
+% A equação~\ref{eq:VSI_bip_vo}, porém, só é satisfeita na região linear da modulação, quando $m_a < 1$. Para situações de sobremodulação, em que a amplitude do sinal modulante é maior que o sinal da portadora, é a expressão~\ref{eq:VSI_bip_vo_over} que representa a fundamental $\hat{v}_o$.
+% \begin{equation}
+% 	v_i < \hat{v}_o = \hat{v_{ab}} < \frac{4}{\pi}v_i \label{eq:VSI_bip_vo}
+% \end{equation}
+
+\begin{center}
+	\begin{huge}
+		\textbf{ADICIONAR GRÁFICOS SOBRE O FUNCIONAMENTO OBTIDOS VIA SIMULAÇÃO!!}
+	\end{huge}
+\end{center}
+
+\subsection{Inversor com Modulação por Largura de Pulso Unipolar}
+
+Já em um inversor com PWM unipolar apenas os estados 1, 2, 3 e 4 da tabela~\ref{table:VSI_states} são utilizados para gerar o sinal de saída. Dessa forma a tensão alteranada obtida apresenta três possíveis valores: $0$, $v_i$ e $-v_i$.
+
+Neste tipo de modulação são utilizados dois sinais modulantes $v_m$ e $-v_m$. Cada modulante é responsável pela tensão em um dos braços do inversor, em relação ao ponto newtro ($N$), de modo que $v_m$ controla a tensão $v_{aN}$ e $-v_{m}$ é responsável por $v_{bN}$. A amplitude da tensão de saída para este método é expressa pela equação~\ref{eq:VSI_uni_vo}, encontrada pela combinação das equações~\ref{eq:VSI_uni_1} e \ref{eq:VSI_uni_1}.
+\begin{IEEEeqnarray}{c}
+	v_{bN} = -v_{aN} \label{eq:VSI_uni_1} \\
+	v_o = v_{aN} - v_{bN} \label{eq:VSI_uni_2}\\
+	\hat{v}_o = 2 \cdot \hat{v}_{aN} = v_i m_a \label{eq:VSI_uni_vo} \\
+\end{IEEEeqnarray}
+Segundo \citeonline{RASHID_VSI}, devido ás tensões de fase ($V_{aN}$ e $v_{bN}$) serem identicas e desafadas de 180º, a tensão de saída não apresenta harmônicos pares, presentes em inversores que utilizam o método de modulação bipolar. 
+
+Essa característica permite que inversores que utilizam a modulação unipolar utilizem filtros menores para obter tensão e corrente de alta qualidade, utilizando a mesma frequência de chaveamento que inversores com modulação bipolar\cite{RASHID_VSI}.
+
+\begin{center}
+	\begin{huge}
+		\textbf{ADICIONAR GRÁFICOS SOBRE O FUNCIONAMENTO OBTIDOS VIA SIMULAÇÃO!!}
+	\end{huge}
+\end{center}
 
 \section{Conversor Integrado (CC/CA)}
 \subsection{Conversor Ćuk Integrado}
-APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO
+
+A integração de estágios consiste na união dos estágios subidor de tensão(CC-CA) e inversor (CC-CA) em um único estágio CC-CA, com o circuito mais simples e com menor número componentes. 
+
+Segundo proposto por \citeonline{LUIGI_int_top}, a primeira simplificação do conversor cuk integrado ao inversor de tensão em ponte completa é a retirada do capacitor e do indutor de filtro na saída no estágio elevador de tensão, ou seja, no barramento CC. Dessa forma, tensão e corrente do primeiro estágio são entregues diretamente ao inversor. A segunda, e última simplificação possível nessa integração é a retirada do diodo do conversor cuk, uma vez que os diodos anti-paralelos do inversor são capazes de efetuar sua função.
+
+Na figura~\ref{fig:integ_cuk_circ} é possível ver o circuito final resultante das simplificações descritas, no qual os componentes $L_b$, $S_b$ e $C_b$ advém de um conversor cuk convencional. 
+
+Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saída $C_o$ da figura~\ref{fig:integ_cuk_circ} pode ser simplesmente subsituído pela rede\cite{LUIGI_int_top}. 
+
+\begin{figure}[]
+	\begin{center}
+		\includegraphics[width=0.55 \linewidth]{integ_cuk_circ}
+		\caption{Conversor Ćuk Integrado \cite{LUIGI_int_top}}
+		\label{fig:integ_cuk_circ}
+	\end{center}
+\end{figure}
+
 \section{Rastreamento de máxima potência (\textit{MPPT})}
 
 EXPLICA OQ É, PQ É NECESSÁRIO E SOBRE TECNICAS, PROVAVELMENTE SÓ UMA MESMO
 
-\section{Modulação PWM}
-FALAR SOBRE PWM SENOIDAL E PWM COM DESVIO DE fase
+% \section{Modulação PWM}
+% AVALIAR necessidade
+% FALAR SOBRE PWM SENOIDAL E PWM COM 	DESLOCAMENTO DE fase
 
-\section{PLL E FILTRO???????}
-AVALIAR necessidade
+% \section{PLL E FILTRO???????}
+% AVALIAR necessidade
 
 \chapter{Metodologia}
 
