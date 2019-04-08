@@ -45,7 +45,7 @@
 	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
 	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
+	% -- opções do pacote babel --\usepackage[bottom]{footmisc}
 	english,			% idioma adicional para hifenização
 	french,				% idioma adicional para hifenização
 	spanish,			% idioma adicional para hifenização
@@ -76,6 +76,7 @@
 \usepackage{IEEEtrantools}
 \usepackage{subfig}
 \usepackage[table,xcdraw]{xcolor}
+\usepackage[bottom]{footmisc}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -108,6 +109,14 @@
 	\else
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
+
+
+
+	\usepackage{xpatch}
+	\xpatchbibdriver{online}
+  {\printtext[parens]{\usebibmacro{date}}}
+  {\iffieldundef{year}{}{\printtext[parens]{\usebibmacro{date}}}}
+  {}{}
 % ---
 
 
@@ -716,9 +725,56 @@ Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saíd
 	\end{center}
 \end{figure}
 
-\section{Rastreamento de máxima potência (\textit{MPPT})}
+\section{Rastreador de ponto de máxima potência (\textit{MPPT})}
 
-EXPLICA OQ É, PQ É NECESSÁRIO E SOBRE TECNICAS, PROVAVELMENTE SÓ UMA MESMO
+O ponto de máxima potência de sistema de geração solar dependem da irradiação solar e da temperatura das células geradoras e, portanto, o rastreamento deste ponto de operação deve ser feito de forma constante. Para esse controle é geralmente utilizado um rastreador de ponto de máxima potência, \emph{MPPT}, do inglês \textit{Maximum Power Point Tracker} \cite{Talha_MPPT}. 
+
+Este dispositivo monitora tensão e corrente fornecidas pelo painel fotovoltaico para determinar o ponto de operação no qual este fornecerá a máxima potência disponível, de modo a aumentar, desta forma, a eficiência do painel. Existem vários algoritmos de controle do ponto de máxima potência, e a seguir serão tratados dois, o método P\&O (perturba e observa) e o método da condutância incremental (IC). Estes métodos são amplamente utilizados devido, principalmente, a facilidade de implementação \cite{MPPT_P&O_IC}\cite{Talha_MPPT}.
+
+
+\subsection{Método Perturba e Observa (P\&O)}
+
+Neste método, é inserida na tensão de operação do painel fotovoltaico uma pequena perturbação, que pode ser positiva ou negativa, de aocrdo com a necessidade. Caso após a perturbação a potência fornecida aumenta, então é aplicada outra perturbação no mesmo sentido da anterior. Quando a potência reduz após a alteração da tensão a perturbação é invertida. Esse processo é repetido periodicamente até encontrar o ponto de operação desejado\cite{Talha_MPPT}.
+
+A constante perturbação da tensão faz com que a potência fornecida pelo painel varie. Desta forma o ponto de máxima potência nunca é completamente atingido, já que o sistema fica oscilando em torno deste. Para reduzir a influência dessa oscilação, a amplitude da perturbação é mantida sempre baixa \cite{MPPT_P&O_IC}.
+
+Como já dito, uma das vantagens deste método de MPPT está na simplicidade de sua implementação mas, além disso, apresenta alta eficiência para irradiância solar alta e constante. Já entre as desvantagens estão a possibilidade de falha para variações abruptas de irradiância e o fato de o ponto de máxima potência não ser devidamente atingido, principalmente\cite{MPPT_P&O_IC}.
+
+Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na figura~\ref{fig:PeO_Flux}.
+
+\begin{figure}[]
+	\begin{center}
+		\includegraphics[width=0.55 \linewidth]{peo_flow}
+		\caption{Fluxograma do Método P\&O \cite{Talha_MPPT}}
+		\label{fig:PeO_Flux}
+	\end{center}
+\end{figure}
+
+\subsection{Método de Condutância Incremental (IC)}
+
+Este método se baseia no princípio de que a inclinação da potência, em relação à tensão é zero no ponto de máxima potência, positiva à esquerda e negativa à direita deste. Além disso, a perturbação no ciclo de trabalho pode ser parada quando o ponto de máxima potência é encontrado. Enquanto esta condição não é satisfeita a direção da peturbação é definida pela relação entre $\frac{\Delta I}{\Delta V}$ e $\frac{I}{V}$ \cite{Talha_MPPT}\cite{MPPT_P&O_IC}.
+
+Dessa forma, quando a equação~\ref{eq:incCond_mai0} é satisfeita, a perturbação seguinte é positiva e, para a equação~\ref{eq:incCond_men0}, negativa.
+\begin{align}
+	\frac{\Delta I}{\Delta V} + \frac{I}{V} &= 0 \qquad \text{No ponto de máxima potência} \label{eq:incCond_at_mpp}\\
+	\frac{\Delta I}{\Delta V} + \frac{I}{V} &> 0 \qquad \text{Esquerda do ponto de máxima potência} \label{eq:incCond_mai0}\\
+	\frac{\Delta I}{\Delta V} + \frac{I}{V} &< 0 \qquad \text{Direita do ponto de máxima potência} \label{eq:incCond_men0}
+\end{align}
+
+Devido a ruído e erros de medição, a situação da equação~\ref{eq:incCond_at_mpp} é raramente satisfeita e, portanto, utiliza-se de uma tolerância $\epsilon$ tal qual, se o módulo da soma descrita na equação~\ref{eq:incCond_at_mpp} for menor que o valor de $\epsilon$, é definido que o ponto de máxima potência foi encontrado e as perturbações são interrompidas\cite{Talha_MPPT}.
+
+A principal vantagem desse método em relação ao P\&O está na maior tolerância a variações rápidas irradiação solar, além do fato de ser capaz de interromper as perturbações após o ponto de operação ter sido definido. Entretanto, o custo e a complexidade do sistema são suas principais desvantagens\cite{MPPT_P&O_IC}.
+
+Um fluxograma que representa o funcionamento do algoritmo de condutância incremental pode ser visto na figura~\ref{fig:IncCond_Flux}.
+
+\begin{figure}[]
+	\begin{center}
+		\includegraphics[width=0.55 \linewidth]{incCond_flow}
+		\caption{Fluxograma do método de indutância incremental \cite{Talha_MPPT}}
+		\label{fig:IncCond_Flux}
+	\end{center}
+\end{figure}
+
 
 % \section{Modulação PWM}
 % AVALIAR necessidade
@@ -728,6 +784,71 @@ EXPLICA OQ É, PQ É NECESSÁRIO E SOBRE TECNICAS, PROVAVELMENTE SÓ UMA MESMO
 % AVALIAR necessidade
 
 \chapter{Metodologia}
+
+\section{Painel Fotovoltaico}
+
+Para o painel fotovoltaico foi selecionado um modelo comercial com potência máxima na média do mercado, de 300W, para servir de referência. Será utilizado o modelo DYMOND CS6K-300, da fabricante \href{https://www.canadiansolar.com/en}{Canadian Solar}, constituído de 60 células solares de silício monocristalino. Suas características elétricas, sob condições padronizadas de teste~\footnote{Irradiância de $1000W/m^2$, temperatura do módulo de $25^oC$ e massa de ar de $1,5$}, \emph{STC}, do inglês \textit{Standard Test Coditions} e de temperatura estão dispostas nas figuras~\ref{fig:pv_elet} e \ref{fig:pv_temp}, respectivamente.
+
+O comportamento da curva IxV do modelo para diferentes temperaturas e irradiância está presente na figura~\ref{fig:IV_pv_cs}. 
+\begin{figure}[]%
+	\begin{center}%
+		\includegraphics[width=0.55 \linewidth]{elet_canadian_300}
+		\caption{Características elétricas em STC do painel modelo \cite{Canadian_Datasheet}}
+		\label{fig:pv_elet}
+	\end{center}
+\end{figure}
+
+\begin{figure}[]%
+	\begin{center}%
+		\includegraphics[width=0.55 \linewidth]{temp_canad_300}
+		\caption{Características de temperatura do painel modelo \cite{Canadian_Datasheet}}
+		\label{fig:pv_temp}
+	\end{center}
+\end{figure}
+
+\begin{figure}[]%
+	\begin{center}%
+		\includegraphics[width=0.55 \linewidth]{AV_canad_300}
+		\caption{Curvas IxV do painel modelo \cite{Canadian_Datasheet}}
+		\label{fig:IV_pv_cs}
+	\end{center}
+\end{figure}
+
+Para modelar o comportamento do painel no PSIM, foi seguido o procedimento indicado no tutorial \cite{PSIM_PV}. Utiliza-se, portanto, informações das presentes nas figuras~\ref{fig:pv_elet} e \ref{fig:pv_temp}, já da figura~\ref{fig:IV_pv_cs} é extraída a inclinação $\frac{dV}{dI}$ na tensão de circuito aberto $V_{OC}$, que é de $-0,4 V/A$.
+
+Nas figuras~\ref{fig:pv_psim_param} e \ref{fig:pv_psim_carac} são mostrados os parâmetros e as características, respectivamente, do módulo fotovoltaico utilizado no PSIM.
+
+\begin{figure}[]%
+	\begin{center}%
+		\includegraphics[width=0.55 \linewidth]{PV_param}
+		\caption{Parâmetros do módulo fotovoltaico no PSIM}
+		\label{fig:pv_psim_param}
+	\end{center}
+\end{figure}
+
+\begin{figure}[]%
+	\begin{center}%
+		\includegraphics[width=0.55 \linewidth]{PV_carac}
+		\caption{Caractetísticas do módulo fotovoltaico no PSIM}
+		\label{fig:pv_psim_carac}
+	\end{center}
+\end{figure}
+
+O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fig:pv_psim_circuit}, na qual \textit{Irrad} é a irradiância, \textit{Temp} a temperatura e \emph{$V_{out}$} a tensão de saída.
+
+\begin{figure}[]%
+	\begin{center}%
+		\includegraphics[width=0.55 \linewidth]{pv_psim_circuit}
+		\caption{Circuito do módulo fotovoltaico no PSIM}
+		\label{fig:pv_psim_circuit}
+	\end{center}
+\end{figure}
+
+\section{Conversores Estáticos CC/CC}
+
+\subsection{Conversor Ćuk Convencional}
+
+
 
 \chapter{Resultados}
 
