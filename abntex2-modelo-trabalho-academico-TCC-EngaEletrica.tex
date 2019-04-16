@@ -694,7 +694,7 @@ Neste tipo de modulação são utilizados dois sinais modulantes $v_m$ e $-v_m$.
 \begin{IEEEeqnarray}{c}
 	v_{bN} = -v_{aN} \label{eq:VSI_uni_1} \\
 	v_o = v_{aN} - v_{bN} \label{eq:VSI_uni_2}\\
-	\hat{v}_o = 2 \cdot \hat{v}_{aN} = v_i m_a \label{eq:VSI_uni_vo} \\
+	\hat{v}_o = 2 \cdot \hat{v}_{aN} = v_i m_a \label{eq:VSI_uni_vo}
 \end{IEEEeqnarray}
 Segundo \citeonline{RASHID_VSI}, devido ás tensões de fase ($V_{aN}$ e $v_{bN}$) serem identicas e desafadas de 180º, a tensão de saída não apresenta harmônicos pares, presentes em inversores que utilizam o método de modulação bipolar. 
 
@@ -844,13 +844,138 @@ O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fi
 	\end{center}
 \end{figure}
 
+
 \section{Conversores Estáticos CC/CC}
 
 \subsection{Conversor Ćuk Convencional}
 
+As seções~\ref{ssec:d_cuk_conv} a \ref{ssec:cap_cuk_conv} a seguir representam os passos no projeto de um conversor cuk convencional. Primeiramente é definido o comportamento desejado do circuito, que para este projeto são:
 
+\begin{itemize}%
+	\item Frequência de chaveamento de $15kHz$;
+	\item Potência de $300W$;
+	\item Tensão de entrada de $32,5V$, equivalente à tensão máxima do painel fotovoltaico;
+	\item Tensão de saída de $180V$, equivalente à tensão de pico da rede elétrica monofásica;
+	\item Tensão de ripple de $0,5V$ na saída;
+	\item Corrente de ripple de $0,1A$ no indutor \emph{L2};
+	\item Tensão de ripple de $1V$ no capacitor de transferência \emph{C1};
+	\item Corrente de ripple de $1A$ no indutor \emph{L1}.
+\end{itemize}
+
+Além disso, dados a potência e tensão de saída pode-se encontrar a carga equivalente R:
+\begin{equation}%
+	R = \frac{P}{V^2} = 108 \Omega
+\end{equation}
+
+\subsubsection{Ciclo de Trabalho}\label{ssec:d_cuk_conv}
+
+O ciclo de trabalho do conversor cuk é encontrado a partir de seus valores de tensão de entrada e saída desejados. Utilizando a função de transferência deste circuito, definida na equação~\ref{eq:trans_func_cuk_conv} e com as tensões de entrada e saída, encontra-se o \textit{duty cycle} encontrado na equação~\ref{eq:d_cuk_conv_}.
+
+\begin{equation}%
+	d = \frac{V_{o}}{V_{o}+V_{s}} = 0,847 \label{eq:d_cuk_conv_}
+\end{equation}
+
+\subsubsection{Indutores}
+
+Para definir os indutores inicialmente é necessário encontrar o valor mínimo desses componentes para que o circuito opere em modo de condução contínua, através das equações~\ref{eq:cuk_conv_CCM_limits_l1} e \ref{eq:cuk_conv_CCM_limits_l2}. Sendo assim tem-se:
+
+\begin{IEEEeqnarray}{c}
+	L_{b1} = \frac{(1-d)R}{2 d f} = 648 \mu H \\
+	L_{b2} = \frac{\left(1-d\right)R}{2 f}   = 549 \mu H 
+\end{IEEEeqnarray}
+
+Calcula-se, também, os valores necessários para obter o comportamento desejado do circuito e utiliza-se o menor valor que satisfaça as duas condições. Os cálculos para os parâmetros do circuito estão representados pelas equações~\ref{eq:cuk_conv_L1} e \ref{eq:cuk_conv_L2}.
+
+\begin{IEEEeqnarray}{c}
+	L1 = \frac{V_{s} \cdot d}{f \cdot 1,00A} = 1,99 mH \label{eq:cuk_conv_L1}\\
+	L2 = \frac{V_{s} \cdot d}{f \cdot 0,10A} = 18,3 mH \label{eq:cuk_conv_L2}
+\end{IEEEeqnarray}
+
+\subsubsection{Capacitores}\label{ssec:cap_cuk_conv}
+
+Os capacitores \emph{C2} e \emph{C1} são calculados a partir das equações~\ref{eq:rip_filt_conv_cuk} e \ref{eq:conv_cuk_rip_c1}, respectivamente. Substituindo os valores já encontrados nessas equações têm-se:
+
+\begin{IEEEeqnarray}{c}
+	C2 = \frac{0,153 \cdot 180V}{8 \cdot 0,5V \cdot 18,3mH  \cdot (15kHz)^2} = 1,67uF \\
+	C1 = \frac{0,153 \cdot 180V}{108\Omega \cdot 15kHz \cdot 1V} = 94,3 uF \label{eq:cuk_conv_C1_final}
+\end{IEEEeqnarray}
+
+\subsubsection{Circuito resultante}
+
+Com os valores de componentes calculados nas equações~\ref{eq:d_cuk_conv_} a \ref{eq:cuk_conv_C1_final}, ajustados para valores comerciais, foi montado o circuito de um conversor cuk convencional que pode ser visto na figura~\ref{fig:cuk_conv_psim_circ}.
+
+\begin{figure}[h]%
+	\begin{center}%
+		\includegraphics[width=0.7 \linewidth]{conv_cuk_psim_circ}
+		\caption{Circuito do conversor cuk convencional}
+		\label{fig:cuk_conv_psim_circ}
+	\end{center}
+\end{figure}
 
 \chapter{Resultados}
+
+\section{Conversores Estáticos CC/CC}
+
+\subsection{Conversor Ćuk Convencional}
+
+BLABLABLA
+
+\begin{table}[!ht]
+	\centering
+		\resizebox{0.4\textwidth}{!}{%
+				\begin{tabular}{|
+				>{\columncolor[HTML]{C0C0C0}}l |c|}
+				\hline
+				\textbf{Corrente média em \emph{L1}}            & 9,22A    \\ \hline
+				\textbf{Corrente de ripple em \emph{L1}}        & 0,92A    \\ \hline
+				\textbf{Corrente de ripple em \emph{L2}}        & 0,10A    \\ \hline
+				\textbf{Tensão de ripple em \emph{C1}}          & 0,94V    \\ \hline
+				\textbf{Tensão média na saída do conversor}     & -179,91V \\ \hline
+				\textbf{Tensão de ripple na saída do conversor} & 0,53V    \\ \hline
+				\textbf{Potência de saída média}                & 299,71W  \\ \hline
+				\textbf{Oscilação da potência de saída}         & 1,77W    \\ \hline
+				\end{tabular}%
+		}
+		\caption{Valores medidos para o conversor cuk convencional}
+		\label{tab:conv_cuk_results}
+	\end{table}
+
+\begin{figure}[]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_I_L1}
+		\caption{Corrente de ripple no indutor \emph{L1}}
+		\label{fig:cuk_conv_ripp_I_L1}
+\end{figure}
+
+\begin{figure}[]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_I_L2}
+		\caption{Corrente de ripple no indutor \emph{L2}}
+		\label{fig:cuk_conv_ripp_I_L2}
+\end{figure}
+
+\begin{figure}[]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_C1}
+		\caption{Tensão de ripple no capacitor \emph{C1}}
+		\label{fig:cuk_conv_ripp_V_C1}
+\end{figure}
+
+\begin{figure}[]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_out}
+		\caption{Tensão de ripple no saída do conversor}
+		\label{fig:cuk_conv_ripp_I_out}
+\end{figure}
+
+\begin{figure}[]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_power_sign}
+		\caption{Potência na entrada e saída do conversor}
+		\label{fig:cuk_conv_power_sign}
+\end{figure}
+
+
 
 \chapter{Conclusão}
 
