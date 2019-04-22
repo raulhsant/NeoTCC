@@ -488,9 +488,9 @@ No capítulo 3 é descrita a metodologia utilizada, sendo o capítulo 5 dedicado
 
 \section{Modelo do PV}
 
-O circuito equivalente de células fotovoltaicas pode ser representado por uma fonte de corrente, como pode ser visto na figura ~\ref{fig:model_PV}. Este modelo é amplamente aceito e utilizado em trabalhos relacionados a energia fotovoltaica e seu comportamento do é descrito pelas equações~\ref{IPV_} a \ref{VOCPV}, nas quais $i_{pv}$ é a corrente e \emph{V} a tensão de saída da celula solar, respectivamente. 
-$I_{ph}$ é a fotocorrente e $I_r$ a corrente reversa de saturação da célula, $R_s$ e $R_p$ são as resistências série e shunt, \emph{q} é a carga do elétrone $\eta$ é o fator de idealidade da junção p-n. \emph{k} é a constante de Boltzmann, \emph{T} representa a temperatura ambiente, em Kelvins e \emph{G} representa a densidade de potência da irradiação solar. 
-$T_r$ é a temperatura nominal, em Kelvins (298K), $I_{sc}$ é a corrente de curto circuito em condições padrão de teste(\textit{STC}) ($T_r = 25ºC$ e $G =1kW/m^2$), $ \alpha $ é o coeficiente de temperatura, $I_rr$ é a corrente de saturação reversa em \textit{STC} e $E_g$ é o \textit{gap} de energia entre as bandas (1.1eV).
+O circuito equivalente de células fotovoltaicas pode ser representado por uma fonte de corrente, como pode ser visto na figura ~\ref{fig:model_PV}. Este modelo é amplamente aceito e utilizado em trabalhos relacionados a energia fotovoltaica e seu comportamento do é descrito pelas equações~\ref{IPV_} a \ref{VOCPV}, nas quais $i_{pv}$ é a corrente e $V$ a tensão de saída da celula solar, respectivamente. 
+$I_{ph}$ é a fotocorrente e $I_r$ a corrente reversa de saturação da célula, $R_s$ e $R_p$ são as resistências série e shunt, $q$ é a carga do elétrone $\eta$ é o fator de idealidade da junção p-n. $k$ é a constante de Boltzmann, $T$ representa a temperatura ambiente, em Kelvins e $G$ representa a densidade de potência da irradiação solar. 
+$T_r$ é a temperatura nominal, em Kelvins (298K), $I_{sc}$ é a corrente de curto circuito em condições padrão de teste(\textit{STC}) ($T_r = 25^oC$ e $G =1kW/m^2$), $ \alpha $ é o coeficiente de temperatura, $I_rr$ é a corrente de saturação reversa em \textit{STC} e $E_g$ é o \textit{gap} de energia entre as bandas (1.1eV).
 $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de células por painel e $M_s$ é o número de painéis conectados em série \cite{PV-Teory}.
 \begin{IEEEeqnarray} {c}
 	i_{pv} = I_{ph} - I_r \left[ 
@@ -510,9 +510,9 @@ $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de cé
 	\label{VOCPV}
 \end{IEEEeqnarray}
 
-\begin{figure}[h]%
+\begin{figure}[htbp]%
 	\begin{center}
-		\includegraphics[width=0.55\linewidth]{pv_model}
+		\includegraphics[width=0.6\linewidth]{pv_model}
 		\caption{Circuito Equivalente de uma Célula Fotovoltaica \cite{PV-Teory}}
 		\label{fig:model_PV}
 	\end{center}
@@ -522,7 +522,7 @@ A partir das equações ~\ref{IPV_},~\ref{IPH_},~\ref{IR_} e ~\ref{IRR_} é poss
 
 Na figura~\ref{fig:iv_pv_} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
 
-\begin{figure}%
+\begin{figure}[htbp]%
 	\centering
 	\subfloat[]{{\includegraphics[width=0.45 \linewidth]{iv_PV} }}%
 	\qquad
@@ -539,25 +539,24 @@ Na figura~\ref{fig:iv_pv_} são apresentadas curvas I-V para diferentes valores 
 
 Um conversor Ćuk é um conversor CC-CC baseado na transferência de energia capacitiva que é capaz de fornecer tensão maior ou menor que sua tensão de entrada, com polaridade invertida. Seu circuito pode ser visto na figura~\ref{fig:conv_cuk_circuit}. 
 
-\begin{figure}[h]
-	\begin{center}
+\begin{figure}[htbp]
+	\centering
 		\includegraphics[width=0.55 \linewidth]{conv_cuk_circuit}
 		\caption{Conversor Ćuk convencional \cite{RASHID_CUK}}
 		\label{fig:conv_cuk_circuit}
-	\end{center}
 \end{figure}
 
-Quando a chave \emph{S} está fechada (\textit{ON}), os indutores \emph{L1} e \emph{L2} são carregados pela tensão de entrada e capacitor \emph{C1}, respectivamente. O capacitor \emph{C1} polariza reversamente o diodo \emph{D} e descarrega fornecendo energia para a carga \emph{R}, o capacitor de filtro \emph{C} e o indutor de filtro \emph{L2}.
-Com o transistor representado pela chave \emph{S} em estado aberto(\textit{OFF}), o indutor de entrada \emph{L1} carrega o capacitor de transferência de energia \emph{C1}. O diodo \emph{D} conduz as correntes de ambos \emph{L1} e \emph{L2} e, portanto, o indutor \emph{L2} descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
+Quando a chave $S$ está fechada (\textit{ON}), os indutores $L1$ e $L2$ são carregados pela tensão de entrada e capacitor $C1$, respectivamente. O capacitor $C1$ polariza reversamente o diodo $D$ e descarrega fornecendo energia para a carga $R$, o capacitor de filtro $C$ e o indutor de filtro $L2$.
+Com o transistor representado pela chave $S$ em estado aberto(\textit{OFF}), o indutor de entrada $L1$ carrega o capacitor de transferência de energia $C1$. O diodo $D$ conduz as correntes de ambos $L1$ e $L2$ e, portanto, o indutor $L2$ descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
 
-A função de transferência CC desse conversor é dada pela equação~\ref{eq:trans_func_cuk_conv}, na qual \emph{d} é o ciclo de trabalho (\textit{duty cycle}), $V_s$ a tensão de entrada e $V_o$ a tensão de saída \cite{RASHID_CUK} \cite{JOSEPH_2018_Intervelead_cuk}.
+A função de transferência CC desse conversor é dada pela equação~\ref{eq:trans_func_cuk_conv}, na qual $d$ é o ciclo de trabalho (\textit{duty cycle}), $V_s$ a tensão de entrada e $V_o$ a tensão de saída \cite{RASHID_CUK} \cite{JOSEPH_2018_Intervelead_cuk}.
 \begin{equation}
 	M_v = \frac{V_o}{V_s}= - \frac{d}{1-d}
 	\label{eq:trans_func_cuk_conv}
 \end{equation}
 O conversor Ćuk opera em modo de condução contínua para $L1$ > $L_{b1}$ e $L2$ > $L_{b2}$ pelas equações~\ref{eq:cuk_conv_CCM_limits_l1} e ~\ref{eq:cuk_conv_CCM_limits_l2}.
 
-O capacitor de filtro \emph{C} mínimo para uma certa tensão de ripple $V_r$ pode ser encontrado utilizando a equação~\ref{eq:rip_filt_conv_cuk}. Já a tensão de ripple no capacitor \emph{C1} pode ser estimada pela equação~\ref{eq:conv_cuk_rip_c1}.
+O capacitor de filtro $C$ mínimo para uma certa tensão de ripple $V_r$ pode ser encontrado utilizando a equação~\ref{eq:rip_filt_conv_cuk}. Já a tensão de ripple no capacitor $C1$ pode ser estimada pela equação~\ref{eq:conv_cuk_rip_c1}.
 \begin{IEEEeqnarray}{c}%
 	L_{b1} = \frac{(1-d)R}{2df} \label{eq:cuk_conv_CCM_limits_l1}\\
 	 L_{b2} = \frac{(1-d)R}{2f} \label{eq:cuk_conv_CCM_limits_l2} \\
@@ -565,7 +564,7 @@ O capacitor de filtro \emph{C} mínimo para uma certa tensão de ripple $V_r$ po
 	V_{r_{C1}} = \frac{dV_o}{C_1 R f} \label{eq:conv_cuk_rip_c1}
 \end{IEEEeqnarray}
 
-Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ é a frequência de chaveamento do transistor \emph{S}.
+Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ é a frequência de chaveamento do transistor $S$.
 
 % Vale notar que a função de transferência da equação~\ref{eq:trans_func_cuk_conv} é igual à de um conversor \textit{Buck-Boost}.
 
@@ -592,7 +591,7 @@ Assumindo uma variação linear na corrente dos indutores, a corrente de ripple 
 	\Delta I_{L_2} = \frac{t_1 \left( V_{C_1} + V_o\right)}{L_2} \label{eq:rip_interv_3}
 \end{IEEEeqnarray}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{interv_cuk_circuit}
 		\caption{Conversor Ćuk entrelaçado de 2 fases \cite{JOSEPH_2015_Intervealed_CUK}}
@@ -652,7 +651,7 @@ No total o circuito apresenta cinco possíeis estados de operação, sendo quatr
 	\label{table:VSI_states}
 \end{table}
 
-\begin{figure}[]
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{vsi_1fas}
 		\caption{Inversor VSI monofásico em ponte completa \cite{RASHID_VSI}}
@@ -691,7 +690,7 @@ O sinal obtido na saída de um inversor que segue esta técnica é, basicamente,
 Já em um inversor com PWM unipolar apenas os estados 1, 2, 3 e 4 da tabela~\ref{table:VSI_states} são utilizados para gerar o sinal de saída. Dessa forma a tensão alteranada obtida apresenta três possíveis valores: $0$, $v_i$ e $-v_i$.
 
 Neste tipo de modulação são utilizados dois sinais modulantes $v_m$ e $-v_m$. Cada modulante é responsável pela tensão em um dos braços do inversor, em relação ao ponto newtro ($N$), de modo que $v_m$ controla a tensão $v_{aN}$ e $-v_{m}$ é responsável por $v_{bN}$. A amplitude da tensão de saída para este método é expressa pela equação~\ref{eq:VSI_uni_vo}, encontrada pela combinação das equações~\ref{eq:VSI_uni_1} e \ref{eq:VSI_uni_1}.
-\begin{IEEEeqnarray}{c}
+\begin{IEEEeqnarray}{c}%
 	v_{bN} = -v_{aN} \label{eq:VSI_uni_1} \\
 	v_o = v_{aN} - v_{bN} \label{eq:VSI_uni_2}\\
 	\hat{v}_o = 2 \cdot \hat{v}_{aN} = v_i m_a \label{eq:VSI_uni_vo}
@@ -717,7 +716,7 @@ Na figura~\ref{fig:integ_cuk_circ} é possível ver o circuito final resultante 
 
 Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saída $C_o$ da figura~\ref{fig:integ_cuk_circ} pode ser simplesmente subsituído pela rede\cite{LUIGI_int_top}. 
 
-\begin{figure}[]
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{integ_cuk_circ}
 		\caption{Conversor Ćuk Integrado \cite{LUIGI_int_top}}
@@ -742,7 +741,7 @@ Como já dito, uma das vantagens deste método de MPPT está na simplicidade de 
 
 Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na figura~\ref{fig:PeO_Flux}.
 
-\begin{figure}[]
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{peo_flow}
 		\caption{Fluxograma do Método P\&O \cite{Talha_MPPT}}
@@ -755,7 +754,7 @@ Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na
 Este método se baseia no princípio de que a inclinação da potência, em relação à tensão é zero no ponto de máxima potência, positiva à esquerda e negativa à direita deste. Além disso, a perturbação no ciclo de trabalho pode ser parada quando o ponto de máxima potência é encontrado. Enquanto esta condição não é satisfeita a direção da peturbação é definida pela relação entre $\frac{\Delta I}{\Delta V}$ e $\frac{I}{V}$ \cite{Talha_MPPT}\cite{MPPT_P&O_IC}.
 
 Dessa forma, quando a equação~\ref{eq:incCond_mai0} é satisfeita, a perturbação seguinte é positiva e, para a equação~\ref{eq:incCond_men0}, negativa.
-\begin{align}
+\begin{align}%
 	\frac{\Delta I}{\Delta V} + \frac{I}{V} &= 0 \qquad \text{No ponto de máxima potência} \label{eq:incCond_at_mpp}\\
 	\frac{\Delta I}{\Delta V} + \frac{I}{V} &> 0 \qquad \text{Esquerda do ponto de máxima potência} \label{eq:incCond_mai0}\\
 	\frac{\Delta I}{\Delta V} + \frac{I}{V} &< 0 \qquad \text{Direita do ponto de máxima potência} \label{eq:incCond_men0}
@@ -767,7 +766,7 @@ A principal vantagem desse método em relação ao P\&O está na maior tolerânc
 
 Um fluxograma que representa o funcionamento do algoritmo de condutância incremental pode ser visto na figura~\ref{fig:IncCond_Flux}.
 
-\begin{figure}[]
+\begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{incCond_flow}
 		\caption{Fluxograma do método de indutância incremental \cite{Talha_MPPT}}
@@ -790,7 +789,7 @@ Um fluxograma que representa o funcionamento do algoritmo de condutância increm
 Para o painel fotovoltaico foi selecionado um modelo comercial com potência máxima na média do mercado, de 300W, para servir de referência. Será utilizado o modelo DYMOND CS6K-300, da fabricante \href{https://www.canadiansolar.com/en}{Canadian Solar}, constituído de 60 células solares de silício monocristalino. Suas características elétricas, sob condições padronizadas de teste~\footnote{Irradiância de $1000W/m^2$, temperatura do módulo de $25^oC$ e massa de ar de $1,5$}, \emph{STC}, do inglês \textit{Standard Test Coditions} e de temperatura estão dispostas nas figuras~\ref{fig:pv_elet} e \ref{fig:pv_temp}, respectivamente.
 
 O comportamento da curva IxV do modelo para diferentes temperaturas e irradiância está presente na figura~\ref{fig:IV_pv_cs}. 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.55 \linewidth]{elet_canadian_300}
 		\caption{Características elétricas em STC do painel modelo \cite{Canadian_Datasheet}}
@@ -798,7 +797,7 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 	\end{center}
 \end{figure}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.55 \linewidth]{temp_canad_300}
 		\caption{Características de temperatura do painel modelo \cite{Canadian_Datasheet}}
@@ -806,7 +805,7 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 	\end{center}
 \end{figure}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.55 \linewidth]{AV_canad_300}
 		\caption{Curvas IxV do painel modelo \cite{Canadian_Datasheet}}
@@ -818,7 +817,7 @@ Para modelar o comportamento do painel no PSIM, foi seguido o procedimento indic
 
 Nas figuras~\ref{fig:pv_psim_param} e \ref{fig:pv_psim_carac} são mostrados os parâmetros e as características, respectivamente, do módulo fotovoltaico utilizado no PSIM.
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.55 \linewidth]{PV_param}
 		\caption{Parâmetros do módulo fotovoltaico no PSIM}
@@ -826,7 +825,7 @@ Nas figuras~\ref{fig:pv_psim_param} e \ref{fig:pv_psim_carac} são mostrados os 
 	\end{center}
 \end{figure}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.55 \linewidth]{PV_carac}
 		\caption{Caractetísticas do módulo fotovoltaico no PSIM}
@@ -834,9 +833,9 @@ Nas figuras~\ref{fig:pv_psim_param} e \ref{fig:pv_psim_carac} são mostrados os 
 	\end{center}
 \end{figure}
 
-O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fig:pv_psim_circuit}, na qual \textit{Irrad} é a irradiância, \textit{Temp} a temperatura e \emph{$V_{out}$} a tensão de saída.
+O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fig:pv_psim_circuit}, na qual \textit{Irrad} é a irradiância, \textit{Temp} a temperatura e $V_{out}$ a tensão de saída.
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.55 \linewidth]{pv_psim_circuit}
 		\caption{Circuito do módulo fotovoltaico no PSIM}
@@ -849,7 +848,7 @@ O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fi
 
 \subsection{Conversor Ćuk Convencional}
 
-As seções~\ref{ssec:d_cuk_conv} a \ref{ssec:cap_cuk_conv} a seguir representam os passos no projeto de um conversor cuk convencional. Primeiramente é definido o comportamento desejado do circuito, que para este projeto são:
+As seções~\ref{ssec:d_cuk_conv} a \ref{ssec:cap_cuk_conv} a seguir representam os passos no projeto de um conversor cuk convencional. Primeiramente é definido o comportamento desejado do circuito que, para este projeto é:
 
 \begin{itemize}%
 	\item Frequência de chaveamento de $15kHz$;
@@ -857,14 +856,15 @@ As seções~\ref{ssec:d_cuk_conv} a \ref{ssec:cap_cuk_conv} a seguir representam
 	\item Tensão de entrada de $32,5V$, equivalente à tensão máxima do painel fotovoltaico;
 	\item Tensão de saída de $180V$, equivalente à tensão de pico da rede elétrica monofásica;
 	\item Tensão de ripple de $0,5V$ na saída;
-	\item Corrente de ripple de $0,1A$ no indutor \emph{L2};
-	\item Tensão de ripple de $1V$ no capacitor de transferência \emph{C1};
-	\item Corrente de ripple de $1A$ no indutor \emph{L1}.
+	\item Corrente de ripple de $0,1A$ no indutor $L2$;
+	\item Tensão de ripple de $1V$ no capacitor de transferência $C1$;
+	\item Corrente de ripple de $1A$ no indutor $L1$.
 \end{itemize}
 
 Além disso, dados a potência e tensão de saída pode-se encontrar a carga equivalente R:
+
 \begin{equation}%
-	R = \frac{P}{V^2} = 108 \Omega
+	R = \frac{P}{V^2} = 108 \Omega \label{eq:cuk_load}
 \end{equation}
 
 \subsubsection{Ciclo de Trabalho}\label{ssec:d_cuk_conv}
@@ -893,7 +893,7 @@ Calcula-se, também, os valores necessários para obter o comportamento desejado
 
 \subsubsection{Capacitores}\label{ssec:cap_cuk_conv}
 
-Os capacitores \emph{C2} e \emph{C1} são calculados a partir das equações~\ref{eq:rip_filt_conv_cuk} e \ref{eq:conv_cuk_rip_c1}, respectivamente. Substituindo os valores já encontrados nessas equações têm-se:
+Os capacitores $C2$ e $C1$ são calculados a partir das equações~\ref{eq:rip_filt_conv_cuk} e \ref{eq:conv_cuk_rip_c1}, respectivamente. Substituindo os valores já encontrados nessas equações têm-se:
 
 \begin{IEEEeqnarray}{c}
 	C2 = \frac{0,153 \cdot 180V}{8 \cdot 0,5V \cdot 18,3mH  \cdot (15kHz)^2} = 1,67uF \\
@@ -904,32 +904,71 @@ Os capacitores \emph{C2} e \emph{C1} são calculados a partir das equações~\re
 
 Com os valores de componentes calculados nas equações~\ref{eq:d_cuk_conv_} a \ref{eq:cuk_conv_C1_final}, ajustados para valores comerciais, foi montado o circuito de um conversor cuk convencional que pode ser visto na figura~\ref{fig:cuk_conv_psim_circ}.
 
-\begin{figure}[h]%
+\begin{figure}[htbp]%
 	\begin{center}%
-		\includegraphics[width=0.7 \linewidth]{conv_cuk_psim_circ}
+		\includegraphics[width=0.75 \linewidth]{conv_cuk_psim_circ}
 		\caption{Circuito do conversor cuk convencional}
 		\label{fig:cuk_conv_psim_circ}
 	\end{center}
 \end{figure}
+
+\subsection{Conversor Ćuk Entrelaçado}
+
+Para a definição dos valores de componentes do conversor cuk entrelaçado serão utilizados os mesmos parâmetros de projeto do conversor cuk convencional. Além disso, os cálculos serão efetuados para uma das fases e os componentes encontrados serão replicados para todas as fases do circuito.
+
+Dessa forma, a partir da equação~\ref{eq:cuk_load}, sabe-se que a carga equivalente vista pelo circuito $R$ é de $108\Omega$.
+
+\subsubsection{Ciclo de Trabalho}
+
+O ciclo de trabalho do conversor cuk entrelaçado é encontrado a partir da equação~\ref{eq:vo_interv} que equivale á equação ~\ref{eq:trans_func_cuk_conv}. Dessa forma, para os mesmos parâmetros de tensão de entrada e saída, o ciclo de trabalho deste conversor é igual ao do conversosr cuk convencional, definido na equação~\ref{eq:d_cuk_conv_} como $0,847$.
+
+\subsubsection{Indutores}
+
+Como o ciclo de trabalho, a carga e a frequência de chaveamento do conversor cuk entrelaçado são iguais aos do conversor cuk convencional, os valores dos indutores a serem utilizados, por fase, serão iguais os encontrados para o conversor anterior. Dessa forma, teremos $L_{X1}$ e $L_{X2}$, onde $X$ indica a fase, definidos nas equações~\ref{eq:int_LX1} e \ref{eq:int_LX2}, respectivamente.
+\begin{IEEEeqnarray}{c}%
+	L_{X1} = 1,99mH \label{eq:int_LX1}\\
+	L_{X2} = 18,3mH \label{eq:int_LX2}
+\end{IEEEeqnarray}
+
+\subsubsection{Capacitores}
+
+Assim como no conversor cuk convencional, os capacitores são encontrados a partir das equações~\ref{eq:rip_filt_conv_cuk} e \ref{eq:conv_cuk_rip_c1}. Sendo assim, teremos os capacitores $C_{X1}$ e $C2$, onde $X$ representa a fase, com os valores presentes nas equações~\ref{eq:int_CX1} e \ref{eq:int_C2}, respectivamente.
+\begin{IEEEeqnarray}{c}%
+	C_{X1} = 1,67uF \label{eq:int_CX1}\\
+	C2 = 94,3uF \label{eq:int_C2}
+\end{IEEEeqnarray}
+
+\subsubsection{Circuito Resultante}
+
+Assim como no conversor cuk convencional, os valores encontrados para cada componente foram aproximados a fim de se utilizar apenas valores comerciais. O circuito do conversor cuk entrelaçado de duas fases montado no PSIM pode ser visto na figura~\ref{fig:interv_cuk_conv_psim_circuit}.
+
+Percebe-se que o pwm de cada braço, apesar de apresentar o mesmo ciclo de trabalho é defasado de $180^o$, que equivale ao atraso de $360^o/N$, onde N representa o número de fases~\cite{JOSEPH_2015_Intervealed_CUK}.
+
+\begin{figure}[htbp]%
+	\begin{center}%
+		\includegraphics[width=0.75 \linewidth]{interv_cuk_psim_circ}
+		\caption{Circuito do conversor cuk entrelaçado de 2 fases}
+		\label{fig:interv_cuk_conv_psim_circuit}
+	\end{center}
+\end{figure}
+
 
 \chapter{Resultados}
 
 \section{Conversores Estáticos CC/CC}
 
 \subsection{Conversor Ćuk Convencional}
-
-BLABLABLA
-
-\begin{table}[!ht]
+A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:conv_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_conv_ripp_I_L1} a \ref{fig:cuk_conv_power_sign_out}.
+\begin{table}[htbp]
 	\centering
-		\resizebox{0.4\textwidth}{!}{%
+		\resizebox{0.5\linewidth}{!}{%
 				\begin{tabular}{|
 				>{\columncolor[HTML]{C0C0C0}}l |c|}
 				\hline
-				\textbf{Corrente média em \emph{L1}}            & 9,22A    \\ \hline
-				\textbf{Corrente de ripple em \emph{L1}}        & 0,92A    \\ \hline
-				\textbf{Corrente de ripple em \emph{L2}}        & 0,10A    \\ \hline
-				\textbf{Tensão de ripple em \emph{C1}}          & 0,94V    \\ \hline
+				\textbf{Corrente média em $L1$}            			& 9,22A    \\ \hline
+				\textbf{Corrente de ripple em $L1$}        			& 0,92A    \\ \hline
+				\textbf{Corrente de ripple em $L2$}        			& 0,10A    \\ \hline
+				\textbf{Tensão de ripple em $C1$}          			& 0,94V    \\ \hline
 				\textbf{Tensão média na saída do conversor}     & -179,91V \\ \hline
 				\textbf{Tensão de ripple na saída do conversor} & 0,53V    \\ \hline
 				\textbf{Potência de saída média}                & 299,71W  \\ \hline
@@ -940,41 +979,127 @@ BLABLABLA
 		\label{tab:conv_cuk_results}
 	\end{table}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_I_L1}
-		\caption{Corrente de ripple no indutor \emph{L1}}
+		\caption{Corrente de ripple no indutor $L1$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_I_L1}
 \end{figure}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_I_L2}
-		\caption{Corrente de ripple no indutor \emph{L2}}
+		\caption{Corrente de ripple no indutor $L2$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_I_L2}
 \end{figure}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_C1}
-		\caption{Tensão de ripple no capacitor \emph{C1}}
+		\caption{Tensão de ripple no capacitor $C1$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_V_C1}
 \end{figure}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_out}
-		\caption{Tensão de ripple no saída do conversor}
-		\label{fig:cuk_conv_ripp_I_out}
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_V_out}
+		\caption{Comportamento da tensão na saída do conversor cuk convencional}
+		\label{fig:cuk_conv_ripp_V_out}
 \end{figure}
 
-\begin{figure}[]%
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_out2}
+		\caption{Tensão de ripple na saída do conversor cuk convencional}
+		\label{fig:cuk_conv_ripp_V_out}
+\end{figure}
+
+\begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_conv_power_sign}
-		\caption{Potência na entrada e saída do conversor}
+		\caption{Potência na entrada e saída do conversor cuk convencional}
 		\label{fig:cuk_conv_power_sign}
 \end{figure}
 
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_conv_power_sign_out}
+		\caption{Oscilação da potência saída do conversor cuk convencional}
+		\label{fig:cuk_conv_power_sign_out}
+\end{figure}
+
+\subsection{Conversor Ćuk Entrelaçado}
+
+A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circuit} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:inter_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_inter_ripp_I_L1} a \ref{fig:cuk_inter_power_sign_out}.
+
+\begin{table}[htbp]
+	\centering
+		\resizebox{0.6\linewidth}{!}{%
+		\begin{tabular}{l|c|c|c|}
+				\cline{2-4}
+																																																			& Fase 1 & Fase 2 & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente média em $L_{X1}$}}             & 4,62A  & 4,60A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X1}$}}         & 0,91A  & 0,90A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X2}$}}         & 0,10A  & 0,10A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple em $C_{X1}$}}           & 0,83V  & 0,83A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão média na saída do conversor}}     & -      & -      & -179,91V	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple na saída do conversor}} & -      & -      & 0,22V   	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Potência de saída média}}                & -      & -      & 299,71W 	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Oscilação da potência de saída}}         & -      & -      & 0,72W   	\\ \hline
+			\end{tabular}%
+		}
+		\caption{Valores medidos para o conversor cuk entrelaçado de duas fases}
+		\label{tab:inter_cuk_results}
+	\end{table}
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_I_LX1}
+		\caption{Corrente de ripple no indutores $L_{11}$ e $L_{21}$ do conversor cuk entrelaçado de duas fases}
+		\label{fig:cuk_inter_ripp_I_L1}
+\end{figure}
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_I_LX2}
+		\caption{Corrente de ripple no indutor $L2$ do conversor cuk entrelaçado de duas fases}
+		\label{fig:cuk_inter_ripp_I_L2}
+\end{figure}
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_V_CX1}
+		\caption{Tensão de ripple no capacitor $C1$ do conversor cuk entrelaçado de duas fases}
+		\label{fig:cuk_inter_ripp_V_C1}
+\end{figure}
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_inter_V_out}
+		\caption{Comportamento da tensão na saída do conversor cuk entrelaçado de duas fases}
+		\label{fig:cuk_inter_ripp_V_out}
+\end{figure}
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_V_out}
+		\caption{Tensão de ripple na saída do conversor cuk entrelaçado de duas fases}
+		\label{fig:cuk_inter_ripp_V_out}
+\end{figure}
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_inter_power_sign}
+		\caption{Potência na entrada e saída do conversor cuk entrelaçado de duas fases}
+		\label{fig:cuk_inter_power_sign}
+\end{figure}
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{cuk_inter_pow_out}
+		\caption{Oscilação da potência saída do conversor cuk entrelaçado de duas fases}
+		\label{fig:cuk_inter_power_sign_out}
+\end{figure}
 
 
 \chapter{Conclusão}
