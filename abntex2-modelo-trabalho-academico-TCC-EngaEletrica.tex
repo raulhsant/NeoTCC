@@ -469,9 +469,9 @@ As topologias de conversores que serão analisadas estão listadas a seguir e se
 	\item Conversor Ćuk convecional
 	% com Inversor em Ponte Completa Bipolar
 	%\item Conversor Ćuk convecional com Inversor em Ponte Completa Unipolar
-	\item Conversor Ćuk Entrelaçado de 2 fases
+	\item Conversor Ćuk Entrelaçado de duas fases
 	% com Inversor em Ponte Completa
-	%\item Conversor Ćuk Entrelaçado de 2 fases com Inversor em Meia Ponte
+	%\item Conversor Ćuk Entrelaçado de duas fases com Inversor em Meia Ponte
 	\item Conversor Ćuk integrado
 	% com Inversor em Ponte Completa
 	%\item Conversor Ćuk integrado com Inversor em Meia Ponte
@@ -523,6 +523,7 @@ A partir das equações ~\ref{IPV_},~\ref{IPH_},~\ref{IR_} e ~\ref{IRR_} é poss
 Na figura~\ref{fig:iv_pv_} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
 
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 	\subfloat[]{{\includegraphics[width=0.45 \linewidth]{iv_PV} }}%
 	\qquad
@@ -571,11 +572,11 @@ Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ 
 % APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO
 \subsection{Conversor Ćuk Entrelaçado}
 
-Um conversor cuk entrelaçado consiste de um capacitor, dois indutores, um transistor e um diodo para cada fase, além do capacitor de filtro que pode ser comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de 2 fases.
+Um conversor cuk entrelaçado consiste de um capacitor, dois indutores, um transistor e um diodo para cada fase, além do capacitor de filtro que pode ser comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de duas fases.
 
 Segundo \citeonline{JOSEPH_2015_Intervealed_CUK}, essa topologia tem o intuito de reduzir o ripple de corrente na entrada e reduzir o stress de chaveamento, sem sacrificar sua eficiência. Para tal, os transistores são ligados um por vez, por um período de ${T_{on}}/{2}$, e somente após passado um período ${T_{off}}/{2}$ do desligamento do transistor anterior. Isso é feito  utilizando-se a técnica de modulação por largura de pulso com deslocamento de fase, \emph{PSPWM}, do inglês \textit{Phase-Shifted Pulse Width Modulation}.
 
-O funcionamento do conversor cuk entrelaçado de 2 fases pode ser descrito em 3 modos~\cite{JOSEPH_2015_Intervealed_CUK}:
+O funcionamento do conversor cuk entrelaçado de duas fases pode ser descrito em 3 modos~\cite{JOSEPH_2015_Intervealed_CUK}:
 \begin{itemize}%
 	\item Modo 1 ($t_0$-$t_1$): $S_1$ ligado e $S_2$ desligado;
 	\item Modo 2 ($t_1$-$t_2$ e $t_3$-$t_4$): $S_1$ e $S_2$ desligados;
@@ -594,7 +595,7 @@ Assumindo uma variação linear na corrente dos indutores, a corrente de ripple 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{interv_cuk_circuit}
-		\caption{Conversor Ćuk entrelaçado de 2 fases \cite{JOSEPH_2015_Intervealed_CUK}}
+		\caption{Conversor Ćuk entrelaçado de duas fases \cite{JOSEPH_2015_Intervealed_CUK}}
 		\label{fig:interv_cuk_conv} 
 	\end{center}
 \end{figure}
@@ -629,7 +630,7 @@ Através das equações~\ref{eq:rip_interv_1}, \ref{eq:rip_interv_4},\ref{eq:rip
 % 	\end{center}
 % \end{figure}
 
-O inversor de tensão é responsável por converter uma tensão contĩnua em outra alternada, com frequência e amplitude bem definidas. A topologia de um inversor tipo fonte de tensão, \emph{VSI}, do ingês \textit{Voltage Source Inverter} monofásico em ponte completa pode ser vista na figura~\ref{fig:vsi_1fas}. 
+O inversor de tensão é responsável por converter uma tensão contĩnua em outra alternada, com frequência e amplitude bem definidas. A topologia de um inversor tipo fonte de tensão, \emph{VSI}, do inglês \textit{Voltage Source Inverter} monofásico em ponte completa pode ser vista na figura~\ref{fig:vsi_1fas}. 
 
 É facilmente perceptível que, caso ambos um transistores de uma das pernas do circuito estejam em condução simultaneamente haverá um curto-circuito na tensão de entrada $v_i$, que corresponde á tensão de barramento CC que alimenta o circuito. Dessa forma deve-se sempre garantir que apenas um dos transistores em cada perna conduza em um certo período de tempo.
 
@@ -670,6 +671,7 @@ Deseja-se que a tensão alternada na saída siga uma forma de onda que,para este
 Define-se que, enquanto o sinal modulante é maior que a portadora, o estado 1 é acionado, ou seja, os transistores $S_{1_+}$ e $S_{2_-}$ entram em conduução, enquanto so transistores $S_{1_-}$ e $S_{2_+}$ são desligados. O estado 2 é acionado quando o sinal de portadora apresenta maior tensão que o sinal modulante. 
 
 O sinal obtido na saída de um inversor que segue esta técnica é, basicamente, uma forma de onda senoidal que apresenta amplitude fundamental $\hat{v}_o$ a qual satisfaz a expressão~\ref{eq:VSI_bip_vo}, onde $m_a$ é o índice de modulação, ou razão de modulação de amplitude, representada pela equação~\ref{eq:mod_ind_bip} \cite{RASHID_VSI}.
+% \vspace{-10pt}
 \begin{IEEEeqnarray}{c}
 	\hat{v}_o = v_{ab} = v_i m_a \label{eq:VSI_bip_vo} \\
 	m_a = \frac{\hat{v}_m}{\hat{v}_p} \label{eq:mod_ind_bip}
@@ -678,12 +680,14 @@ O sinal obtido na saída de um inversor que segue esta técnica é, basicamente,
 % \begin{equation}
 % 	v_i < \hat{v}_o = \hat{v_{ab}} < \frac{4}{\pi}v_i \label{eq:VSI_bip_vo}
 % \end{equation}
-
-\begin{center}
-	\begin{huge}
-		\textbf{ADICIONAR GRÁFICOS SOBRE O FUNCIONAMENTO OBTIDOS VIA SIMULAÇÃO!!}
-	\end{huge}
-\end{center}
+\vspace{-10pt}
+\begin{figure}[htbp]%
+	\captionsetup{{justification=centering}}
+	\centering%
+		\includegraphics[width=0.85 \linewidth]{vsi_bip_func}
+		\caption{Formas de onda do inversor VSI com PWM bipolar}
+		\label{fig:vsi_bip_func_graph}
+\end{figure}
 
 \subsection{Inversor com Modulação por Largura de Pulso Unipolar}
 
@@ -699,11 +703,13 @@ Segundo \citeonline{RASHID_VSI}, devido ás tensões de fase ($V_{aN}$ e $v_{bN}
 
 Essa característica permite que inversores que utilizam a modulação unipolar utilizem filtros menores para obter tensão e corrente de alta qualidade, utilizando a mesma frequência de chaveamento que inversores com modulação bipolar\cite{RASHID_VSI}.
 
-\begin{center}
-	\begin{huge}
-		\textbf{ADICIONAR GRÁFICOS SOBRE O FUNCIONAMENTO OBTIDOS VIA SIMULAÇÃO!!}
-	\end{huge}
-\end{center}
+\begin{figure}[htbp]%
+	\captionsetup{{justification=centering}}
+	\centering%
+		\includegraphics[width=0.85 \linewidth]{vsi_uni_func}
+		\caption{Formas de onda do inversor VSI com PWM unipolar}
+		\label{fig:vsi_uni_func_graph}
+\end{figure}
 
 \section{Conversor Integrado (CC/CA)}
 \subsection{Conversor Ćuk Integrado}
@@ -855,7 +861,7 @@ As seções~\ref{ssec:d_cuk_conv} a \ref{ssec:cap_cuk_conv} a seguir representam
 	\item Potência de $300W$;
 	\item Tensão de entrada de $32,5V$, equivalente à tensão máxima do painel fotovoltaico;
 	\item Tensão de saída de $180V$, equivalente à tensão de pico da rede elétrica monofásica;
-	\item Tensão de ripple de $0,5V$ na saída;
+	\item Tensão de ripple de saída de $0,5V$;
 	\item Corrente de ripple de $0,1A$ no indutor $L2$;
 	\item Tensão de ripple de $1V$ no capacitor de transferência $C1$;
 	\item Corrente de ripple de $1A$ no indutor $L1$.
@@ -947,10 +953,40 @@ Percebe-se que o pwm de cada braço, apesar de apresentar o mesmo ciclo de traba
 \begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.75 \linewidth]{interv_cuk_psim_circ}
-		\caption{Circuito do conversor cuk entrelaçado de 2 fases}
+		\caption{Circuito do conversor cuk entrelaçado de duas fases}
 		\label{fig:interv_cuk_conv_psim_circuit}
 	\end{center}
 \end{figure}
+
+\section{Conversores CC/CA - Inversores tipo fonte de tensão (\textit{VSI})}
+
+\subsection{Inversor PWM Bipolar}
+
+O ciruito da figura~\ref{fig:VSI_bip_circ} apresenta o circuito montado no PSIM para simular um inversor VSI com PWM bipolar. Foi utilizada uma fonte de tensão de $180V$ para emular a alimentação do circuito.
+
+Para o sinal de portadora foi utlizada uma fonte de sinal trinagular de 1kHz e $3V$ de amplitude pico a pico. Já como modulante, uma fonte de sinal senoidal de $1V$ e 60Hz, uma vez que a modulante deve corresponder à forma de onda e frequência da saída desejada.
+
+\begin{figure}[htbp]%
+	\centering%
+		\includegraphics[width=0.75 \linewidth]{vsi_bipolar_psim_circ}
+		\caption{Inversor VSI Bipolar}
+		\label{fig:VSI_bip_circ}
+\end{figure}
+
+\subsection{Inversor PWM Unipolar}
+
+O ciruito da figura~\ref{fig:VSI_uni_circ} apresenta o circuito montado no PSIM para simular um inversor VSI com PWM unipolar. Assim como no inversor bipolar, utilizou-se uma fonte de tensão contínua de $180V$ para emular a alimentação do circuito.
+
+Para o sinal de portadora foi utlizada uma fonte de sinal trinagular de 1kHz e $3V$ de amplitude pico a pico. Já para as modulantes, foram utilizadas duas fontes senoidais de 60Hz e $1V$ de amplitude, desafadas entre si de $180^o$.
+\begin{figure}[htbp]%
+	\centering%
+		\includegraphics[width=0.75 \linewidth]{vsi_unipolar_psim_circ}
+		\caption{Inversor VSI Unipolar}
+		\label{fig:VSI_uni_circ}
+\end{figure}
+
+\section{Conversor Integrado (CC/CA)}
+	\subsection{Conversor Ćuk Integrado}
 
 
 \chapter{Resultados}
@@ -969,8 +1005,8 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 				\textbf{Corrente de ripple em $L1$}        			& 0,92A    \\ \hline
 				\textbf{Corrente de ripple em $L2$}        			& 0,10A    \\ \hline
 				\textbf{Tensão de ripple em $C1$}          			& 0,94V    \\ \hline
-				\textbf{Tensão média na saída do conversor}     & -179,91V \\ \hline
-				\textbf{Tensão de ripple na saída do conversor} & 0,53V    \\ \hline
+				\textbf{Tensão de saída média do conversor}     & -179,91V \\ \hline
+				\textbf{Tensão de ripple de saída do conversor} & 0,53V    \\ \hline
 				\textbf{Potência de saída média}                & 299,71W  \\ \hline
 				\textbf{Oscilação da potência de saída}         & 1,77W    \\ \hline
 				\end{tabular}%
@@ -1003,14 +1039,14 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 \begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_conv_V_out}
-		\caption{Comportamento da tensão na saída do conversor cuk convencional}
+		\caption{Comportamento da tensão de saída do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_V_out}
 \end{figure}
 
 \begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_out2}
-		\caption{Tensão de ripple na saída do conversor cuk convencional}
+		\caption{Tensão de ripple de saída do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_V_out}
 \end{figure}
 
@@ -1020,18 +1056,18 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 		\caption{Potência na entrada e saída do conversor cuk convencional}
 		\label{fig:cuk_conv_power_sign}
 \end{figure}
-
+\vspace{-5pt}
 \begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_conv_power_sign_out}
-		\caption{Oscilação da potência saída do conversor cuk convencional}
+		\caption{Oscilação da potência na saída do conversor cuk convencional}
 		\label{fig:cuk_conv_power_sign_out}
 \end{figure}
-
+\vspace{-5pt}
 \subsection{Conversor Ćuk Entrelaçado}
 
 A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circuit} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:inter_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_inter_ripp_I_L1} a \ref{fig:cuk_inter_power_sign_out}.
-
+\vspace{-5pt}
 \begin{table}[htbp]
 	\centering
 		\resizebox{0.6\linewidth}{!}{%
@@ -1042,8 +1078,8 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X1}$}}         & 0,91A  & 0,90A  & -					\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X2}$}}         & 0,10A  & 0,10A  & -					\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple em $C_{X1}$}}           & 0,83V  & 0,83A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão média na saída do conversor}}     & -      & -      & -179,91V	\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple na saída do conversor}} & -      & -      & 0,22V   	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão média de saída do conversor}}     & -      & -      & -179,91V	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple de saída do conversor}} & -      & -      & 0,22V   	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Potência de saída média}}                & -      & -      & 299,71W 	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Oscilação da potência de saída}}         & -      & -      & 0,72W   	\\ \hline
 			\end{tabular}%
@@ -1051,43 +1087,49 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 		\caption{Valores medidos para o conversor cuk entrelaçado de duas fases}
 		\label{tab:inter_cuk_results}
 	\end{table}
-
+\vspace{-10pt}
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_I_LX1}
 		\caption{Corrente de ripple no indutores $L_{11}$ e $L_{21}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_I_L1}
 \end{figure}
-
+\vspace{-10pt}
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_I_LX2}
-		\caption{Corrente de ripple no indutor $L2$ do conversor cuk entrelaçado de duas fases}
+		\caption{Corrente de ripple nos indutores $L_{12}$ e $L_{22}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_I_L2}
 \end{figure}
 
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_V_CX1}
-		\caption{Tensão de ripple no capacitor $C1$ do conversor cuk entrelaçado de duas fases}
+		\caption{Tensão de ripple nos capacitores $C_{11}$ e $C_{21}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_V_C1}
 \end{figure}
 
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_inter_V_out}
-		\caption{Comportamento da tensão na saída do conversor cuk entrelaçado de duas fases}
+		\caption{Comportamento da tensão de saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_V_out}
 \end{figure}
 
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_V_out}
-		\caption{Tensão de ripple na saída do conversor cuk entrelaçado de duas fases}
+		\caption{Tensão de ripple de saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_V_out}
 \end{figure}
 
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_inter_power_sign}
 		\caption{Potência na entrada e saída do conversor cuk entrelaçado de duas fases}
@@ -1095,12 +1137,39 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 \end{figure}
 
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width=0.8 \linewidth]{cuk_inter_pow_out}
 		\caption{Oscilação da potência saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_power_sign_out}
 \end{figure}
 
+\section{Conversores CC/CA - Inversores tipo fonte de tensão (\textit{VSI})}
+
+\subsection{Inversor PWM Bipolar}
+
+Para analisar as características de um inversor VSI bipolar foi simulado o circuito~\ref{fig:VSI_bip_circ}, do qual obteve-se o sinal de saída que pode ser visto na figura~\ref{fig:response_vsi_bip}, juntamente com o sinal senoidal desejado, para facilitar a comparação. Ainda na figura~\ref{fig:response_vsi_bip} é possível verificar que este circuito apresenta distorção harmônica total, \emph{THD}, do inglês \textit{Total Harmonic Distortion} de $1,84\%$.
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{vsi_bip_out}
+		\caption{Sinal de saída do inversor VSI bipolar}
+		\label{fig:response_vsi_bip}
+\end{figure}
+
+\subsection{Inversor PWM Unipolar}
+
+Para analisar as características de um inversor VSI unipolar foi simulado o circuito~\ref{fig:VSI_uni_circ} do qual, assim como para o inversor bipolar, obteve-se o sinal de saída, presente na figura~\ref{fig:response_vsi_uni} pela qual verifica-se, também, que este circuito apresenta THD inferior ao inversor bipolar, de $0,96\%$.
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.8 \linewidth]{vsi_uni_out}
+		\caption{Sinal de saída do inversor VSI unipolar}
+		\label{fig:response_vsi_uni}
+\end{figure}
+
+\section{Conversor Integrado (CC/CA)}
+	\subsection{Conversor Ćuk Integrado}
 
 \chapter{Conclusão}
 
