@@ -77,6 +77,7 @@
 \usepackage{subfig}
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[bottom]{footmisc}
+\usepackage{listings}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -413,10 +414,10 @@
 	Apesar disso, o custo de instalação destes geradores ainda é elevado e, portanto, é necessário maximizar a eficiência do 
 	sistema. 	
 
-	Um paiel fotovoltaico apresenta uma resposta não linear à incidencia solar sobre sua área e, para que seja extraído deste 
+	Um painel fotovoltaico apresenta uma resposta não linear à incidência solar sobre sua área e, para que seja extraído deste 
 	a máxima potência possível devem ser utilizados algoritmos de rastreamento de ponto de máxima potência (MPPT). Aliados a 
-	estes algortimos também se fazem necessários inversores de alto rendimento, responsáveis por condicionar a tensão 
-	contínua fornecida pelos paineis em tensão alternada que pode ser injetada diretamente na rede elétrica.
+	estes algoritmos também se fazem necessários inversores de alto rendimento, responsáveis por condicionar a tensão 
+	contínua fornecida pelos painéis em tensão alternada que pode ser injetada diretamente na rede elétrica.
 	
 %	Por executarem papel primordial na geração fotovoltaica e representarem cerca de 50\% de seu custo de implantação, a eficiência 
 %	destes dispositivos  
@@ -425,13 +426,13 @@
 	grande impacto na eficiência final do sistema de geração e, portanto, faz-se pertinente uma análise comparativa de custo e eficiência destes.
 
 
-	A tensão disponibilizada por paineis fotovotaicos é geralmente de baixa amplitude, sendo necessária uma etapa de amplificação 
-	entre o painel e a transformação do sinal contínuo em alternado. Esse estágio pode ser evitado em casos nos quais vários paineis 
+	A tensão disponibilizada por painéis fotovoltaicos é geralmente de baixa amplitude, sendo necessária uma etapa de amplificação 
+	entre o painel e a transformação do sinal contínuo em alternado. Esse estágio pode ser evitado em casos nos quais vários painéis 
 	são conectados em série de modo que a tensão de saída do conjunto seja maior que a tensão de pico da rede. Esta configuração 
 	é, entretanto, pouco usual em sistemas de baixa potência devido à necessidade de se garantir uma tensão mínima fornecida pelos 
-	paineis. Sendo assim, as topologias mais comuns de inversores para sistemas fotovoltaicos utilizam um estágio elevador de tensão e um estágio inversor conectados em série \cite{LUIGIJUNIOR_ev_int}.
+	painéis. Sendo assim, as topologias mais comuns de inversores para sistemas fotovoltaicos utilizam um estágio elevador de tensão e um estágio inversor conectados em série \cite{LUIGIJUNIOR_ev_int}.
 
-	Com o intuito de reduzir o custo e o espaço ocupado por inversores responsáveis por lidar com a energia gerada por uma série de paineis fotovoltaicos, vem sido estudada a utilização de microinversores \cite{Bouzguenda_smart_grid_inv}, inversores de menor potência, montados atrás de cada painel, pelo qual são responsáveis pela otimização da geração e pelo condicionamento da energia gerada. A principal vantagem na utilização de microinversores está no fato de estes isolarem os efeitos de sombreamento entre paineis \cite{Nezamuddin_des_eff_micro}.
+	Com o intuito de reduzir o custo e o espaço ocupado por inversores responsáveis por lidar com a energia gerada por uma série de painéis fotovoltaicos, vem sido estudada a utilização de microinversores \cite{Bouzguenda_smart_grid_inv}, inversores de menor potência, montados atrás de cada painel, pelo qual são responsáveis pela otimização da geração e pelo condicionamento da energia gerada. A principal vantagem na utilização de microinversores está no fato de estes isolarem os efeitos de sombreamento entre painéis \cite{Nezamuddin_des_eff_micro}.
 
 
 	Os microinversores também são compostos, em geral, por dois estágios. O primeiro responsável por elevar a tensão fornecida pelo painel, além de sua operação no ponto de máxima potência e o segundo responsável por gerar a corrente alternada de modo a assegurar a correta conexão com a rede elétrica \cite{Nezamuddin_des_eff_micro}. Podem ser utilizadas, também, topologias integradas que buscam a simplificação e redução de componentes do circuito através da conexão direta entre os estágios \cite{LUIGI_int_top} \cite{LUIGIJUNIOR_ev_int}.
@@ -439,7 +440,7 @@
 	
 	É proposto nesse trabalho um estudo comparativo entre algumas topologias de microinversores para sistemas fotovoltaicos baseadas na estrutura CC-CC Ćuk. Serão estudados inversores com conversores Ćuk, Ćuk entrelaçado e Ćuk integrado com um inversor de onda completa, esse último proposto por \cite{LUIGI_int_top}.
 
-	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentam comportamentode fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples sua a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
+	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentam comportamento de fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples sua a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
 
 
 
@@ -462,13 +463,13 @@
 O objetivo principal deste TCC é o estudo, projeto, simulação e análise de um sistema de geração de energia elétrica composto por painel fotovoltaico e conversores CC-CC e CC-CA. 
 
 As topologias de conversores que serão analisadas estão listadas a seguir e serão combinadas com inversores em ponte completa bipolar e unipolar.
-% As topologias de conversores que serão analisadas estão listadas a seguir e enquanto os conversores representam a coversão CC-CC, os inversores representam o estágio de
+% As topologias de conversores que serão analisadas estão listadas a seguir e enquanto os conversores representam a conversão CC-CC, os inversores representam o estágio de
 
 \begin{itemize}
 	
-	\item Conversor Ćuk convecional
+	\item Conversor Ćuk convencional
 	% com Inversor em Ponte Completa Bipolar
-	%\item Conversor Ćuk convecional com Inversor em Ponte Completa Unipolar
+	%\item Conversor Ćuk convencional com Inversor em Ponte Completa Unipolar
 	\item Conversor Ćuk Entrelaçado de duas fases
 	% com Inversor em Ponte Completa
 	%\item Conversor Ćuk Entrelaçado de duas fases com Inversor em Meia Ponte
@@ -480,16 +481,16 @@ As topologias de conversores que serão analisadas estão listadas a seguir e se
 
 \section{Estrutura Geral do Trabalho}
 
-O capítulo 1 introduz o tema e o objeto de estudo, com uma breve explicação e contextualização do problema. No capítulo 2 é apresentado o estado da arte e apresetado o embasamento teórico necessário para o desenvolvimento do trabalho.
+O capítulo 1 introduz o tema e o objeto de estudo, com uma breve explicação e contextualização do problema. No capítulo 2 é apresentado o estado da arte e apresentado o embasamento teórico necessário para o desenvolvimento do trabalho.
 
-No capítulo 3 é descrita a metodologia utilizada, sendo o capítulo 5 dedicado à exposição dos resultados obtidos através desta. O sexto e útlimo capítulo é dedicado à discussão do resultado e às conclusões obtidas pelo estudo.
+No capítulo 3 é descrita a metodologia utilizada, sendo o capítulo 5 dedicado à exposição dos resultados obtidos através desta. O sexto e último capítulo é dedicado à discussão do resultado e às conclusões obtidas pelo estudo.
 
 \chapter{Estado da Arte}
 
 \section{Modelo do PV}
 
-O circuito equivalente de células fotovoltaicas pode ser representado por uma fonte de corrente, como pode ser visto na figura ~\ref{fig:model_PV}. Este modelo é amplamente aceito e utilizado em trabalhos relacionados a energia fotovoltaica e seu comportamento do é descrito pelas equações~\ref{IPV_} a \ref{VOCPV}, nas quais $i_{pv}$ é a corrente e $V$ a tensão de saída da celula solar, respectivamente. 
-$I_{ph}$ é a fotocorrente e $I_r$ a corrente reversa de saturação da célula, $R_s$ e $R_p$ são as resistências série e shunt, $q$ é a carga do elétrone $\eta$ é o fator de idealidade da junção p-n. $k$ é a constante de Boltzmann, $T$ representa a temperatura ambiente, em Kelvins e $G$ representa a densidade de potência da irradiação solar. 
+O circuito equivalente de células fotovoltaicas pode ser representado por uma fonte de corrente, como pode ser visto na figura ~\ref{fig:model_PV}. Este modelo é amplamente aceito e utilizado em trabalhos relacionados a energia fotovoltaica e seu comportamento do é descrito pelas equações~\ref{IPV_} a \ref{VOCPV}, nas quais $i_{pv}$ é a corrente e $V$ a tensão de saída da célula solar, respectivamente. 
+$I_{ph}$ é a fotocorrente e $I_r$ a corrente reversa de saturação da célula, $R_s$ e $R_p$ são as resistências série e shunt, $q$ é a carga do elétron e $\eta$ é o fator de idealidade da junção p-n. $k$ é a constante de Boltzmann, $T$ representa a temperatura ambiente, em Kelvins e $G$ representa a densidade de potência da irradiação solar. 
 $T_r$ é a temperatura nominal, em Kelvins (298K), $I_{sc}$ é a corrente de curto circuito em condições padrão de teste(\textit{STC}) ($T_r = 25^oC$ e $G =1kW/m^2$), $ \alpha $ é o coeficiente de temperatura, $I_rr$ é a corrente de saturação reversa em \textit{STC} e $E_g$ é o \textit{gap} de energia entre as bandas (1.1eV).
 $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de células por painel e $M_s$ é o número de painéis conectados em série \cite{PV-Teory}.
 \begin{IEEEeqnarray} {c}
@@ -534,7 +535,6 @@ Na figura~\ref{fig:iv_pv_} são apresentadas curvas I-V para diferentes valores 
 
 
 \section{Conversores Estáticos CC/CC}
-%  BLABLABA SOBRE CONVERSORES ESTATICOS
 
 \subsection{Conversor Ćuk Convencional}
 
@@ -547,7 +547,7 @@ Um conversor Ćuk é um conversor CC-CC baseado na transferência de energia cap
 		\label{fig:conv_cuk_circuit}
 \end{figure}
 
-Quando a chave $S$ está fechada (\textit{ON}), os indutores $L1$ e $L2$ são carregados pela tensão de entrada e capacitor $C1$, respectivamente. O capacitor $C1$ polariza reversamente o diodo $D$ e descarrega fornecendo energia para a carga $R$, o capacitor de filtro $C$ e o indutor de filtro $L2$.
+Quando a chave $S$ está fechada (\textit{ON}), os indutores $L1$ e $L2$ são carregados pela tensão de entrada e capacitor $C1$, respectivamente. O capacitor $C1$ polariza inversamente o diodo $D$ e descarrega fornecendo energia para a carga $R$, o capacitor de filtro $C$ e o indutor de filtro $L2$.
 Com o transistor representado pela chave $S$ em estado aberto(\textit{OFF}), o indutor de entrada $L1$ carrega o capacitor de transferência de energia $C1$. O diodo $D$ conduz as correntes de ambos $L1$ e $L2$ e, portanto, o indutor $L2$ descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
 
 A função de transferência CC desse conversor é dada pela equação~\ref{eq:trans_func_cuk_conv}, na qual $d$ é o ciclo de trabalho (\textit{duty cycle}), $V_s$ a tensão de entrada e $V_o$ a tensão de saída \cite{RASHID_CUK} \cite{JOSEPH_2018_Intervelead_cuk}.
@@ -630,11 +630,11 @@ Através das equações~\ref{eq:rip_interv_1}, \ref{eq:rip_interv_4},\ref{eq:rip
 % 	\end{center}
 % \end{figure}
 
-O inversor de tensão é responsável por converter uma tensão contĩnua em outra alternada, com frequência e amplitude bem definidas. A topologia de um inversor tipo fonte de tensão, \emph{VSI}, do inglês \textit{Voltage Source Inverter} monofásico em ponte completa pode ser vista na figura~\ref{fig:vsi_1fas}. 
+O inversor de tensão é responsável por converter uma tensão contínua em outra alternada, com frequência e amplitude bem definidas. A topologia de um inversor tipo fonte de tensão, \emph{VSI}, do inglês \textit{Voltage Source Inverter} monofásico em ponte completa pode ser vista na figura~\ref{fig:vsi_1fas}. 
 
 É facilmente perceptível que, caso ambos um transistores de uma das pernas do circuito estejam em condução simultaneamente haverá um curto-circuito na tensão de entrada $v_i$, que corresponde á tensão de barramento CC que alimenta o circuito. Dessa forma deve-se sempre garantir que apenas um dos transistores em cada perna conduza em um certo período de tempo.
 
-No total o circuito apresenta cinco possíeis estados de operação, sendo quatro com tensão de saída definida(estados 1 a 4) e um com tensão indefinida(estado 5). O estados e sua tensão de saída correspondente são \cite{RASHID_VSI}:
+No total o circuito apresenta cinco possíveis estados de operação, sendo quatro com tensão de saída definida(estados 1 a 4) e um com tensão indefinida(estado 5). O estados e sua tensão de saída correspondente são \cite{RASHID_VSI}:
 
 \begin{table}[h]%
 	\centering
@@ -666,9 +666,9 @@ Como um inversor deve ser capaz de fornecer tensão com amplitude \emph{bem defi
 
 No inversor com PWM bipolar apenas os estados 1 e 2 da tabela~\ref{table:VSI_states} são utilizados para gerar o sinal de saída, de modo que este apresenta apenas dois valores, $v_i$ e $-v_i$.
 
-Deseja-se que a tensão alternada na saída siga uma forma de onda que,para este trabalho é senoidal. A técnica de PWM baseada em sinal de portadora atende a essa questão ao definir os estados dos trasistores a partir da comparação entre um sinal que corresponde à saída desejada $v_m$, chamado de modulante, e uma forma de onda triangular $v_p$, chamada de portadora.
+Deseja-se que a tensão alternada na saída siga uma forma de onda que,para este trabalho é senoidal. A técnica de PWM baseada em sinal de portadora atende a essa questão ao definir os estados dos transistores a partir da comparação entre um sinal que corresponde à saída desejada $v_m$, chamado de modulante, e uma forma de onda triangular $v_p$, chamada de portadora.
 
-Define-se que, enquanto o sinal modulante é maior que a portadora, o estado 1 é acionado, ou seja, os transistores $S_{1_+}$ e $S_{2_-}$ entram em conduução, enquanto so transistores $S_{1_-}$ e $S_{2_+}$ são desligados. O estado 2 é acionado quando o sinal de portadora apresenta maior tensão que o sinal modulante. 
+Define-se que, enquanto o sinal modulante é maior que a portadora, o estado 1 é acionado, ou seja, os transistores $S_{1_+}$ e $S_{2_-}$ entram em condução, enquanto so transistores $S_{1_-}$ e $S_{2_+}$ são desligados. O estado 2 é acionado quando o sinal de portadora apresenta maior tensão que o sinal modulante. 
 
 O sinal obtido na saída de um inversor que segue esta técnica é, basicamente, uma forma de onda senoidal que apresenta amplitude fundamental $\hat{v}_o$ a qual satisfaz a expressão~\ref{eq:VSI_bip_vo}, onde $m_a$ é o índice de modulação, ou razão de modulação de amplitude, representada pela equação~\ref{eq:mod_ind_bip} \cite{RASHID_VSI}.
 % \vspace{-10pt}
@@ -691,15 +691,15 @@ O sinal obtido na saída de um inversor que segue esta técnica é, basicamente,
 
 \subsection{Inversor com Modulação por Largura de Pulso Unipolar}
 
-Já em um inversor com PWM unipolar apenas os estados 1, 2, 3 e 4 da tabela~\ref{table:VSI_states} são utilizados para gerar o sinal de saída. Dessa forma a tensão alteranada obtida apresenta três possíveis valores: $0$, $v_i$ e $-v_i$.
+Já em um inversor com PWM unipolar apenas os estados 1, 2, 3 e 4 da tabela~\ref{table:VSI_states} são utilizados para gerar o sinal de saída. Dessa forma a tensão alternada obtida apresenta três possíveis valores: $0$, $v_i$ e $-v_i$.
 
-Neste tipo de modulação são utilizados dois sinais modulantes $v_m$ e $-v_m$. Cada modulante é responsável pela tensão em um dos braços do inversor, em relação ao ponto newtro ($N$), de modo que $v_m$ controla a tensão $v_{aN}$ e $-v_{m}$ é responsável por $v_{bN}$. A amplitude da tensão de saída para este método é expressa pela equação~\ref{eq:VSI_uni_vo}, encontrada pela combinação das equações~\ref{eq:VSI_uni_1} e \ref{eq:VSI_uni_1}.
+Neste tipo de modulação são utilizados dois sinais modulantes $v_m$ e $-v_m$. Cada modulante é responsável pela tensão em um dos braços do inversor, em relação ao ponto neutro ($N$), de modo que $v_m$ controla a tensão $v_{aN}$ e $-v_{m}$ é responsável por $v_{bN}$. A amplitude da tensão de saída para este método é expressa pela equação~\ref{eq:VSI_uni_vo}, encontrada pela combinação das equações~\ref{eq:VSI_uni_1} e \ref{eq:VSI_uni_1}.
 \begin{IEEEeqnarray}{c}%
 	v_{bN} = -v_{aN} \label{eq:VSI_uni_1} \\
 	v_o = v_{aN} - v_{bN} \label{eq:VSI_uni_2}\\
 	\hat{v}_o = 2 \cdot \hat{v}_{aN} = v_i m_a \label{eq:VSI_uni_vo}
 \end{IEEEeqnarray}
-Segundo \citeonline{RASHID_VSI}, devido ás tensões de fase ($V_{aN}$ e $v_{bN}$) serem identicas e desafadas de 180º, a tensão de saída não apresenta harmônicos pares, presentes em inversores que utilizam o método de modulação bipolar. 
+Segundo \citeonline{RASHID_VSI}, devido ás tensões de fase ($V_{aN}$ e $v_{bN}$) serem idênticas e defasadas de 180º, a tensão de saída não apresenta harmônicos pares, presentes em inversores que utilizam o método de modulação bipolar. 
 
 Essa característica permite que inversores que utilizam a modulação unipolar utilizem filtros menores para obter tensão e corrente de alta qualidade, utilizando a mesma frequência de chaveamento que inversores com modulação bipolar\cite{RASHID_VSI}.
 
@@ -720,7 +720,7 @@ Segundo proposto por \citeonline{LUIGI_int_top}, a primeira simplificação do c
 
 Na figura~\ref{fig:integ_cuk_circ} é possível ver o circuito final resultante das simplificações descritas, no qual os componentes $L_b$, $S_b$ e $C_b$ advém de um conversor cuk convencional. 
 
-Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saída $C_o$ da figura~\ref{fig:integ_cuk_circ} pode ser simplesmente subsituído pela rede\cite{LUIGI_int_top}. 
+Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saída $C_o$ da figura~\ref{fig:integ_cuk_circ} pode ser simplesmente substituído pela rede\cite{LUIGI_int_top}. 
 
 \begin{figure}[htbp]
 	\begin{center}
@@ -739,7 +739,7 @@ Este dispositivo monitora tensão e corrente fornecidas pelo painel fotovoltaico
 
 \subsection{Método Perturba e Observa (P\&O)}
 
-Neste método, é inserida na tensão de operação do painel fotovoltaico uma pequena perturbação, que pode ser positiva ou negativa, de aocrdo com a necessidade. Caso após a perturbação a potência fornecida aumenta, então é aplicada outra perturbação no mesmo sentido da anterior. Quando a potência reduz após a alteração da tensão a perturbação é invertida. Esse processo é repetido periodicamente até encontrar o ponto de operação desejado\cite{Talha_MPPT}.
+Neste método, é inserida na tensão de operação do painel fotovoltaico uma pequena perturbação, que pode ser positiva ou negativa, de acordo com a necessidade. Caso após a perturbação a potência fornecida aumenta, então é aplicada outra perturbação no mesmo sentido da anterior. Quando a potência reduz após a alteração da tensão a perturbação é invertida. Esse processo é repetido periodicamente até encontrar o ponto de operação desejado\cite{Talha_MPPT}.
 
 A constante perturbação da tensão faz com que a potência fornecida pelo painel varie. Desta forma o ponto de máxima potência nunca é completamente atingido, já que o sistema fica oscilando em torno deste. Para reduzir a influência dessa oscilação, a amplitude da perturbação é mantida sempre baixa \cite{MPPT_P&O_IC}.
 
@@ -757,7 +757,7 @@ Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na
 
 \subsection{Método de Condutância Incremental (IC)}
 
-Este método se baseia no princípio de que a inclinação da potência, em relação à tensão é zero no ponto de máxima potência, positiva à esquerda e negativa à direita deste. Além disso, a perturbação no ciclo de trabalho pode ser parada quando o ponto de máxima potência é encontrado. Enquanto esta condição não é satisfeita a direção da peturbação é definida pela relação entre $\frac{\Delta I}{\Delta V}$ e $\frac{I}{V}$ \cite{Talha_MPPT}\cite{MPPT_P&O_IC}.
+Este método se baseia no princípio de que a inclinação da potência, em relação à tensão é zero no ponto de máxima potência, positiva à esquerda e negativa à direita deste. Além disso, a perturbação no ciclo de trabalho pode ser parada quando o ponto de máxima potência é encontrado. Enquanto esta condição não é satisfeita a direção da perturbação é definida pela relação entre $\frac{\Delta I}{\Delta V}$ e $\frac{I}{V}$ \cite{Talha_MPPT}\cite{MPPT_P&O_IC}.
 
 Dessa forma, quando a equação~\ref{eq:incCond_mai0} é satisfeita, a perturbação seguinte é positiva e, para a equação~\ref{eq:incCond_men0}, negativa.
 \begin{align}%
@@ -780,19 +780,50 @@ Um fluxograma que representa o funcionamento do algoritmo de condutância increm
 	\end{center}
 \end{figure}
 
+\section{Filtro}
 
-% \section{Modulação PWM}
-% AVALIAR necessidade
-% FALAR SOBRE PWM SENOIDAL E PWM COM 	DESLOCAMENTO DE fase
+Para conectar o sistema a rede elétrica é necessário filtrar a tensão gerada a fim para reduzir os harmônicos presentes e fazer com que o sinal se assemelhe à uma senoide, e não a um trem de pulsos. Esse processo é feito com a inclusão de um filtro passivo entre o inversor e a rede da concessionária de energia.
 
-% \section{PLL E FILTRO???????}
-% AVALIAR necessidade
+Podem ser empregados três diferentes tipos de filtros L, LC e LCL. Destes, o último é mais utilizado atualmente devido a sua maior eficiência\cite{LCL_FILTER}.
+
+A topologia do filtro LCL pode ser vista na figura~\ref{fig:lcl_filt_top}.
+
+\begin{figure}[htbp]%
+	\centering
+		\includegraphics[width=0.7 \linewidth]{lcl_filt_top}
+		\caption{Topologia do filtro LCL monofásico\cite{LCL_FILTER}}
+		\label{fig:lcl_filt_top}
+\end{figure}
+
+% Para que o filtro seja estável, é necessário que a relação definida pela equação~\ref{eq:f_res_eq2}, na qual $f$ é a frequência da rede, $f_{sw}$ a frequência de chaveamento do inversor e $f_{res}$ a frequência de ressonância do filtro, definida na equação~\ref{eq:f_res_eq1}\cite{LCL_FILTER}.
+% \begin{IEEEeqnarray}{c}
+% 	f_{res} = \frac{1}{2 \pi} \sqrt{\frac{L_1 + L_2}{L_1 L_2 C}} \label{eq:f_res_eq1} \\
+% 	10f < f_{res} < 0,5 f_{sw} \label{eq:f_res_eq2}
+% \end{IEEEeqnarray}
+
+% O capacitor $C$ é escolhido de modo a otimizar o fator de potência, dessa forma, seu cálculo apresenta um fator, $k$ que representa a porcentagem de energia reativa máxima que o componente pode gerar. A equação~\ref{eq:LCL_C}, na qual $f$ e $V$ são a frequência e a tensão da rede, respectivamente e $P$ a potência nominal do sistema, define o valor máximo do capacitor.
+%  \begin{equation}
+% 	C_{max} = \frac{Pk}{6 \pi f V^2} \label{eq:LCL_C}
+%  \end{equation}
+
+%  Para o cálculo dos indutores $L_1$ e $L_2$ é preciso primeiramente definir a queda de tensão máxima desejada, devido ao filtro. A queda de tensão $\Delta V$ é definida pela equação~\ref{eq:LCL_L},na qual $I$ é a corrente nominal. 
+ 
+%  Além disso, a corrente de ripple no indutor $L_1$ é geralmente escolhida entre $10\%$ e $20\%$, enquanto a da rede não pode ser superior a $3\%$ da corrente nominal\cite{LCL_FILTER}.
+
+%  \begin{IEEEeqnarray}{c}
+% 	 \Delta V = 2 \pi f I (L_1 + L_2)\label{eq:LCL_L}\\
+% 	 0,1I<\Delta I_{L1}<0,2I \\
+% 	 \Delta I_{L2} < 0,03I \label{eq:lcl_deltaI2}
+%  \end{IEEEeqnarray}
+
+
+%  O resistor de amortecimento $R_f$ limita os efeitos de ressonância do filtro e pode ser encontrado de forma empírica.
 
 \chapter{Metodologia}
 
 \section{Painel Fotovoltaico}
 
-Para o painel fotovoltaico foi selecionado um modelo comercial com potência máxima na média do mercado, de 300W, para servir de referência. Será utilizado o modelo DYMOND CS6K-300, da fabricante \href{https://www.canadiansolar.com/en}{Canadian Solar}, constituído de 60 células solares de silício monocristalino. Suas características elétricas, sob condições padronizadas de teste~\footnote{Irradiância de $1000W/m^2$, temperatura do módulo de $25^oC$ e massa de ar de $1,5$}, \emph{STC}, do inglês \textit{Standard Test Coditions} e de temperatura estão dispostas nas figuras~\ref{fig:pv_elet} e \ref{fig:pv_temp}, respectivamente.
+Para o painel fotovoltaico foi selecionado um modelo comercial com potência máxima na média do mercado, de 300W, para servir de referência. Será utilizado o modelo DYMOND CS6K-300, da fabricante \href{https://www.canadiansolar.com/en}{Canadian Solar}, constituído de 60 células solares de silício monocristalino. Suas características elétricas, sob condições padronizadas de teste~\footnote{Irradiância de $1000W/m^2$, temperatura do módulo de $25^oC$ e massa de ar de $1,5$}, \emph{STC}, do inglês \textit{Standard Test Conditions} e de temperatura estão dispostas nas figuras~\ref{fig:pv_elet} e \ref{fig:pv_temp}, respectivamente.
 
 O comportamento da curva IxV do modelo para diferentes temperaturas e irradiância está presente na figura~\ref{fig:IV_pv_cs}. 
 \begin{figure}[htbp]%
@@ -834,7 +865,7 @@ Nas figuras~\ref{fig:pv_psim_param} e \ref{fig:pv_psim_carac} são mostrados os 
 \begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.55 \linewidth]{PV_carac}
-		\caption{Caractetísticas do módulo fotovoltaico no PSIM}
+		\caption{Características do módulo fotovoltaico no PSIM}
 		\label{fig:pv_psim_carac}
 	\end{center}
 \end{figure}
@@ -926,7 +957,7 @@ Dessa forma, a partir da equação~\ref{eq:cuk_load}, sabe-se que a carga equiva
 
 \subsubsection{Ciclo de Trabalho}
 
-O ciclo de trabalho do conversor cuk entrelaçado é encontrado a partir da equação~\ref{eq:vo_interv} que equivale á equação ~\ref{eq:trans_func_cuk_conv}. Dessa forma, para os mesmos parâmetros de tensão de entrada e saída, o ciclo de trabalho deste conversor é igual ao do conversosr cuk convencional, definido na equação~\ref{eq:d_cuk_conv_} como $0,847$.
+O ciclo de trabalho do conversor cuk entrelaçado é encontrado a partir da equação~\ref{eq:vo_interv} que equivale á equação ~\ref{eq:trans_func_cuk_conv}. Dessa forma, para os mesmos parâmetros de tensão de entrada e saída, o ciclo de trabalho deste conversor é igual ao do conversor cuk convencional, definido na equação~\ref{eq:d_cuk_conv_} como $0,847$.
 
 \subsubsection{Indutores}
 
@@ -962,9 +993,9 @@ Percebe-se que o pwm de cada braço, apesar de apresentar o mesmo ciclo de traba
 
 \subsection{Inversor PWM Bipolar}
 
-O ciruito da figura~\ref{fig:VSI_bip_circ} apresenta o circuito montado no PSIM para simular um inversor VSI com PWM bipolar. Foi utilizada uma fonte de tensão de $180V$ para emular a alimentação do circuito.
+O circuito da figura~\ref{fig:VSI_bip_circ} apresenta o circuito montado no PSIM para simular um inversor VSI com PWM bipolar. Foi utilizada uma fonte de tensão de $180V$ para emular a alimentação do circuito.
 
-Para o sinal de portadora foi utlizada uma fonte de sinal trinagular de 1kHz e $3V$ de amplitude pico a pico. Já como modulante, uma fonte de sinal senoidal de $1V$ e 60Hz, uma vez que a modulante deve corresponder à forma de onda e frequência da saída desejada.
+Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e $3V$ de amplitude pico a pico. Já como modulante, uma fonte de sinal senoidal de $1V$ e 60Hz, uma vez que a modulante deve corresponder à forma de onda e frequência da saída desejada.
 
 \begin{figure}[htbp]%
 	\centering%
@@ -975,9 +1006,9 @@ Para o sinal de portadora foi utlizada uma fonte de sinal trinagular de 1kHz e $
 
 \subsection{Inversor PWM Unipolar}
 
-O ciruito da figura~\ref{fig:VSI_uni_circ} apresenta o circuito montado no PSIM para simular um inversor VSI com PWM unipolar. Assim como no inversor bipolar, utilizou-se uma fonte de tensão contínua de $180V$ para emular a alimentação do circuito.
+O circuito da figura~\ref{fig:VSI_uni_circ} apresenta o circuito montado no PSIM para simular um inversor VSI com PWM unipolar. Assim como no inversor bipolar, utilizou-se uma fonte de tensão contínua de $180V$ para emular a alimentação do circuito.
 
-Para o sinal de portadora foi utlizada uma fonte de sinal trinagular de 1kHz e $3V$ de amplitude pico a pico. Já para as modulantes, foram utilizadas duas fontes senoidais de 60Hz e $1V$ de amplitude, desafadas entre si de $180^o$.
+Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e $3V$ de amplitude pico a pico. Já para as modulantes, foram utilizadas duas fontes senoidais de 60Hz e $1V$ de amplitude, defasadas entre si de $180^o$.
 \begin{figure}[htbp]%
 	\centering%
 		\includegraphics[width=0.75 \linewidth]{vsi_unipolar_psim_circ}
@@ -986,14 +1017,54 @@ Para o sinal de portadora foi utlizada uma fonte de sinal trinagular de 1kHz e $
 \end{figure}
 
 \section{Conversor Integrado (CC/CA)}
-	\subsection{Conversor Ćuk Integrado}
+\subsection{Conversor Ćuk Integrado}
+
+O conversor cuk integrado é uma versão simplificada do conversor convencional, descrito na seção~\ref{ssec:cuk_conv_met}, do qual são retirados os componentes ao se retirar os componentes $C2$, $L2$ e $D$, conectado a um inversor, os quais também já foram descritos.
+
+Sendo assim, o circuito obtido para este conversor, sem a definição do controle do inversor, está presente na figura~\ref{fig:integ_cuk_met}
+
+\begin{figure}[htbp]%
+	\begin{center}%
+		\includegraphics[width=0.75 \linewidth]{integ_cuk_circ_psim}
+		\caption{Circuito do conversor cuk integrado}
+		\label{fig:integ_cuk_met}
+	\end{center}
+\end{figure}
+
+\section{Rastreador de ponto de máxima potência (\textit{MPPT})}
+
+O algoritmo de rastreamento de ponto de máxima potência do painel fotovoltaico escolhido foi o \textit{P\&O}. Foi desenvolvida uma rotina em C, que segue o fluxograma da figura~\ref{fig:PeO_Flux} utilizando o \textbf{C Block}, um segurador de ordem zero com frequência de amostragem de $500Hz$ e um comparador de tensão ao qual é conectado uma fonte de sinal triangular de $15kHz$ e $1V$ de amplitude, a portadora.
+
+O segurador se faz necessário para determinar a frequência da execução da rotina, uma vez que o \textbf{C Block} executa o código a cada passo da simulação.
+
+Para facilitar a inserção da MPPT nos circuitos, foi montado um sub-circuito, que compreende os dois blocos e o comparador da implementação(\ref{fig:mppt_subcircuit}). O código implementado pode ser visto no anexo~\ref{anex:mppt_code}.
+
+\begin{figure}[htb]%
+	\begin{center}%
+		\includegraphics[width=0.75 \linewidth]{mppt_psim_circ}
+		\caption{Circuito de MPPT implementado}
+		\label{fig:mppt_subcircuit}
+	\end{center}
+\end{figure}
+
+\section{Filtro}
+
+% Os componentes do filtro são encontrados a partir das equações~\ref{eq:f_res_eq1} a \ref{eq:lcl_deltaI2}. Para os cálculos serão utilizados $f = 60Hz$, $V = 180V$ e $P = 300W$. Os limites da potência reativa gerada pelo capacitor e da variação de tensão serão $5\%$ e $10\%$, respectivamente.
+
+% Dessa forma, têm-se os valores apresentados nas equações~\ref{fig:LCL_comp1} a \ref{fig:LCL_compX}.
+
+% \begin{IEEEeqnarray}{c}
+	
+% \end{IEEEeqnarray}
+
+
 
 
 \chapter{Resultados}
 
 \section{Conversores Estáticos CC/CC}
 
-\subsection{Conversor Ćuk Convencional}
+\subsection{Conversor Ćuk Convencional} \label{ssec:cuk_conv_met}
 A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:conv_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_conv_ripp_I_L1} a \ref{fig:cuk_conv_power_sign_out}.
 \begin{table}[htbp]
 	\centering
@@ -1171,6 +1242,8 @@ Para analisar as características de um inversor VSI unipolar foi simulado o cir
 \section{Conversor Integrado (CC/CA)}
 	\subsection{Conversor Ćuk Integrado}
 
+
+
 \chapter{Conclusão}
 
 FALAR SOBRE  STATE OF THE ART EM INVERSORES X MICRONIVERSORES <---> FALAR SOBRE TOPOLOGIAS DE INVERSORES
@@ -1185,616 +1258,112 @@ FALAR SOBRE TOPOLOGIA CUK (PQ ESCOLHER ESSA -> fonte de corrente?/ nova leva?)
 	FALAR SOBRE TWO PANEL MICROINVERTERS TOPOLOGY
 
 
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
 
-
-	% ajudam a reduzir a energia transmitida por longas distâncias e podem ser ligados diretamente à rede elétrica
-	%  ou não, embora o primeiro caso seja mais usual, já que caso o produtor gerar mais energia que consome este 
-	%  pode vender a energia excedente à concessionária de energia.
-	% 
-	% Em um sistema com geração distribuída, vários geradores de pequeno porte além da atual rede de geração centralizada. Estes produtores de energia de pequeno porte ajudam a reduzir a energia transmitida por longas distâncias e podem ser ligados diretamente à rede elétrica ou não, embora o primeiro caso seja mais usual, já que caso o produtor gerar mais energia que consome este pode vender a energia excedente à concessionária de energia.
-	% 
-	% Dentre as alternativas para a implantação deste sistema de geração distribuída estão as energias eólica e solar, principalmente. Entretanto a energia solar fotovoltaica tem chamado se destacado pela facilidade de operação e manutenção proporcionada, além do avanço nas tecnologias de células solares, com capacidade de conversão com eficiência de até 25,6\%, para o caso de células silício de junção única\cite{green2016solar}. 
-
-	% 
-	% Para a utilização de painéis fotovoltaicos conectados à rede elétrica de forma a possibilitar a venda do excedente de energia produzida à concessionária, é necessário a instalação de um inversor responsável pela conversão da tensão contínua fornecida pelos painéis em tensão alternada de 60Hz, correspondente à rede elétrica, além de um medidor especial que é capaz de mensurar a energia fornecida e a energia consumida pelo imóvel no qual os painéis estão instalados. 
-	% Entretanto  para o caso em que todos os painéis forem ligados em série e conectados a um único inversor de alta potência o efeito de sombreamento de painéis se torna um problema considerável.
-	% 
-	% O efeito de sombreamento é causado por qualquer obstrução que faça com que os painéis não sejam irradiados com a mesma intensidade, de forma que as células que recebem menor radiação limitarão a corrente total que passa pela série de painéis. Além da possibilidade de dano às células, devido ao aumento da temperatura causado pela absorção de energia nos casos em que a corrente de saída do circuito é maior que a corrente da célula sombreada e o diodo desta seja polarizado reversamente \cite{7512858}, este efeito faz com que o potencial de geração dos painéis seja limitado pelos painéis sombreados.
-	% 
-	% Para contornar os problemas advindos tanto da ligação em série de diversos painéis fotovoltaicos quanto do uso de um único inversor de alta potência, podem ser utilizados inversores de baixa potência responsáveis pela conversão da energia gerada por um ou mais painéis e a conexão destes com a rede elétrica, os microinversores. Todavia, a utilização de um microniversor por painel pode resultar em um aumento do custo de implementação do sistema, já que, embora sejam necessários menos cabos com capacidade para altos valores de corrente serão necessários vários inversores eletrônicos em um sistema que anteriormente possuía apenas um, ainda que este seja maior e mais caro.
-	% 
-	% O objetivo deste trabalho é desenvolver um estudo comparativo de microniversores ligados à uma fonte primária, no caso um sistema fotovoltaico, à rede elétrica.
-	% Para efetuar essa análise  serão estudadas as perdas em cada circuito, os algoritmos de MPPT, o desgaste e tempo de vida dos componentes e a viabilidade da montagem de um sistema fotovoltaico ligado à rede utilizando cada topologia.
-	% Para finalizar o estudo os dados obtidos serão comparados de modo a evidenciar as características que diferenciam as topologias nos quesitos estudados. Além disso, será feita uma proposta de montagem da topologia com melhor desempenho.
-
-% possa ser comparativo é analisar o custo de implementação, o tempo de vida útil e a eficiência energética de diferentes topologias de microniversores para conexão de painéis fotovoltaicos à rede elétrica. Estes parâmetros são importantes por estarem diretamente relacionados aos custos envolvidos na instalação e manutenção, além da capacidade de geração de um sistema fotovoltaico conectados à rede, variáveis de total interesse do consumidor final.
-
-
-%, que deve optar por uma das várias combinações já presentes no mercado.
-
-% A redução do custo  de compra de painéis fotovoltáicos tem levado ao aumento da produção de energia solar residencial.
-
-%falar da visao ambiental crescente.
-%Falar do custo baixo, falar do baixo rendimento dos paineis, explicitar vantagens do microniversor, em relação ao inversor.
-%
-
-
-\begin{comment}
-
-
-  Os conversores multiníveis com tais topologias são aplicados em diversos sistemas. Dentre eles, estão os veículos elétricos e híbridos e aplicações de geração de energia a partir de painéis fotovoltáicos. No caso dos veículos elétricos, as baterias fornecem a tensão c.c. que é convertida em tensão c.a. para os motores de tração, sejam de indução ou síncronos. Para os painéis, a tensão c.c. gerada por eles é convertida para tensão c.a. com objetivo de fornecer energia elétrica a uma residência, por exemplo.
-
-  Em ambos os casos, o recurso de fornecimento de energia é limitado e escasso. No caso dos painéis, ainda que a luz solar forneça bastante energia, o rendimento dos atuais painéis disponíveis no mercado é baixo. Dessa forma, o manejo dos recursos de tensão c.c. deve ser realizado com a máxima eficiência possível. Mesmo para casos em que o recurso não é escasso, como, por exemplo, metrôs e trens urbanos, o gasto de energia de tais aplicações é extremamente elevado e, portanto, um baixo rendimento torna os custos de operação muito elevados.
-
-  O objetivo deste trabalho é analisar, dentre as configurações de conversores multiníveis, qual apresenta o melhor rendimento energético quando utilizados para tração elétrica. Tal parâmetro também será comparado com a complexidade da implementação da topologia, com os custos envolvidos na fabricação de tais conversores e com o comportamento frente às distorções harmônicas geradas.
-  
-\end{comment}
-
-
-\begin{comment}
-
-	\section{Informações gerais sobre este documento}
-	Este documento e seu código-fonte são exemplos de referência de uso da classe
-	\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-	exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-	gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-	- Trabalhos acadêmicos - Apresentação}.
-
-	A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
-	modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-	somente os requisitos das normas da ABNT. Uma lista completa das normas
-	observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
-
-	Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-	\url{http://abntex2.googlecode.com/}. Também fique livre para conhecer,
-	estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-	modificados tenham seus nomes alterados e que os créditos sejam dados aos
-	autores originais, nos termos da ``The \LaTeX\ Project Public
-	License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-	Encorajamos que sejam realizadas customizações específicas deste exemplo para
-	universidades e outras instituições --- como capas, folha de aprovação, etc.
-	Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-	\abnTeX, distribua-se arquivos com as respectivas customizações.
-	Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-	incompatíveis com as customizações promovidas. Consulte
-	\citeonline{abntex2-wiki-como-customizar} par mais informações.
-
-	Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
-	\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-	\cite{memoir}. 
-
-	Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
-	você produzirá, de modo que o principal esforço seja concentrado no principal:
-	na contribuição científica.
-
-	Equipe \abnTeX 
-
-	Lauro César Araujo
-
-\end{comment}
-
-\begin{comment}
-	% ---
-	\section{Aliquam vestibulum fringilla lorem}
-	% ---
-	\lipsum[1]
-	% ---
-
-\end{comment}
 % ----------------------------------------------------------
-% Capitulo com exemplos de comandos inseridos de arquivo externo 
+% ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------
+\postextual
 
-%\include{abntex2-modelo-include-comandos}
-
-
-
-%\begin{comment}
-%
-% \chapter{Revisão Bibliográfica}
-%
-%% \section{Histórico e Estado da Arte}
-%
-%%\chapter{Histórico e Estado da Arte}
-%
-%\section{Células e Painéis Fotovoltaicos}
-%
-%Em 1839, aos 19 anos de idade, o físico francês Edmond Becquerel descobriu o efeito fotovoltaico que foi inicialmente conhecido como efeito Becquerel \cite{Becquerel1839}. Este conduzia um experimento químico envolvendo uma célula eletrolítica composta por eletrodos metálicos de platina
-%% e, posteriormente de prata,
-% submersos em eletrólito, uma solução condutora de eletricidade \cite{111582}. Becquerel percebeu que ao iluminar um dos eletrodos, ocorria a circulação de corrente elétrica entre os terminais da célula. Uma figura do esquema da célula utilizada é mostrado na Figura~\ref{fig:BeqCell}, retirada de \citeonline{111582}.
-%
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[width=0.5 \textwidth]{beqcell}
-%		\caption{Diagrama da célula eletrolítica utilizada por Becquerel}
-%		\label{fig:BeqCell}
-%	\end{center}
-%\end{figure}
-%
-%Segundo \citeonline{LINCOT2017381}, a primeira célula fotovoltaica operacional foi criada por C. Fritts \cite{Fritts01121883} em 1883 e posteriormente adotada por Werner von Siemens e J. Maxwell \cite{WSiemens1885}. Fritts inclusive foi responsável por implantar em um telhado de Nova Iorque o primeiro painel solar, composto por células fotovoltaicas ligadas entre si em série e/ou paralelo.
-%% foi instalado em um telhado de Nova Iorque em 1884 por Fritts.
-%
-%Contudo, a primeira célula solar considerada eficiente, com eficiência de conversão maior que 5\%\footnote{Valor estipulado pelo departamento de gestão para credibilidade da indústria da Bell Labs}, foi apresentada somente em 1954 por \citeonline{doi:10.1063/1.1721711}, com capacidade de converter 6\% da energia irradiada sobre ela. A publicação desse artigo, inclusive, é amplamente considerada o nascimento da célula solar de silício \cite[p.~383]{LINCOT2017381}.
-%
-%Desde então foram feitos diversos avanços tecnológicos na área de conversão de energia fotovoltaica (de Arsenieto de Gálio), de forma a já serem possíveis células dotadas de uma única junção p-n com eficiência de até 28,8\%. %\footnote{Células de Arsenieto de Gálio (GaAs)}.
-% Estes avanços também tornam factíveis módulos com células de silício, mais comuns no mercado devido ao menor custo de produção, tão eficientes quanto 23,8\%, segundo \citeonline{green2016solar}.
-%
-%Todavia, para a utilização da energia gerada pelos módulos fotovoltaicos seja para carregar baterias ou para a conexão com a rede elétrica se fazem necessários conversores eletrônicos de potência. O papel desses equipamentos eletrônicos é condicionar a tensão CC advinda dos módulos para a tensão de carregamento das baterias ou a tensão e frequência da rede(CA), de acordo com a característica do sistema. Além disso, também tem a função de proteger tanto os módulos quanto as baterias e a rede elétrica de qualquer anomalia que possa ocorrer, como curto-circuito, por exemplo.
-%
-%\section{Inversores e Microinversores solares}
-%
-%Para se aproveitar ao máximo e garantir a confiabilidade da energia gerada pelos módulos fotovoltaicos faz-se necessário conectá-los à conversores eletrônicos denominados inversores fotovoltaicos, também conhecidos como inversores solares.  Estes dispositivos eletrônicos podem ser divididos em dois tipos principais de acordo com tipo de utilização. Existem, portanto, inversores destinados para sistemas isolados (\textit{off grid}) e inversores destinados à ligação à rede elétrica (\textit{grid tie}).
-%
-%Nos projetos em que os inversores não serão conectados à rede de uma concessionária de energia são utilizados, geralmente, conversores CC/CC que,
-%%ou CC/CA, sendo este último menos usual devido à incapacidade de alimentação em certos momentos do dia nos quais os painéis fornecem menos energia. Já o sistema para o primeiro caso deve,
-%além de fornecer energia aos circuitos instalados, devem manter um banco da baterias carregado, proporcionando um estoque de energia disponível nos momentos em que os painéis não geram quantidade suficiente para suprir a demanda, durante a noite, por exemplo \cite{8378937,8357129,7439036}.
-%
-%Sistemas ligados à rede necessitam de um inversor eletrônico capaz de converter a tensão CC dos módulos em tensão CA, com frequência e amplitude devidamente alinhados a estes mesmos parâmetros no barramento de alimentação (rede da concessionária de energia). É muito importante, também, que estes dispositivos sejam capazes de oferecer proteção anti-ilhamento, para que nos momentos em que ocorra um problema na rede
-%%  caso um problema ocorra na rede 
-%elétrica e esta seja desligada, o inversor seja capaz de perceber esta alteração e cessar o fornecimento de energia à rede. Esta proteção tem o intuito de proteger tanto os equipamentos da rede elétrica quanto os trabalhadores que irão efetuar a manutenção da mesma.
-%
-%\subsection{Sistemas conectados à rede}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%FALAR AQUI SOBRE AS POSSIVEIS MONTAGENS DOS PAINEIS --- SERIE, PARALELO, MISTO, CARALHO A 4
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%Os sistemas de condicionamento de potência, SCP ou PCS, do inglês \textit{power conditioning systems}, podem ser catalogados em três categorias: \textbf{SCPs centrais}, \textbf{SCPs série} e \textbf{SCPs integrados ao módulo} \cite{Kwon2009}.
-%
-%Como o próprio nome já diz, SCPs centrais são aqueles ligados ao barramento CC formado pela diferença de potencial criada pela associação dos módulos fotovoltaicos.%, seja em série quanto em paralelo,
-%Esta estrutura de módulos apresenta tanto um alto valor de tensão quanto capacidade para alta potência, de forma que os inversores utilizados nestes sistemas também apresentam estas características. Além de problemas estruturais como a necessidade de cabos de alta tensão CC entre o conversor e os painéis, esta configuração ainda apresenta eficiência relativamente baixa devido ao efeito de sombreamento parcial e ao desequilíbrio entre os arrays de painéis conectados em paralelo \apud[p.~410]{Kwon2009}{Zhang2006}.
-%
-%Já no sistema de condicionamento de potência série, cada inversor é responsável por um conjunto de painéis conectados entre série, que chamamos de \textit{array}. Estes inversores são conectados em paralelo entre si e conseguem extinguir o problema do desequilíbrio entre conjuntos de painéis em paralelo
-%%, já que todos estão ligados em série
-%. Todavia, apesar de reduzir os problemas com sombreamento relatados para os SCPs centrais, estes continuam presentes.
-%
-%Por fim, sistemas integrados ao módulo têm um inversor dedicado por módulo, de forma a extinguir o problema de sombreamento parcial. Além disso, cada módulo tem seu próprio MPPT (\textit{maximum power point tracker}), responsável por fazer com que o sistema trabalhe sempre na melhor condição possível, ou próximo dessa, em relação à potência desenvolvida. Com isso, em questão de eficiência, esta configuração apresenta resultados melhores que as demais. Entretanto, possui custo de implantação maior que as demais, já que são necessários tantos inversores quanto o número de módulos presentes na instalação.
-%
-%Na Figura~\ref{fig:SCPs} estão apresentadas as categorias de SCP, nas quais:
-%\begin{enumerate}[label=(\alph*)]
-%\item SCP central
-%\item SCPs série
-%\item SCPs integradas aos módulos
-%\end{enumerate}
-%
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.7 \textwidth]{pcsKinds}
-%		\caption{Os três tipos de SCP}
-%		\label{fig:SCPs}
-%	\end{center}
-%\end{figure}
-%
-%
-%\subsection{Inversores conectados à rede elétrica}
-%
-%Segundo \citeonline{Mallwitz2010}, em 1991 chegaram ao mercado os primeiros inversores fotovoltaicos produzidos em série. Estes apresentavam rendimento de cerca de 90\% e faixa de tensão CC de entrada muito estreita. Esta última característica limitava a quantidade de módulos que poderiam ser ligados ao dispositivo e, portanto, a capacidade de geração por inversor.
-%% E, em 1995 foi lançado o primeiro inversor para sistemas série, chamado "Sunny Boy". 
-%
-%Uma segunda geração de inversores começou a ser produzida em 2004. Entre as melhorias em relação à primeira geração pode-se destacar principalmente a capacidade de resfriamento do circuito. Apresentou eficiência máxima de 98\%, em laboratório ainda em 2006, ainda segundo \citeonline{Mallwitz2010}
-%
-%Já em 2007 era apresentada ao mercado a terceira geração de inversores fotovoltaicos. Com potência nominal acima de 5kW e uma nova topologia, os inversores dessa família diferem consideravelmente das famílias anteriores, tanto em potência nominal quanto em complexidade. Em 2008 foi demonstrada eficiência de 99\% em montagens laboratoriais para inversores dessa família \apud[p.~2]{Mallwitz2010}{zacharias2009}.
-%
-%% A Figura~\ref{fig:milestones}, retirada de \cite{Mallwitz2010}
-%
-%\subsection{Microniversores conectados à rede elétrica}
-%
-%Um microinversor nada mais é que um inversor de menor potência. Um microinversor solar é usualmente projetado para trabalhar conectado a apenas um módulo fotovoltaico, embora hajam propostas de microniversores de potências mais altas para conexão de até 4 painéis\cite{Kwon2009}. É, portanto, essencialmente um SCP integrado ao módulo.
-%
-%Apesar de ter seu conceito concebido desde o início da utilização de inversores fotovoltaicos, os custos de produção associados à montagem dos inversores fizeram com que este modelo reduzido fosse preterido por apresentar maior custo por Watt suportado. As principais vantagens em relação ao modelo mais usual estão tanto na manutenção mais simples, barata e menos frequente quanto no aumento da produção de energia, devido ao fato de que cada painel funciona no ponto ótimo por ter um MPPT dedicado. 
-%
-%Um sistema projetado com microinversores é capaz de atingir um custo de produção de energia até 25\% menor que um sistema mais convencional, com inversores de grande porte. Entretanto o custo da produção ainda é superior ao patamar para  energia residencial não subsidiada, de 3 dólares \apud[p.~469]{Dong2018}{Elasser2010}.
-%
-%Módulos fotovoltaicos modernos apresentam potência máxima de produção, raramente atendida, na faixa de 225W a 275W. Devido a este fato, microniversores dedicados a esses painéis geralmente apresentam potência por volta dos 220W. Por serem projetados para trabalhar com potências baixas foram desenvolvidas topologias de circuito que eliminam a necessidade da utilização de transformadores grandes e capacitores eletrolíticos, responsáveis por aumentar o espaço físico necessário para montar o equipamento e a reduzir a vida útil do circuito, já que esses componentes apresentam um ciclo de vida mais curto que os demais. Para mais sobre o tempo de vida útil de capacitores eletrolíticos consulte \citeonline{Zhao2010}.
-%
-%A principal desvantagem destes inversores, entretanto é o custo inicial do equipamento. Apesar de tornar desnecessário a utilização de cabos para altas correntes e de gerar mais energia com o mesmo número de painéis, o número de inversores utilizados é maior. %Dessa forma o investimento inicial não é tão atrativo.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% FALAR AQUI DOS MICRO INVERSORES
-%% VANTAGENS - DESVANTAGENS - DIFERENÇAS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%% \section{Topologias de Microinversores}
-%
-%
-%\chapter{Fundamentação Teórica}
-%
-%Inversores e micro-inversores, em geral são constituídos de componentes que atuam como chaves (diodos e transistores) e componentes armazenadores de energia (capacitores e indutores). Nessa seção serão apresentados os princípios de funcionamento de tais elementos, abordando também as principais causas de  perdas nos mesmos. Além disso será tratado o sistema responsável por otimizar a região de trabalho do inversor em relação à curva de resposta do painel fotovoltaico, o \emph{MPPT}.
-%
-%\section{Capacitores}
-%
-%Capacitores são componentes eletrônicos passivos armazenadores de energia capazes de acumular energia elétrica em um campo elétrico. Além da função de condensadores de energia, podem ser utilizados para outros fins em um circuito como, por exemplo, em filtros para limitar a banda de frequência vista pelo circuito seguinte.  
-%
-%Suas características construtivas variam de acordo com a capacidade de armazenamento e tensão suportados, além de sua função no circuito.
-%
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[width=0.3 \linewidth]{cap_id_}
-%		\caption{Representação de um capacitor em um diagrama de circuito}
-%		\label{fig:cap_ideal}
-%	\end{center}
-%\end{figure}
-%
-%
-%\subsection{Funcionamento}
-%
-%O funcionamento do capacitor se baseia no acúmulo de cargas em placas condutoras, próximas entre si, separadas por material dielétrico. Quando carregadas estas placas adquirem cargas opostas e surge, portanto, um campo elétrico entre elas, que corta o material dielétrico. 
-%
-%A descarga do capacitor ocorre quando há a necessidade de que o componente forneça corrente a uma seção do circuito. A movimentação de cargas pelo dielétrico resulta no enfraquecimento do campo elétrico entre as placas e portanto na redução da carga armazenada no componente.
-%
-%
-%\subsection{Perdas}
-%
-%Capacitores apresentam perdas relacionadas à corrente que circula pelo componente, tanto em frequência quanto em módulo. Uma representação de um capacitor ideal pode ser visto na figura~\ref{fig:cap_real}. Os componentes $R_s$ e $L_s$ são utilizados para modelar a dinâmica das perdas do componente.
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.8 \textwidth]{cap_re}
-%		\caption{Representação de um capacitor real}
-%		\label{fig:cap_real}
-%	\end{center}
-%\end{figure}
-%
-%Para baixas frequências, as perdas resistivas são mais perceptíveis que as causadas pela indutância presente no capacitor. Já em altas frequências, a característica indutiva do sistema se sobressai, embora a componente estática continue presente de forma proporcional ao módulo da corrente.
-%
-%Apesar de serem importantes para a escolha de capacitores e, principalmente para o dimensionamento térmico de circuitos, as perdas nos capacitores são, em geral, muito baixas e podem ser desconsideradas para o estudo de eficiência de circuitos de potência.
-%
-%
-%\section{Indutores}
-%
-%Indutores, assim como capacitores, são componentes eletrônicos passivos armazenadores de energia. Entretanto, enquanto capacitores acumulam energia em um campo elétrico gerado por uma diferença de potência entre terminais, indutores utilizam um campo magnético, gerado quando uma corrente percorre o indutor, para efetuar a retenção da energia. São constituídos de uma bobina de fio isolado enrolada em um núcleo, de ferro, ferrite e, em alguns casos, ar. O núcelo, quando metálico, é responsável por aumentar o fluxo magnético e, portanto, a indutância do componente. 
-%
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[width=0.3 \linewidth]{ind_id_}
-%		\caption{Representação de um indutor em um diagrama de circuito}
-%		\label{fig:ind_ideal}
-%	\end{center}
-%\end{figure}
-%
-%\subsection{Funcionamento}
-%
-%Indutores armazenam energia em campo magnético gerado pela corrente oscilante que flui pelo componente. Sendo assim, quanto mais rápida a variação de corrente que flui pelo indutor, maior a diferença de potencial presente entre seus terminais e, por conseguinte, maior a carga armazenada.
-%
-%O fornecimento de tensão, e corrente, a uma seção do circuito faz com que o campo magnético em torno do componente seja enfraquecido e que este, portanto, seja descarregado.
-%
-%\subsection{Perdas}
-%
-%Indutores apresentam perdas por efeito Joule no cobre do enrolamento e por histerese e Foucault no núcleo.
-%
-%As perdas joulicas estão relacionadas à resistência dos fios do enrolamento e podem ser representadas por uma resistência $R_s$ em série com o indutor.
-%
-%As perdas por histerese e pelo surgimento de correntes parasitas no núcleo estão vinculadas à natureza variáveĺ do fluxo. Enquanto a primeira se refere ao ponto de operação na curva de histerese, dependente do material que compõe o núcleo, a última se dá devido à indução de correntes no núcleo, causadas pelo próprio fluxo magnético.  
-%
-%% Devido ao fluxo variável no núcleo aparecem perdas devidas a histerese do material magnético e a circulação de correntes induzidas no próprio material do núcleo
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.6 \textwidth]{ind_re}
-%		\caption{Representação de um indutor real}
-%		\label{fig:cap_real}
-%	\end{center}
-%\end{figure}
-%
-%\section{Diodos}
-%
-%Um diodo é um dispositivo semicondutor de dois terminais composto por uma junção PN. O terminal ligado ao lado P da junção é também chamado de \emph{Anodo}(A) e o terminal ligado à seção mais negativa da junção PN (N) recebe o nome de \emph{Catodo}(K).
-%
-%Diodos são utilizados, principalmente, para a retificação de energia elétrica. Esses componentes são, idealmente, capazes de permitir o fluxo de corrente em apenas um sentido, do \emph{Anodo} para o \emph{Catodo}, de modo a filtrar sempre uma das polaridades de uma fonte alternada.
-%
-%Na figura~\ref{fig:diodo} podem ser vistas, em \textbf{a} a representação da junção PN e em \textbf{b} a representação do componente em um diagrama de circuitos, com indicação de catodo e anodo.
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.39 \textwidth]{diodo}
-%		\caption{Representações de um diodo em junção PN e para diagrama de circuitos}
-%		\label{fig:diodo}
-%	\end{center}
-%\end{figure}
-%
-%\subsection{Funcionamento}
-%
-%Um diodo ideal permite a passagem da corrente apenas quando esta flui do anodo para o catodo e bloqueia a passagem de corrente no sentido contrário, podendo ser compreendido como uma barreira de alta impedância. Entretanto, para um diodo real existe uma tensão máxima suportada quando o componente é polarizado inversamente, com corrente tentando fluir do catodo para o anodo, abaixo da qual o comportamento sobre a corrente ainda é o do bloqueio. Essa tensão recebe o nome de tensão máxima reversa ($V_{R}$). Caso a tensão reversa não ocorra de forma contínua, mas em pulsos de curta duração, a magnitude suportada pelo componente é, em geral, consideravelmente maior e é referenciada no \textit{datasheet} por V\textsubscript{RRM}, ou tensão reversa máxima repetitiva.
-%
-%Além disso, mesmo na situação de bloqueio abaixo V\textsubscript{R}, ou seja, com a tensão entre os terminais V\textsubscript{AK} entre $-V_{R}$ e $0$ há um fluxo de corrente pelo componente, da magnitude na casa dos $\mu A$, denominada \emph{corrente de fuga}. A baixa magnitude faz com que essa corrente seja geralmente desconsiderada.
-%
-%Do mesmo modo que tem-se uma tensão máxima para o bloqueio do diodo, o componente também apresenta uma diferença de potencial \emph{mínima} entre seus terminais para conduzir corrente quando polarizado diretamente (V\textsubscript{D}). Essa tensão é de aproximadamente 0,7 volts para diodos de silício.
-%
-%A curva que representa a característica V-I de um diodo pode ser vista na figura~\ref{fig:diodo_vi}, na qual podem ser percebidas a corrente de fuga, a tensão de polarização direta (V\textsubscript{F}) e a tensão máxima reversa (V\textsubscript{R}).
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.5 \textwidth]{vi_diodo}
-%		\caption{Característica V-I de um diodo}
-%		\label{fig:diodo_vi}
-%	\end{center}
-%\end{figure}
-%
-%\subsection{Perdas}
-%
-%Um diodo apresenta perdas estáticas e dinâmicas e suas perdas estáticas podem ainda ser separadas em perdas durante o bloqueio e perdas durante a condução.
-%
-%As perdas durante o bloqueio ocorrem devido à corrente de fuga presente no diodo durante esse período, geralmente de alguns $\mu A$. Já as perdas na condução são consequência da tensão terminal do componente durante este intervalo, de aproximadamente $0,7V$ para diodos de Si.
-%
-%As perdas dinâmicas são, principalmente, consequência do atraso do diodo real em sair da situação de condução e entrar na situação de bloqueio. Essa característica pode ser vista na figura~\ref{fig:rr_diodo}, na qual I\textsubscript{RR} é a corrente reversa máxima e t\textsubscript{rr} é o tempo de recuperação reversa.
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.5 \textwidth]{rr_diodo}
-%		\caption{Dinâmica de bloqueio do diodo}
-%		\label{fig:rr_diodo}
-%	\end{center}
-%\end{figure}
-%
-%Percebe-se que, além do tempo para a corrente sair do seu valor nominal e ir a zero, ainda ocorre o tempo de recuperação reversa, no qual a corrente fica negativa até atingir um valor máximo e retornar novamente a zero.
-%
-%
-%\section{Transistores}
-%
-%Transistores são dispositivos semicondutores com três ou mais terminais capazes de regular o fluxo de corrente entre dois terminais. Dessa forma, um transistor pode ser compreendido como uma válvula de regulagem de corrente elétrica, diferentemente do diodo que é uma válvula com apenas dois estados, fechado e aberto.
-%
-%Em relação á características estruturais, os principais tipos de transistores são os transistores de junção bipolar (BJT) e os transistores de efeito de campo (FET), sendo MOSFETs os mais comuns dessa última categoria.
-%
-%% Para aplicação de potência é mais comum o uso de transistores bipolares de porta isolada, os IGBTs (insulated-gate bipolar transistor). 
-%
-%\subsection{Funcionamento}
-%
-%Transistores FET apresentam os terminais \emph{Porta} (G), \emph{Dreno} (D) e Fonte (S) enquanto componentes BJT tem as portas \emph{Base} (B), \emph{Coletor} (C) e \emph{Emissor} (E).
-%Esses dispositivos funcionam como controladores da corrente que flui por um de seus terminais a partir da diferença de potencial entre  seus outros dois terminais.
-%
-%Para um transistor BJT, por exemplo, aplica-se uma tensão $V_{BE}$ positiva para retirar o componente do estado de corte, no qual ele representa uma chave aberta e, portanto não há fluxo de corrente. Caso $V_{BE}$ seja positiva e $V_{BC}$ também o seja, o transistor entra em estado de saturação e age como uma chave fechada, permitindo a passagem de corrente entre coletor e emissor. Esse comportamento binário de chave aberta ou fechada (corte-saturação) e útil para circuitos digitais por simplesmente permitir ou impedir a passagem de corrente, de forma que haja apenas dois níveis. 
-%Outro estado útil de um transistor BJT é o estado de amplificação linear, que corresponde ao componente atuar na sua zona ativa direta. Esta situação ocorre quando  a tensão $V_{BE}$ é positiva e $V_{BC}$ é negativa. Nesse estado o dispositivo apresenta além do ganho de corrente, uma certa isolação que possibilita o controle quantitativo da corrente que flui pelo emissor, útil em circuito analógicos.
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.6 \textwidth]{bjt_zones}
-%		\caption{Relação $I_C$ - $V_{CE}$ de um transistor BJT (NPN)}
-%		\label{fig:bjt_zones}
-%	\end{center}
-%\end{figure}
-%
-%A figura~\ref{fig:bjt_zones} representa curvas características de $I_C$ por $V_{CE}$ para um transistor BJT (NPN). Nela é possível perceber claramente a diferença na dinâmica da corrente de coletor em cada uma das zonas de atuação do componente, além disso percebe-se também uma relação entre a corrente de coletor $I_C$ e a corrente de base $I_B$, de modo que quanto maior a corrente de base, maior a corrente de coletor máxima.
-%
-%\subsection{Perdas}
-%
-%Transistores apresentam, princialmente, perdas por condução e por chaveamento. Por ser proporcional à corrente que transita pelo componente a perda durante a condução é encontrada de forma mais simples que a gerada pelo chaveamento. Devido à natureza não linear o desvio de energia durante o acionamento e o desligamento do transistor é difícil de ser estimado. Em um MOSFET, por exemplo, esse tipo de perda se relaciona com as capacitâncias parasitas do dispositivo.
-%
-%Em transistores IGBT, está presente também uma terceira causa de dissipação de energia, um diodo reverso parasita existente devido ao processo de produção desses dispositivos. Este componente parasita apresenta as perdas de um diodo, de condução (estática) e devido à recuperação reversa (dinâmica)
-%
-%
-%\section{MPPT}
-%
-%Um rastreador de ponto de máxima potência, MPPT (do inglês \textit{Maximum Power Point Tracker}) é um sistema responsável por garantir que o inversor opere com eficiência e que a geração de energia sejam máximas dada uma certa irradiância solar.
-%
-%É utilizado devido à curva P-V característica de um painel fotovoltaico em relação à irradiância, que pode ser vista na figura~\ref{fig:PV_panel}. Em inversores de estágio único o MPPT controla a tensão do barramento CC e para sistemas de dois estágios controla a tensão de entrada do conversor CC-CC.
-%
-%\begin{figure}[!ht]
-%	\begin{center}
-%		\includegraphics[width=0.7 \textwidth]{images/pv_module_iv.png}
-%		\caption{Curva P-V de um painel fotovoltaico para diferentes irradiâncias}
-%		\label{fig:PV_panel}
-%	\end{center}
-%\end{figure}
-%
-%Uma das técnicas mais simples de MPPT utiliza o método \textit{perturba e observa}. Nesse método é inserida no sistema uma perturbação e seu efeito na saída analisado de acordo com o gradiente e, de acordo com a resposta o sistema responde elevando ou diminuindo a tensão do barramento. Sua principal desvantagem está no fato de o valor de referência ser constantemente perturbado, além de não ser eficaz contra mudanças abruptas de irradiância, devido a sua natureza de trabalhar com vizinhanças.
-%
-%Técnicas mais elaboradas que utilizam o próprio método \textit{perturba e observa} como base e também outras que utilizam algoritmos difusos também são utilizados para o rastreamento do ponto de potências máxima de painéis fotovoltaicos.
-%
-%
-%\begin{comment}
-%
-%A seguir será apresentada a fundamentação teórica necessária para a compreensão de cada topologia a ser utilizada.
-%
-%\section{Microinversor com conversores boost e série ressonante}
-%
-%% High-efficiency module-integrated photovoltaic power conditioning system
-%
-%% high step-up DC–DC converter and the full-bridge inverter
-%
-%A primeira topologia a ser analisada foi proposta por \citeonline{Kwon2009}.% apresenta duas fases de conversão.
-%Primeiramente um conversor CC-CC boost, juntamente com um retificador série-ressonante, eleva a tensão de entrada para um valor mais apropriado para o inversor CC-CA seguinte, que condiciona esse sinal para a conexão com a rede elétrica. O circuito desta topologia pode ser visto na figura~\ref{fig:topologia1}.
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{images/topologia1}
-%	\caption{Topologia proposta por \citeonline{Kwon2009}}
-%	\label{fig:topologia1}
-%\end{figure}
-%
-%
-%\subsection{Características}
-%
-%O conversor boost utilizado apresenta grampeamento ativo, composto pelo capacitor de grampeamento $C_c$ e um transistor auxiliar $S_2$, além d transistor de chaveamento do conversor boost $S_1$. O circuito de grampeamento ativo tem a função de suavizar o chaveamento do transistor de potência e, portanto, o transistor $S_2$ é acionado de modo complementar ao transistor principal.
-%
-%Nesta topologia, o retificador serie ressonante é utilizado para remover o problema da recuperação reversa dos diodos de saída do retificador, além de proporcionar maior ganho de tensão na conversão. É composto pelos diodos $D_1$ e $D_2$, além dos capacitores ressonantes  $C_r1$ e $C_r2$. Para uma operação simétrica os capacitores ressonantes devem ser iguais.
-%
-%O conversor CC-CC descrito acima pode ser visto em destaque na figura~\ref{fig:top1-CC}.
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{images/top1CC}
-%	\caption{Conversor CC proposto por \citeonline{Kwon2009}}
-%	\label{fig:top1-CC}
-%\end{figure}
-%
-%
-%\subsubsection{Expectativa de Vida}
-%
-%A utilização de capacitores de altos valores obriga a presença de capacitores eletrolíticos, com destaque para $C_d$. Este tipo de capacitor tende a envelhecer e causar falhas operacionais mais rápido que capacitores de filme ou cerâmica e , portanto, a utilização destes tende a reduzir a vida útil do dispositivo.
-%
-%Segundo \citeonline[p.~2678]{Hu2013}, a expectativa de vida de um capacitor eletrolítico está entre 1000 e 7000 horas, funcionando a 105ºC.
-%
-%\subsection{Funcionamento}
-%
-%\subsection{Cálculo de Perdas}
-%
-%
-%\section{Microinversor flyback}
-%
-%A primeira topologia a ser analisada foi proposta por \citeonline{Hu2013} e é um conversor flyback com um transistor extra responsável por separar os capacitores de desacoplamento do painel fotovoltaico, o que permite maior tensão e ripple de tensão entre os terminais.
-%O circuito desta topologia pode ser visto na figura~\ref{fig:topologia2}.
-%
-%\begin{figure}[h]
-%	\centering
-%	\includegraphics[width=0.7\linewidth]{images/topologia2}
-%	\caption{Conversor Flyback proposto por \citeonline{Hu2013}}
-%	\label{fig:topologia2}
-%\end{figure}
-%
-%
-%\subsection{Características}
-%
-%Esta topologia é capaz de eliminar o ripple de potência com um capacitor de filme de poliéster, bem menor e mais durável que um capacitor elétrico, de modo que a vida útil do equipamento será consideravelmente maior que a de um inversor que faz uso de capacitores eletrolíticos \cite[p.~2678]{Hu2013}. Além disso, a fuga de energia do transformador é tratada pelo próprio circuito, sendo reaproveitada pelo capacitor de desacoplamento de potência.
-%
-%\subsection{Funcionamento}
-%
-%\subsection{Cálculo de Perdas}
-%
-%\newpage
-%
-%\section{Topologia 3}
-%
-%\subsection{Características}
-%
-%\subsubsection{Expectativa de Vida}
-%
-%\subsection{Funcionamento}
-%
-%\subsection{Cálculo de Perdas}
-%
-%
-%\end{comment}
-%
-%% ----------------------------------------------------------
-%% Capítulo 4 - Metodologia
-%% ----------------------------------------------------------
-%\chapter{Metodologia}
-%
-%\begin{comment}
-%
-%
-%O trabalho será desenvolvido a partir de simulações das topologias propostas, por meio do software PSIM. Serão utilizados como valores de entradas dados obtidos a partir de simulações de modelos já pré-estabelecidos para o funcionamento de painéis fotovoltaicos.
-%
-%Para a análise de eficiência, serão calculadas as perdas para cada topologia com os circuitos submetidos aos mesmos dados de entrada e operando no seu ponto ótimo para garantir que os resultados encontrados sejam comparáveis. Pretende-se, ainda, executar simulações considerando o efeito de sombreamento parcial do módulo, com o intuito de analisar a resposta das diferentes topologias a esse fenômeno.
-%%Já para o custo de instalação, serão levantados os componentes necessários e estimado o custo final de montagem de cada equipamento.
-%
-%%Será feita, também, uma pesquisa para definir métodos de análise de circuito que levem em conta o desgaste e o envelhecimento e, portanto, permita que sejam estipulados tempos de vida útil para cada um dos microinversores propostos.
-%
-%\end{comment}
-%
-%
-%
-%% ----------------------------------------------------------
-%% Capítulo 4 - Resultados e Discussao
-%% ----------------------------------------------------------
-%\chapter{Resultados e Discussão}
-%
-%% ---
-%%\section{Vestibulum ante ipsum primis}
-%% ---
-%%\lipsum[19-23]
-%% ---
-%
-%% ---
-%%\section{Integer porta neque vitae massa}
-%% ---
-%%\lipsum[24-29]
-%% ---
-%
-%% ----------------------------------------------------------
-%% Capítulo 5 - Conclusões
-%% ----------------------------------------------------------
-%\chapter{Conclusões}
-%
-%% ---
-%%\section{Pellentesque sit amet pede ac sem eleifend}
-%% ---
-%%\lipsum[30-31]
-%% ---
-%%\section{Phasellus id magna}
-%% ---
-%%\lipsum[33-40]
-%
-%%\end{comment}
-%% ---
-%% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
-%% ---
-%\bookmarksetup{startatroot}% 
-%% ---
-%
-%% ----------------------------------------------------------
-%% ELEMENTOS PÓS-TEXTUAIS
-%% ----------------------------------------------------------
-%\postextual
-%
-%% ----------------------------------------------------------
-%% Referências bibliográficas
-%% ----------------------------------------------------------b\
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------b\
 \bibliography{abntex2-modelo-references}
-%
-%\begin{comment}
-%
-%% ----------------------------------------------------------
-%% Apêndices
-%% ----------------------------------------------------------
-%
-%% ---
-%% Inicia os apêndices
-%% ---
-%\begin{apendicesenv}
-%
-%% Imprime uma página indicando o início dos apêndices
-%\partapendices
-%
-%% ----------------------------------------------------------
-%\chapter{Quisque libero justo}
-%% ----------------------------------------------------------
-%
-%\lipsum[50-54]
-%
-%% ----------------------------------------------------------
-%\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra}
-%% ----------------------------------------------------------
-%\lipsum[55-59]
-%
-%\end{apendicesenv}
-%% ---
-%
-%\end{comment}
-%
-%\begin{comment}
-%
-%% ----------------------------------------------------------
-%% Anexos
-%% ----------------------------------------------------------
-%
-%% ---
-%% Inicia os anexos
-%% ---
-%\begin{anexosenv}
-%
-%% Imprime uma página indicando o início dos anexos
-%\partanexos
-%
-%% ---
-%\chapter{Morbi ultrices rutrum lorem}
-%% ---
-%\lipsum[60]
-%
-%% ---
-%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus}
-%% ---
-%\lipsum[61-63]
-%
-%% ---
-%\chapter{Fusce facilisis lacinia dui}
-%% ---
-%\lipsum[64-65]
-%
-%\end{anexosenv}
-%
-%\end{comment}
-%
-%
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+% \begin{apendicesenv}
+
+% % Imprime uma página indicando o início dos apêndices
+% \partapendices
+
+% % ----------------------------------------------------------
+% \chapter{Quisque libero justo}
+% % ----------------------------------------------------------
+
+% \lipsum[50-54]
+
+% % ----------------------------------------------------------
+% \chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra}
+% % ----------------------------------------------------------
+% \lipsum[55-59]
+
+% \end{apendicesenv}
+% ---
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+\partanexos
+
+% ---
+\chapter{Código da implementação de MPPT utilizado}\label{anex:mppt_code}
+
+\lstset{
+    language         = C,
+    basicstyle       = \ttfamily,
+    keywordstyle     = \bfseries,
+    identifierstyle  = \color{blue},
+    commentstyle     = \color{olive},
+    moredelim        = [s][\color{ForestGreen}]{/**}{*/},
+    stringstyle      = \color{magenta},
+    frame            = single,
+    showstringspaces = false,
+		columns          = flexible
+}
+
+% [caption = Código C utilizado no PSIM]
+\begin{lstlisting}
+double v = in[0];
+double i = in[1];
+
+double old_v, old_p, old_out, temp;
+
+double p = v*i;
+double delta_p = p-old_p;
+double delta_v = v-old_v;
+
+if(delta_p > 00) {
+    if(delta_v > 0) {
+     temp -= 0.01; //reduz d
+    } else if (delta_v  < 0) {
+     temp += 0.01; //aumenta d
+    }
+} else if (delta_p < 0) {
+    if(delta_v > 0) {
+     temp += 0.01; //reduz d
+    } else if (delta_v < 0) {
+     temp -= 0.01; //aumenta d
+    }
+} else {
+  temp = temp;
+}
+
+if(temp > 0.95) temp = 0.95;
+if(temp < 0.05) temp = 0.05;
+
+out[0] =  temp;
+old_v = v;
+old_p = p;
+\end{lstlisting}
+% ---
+
+\end{anexosenv}
+
+
 \end{document}
