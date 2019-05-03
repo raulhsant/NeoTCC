@@ -784,7 +784,7 @@ Um fluxograma que representa o funcionamento do algoritmo de condutância increm
 
 Para conectar o sistema a rede elétrica é necessário filtrar a tensão gerada a fim para reduzir os harmônicos presentes e fazer com que o sinal se assemelhe à uma senoide, e não a um trem de pulsos. Esse processo é feito com a inclusão de um filtro passivo entre o inversor e a rede da concessionária de energia.
 
-Podem ser empregados três diferentes tipos de filtros L, LC e LCL. Destes, o último é mais utilizado atualmente devido a sua maior eficiência\cite{LCL_FILTER}.
+Podem ser empregados três diferentes tipos de filtros L, LC e LCL. Destes, o último é mais utilizado atualmente devido a sua maior eficiência e ao fato de minimizar a distorção da corrente injetada na rede elétrica\cite{LCL_FILTER}\cite{LCL_FILTER_Reznik}.
 
 A topologia do filtro LCL pode ser vista na figura~\ref{fig:lcl_filt_top}.
 
@@ -794,6 +794,31 @@ A topologia do filtro LCL pode ser vista na figura~\ref{fig:lcl_filt_top}.
 		\caption{Topologia do filtro LCL monofásico\cite{LCL_FILTER}}
 		\label{fig:lcl_filt_top}
 \end{figure}
+
+Para o projeto do filtro LCL, inicialmente é necessário encontrar os valores de impedância e capacitância base, $Z_b$ e $C_b$, de acordo com as equações~\ref{eq:lcl_zb} e ~\ref{eq:lcl_cb} nas quais $P_n$ é a potência nominal do sistema, $V_g$ a tensão nominal da rede, e $f$ a frequência da rede elétrica.
+\begin{IEEEeqnarray}{c}%
+	Z_b = \frac{V_g^2}{P_n} \label{eq:lcl_zb}\\
+	C_b = \frac{1}{2 \pi f Z_b} \label{eq:lcl_cb}
+\end{IEEEeqnarray}
+
+Os indutores $L_1$ e $L_2$ podem ser encontrados a partir das equações~\ref{eq:lcl_l1} e \ref{eq:lcl_l2}, respectivamente. Nessas equações $V_{CC}$ é a tensão do barramento CC ao qual o inversor está conectado, $f_{sw}$ é a frequência de chaveamento do inversor e $\Delta I_{L1_{max}}$ a variação máxima de corrente desejada no indutor, $k_a$ é a atenuação desejada e $C$ o valor do capacitor, definido pela equação~\ref{eq:lcl_c}.
+\begin{IEEEeqnarray}{c}%
+	L_1 = \frac{V_{CC}}{6 f_{sw} \Delta I_{L1_{max}}} \label{eq:lcl_l1}	\\
+	L_2 = \frac{\sqrt{\frac{1}{k_a ^2 }}+1}{\left(2 \pi f_{sw} \right)^2 C} \label{eq:lcl_l2}\\
+	C = k C_b \label{eq:lcl_c}
+\end{IEEEeqnarray}
+
+A frequência de ressonância do filtro implica diretamente no valor do resistor de ressonância, $R_f$ e pode ser calculada a partir dos valores de $L_1$, $L_2$ e $C$, como demonstra a equação~\ref{eq:lcl_fres}. Além disso, caso essa frequência não satisfaça a equação~\ref{eq:lcl_fres_law}, o filtro deve ser recalculado para outro valor de atenuação.
+\begin{IEEEeqnarray}{c}%
+	f_{res} = \frac{1}{2 \pi} \sqrt{\frac{L_1+L_2}{L_1 L_2 C}} \label{eq:lcl_fres}\\
+	10f_g < f_{res} < 0,5 f_{sw} \label{eq:lcl_fres_law}
+\end{IEEEeqnarray}
+
+O resistor $R_f$ é responsável por atenuar parte da oscilação de tensão proveniente do chaveamento, a fim de evitar a ressonância e deve ter o valor equivalente a um terço da impedância do capacitor $C$ na frequência de ressonância\cite{LCL_FILTER_Reznik}, assim como demonstra a equação~\ref{eq:lcl_rf}.
+
+\begin{equation}
+	R_f = \frac{1}{6 \pi f_{res} C} \label{eq:lcl_rf}
+\end{equation}
 
 % Para que o filtro seja estável, é necessário que a relação definida pela equação~\ref{eq:f_res_eq2}, na qual $f$ é a frequência da rede, $f_{sw}$ a frequência de chaveamento do inversor e $f_{res}$ a frequência de ressonância do filtro, definida na equação~\ref{eq:f_res_eq1}\cite{LCL_FILTER}.
 % \begin{IEEEeqnarray}{c}
@@ -1049,16 +1074,81 @@ Para facilitar a inserção da MPPT nos circuitos, foi montado um sub-circuito, 
 
 \section{Filtro}
 
-% Os componentes do filtro são encontrados a partir das equações~\ref{eq:f_res_eq1} a \ref{eq:lcl_deltaI2}. Para os cálculos serão utilizados $f = 60Hz$, $V = 180V$ e $P = 300W$. Os limites da potência reativa gerada pelo capacitor e da variação de tensão serão $5\%$ e $10\%$, respectivamente.
+Os componentes do filtro são encontrados a partir das equações~\ref{eq:lcl_zb} a \ref{eq:lcl_rf}.
 
-% Dessa forma, têm-se os valores apresentados nas equações~\ref{fig:LCL_comp1} a \ref{fig:LCL_compX}.
+O filtro é projetado para um inversor de $300W$, conectado a rede monofásica, com tensão de barramento CC de $210V$ e frequência de chaveamento de $15kHz$. Utilizando esses parâmetros, são encontrados os componentes representados pelas equações~\ref{eq:lcl_l1_met} a \ref{eq:lcl_c_met}.
+\begin{IEEEeqnarray}{c}%
+	L_1 = 9,88mH \label{eq:lcl_l1_met}\\
+	L_2 = 68,4 \mu H \label{eq:lcl_l2_met}\\
+	C = 9,87uF \label{eq:lcl_c_met}
+\end{IEEEeqnarray}
 
-% \begin{IEEEeqnarray}{c}
-	
-% \end{IEEEeqnarray}
+Verifica-se, a partir da equação~\ref{eq:lcl_fres} e dos componentes encontrados que a frequência de ressonância do circuito é de $6144Hz$. Como a frequência de ressonância é superior a $600Hz$ e inferior a $7500Hz$ a equação~\ref{eq:lcl_fres_law} é satisfeita e pode-se calcular o resistor de ressonância, a partir da equação~\ref{eq:lcl_rf}. O valor encontrado para o resistor está presente na equação~\ref{eq:lcl_rf_met}.
+\begin{equation}%
+	R_f = 0,87 \Omega \label{eq:lcl_rf_met}
+\end{equation}
 
+O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o capacitor $C$ aproximado para o valor comercial mais próximo, de $10 \mu F$.
 
+\begin{figure}[htb]%
+	\begin{center}%
+		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+		\caption{Filtro LCL implementado}
+		\label{fig:lcl_filter_impl}
+	\end{center}
+\end{figure}
 
+\subsection{Conjuntos Painel-Conversor CC/CC-Inversor-Filtro}
+
+Nessa seção são apresentados so circuitos dos sistemas compostos pela conexão dos estágios projetados até aqui. Os circuitos serão expostos nas figuras~\ref{fig:sys_cuk_conv_bip} a ~\ref{fig:sys_cuk_int_uni} e no anexo~\ref{anex:circ_images}, com maior qualidade.
+% \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
+% \begin{figure}[htb]%
+% 	\begin{center}%
+% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+% 		\caption{Filtro LCL implementado}
+% 		\label{fig:sys_cuk_conv_bip}
+% 	\end{center}
+% \end{figure}
+% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Bipolar}
+% \begin{figure}[htb]%
+% 	\begin{center}%
+% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+% 		\caption{Filtro LCL implementado}
+% 		\label{fig:sys_cuk_ent_bip}
+% 	\end{center}
+% \end{figure}
+% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Bipolar}
+% \begin{figure}[htb]%
+% 	\begin{center}%
+% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+% 		\caption{Filtro LCL implementado}
+% 		\label{fig:sys_cuk_int_bip}
+% 	\end{center}
+% \end{figure}
+% \subsubsection{Conversor Ćuk Convencional com Inversor VSI Unipolar}
+% \begin{figure}[htb]%
+% 	\begin{center}%
+% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+% 		\caption{Filtro LCL implementado}
+% 		\label{fig:sys_cuk_conv_unip}
+% 	\end{center}
+% \end{figure}
+% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Unipolar}
+% \begin{figure}[htb]%
+% 	\begin{center}%
+% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+% 		\caption{Filtro LCL implementado}
+% 		\label{fig:sys_cuk_ent_unip}
+% 	\end{center}
+% \end{figure}
+% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Unipolar}
+% \begin{figure}[htb]%
+% 	\begin{center}%
+% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+% 		\caption{Filtro LCL implementado}
+% 		\label{fig:sys_cuk_int_unip}
+% 	\end{center}
+% \end{figure}
 
 \chapter{Resultados}
 
@@ -1239,8 +1329,24 @@ Para analisar as características de um inversor VSI unipolar foi simulado o cir
 		\label{fig:response_vsi_uni}
 \end{figure}
 
-\section{Conversor Integrado (CC/CA)}
-	\subsection{Conversor Ćuk Integrado}
+\subsection{Conjuntos Painel-Conversor CC/CC-Inversor-Filtro}
+
+Nessa seção são apresentados os resultados apresentados por cada combinação de componentes estudada.
+
+% \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
+
+% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Bipolar}
+
+% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Bipolar}
+
+
+% \subsubsection{Conversor Ćuk Convencional com Inversor VSI Unipolar}
+
+% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Unipolar}
+
+% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Unipolar}
+
+% \end{figure}
 
 
 
@@ -1363,6 +1469,9 @@ old_p = p;
 \end{lstlisting}
 % ---
 
+\chapter{Circuitos dos Inversores Implementados no PSIM}
+
+\HUGE{FIGURA FIGURA}
 \end{anexosenv}
 
 
