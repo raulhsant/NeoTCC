@@ -78,6 +78,7 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage[bottom]{footmisc}
 \usepackage{listings}
+\usepackage[figuresright]{rotating}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -906,7 +907,7 @@ O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fi
 \end{figure}
 
 
-\section{Conversores Estáticos CC/CC}
+\section{Conversores Estáticos CC/CC} \label{sec:met_conv_cc}
 
 \subsection{Conversor Ćuk Convencional}
 
@@ -1014,7 +1015,7 @@ Percebe-se que o pwm de cada braço, apesar de apresentar o mesmo ciclo de traba
 	\end{center}
 \end{figure}
 
-\section{Conversores CC/CA - Inversores tipo fonte de tensão (\textit{VSI})}
+\section{Conversores CC/CA - Inversores tipo fonte de tensão (\textit{VSI})}\label{sec:met_conv_cc_ca}
 
 \subsection{Inversor PWM Bipolar}
 
@@ -1041,7 +1042,7 @@ Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e 
 		\label{fig:VSI_uni_circ}
 \end{figure}
 
-\section{Conversor Integrado (CC/CA)}
+\section{Conversor Integrado (CC/CA)}\label{sec:met_conv_integ}
 \subsection{Conversor Ćuk Integrado}
 
 O conversor cuk integrado é uma versão simplificada do conversor convencional, descrito na seção~\ref{ssec:cuk_conv_met}, do qual são retirados os componentes ao se retirar os componentes $C2$, $L2$ e $D$, conectado a um inversor, os quais também já foram descritos.
@@ -1056,7 +1057,7 @@ Sendo assim, o circuito obtido para este conversor, sem a definição do control
 	\end{center}
 \end{figure}
 
-\section{Rastreador de ponto de máxima potência (\textit{MPPT})}
+\section{Rastreador de ponto de máxima potência (\textit{MPPT})}\label{sec:met_mppt}
 
 O algoritmo de rastreamento de ponto de máxima potência do painel fotovoltaico escolhido foi o \textit{P\&O}. Foi desenvolvida uma rotina em C, que segue o fluxograma da figura~\ref{fig:PeO_Flux} utilizando o \textbf{C Block}, um segurador de ordem zero com frequência de amostragem de $500Hz$ e um comparador de tensão ao qual é conectado uma fonte de sinal triangular de $15kHz$ e $1V$ de amplitude, a portadora.
 
@@ -1072,7 +1073,7 @@ Para facilitar a inserção da MPPT nos circuitos, foi montado um sub-circuito, 
 	\end{center}
 \end{figure}
 
-\section{Filtro}
+\section{Filtro}\label{sec:met_filt}
 
 Os componentes do filtro são encontrados a partir das equações~\ref{eq:lcl_zb} a \ref{eq:lcl_rf}.
 
@@ -1098,17 +1099,19 @@ O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o ca
 	\end{center}
 \end{figure}
 
-\subsection{Conjuntos Painel-Conversor CC/CC-Inversor-Filtro}
+\section{Conjuntos Painel-Conversor CC/CC-Inversor-Filtro}
 
-Nessa seção são apresentados so circuitos dos sistemas compostos pela conexão dos estágios projetados até aqui. Os circuitos serão expostos nas figuras~\ref{fig:sys_cuk_conv_bip} a ~\ref{fig:sys_cuk_int_uni} e no anexo~\ref{anex:circ_images}, com maior qualidade.
+Nessa seção são apresentados os circuitos dos sistemas compostos pela conexão do painel fotovoltaico aos conversores projetados nas seções~\ref{sec:met_conv_cc} e \ref{sec:met_conv_integ}, com o chaveamento controlado pelo algoritmo de MPPT (seção~\ref{sec:met_mppt}), interligados aos inversores e ao filtro das seções~\ref{sec:met_conv_cc_ca} e \ref{sec:met_filt}, respectivamente.
+
+Os circuitos serão expostos nas figuras~\ref{fig:sys_cuk_conv_bip} a ~\ref{fig:sys_cuk_int_uni} e no anexo~\ref{anex:circ_images}, com maior qualidade.
 % \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
-% \begin{figure}[htb]%
-% 	\begin{center}%
-% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
-% 		\caption{Filtro LCL implementado}
-% 		\label{fig:sys_cuk_conv_bip}
-% 	\end{center}
-% \end{figure}
+\begin{figure}[htb]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{comp_conv_circ_clean}
+		\caption{Circuito implementado para o conversor cuk convencional com inversor bipolar}
+		\label{fig:comp_conv_circ_clean}
+\end{figure}
 % \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Bipolar}
 % \begin{figure}[htb]%
 % 	\begin{center}%
@@ -1213,7 +1216,7 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 
 \begin{figure}[htbp]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_power_sign}
+		\includegraphics[width= 0.8 \linewidth]{cuk_conv_power_sign}
 		\caption{Potência na entrada e saída do conversor cuk convencional}
 		\label{fig:cuk_conv_power_sign}
 \end{figure}
@@ -1446,15 +1449,15 @@ double delta_v = v-old_v;
 
 if(delta_p > 00) {
     if(delta_v > 0) {
-     temp -= 0.01; //reduz d
+     temp -= 0.01;
     } else if (delta_v  < 0) {
-     temp += 0.01; //aumenta d
+     temp += 0.01;
     }
 } else if (delta_p < 0) {
     if(delta_v > 0) {
-     temp += 0.01; //reduz d
+     temp += 0.01;
     } else if (delta_v < 0) {
-     temp -= 0.01; //aumenta d
+     temp -= 0.01;
     }
 } else {
   temp = temp;
@@ -1471,7 +1474,26 @@ old_p = p;
 
 \chapter{Circuitos dos Inversores Implementados no PSIM}
 
-\HUGE{FIGURA FIGURA}
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[width=\linewidth]{comp_conv_circ_clean}
+	\caption{Circuito do conversor cuk convencional com inversor bipolar implementado}	
+\end{sidewaysfigure}
+
+% \vspace{-150pt}
+% \begin{figure}[htb]
+% 	\centering
+% 	% \includegraphics[angle=90, scale=0.5]{comp_conv_circ_clean}
+% 	\rotatebox{90}{\includegraphics[width=0.9\textheight]{comp_conv_circ_clean}}
+% 	\caption{test}	
+% \end{figure}
+
+% \begin{figure}[p]
+% 	\makebox[\linewidth]{
+% 			\includegraphics[width=1.3\linewidth]{comp_conv_circ_clean}
+% 	}
+% 	\caption{Sequence diagram}
+% \end{figure}
 \end{anexosenv}
 
 
