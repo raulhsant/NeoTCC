@@ -79,7 +79,7 @@
 \usepackage[bottom]{footmisc}
 \usepackage{listings}
 \usepackage[figuresright]{rotating}
-
+\usepackage{float}
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
@@ -128,7 +128,7 @@
 \titulo{Estudo Comparativo de Topologias de Microinversores Para Painéis Fotovoltaicos Conectados à Rede Elétrica}
 \autor{Raul Henrique Santana}
 \local{Belo Horizonte}
-\data{2018}
+\data{2019}
 \orientador{Prof. Pedro Francisco Donoso-Garcia}
 %\coorientador{Prof. }
 \instituicao{%
@@ -1103,7 +1103,8 @@ O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o ca
 
 Nessa seção são apresentados os circuitos dos sistemas compostos pela conexão do painel fotovoltaico aos conversores projetados nas seções~\ref{sec:met_conv_cc} e \ref{sec:met_conv_integ}, com o chaveamento controlado pelo algoritmo de MPPT (seção~\ref{sec:met_mppt}), interligados aos inversores e ao filtro das seções~\ref{sec:met_conv_cc_ca} e \ref{sec:met_filt}, respectivamente.
 
-Os circuitos serão expostos nas figuras~\ref{fig:sys_cuk_conv_bip} a ~\ref{fig:sys_cuk_int_uni} e no anexo~\ref{anex:circ_images}, com maior qualidade.
+Os circuitos serão expostos nas figuras~\ref{fig:comp_conv_circ_clean} a ~\ref{fig:comp_integ_circ_clean_unip} e no anexo~\ref{anex:circ_images}, com maior qualidade.
+\subsubsection{Conversor Ćuk Convencional}
 % \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
 \begin{figure}[htb]%
 	\captionsetup{justification=centering}
@@ -1112,46 +1113,45 @@ Os circuitos serão expostos nas figuras~\ref{fig:sys_cuk_conv_bip} a ~\ref{fig:
 		\caption{Circuito implementado para o conversor cuk convencional com inversor bipolar}
 		\label{fig:comp_conv_circ_clean}
 \end{figure}
-% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Bipolar}
-% \begin{figure}[htb]%
-% 	\begin{center}%
-% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
-% 		\caption{Filtro LCL implementado}
-% 		\label{fig:sys_cuk_ent_bip}
-% 	\end{center}
-% \end{figure}
-% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Bipolar}
-% \begin{figure}[htb]%
-% 	\begin{center}%
-% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
-% 		\caption{Filtro LCL implementado}
-% 		\label{fig:sys_cuk_int_bip}
-% 	\end{center}
-% \end{figure}
-% \subsubsection{Conversor Ćuk Convencional com Inversor VSI Unipolar}
-% \begin{figure}[htb]%
-% 	\begin{center}%
-% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
-% 		\caption{Filtro LCL implementado}
-% 		\label{fig:sys_cuk_conv_unip}
-% 	\end{center}
-% \end{figure}
-% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Unipolar}
-% \begin{figure}[htb]%
-% 	\begin{center}%
-% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
-% 		\caption{Filtro LCL implementado}
-% 		\label{fig:sys_cuk_ent_unip}
-% 	\end{center}
-% \end{figure}
-% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Unipolar}
-% \begin{figure}[htb]%
-% 	\begin{center}%
-% 		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
-% 		\caption{Filtro LCL implementado}
-% 		\label{fig:sys_cuk_int_unip}
-% 	\end{center}
-% \end{figure}
+\begin{figure}[htb]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{comp_conv_circ_clean_unip}
+		\caption{Circuito implementado para o conversor cuk convencional com inversor unipolar}
+		\label{fig:comp_conv_circ_clean_unip}
+\end{figure}
+
+\subsubsection{Conversor Ćuk Entrelaçado de Duas Fases}
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{comp_interv_circ_clean}
+		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor bipolar}
+		\label{fig:comp_interv_circ_clean}
+\end{figure}
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{comp_interv_circ_clean_unip}
+		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor unipolar}
+		\label{fig:comp_interv_circ_clean_unip}
+\end{figure}
+
+\subsubsection{Conversor Ćuk Integrado}
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{comp_integ_circ_clean}
+		\caption{Circuito implementado para o conversor cuk integrado com inversor bipolar}
+		\label{fig:comp_integ_circ_clean}
+\end{figure}
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{comp_integ_circ_clean_unip}
+		\caption{Circuito implementado para o conversor cuk integrado com inversor unipolar}
+		\label{fig:comp_integ_circ_clean_unip}
+\end{figure}
 
 \chapter{Resultados}
 
@@ -1325,7 +1325,7 @@ Para analisar as características de um inversor VSI bipolar foi simulado o circ
 
 Para analisar as características de um inversor VSI unipolar foi simulado o circuito da figura~\ref{fig:VSI_uni_circ}, do qual assim como para o inversor bipolar, obteve-se o sinal de saída, presente na figura~\ref{fig:response_vsi_uni}. Ainda a partir da figura~\ref{fig:response_vsi_uni} verifica-se que este circuito apresenta THD inferior ao inversor bipolar, de $0,96\%$.
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
 		\includegraphics[width=0.8 \linewidth]{vsi_uni_out}
 		\caption{Sinal de saída do inversor VSI unipolar}
@@ -1334,37 +1334,167 @@ Para analisar as características de um inversor VSI unipolar foi simulado o cir
 
 \subsection{Conjuntos Painel-Conversor CC/CC-Inversor-Filtro}
 
-Nessa seção são apresentados os resultados apresentados por cada combinação de componentes estudada.
+Nessa seção são apresentados os valores de tensão e corrente, rendimento e distorção harmônica total (THD), além das formas de onda para corrente e tensão para cada combinação estudada.
 
-% \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
+O sinal de corrente apresentado é ampliado em dez vezes para melhor visualização, em relação ao sinal de tensão.
 
-% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Bipolar}
+\subsubsection{Conversor Ćuk Convencional}
 
-% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Bipolar}
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{conv_Vo_10Io_comp}
+		\caption{Sinais de saída obtidos para o conversor cuk convencional com inversor bipolar}
+		\label{fig:out_conv_bip}
+\end{figure}
+
+\begin{table}[H]
+	\captionsetup{justification=centering}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{20,21 mA} & \multicolumn{1}{c|}{$126,62 V$}   & \multicolumn{1}{c|}{$1,13 V$} & \multicolumn{1}{c|}{$286,31 W$} & \multicolumn{1}{c|}{$95,44\%$} & \multicolumn{1}{c|}{$1,20\%$} \\ \hline
+		\end{tabular}%
+	}
+	\caption{Valores obtidos para o conversor cuk convencional com inversor bipolar}
+	\label{tab:conv_bip_res}
+\end{table}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{conv_Vo_10Io_comp_unip}
+		\caption{Sinais de saída obtidos para o conversor cuk convencional com inversor unipolar}
+		\label{fig:out_conv_unip}
+\end{figure}
+
+\begin{table}[H]
+	\captionsetup{justification=centering}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{$2,99 mA$} & \multicolumn{1}{c|}{$126,32 V$}   & \multicolumn{1}{c|}{$0,17 V$} & \multicolumn{1}{c|}{$284,93 W$} & \multicolumn{1}{c|}{$94,98\%$} & \multicolumn{1}{c|}{$1,18\%$} \\ \hline
+		\end{tabular}%
+	}
+	\caption{Valores obtidos para o conversor cuk convencional com inversor unipolar}
+	\label{tab:conv_unip_res}
+\end{table}
+
+\subsubsection{Conversor Ćuk Entrelaçado de Duas Fases}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{interv_Vo_10Io_comp}
+		\caption{Sinais de saída obtidos para o conversor cuk entrelaçado de duas fases com inversor bipolar}
+		\label{fig:out_interv_bip}
+\end{figure}
+
+\begin{table}[H]
+	\captionsetup{justification=centering}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$9,47 mA$} & \multicolumn{1}{c|}{$126,94 V$}   & \multicolumn{1}{c|}{$0,53 V$} & \multicolumn{1}{c|}{$287,73 W$} & \multicolumn{1}{c|}{$95,91\%$} & \multicolumn{1}{c|}{$1,02\%$} \\ \hline
+		\end{tabular}%
+	}
+	\caption{Valores obtidos para o conversor cuk entrelaçado de duas fases com inversor bipolar}
+	\label{tab:interv_bip_res}
+\end{table}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{interv_Vo_10Io_comp_unip}
+		\caption{Sinais de saída obtidos para o conversor cuk entrelaçado de duas fases com inversor unipolar}
+		\label{fig:out_interv_unip}
+\end{figure}
+
+\begin{table}[H]
+	\captionsetup{justification=centering}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,98 mA$} & \multicolumn{1}{c|}{$126,91 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$287,59 W$} & \multicolumn{1}{c|}{$95,86\%$} & \multicolumn{1}{c|}{$1,01\%$} \\ \hline
+		\end{tabular}%
+	}
+	\caption{Valores obtidos para o conversor cuk entrelaçado de duas fases com inversor unipolar}
+	\label{tab:interv_unip_res}
+\end{table}
+
+\subsubsection{Conversor Ćuk Integrado}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{integ_Vo_10Io_comp}
+		\caption{Sinais de saída obtidos para o conversor cuk integrado com inversor bipolar}
+		\label{fig:out_integ_bip}
+\end{figure}
+
+\begin{table}[H]
+	\captionsetup{justification=centering}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\multicolumn{1}{|c|}{$2,24 A$}      & \multicolumn{1}{c|}{$7,57 mA$} & \multicolumn{1}{c|}{$125,64 V$}   & \multicolumn{1}{c|}{$0,42 V$} & \multicolumn{1}{c|}{$281,87 W$} & \multicolumn{1}{c|}{$93,96\%$} & \multicolumn{1}{c|}{$25,53\%$} \\ \hline
+		\end{tabular}%
+	}
+	\caption{Valores obtidos para o conversor cuk integrado com inversor bipolar}
+	\label{tab:integ_bip_res}
+\end{table}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width=0.7 \linewidth]{integ_Vo_10Io_comp_unip}
+		\caption{Sinais de saída obtidos para o conversor cuk integrado com inversor unipolar}
+		\label{fig:out_integ_unip}
+\end{figure}
+
+\begin{table}[H]
+	\captionsetup{justification=centering}
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		\rowcolor[HTML]{C0C0C0} 
+		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,86 mA$} & \multicolumn{1}{c|}{$127,07 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$288,33 W$} & \multicolumn{1}{c|}{$96,11\%$} & \multicolumn{1}{c|}{$3,07\%$} \\ \hline
+		\end{tabular}%
+	}
+	\caption{Valores obtidos para o conversor cuk integrado com inversor unipolar}
+	\label{tab:integ_unip_res}
+\end{table}
 
 
-% \subsubsection{Conversor Ćuk Convencional com Inversor VSI Unipolar}
+% \chapter{Conclusão}
 
-% \subsubsection{Conversor Ćuk Entrelaçado de Duas Fases com Inversor VSI Unipolar}
+% FALAR SOBRE  STATE OF THE ART EM INVERSORES X MICRONIVERSORES <---> FALAR SOBRE TOPOLOGIAS DE INVERSORES
+% DIFERENÇAS ENTRE MICRONIVERSORES E INVERSORES
+% VANTAGENS MICRONIVERSORES
+% MICRONIVERSORES NOS ULTIMOS anos
 
-% \subsubsection{Conversor Ćuk Integrado com Inversor VSI Unipolar}
-
-% \end{figure}
-
-
-
-\chapter{Conclusão}
-
-FALAR SOBRE  STATE OF THE ART EM INVERSORES X MICRONIVERSORES <---> FALAR SOBRE TOPOLOGIAS DE INVERSORES
-DIFERENÇAS ENTRE MICRONIVERSORES E INVERSORES
-VANTAGENS MICRONIVERSORES
-MICRONIVERSORES NOS ULTIMOS anos
-
-(microinvesores e inversores topologias, pq cuk?)
-FALAR SOBRE TOPOLOGIA CUK (PQ ESCOLHER ESSA -> fonte de corrente?/ nova leva?)
+% (microinvesores e inversores topologias, pq cuk?)
+% FALAR SOBRE TOPOLOGIA CUK (PQ ESCOLHER ESSA -> fonte de corrente?/ nova leva?)
 
 
-	FALAR SOBRE TWO PANEL MICROINVERTERS TOPOLOGY
+% 	FALAR SOBRE TWO PANEL MICROINVERTERS TOPOLOGY
 
 
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
@@ -1447,7 +1577,7 @@ double p = v*i;
 double delta_p = p-old_p;
 double delta_v = v-old_v;
 
-if(delta_p > 00) {
+if(delta_p > 0) {
     if(delta_v > 0) {
      temp -= 0.01;
     } else if (delta_v  < 0) {
@@ -1472,12 +1602,45 @@ old_p = p;
 \end{lstlisting}
 % ---
 
-\chapter{Circuitos dos Inversores Implementados no PSIM}
+\chapter{Circuitos dos Inversores Implementados no PSIM} \label{anex:circ_images}
 
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=\linewidth]{comp_conv_circ_clean}
 	\caption{Circuito do conversor cuk convencional com inversor bipolar implementado}	
+
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[width=\linewidth]{comp_interv_circ_clean}
+	\caption{Circuito do conversor cuk entrelaçado de duas fases com inversor bipolar implementado}	
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[width=\linewidth]{comp_integ_circ_clean}
+	\caption{Circuito do conversor cuk integrado com inversor bipolar implementado}	
+\end{sidewaysfigure}
+
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[width=\linewidth]{comp_conv_circ_clean_unip}
+	\caption{Circuito do conversor cuk convencional com inversor unipolar implementado}	
+
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[width=\linewidth]{comp_interv_circ_clean_unip}
+	\caption{Circuito do conversor cuk entrelaçado de duas fases com inversor unipolar implementado}	
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\centering
+	\includegraphics[width=\linewidth]{comp_integ_circ_clean_unip}
+	\caption{Circuito do conversor cuk integrado com inversor unipolar implementado}	
 \end{sidewaysfigure}
 
 % \vspace{-150pt}
