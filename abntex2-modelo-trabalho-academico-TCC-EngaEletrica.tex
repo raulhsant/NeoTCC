@@ -36,7 +36,8 @@
 \documentclass[
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	openany,
 	onseside,
 	%twoside,			% para impressão em verso e anverso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
@@ -91,6 +92,9 @@
 % ---
 \usepackage[brazilian,hyperpageref]{backref}   % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	                         % Citações padrão ABNT
+
+
+
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -427,11 +431,7 @@
 	grande impacto na eficiência final do sistema de geração e, portanto, faz-se pertinente uma análise comparativa de custo e eficiência destes.
 
 
-	A tensão disponibilizada por painéis fotovoltaicos é geralmente de baixa amplitude, sendo necessária uma etapa de amplificação 
-	entre o painel e a transformação do sinal contínuo em alternado. Esse estágio pode ser evitado em casos nos quais vários painéis 
-	são conectados em série de modo que a tensão de saída do conjunto seja maior que a tensão de pico da rede. Esta configuração 
-	é, entretanto, pouco usual em sistemas de baixa potência devido à necessidade de se garantir uma tensão mínima fornecida pelos 
-	painéis. Sendo assim, as topologias mais comuns de inversores para sistemas fotovoltaicos utilizam um estágio elevador de tensão e um estágio inversor conectados em série \cite{LUIGIJUNIOR_ev_int}.
+	A tensão disponibilizada por painéis fotovoltaicos é geralmente de baixa amplitude, sendo necessário o aumento da tensão através da associação de painéis série-paralelo. Além disso, pode ser utilizado um conversor CC-CC elevador de tensão anterior à conversão do sinal contínuo em alternado. A utilização de um conversor subidor de tensão pode ser evitado em casos nos quais vários painéis são conectados em série de modo que a tensão de saída do conjunto seja maior que a tensão de pico da rede. Esta configuração  é, entretanto, pouco usual em sistemas de baixa potência devido à necessidade de se garantir uma tensão mínima fornecida pelos painéis. Sendo assim, as topologias mais comuns de inversores para sistemas fotovoltaicos utilizam um estágio elevador de tensão e um estágio inversor conectados em série \cite{LUIGIJUNIOR_ev_int}.
 
 	Com o intuito de reduzir o custo e o espaço ocupado por inversores responsáveis por lidar com a energia gerada por uma série de painéis fotovoltaicos, vem sido estudada a utilização de microinversores \cite{Bouzguenda_smart_grid_inv}, inversores de menor potência, montados atrás de cada painel, pelo qual são responsáveis pela otimização da geração e pelo condicionamento da energia gerada. A principal vantagem na utilização de microinversores está no fato de estes isolarem os efeitos de sombreamento entre painéis \cite{Nezamuddin_des_eff_micro}.
 
@@ -439,7 +439,7 @@
 	Os microinversores também são compostos, em geral, por dois estágios. O primeiro responsável por elevar a tensão fornecida pelo painel, além de sua operação no ponto de máxima potência e o segundo responsável por gerar a corrente alternada de modo a assegurar a correta conexão com a rede elétrica \cite{Nezamuddin_des_eff_micro}. Podem ser utilizadas, também, topologias integradas que buscam a simplificação e redução de componentes do circuito através da conexão direta entre os estágios \cite{LUIGI_int_top} \cite{LUIGIJUNIOR_ev_int}.
 
 	
-	É proposto nesse trabalho um estudo comparativo entre algumas topologias de microinversores para sistemas fotovoltaicos baseadas na estrutura CC-CC Ćuk. Serão estudados inversores com conversores Ćuk, Ćuk entrelaçado e Ćuk integrado com um inversor de onda completa, esse último proposto por \cite{LUIGI_int_top}.
+	É proposto nesse trabalho uma análise de diferentes implementações de microinversores para sistemas fotovoltaicos baseadas na estrutura CC-CC Ćuk. Serão estudados inversores com conversores Ćuk, Ćuk entrelaçado e o inversor Ćuk integrado-, esse último proposto por \cite{LUIGI_int_top}.
 
 	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentam comportamento de fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples sua a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
 
@@ -463,7 +463,7 @@
 
 O objetivo principal deste TCC é o estudo, projeto, simulação e análise de um sistema de geração de energia elétrica composto por painel fotovoltaico e conversores CC-CC e CC-CA. 
 
-As topologias de conversores que serão analisadas estão listadas a seguir e serão combinadas com inversores em ponte completa bipolar e unipolar.
+As implementações que serão analisadas estão listadas a seguir e serão combinadas com inversores em ponte completa bipolar e unipolar.
 % As topologias de conversores que serão analisadas estão listadas a seguir e enquanto os conversores representam a conversão CC-CC, os inversores representam o estágio de
 
 \begin{itemize}
@@ -474,7 +474,7 @@ As topologias de conversores que serão analisadas estão listadas a seguir e se
 	\item Conversor Ćuk Entrelaçado de duas fases
 	% com Inversor em Ponte Completa
 	%\item Conversor Ćuk Entrelaçado de duas fases com Inversor em Meia Ponte
-	\item Conversor Ćuk integrado
+	\item Inversor Ćuk integrado
 	% com Inversor em Ponte Completa
 	%\item Conversor Ćuk integrado com Inversor em Meia Ponte
 	
@@ -1023,9 +1023,9 @@ O circuito da figura~\ref{fig:VSI_bip_circ} apresenta o circuito montado no PSIM
 
 Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e $3V$ de amplitude pico a pico. Já como modulante, uma fonte de sinal senoidal de $1V$ e 60Hz, uma vez que a modulante deve corresponder à forma de onda e frequência da saída desejada.
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering%
-		\includegraphics[width=0.75 \linewidth]{vsi_bipolar_psim_circ}
+		\includegraphics[width=0.70 \linewidth]{vsi_bipolar_psim_circ}
 		\caption{Inversor VSI Bipolar}
 		\label{fig:VSI_bip_circ}
 \end{figure}
@@ -1035,9 +1035,9 @@ Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e 
 O circuito da figura~\ref{fig:VSI_uni_circ} apresenta o circuito montado no PSIM para simular um inversor VSI com PWM unipolar. Assim como no inversor bipolar, utilizou-se uma fonte de tensão contínua de $180V$ para emular a alimentação do circuito.
 
 Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e $3V$ de amplitude pico a pico. Já para as modulantes, foram utilizadas duas fontes senoidais de 60Hz e $1V$ de amplitude, defasadas entre si de $180^o$.
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering%
-		\includegraphics[width=0.75 \linewidth]{vsi_unipolar_psim_circ}
+		\includegraphics[width=0.70 \linewidth]{vsi_unipolar_psim_circ}
 		\caption{Inversor VSI Unipolar}
 		\label{fig:VSI_uni_circ}
 \end{figure}
@@ -1482,8 +1482,13 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 	\label{tab:integ_unip_res}
 \end{table}
 
+\chapter{Análise dos Resultados}
 
-% \chapter{Conclusão}
+ESCREVER análise sobre os resultados encontrados, focar nos resultados obtidos a partir dos circuitos completos. Analisar efeito da MPPT no conversor. Analisar distorção harmonica e rendimento. Explicar alterações.
+
+\chapter{Conclusão}
+
+ESCREVER conclusão sobre o trabalho (resultado esperado/resultado obtido/dificuldades encontradas/melhorias/trabalhos futuros)
 
 % FALAR SOBRE  STATE OF THE ART EM INVERSORES X MICRONIVERSORES <---> FALAR SOBRE TOPOLOGIAS DE INVERSORES
 % DIFERENÇAS ENTRE MICRONIVERSORES E INVERSORES
