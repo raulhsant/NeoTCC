@@ -608,6 +608,14 @@ Assumindo uma variação linear na corrente dos indutores, a corrente de ripple 
 	\end{center}
 \end{figure}
 
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width= \linewidth]{cuk_interv_In_Out}
+		\caption{Sinais de entrada  e saída do conversor cuk entrelaçado de duas fases}
+		\label{fig:interv_cuk_In_Out} 
+	\end{center}
+\end{figure}
+
 Quando ambos os transistores estão desligados, ou seja, no modo 2, os indutores de entrada $L_{1a}$ e $L_{1b}$ são descarregados, fornecendo energia aos capacitores $C_1$ e $C_2$, respectivamente, de forma que, entre $t_1$ e $t_2$, $C_1$ carrega a energia que foi fornecida à carga no modo anterior, enquanto que entre $t_3$ e $t_4$, $C_2$ o faz. Além disso, os indutores $L_2$ e $L_3$ fornecem energia à carga e, portanto são descarregados.
 
 Os ripples de corrente para os indutores nesse modo são encontrados utilizando as equações~\ref{eq:rip_interv_4} a \ref{eq:rip_interv_6}
@@ -662,7 +670,7 @@ No total o circuito apresenta cinco possíveis estados de operação, sendo quat
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.55 \linewidth]{vsi_1fas}
+		\includegraphics[width=0.65 \linewidth]{vsi_1fas}
 		\caption{Inversor VSI monofásico em ponte completa \cite{RASHID_VSI}}
 		\label{fig:vsi_1fas}
 	\end{center}
@@ -692,7 +700,7 @@ O sinal obtido na saída de um inversor que segue esta técnica é, basicamente,
 \begin{figure}[htbp]%
 	\captionsetup{{justification=centering}}
 	\centering%
-		\includegraphics[width=\linewidth]{vsi_bip_func}
+		\includegraphics[width= \linewidth]{vsi_bip_func}
 		\caption{Formas de onda do inversor VSI com PWM bipolar}
 		\label{fig:vsi_bip_func_graph}
 \end{figure}
@@ -732,7 +740,7 @@ Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saíd
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.55 \linewidth]{integ_cuk_circ}
+		\includegraphics[width=0.65 \linewidth]{integ_cuk_circ}
 		\caption{Conversor Ćuk Integrado \cite{LUIGI_int_top}}
 		\label{fig:integ_cuk_circ}
 	\end{center}
@@ -757,7 +765,7 @@ Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na
 
 \begin{figure}[htbp]
 	\begin{center}
-		\includegraphics[width=0.55 \linewidth]{peo_flow}
+		\includegraphics[width=0.65 \linewidth]{peo_flow}
 		\caption{Fluxograma do Método P\&O \cite{Talha_MPPT}}
 		\label{fig:PeO_Flux}
 	\end{center}
@@ -780,9 +788,9 @@ A principal vantagem desse método em relação ao P\&O está na maior tolerânc
 
 Um fluxograma que representa o funcionamento do algoritmo de condutância incremental pode ser visto na figura~\ref{fig:IncCond_Flux}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=0.55 \linewidth]{incCond_flow}
+		\includegraphics[width=0.65 \linewidth]{incCond_flow}
 		\caption{Fluxograma do método de indutância incremental \cite{Talha_MPPT}}
 		\label{fig:IncCond_Flux}
 	\end{center}
