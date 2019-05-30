@@ -548,6 +548,13 @@ Um conversor Ćuk é um conversor CC-CC baseado na transferência de energia cap
 		\label{fig:conv_cuk_circuit}
 \end{figure}
 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width= \linewidth]{cuk_conv_In_Out}
+		\caption{Sinais de entrada  e saída do conversor cuk convencional}
+		\label{fig:conv_cuk_In_Out}
+\end{figure}
+
 Quando a chave $S$ está fechada (\textit{ON}), os indutores $L1$ e $L2$ são carregados pela tensão de entrada e capacitor $C1$, respectivamente. O capacitor $C1$ polariza inversamente o diodo $D$ e descarrega fornecendo energia para a carga $R$, o capacitor de filtro $C$ e o indutor de filtro $L2$.
 Com o transistor representado pela chave $S$ em estado aberto(\textit{OFF}), o indutor de entrada $L1$ carrega o capacitor de transferência de energia $C1$. O diodo $D$ conduz as correntes de ambos $L1$ e $L2$ e, portanto, o indutor $L2$ descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
 
@@ -685,7 +692,7 @@ O sinal obtido na saída de um inversor que segue esta técnica é, basicamente,
 \begin{figure}[htbp]%
 	\captionsetup{{justification=centering}}
 	\centering%
-		\includegraphics[width=0.85 \linewidth]{vsi_bip_func}
+		\includegraphics[width=\linewidth]{vsi_bip_func}
 		\caption{Formas de onda do inversor VSI com PWM bipolar}
 		\label{fig:vsi_bip_func_graph}
 \end{figure}
@@ -707,7 +714,7 @@ Essa característica permite que inversores que utilizam a modulação unipolar 
 \begin{figure}[htbp]%
 	\captionsetup{{justification=centering}}
 	\centering%
-		\includegraphics[width=0.85 \linewidth]{vsi_uni_func}
+		\includegraphics[width= \linewidth]{vsi_uni_func}
 		\caption{Formas de onda do inversor VSI com PWM unipolar}
 		\label{fig:vsi_uni_func_graph}
 \end{figure}
@@ -723,7 +730,7 @@ Na figura~\ref{fig:integ_cuk_circ} é possível ver o circuito final resultante 
 
 Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saída $C_o$ da figura~\ref{fig:integ_cuk_circ} pode ser simplesmente substituído pela rede\cite{LUIGI_int_top}. 
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{integ_cuk_circ}
 		\caption{Conversor Ćuk Integrado \cite{LUIGI_int_top}}
@@ -900,7 +907,7 @@ O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fi
 
 \begin{figure}[htbp]%
 	\begin{center}%
-		\includegraphics[width=0.55 \linewidth]{pv_psim_circuit}
+		\includegraphics[width=0.65 \linewidth]{pv_psim_circuit}
 		\caption{Circuito do módulo fotovoltaico no PSIM}
 		\label{fig:pv_psim_circuit}
 	\end{center}
@@ -969,7 +976,7 @@ Com os valores de componentes calculados nas equações~\ref{eq:d_cuk_conv_} a \
 
 \begin{figure}[htbp]%
 	\begin{center}%
-		\includegraphics[width=0.75 \linewidth]{conv_cuk_psim_circ}
+		\includegraphics[width=0.95 \linewidth]{conv_cuk_psim_circ}
 		\caption{Circuito do conversor cuk convencional}
 		\label{fig:cuk_conv_psim_circ}
 	\end{center}
@@ -1009,7 +1016,7 @@ Percebe-se que o pwm de cada braço, apesar de apresentar o mesmo ciclo de traba
 
 \begin{figure}[htbp]%
 	\begin{center}%
-		\includegraphics[width=0.75 \linewidth]{interv_cuk_psim_circ}
+		\includegraphics[width=0.95 \linewidth]{interv_cuk_psim_circ}
 		\caption{Circuito do conversor cuk entrelaçado de duas fases}
 		\label{fig:interv_cuk_conv_psim_circuit}
 	\end{center}
@@ -1023,9 +1030,9 @@ O circuito da figura~\ref{fig:VSI_bip_circ} apresenta o circuito montado no PSIM
 
 Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e $3V$ de amplitude pico a pico. Já como modulante, uma fonte de sinal senoidal de $1V$ e 60Hz, uma vez que a modulante deve corresponder à forma de onda e frequência da saída desejada.
 
-\begin{figure}[H]%
+\begin{figure}[htpb]%
 	\centering%
-		\includegraphics[width=0.70 \linewidth]{vsi_bipolar_psim_circ}
+		\includegraphics[width=0.8 \linewidth]{vsi_bipolar_psim_circ}
 		\caption{Inversor VSI Bipolar}
 		\label{fig:VSI_bip_circ}
 \end{figure}
@@ -1037,7 +1044,7 @@ O circuito da figura~\ref{fig:VSI_uni_circ} apresenta o circuito montado no PSIM
 Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e $3V$ de amplitude pico a pico. Já para as modulantes, foram utilizadas duas fontes senoidais de 60Hz e $1V$ de amplitude, defasadas entre si de $180^o$.
 \begin{figure}[H]%
 	\centering%
-		\includegraphics[width=0.70 \linewidth]{vsi_unipolar_psim_circ}
+		\includegraphics[width=0.85 \linewidth]{vsi_unipolar_psim_circ}
 		\caption{Inversor VSI Unipolar}
 		\label{fig:VSI_uni_circ}
 \end{figure}
@@ -1051,7 +1058,7 @@ Sendo assim, o circuito obtido para este conversor, sem a definição do control
 
 \begin{figure}[htbp]%
 	\begin{center}%
-		\includegraphics[width=0.75 \linewidth]{integ_cuk_circ_psim}
+		\includegraphics[width=0.9 \linewidth]{integ_cuk_circ_psim}
 		\caption{Circuito do conversor cuk integrado}
 		\label{fig:integ_cuk_met}
 	\end{center}
@@ -1067,7 +1074,7 @@ Para facilitar a inserção da MPPT nos circuitos, foi montado um sub-circuito, 
 
 \begin{figure}[htb]%
 	\begin{center}%
-		\includegraphics[width=0.75 \linewidth]{mppt_psim_circ}
+		\includegraphics[width=0.85 \linewidth]{mppt_psim_circ}
 		\caption{Circuito de MPPT implementado}
 		\label{fig:mppt_subcircuit}
 	\end{center}
@@ -1093,7 +1100,7 @@ O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o ca
 
 \begin{figure}[htb]%
 	\begin{center}%
-		\includegraphics[width=0.55 \linewidth]{lcl_filter_psim}
+		\includegraphics[width=0.65 \linewidth]{lcl_filter_psim}
 		\caption{Filtro LCL implementado}
 		\label{fig:lcl_filter_impl}
 	\end{center}
@@ -1109,14 +1116,14 @@ Os circuitos serão expostos nas figuras~\ref{fig:comp_conv_circ_clean} a ~\ref{
 \begin{figure}[htb]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{comp_conv_circ_clean}
+		\includegraphics[width= \linewidth]{comp_conv_circ_clean}
 		\caption{Circuito implementado para o conversor cuk convencional com inversor bipolar}
 		\label{fig:comp_conv_circ_clean}
 \end{figure}
 \begin{figure}[htb]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{comp_conv_circ_clean_unip}
+		\includegraphics[width= \linewidth]{comp_conv_circ_clean_unip}
 		\caption{Circuito implementado para o conversor cuk convencional com inversor unipolar}
 		\label{fig:comp_conv_circ_clean_unip}
 \end{figure}
@@ -1125,14 +1132,14 @@ Os circuitos serão expostos nas figuras~\ref{fig:comp_conv_circ_clean} a ~\ref{
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{comp_interv_circ_clean}
+		\includegraphics[width= \linewidth]{comp_interv_circ_clean}
 		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor bipolar}
 		\label{fig:comp_interv_circ_clean}
 \end{figure}
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{comp_interv_circ_clean_unip}
+		\includegraphics[width= \linewidth]{comp_interv_circ_clean_unip}
 		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor unipolar}
 		\label{fig:comp_interv_circ_clean_unip}
 \end{figure}
@@ -1141,14 +1148,14 @@ Os circuitos serão expostos nas figuras~\ref{fig:comp_conv_circ_clean} a ~\ref{
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{comp_integ_circ_clean}
+		\includegraphics[width= \linewidth]{comp_integ_circ_clean}
 		\caption{Circuito implementado para o conversor cuk integrado com inversor bipolar}
 		\label{fig:comp_integ_circ_clean}
 \end{figure}
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{comp_integ_circ_clean_unip}
+		\includegraphics[width= \linewidth]{comp_integ_circ_clean_unip}
 		\caption{Circuito implementado para o conversor cuk integrado com inversor unipolar}
 		\label{fig:comp_integ_circ_clean_unip}
 \end{figure}
@@ -1179,51 +1186,51 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 		\label{tab:conv_cuk_results}
 	\end{table}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_I_L1}
+		\includegraphics[width= \linewidth]{cuk_conv_ripp_I_L1}
 		\caption{Corrente de ripple no indutor $L1$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_I_L1}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_I_L2}
+		\includegraphics[width= \linewidth]{cuk_conv_ripp_I_L2}
 		\caption{Corrente de ripple no indutor $L2$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_I_L2}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_C1}
+		\includegraphics[width= \linewidth]{cuk_conv_ripp_V_C1}
 		\caption{Tensão de ripple no capacitor $C1$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_V_C1}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_V_out}
+		\includegraphics[width= \linewidth]{cuk_conv_V_out}
 		\caption{Comportamento da tensão de saída do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_V_out}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_ripp_V_out2}
+		\includegraphics[width= \linewidth]{cuk_conv_ripp_V_out2}
 		\caption{Tensão de ripple de saída do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_V_out}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
-		\includegraphics[width= 0.8 \linewidth]{cuk_conv_power_sign}
+		\includegraphics[width= \linewidth]{cuk_conv_power_sign}
 		\caption{Potência na entrada e saída do conversor cuk convencional}
 		\label{fig:cuk_conv_power_sign}
 \end{figure}
 \vspace{-5pt}
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_conv_power_sign_out}
+		\includegraphics[width= \linewidth]{cuk_conv_power_sign_out}
 		\caption{Oscilação da potência na saída do conversor cuk convencional}
 		\label{fig:cuk_conv_power_sign_out}
 \end{figure}
@@ -1252,58 +1259,58 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 		\label{tab:inter_cuk_results}
 	\end{table}
 \vspace{-10pt}
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_I_LX1}
+		\includegraphics[width= \linewidth]{cuk_inter_ripp_I_LX1}
 		\caption{Corrente de ripple no indutores $L_{11}$ e $L_{21}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_I_L1}
 \end{figure}
 \vspace{-10pt}
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_I_LX2}
+		\includegraphics[width= \linewidth]{cuk_inter_ripp_I_LX2}
 		\caption{Corrente de ripple nos indutores $L_{12}$ e $L_{22}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_I_L2}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_V_CX1}
+		\includegraphics[width= \linewidth]{cuk_inter_ripp_V_CX1}
 		\caption{Tensão de ripple nos capacitores $C_{11}$ e $C_{21}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_V_C1}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_inter_V_out}
+		\includegraphics[width= \linewidth]{cuk_inter_V_out}
 		\caption{Comportamento da tensão de saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_V_out}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_inter_ripp_V_out}
+		\includegraphics[width= \linewidth]{cuk_inter_ripp_V_out}
 		\caption{Tensão de ripple de saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_V_out}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_inter_power_sign}
+		\includegraphics[width= \linewidth]{cuk_inter_power_sign}
 		\caption{Potência na entrada e saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_power_sign}
 \end{figure}
 
-\begin{figure}[htbp]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.8 \linewidth]{cuk_inter_pow_out}
+		\includegraphics[width= \linewidth]{cuk_inter_pow_out}
 		\caption{Oscilação da potência saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_power_sign_out}
 \end{figure}
@@ -1316,7 +1323,7 @@ Para analisar as características de um inversor VSI bipolar foi simulado o circ
 
 \begin{figure}[htbp]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{vsi_bip_out}
+		\includegraphics[width= \linewidth]{vsi_bip_out}
 		\caption{Sinal de saída do inversor VSI bipolar}
 		\label{fig:response_vsi_bip}
 \end{figure}
@@ -1327,7 +1334,7 @@ Para analisar as características de um inversor VSI unipolar foi simulado o cir
 
 \begin{figure}[H]%
 	\centering
-		\includegraphics[width=0.8 \linewidth]{vsi_uni_out}
+		\includegraphics[width= \linewidth]{vsi_uni_out}
 		\caption{Sinal de saída do inversor VSI unipolar}
 		\label{fig:response_vsi_uni}
 \end{figure}
@@ -1343,7 +1350,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{conv_Vo_10Io_comp}
+		\includegraphics[width= \linewidth]{conv_Vo_10Io_comp}
 		\caption{Sinais de saída obtidos para o conversor cuk convencional com inversor bipolar}
 		\label{fig:out_conv_bip}
 \end{figure}
@@ -1366,7 +1373,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{conv_Vo_10Io_comp_unip}
+		\includegraphics[width= \linewidth]{conv_Vo_10Io_comp_unip}
 		\caption{Sinais de saída obtidos para o conversor cuk convencional com inversor unipolar}
 		\label{fig:out_conv_unip}
 \end{figure}
@@ -1391,7 +1398,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{interv_Vo_10Io_comp}
+		\includegraphics[width= \linewidth]{interv_Vo_10Io_comp}
 		\caption{Sinais de saída obtidos para o conversor cuk entrelaçado de duas fases com inversor bipolar}
 		\label{fig:out_interv_bip}
 \end{figure}
@@ -1414,7 +1421,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{interv_Vo_10Io_comp_unip}
+		\includegraphics[width= \linewidth]{interv_Vo_10Io_comp_unip}
 		\caption{Sinais de saída obtidos para o conversor cuk entrelaçado de duas fases com inversor unipolar}
 		\label{fig:out_interv_unip}
 \end{figure}
@@ -1439,7 +1446,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{integ_Vo_10Io_comp}
+		\includegraphics[width= \linewidth]{integ_Vo_10Io_comp}
 		\caption{Sinais de saída obtidos para o conversor cuk integrado com inversor bipolar}
 		\label{fig:out_integ_bip}
 \end{figure}
@@ -1462,7 +1469,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width=0.7 \linewidth]{integ_Vo_10Io_comp_unip}
+		\includegraphics[width= \linewidth]{integ_Vo_10Io_comp_unip}
 		\caption{Sinais de saída obtidos para o conversor cuk integrado com inversor unipolar}
 		\label{fig:out_integ_unip}
 \end{figure}
