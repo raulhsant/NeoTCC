@@ -611,7 +611,7 @@ Assumindo uma variação linear na corrente dos indutores, a corrente de ripple 
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width= \linewidth]{cuk_interv_In_Out}
-		\caption{Sinais de entrada  e saída do conversor cuk entrelaçado de duas fases}
+		\caption{Sinais de entrada e saída do conversor cuk entrelaçado de duas fases}
 		\label{fig:interv_cuk_In_Out} 
 	\end{center}
 \end{figure}
@@ -727,8 +727,8 @@ Essa característica permite que inversores que utilizam a modulação unipolar 
 		\label{fig:vsi_uni_func_graph}
 \end{figure}
 
-\section{Conversor Integrado (CC/CA)}
-\subsection{Conversor Ćuk Integrado}
+\section{Inversor Integrado (CC/CA)}
+\subsection{Inversor Ćuk Integrado}
 
 A integração de estágios consiste na união dos estágios subidor de tensão(CC-CA) e inversor (CC-CA) em um único estágio CC-CA, com o circuito mais simples e com menor número componentes. 
 
@@ -736,15 +736,32 @@ Segundo proposto por \citeonline{LUIGI_int_top}, a primeira simplificação do c
 
 Na figura~\ref{fig:integ_cuk_circ} é possível ver o circuito final resultante das simplificações descritas, no qual os componentes $L_b$, $S_b$ e $C_b$ advém de um conversor cuk convencional. 
 
-Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saída $C_o$ da figura~\ref{fig:integ_cuk_circ} pode ser simplesmente substituído pela rede\cite{LUIGI_int_top}. 
+% Para conexão com a rede elétrica, como fonte de corrente, o capacitor de saída $C_o$ da figura~\ref{fig:integ_cuk_circ} pode ser simplesmente substituído pela rede\cite{LUIGI_int_top}. 
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.65 \linewidth]{integ_cuk_circ}
-		\caption{Conversor Ćuk Integrado \cite{LUIGI_int_top}}
+		\caption{Inversor Ćuk Integrado \cite{LUIGI_int_top}}
 		\label{fig:integ_cuk_circ}
 	\end{center}
 \end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=\linewidth]{cuk_integ_In_Out}
+		\caption{Sinais de entrada e saída do inversor cuk integrado}
+		\label{fig:integ_cuk_In_Out}
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+		\captionsetup{{justification=centering}}
+		\includegraphics[width= \linewidth]{cuk_integ_In_Out_zoom}
+		\caption{Sinais de entrada e saída do inversor cuk integrado em regime permanente}
+		\label{fig:integ_cuk_In_Out_zoom}
+\end{figure}
+
 
 \section{Rastreador de ponto de máxima potência (\textit{MPPT})}
 
@@ -1057,17 +1074,17 @@ Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e 
 		\label{fig:VSI_uni_circ}
 \end{figure}
 
-\section{Conversor Integrado (CC/CA)}\label{sec:met_conv_integ}
-\subsection{Conversor Ćuk Integrado}
+\section{Inversor Integrado (CC/CA)}\label{sec:met_conv_integ}
+\subsection{Inversor Ćuk Integrado}
 
-O conversor cuk integrado é uma versão simplificada do conversor convencional, descrito na seção~\ref{ssec:cuk_conv_met}, do qual são retirados os componentes ao se retirar os componentes $C2$, $L2$ e $D$, conectado a um inversor, os quais também já foram descritos.
+O inversor cuk integrado é uma versão simplificada do conversor convencional, descrito na seção~\ref{ssec:cuk_conv_met}, do qual são retirados os componentes ao se retirar os componentes $C2$, $L2$ e $D$, conectado a um inversor, os quais também já foram descritos.
 
 Sendo assim, o circuito obtido para este conversor, sem a definição do controle do inversor, está presente na figura~\ref{fig:integ_cuk_met}
 
 \begin{figure}[htbp]%
 	\begin{center}%
 		\includegraphics[width=0.9 \linewidth]{integ_cuk_circ_psim}
-		\caption{Circuito do conversor cuk integrado}
+		\caption{Circuito do inversor cuk integrado}
 		\label{fig:integ_cuk_met}
 	\end{center}
 \end{figure}
@@ -1152,19 +1169,19 @@ Os circuitos serão expostos nas figuras~\ref{fig:comp_conv_circ_clean} a ~\ref{
 		\label{fig:comp_interv_circ_clean_unip}
 \end{figure}
 
-\subsubsection{Conversor Ćuk Integrado}
+\subsubsection{Inversor Ćuk Integrado}
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_integ_circ_clean}
-		\caption{Circuito implementado para o conversor cuk integrado com inversor bipolar}
+		\caption{Circuito implementado para o inversor cuk integrado bipolar}
 		\label{fig:comp_integ_circ_clean}
 \end{figure}
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_integ_circ_clean_unip}
-		\caption{Circuito implementado para o conversor cuk integrado com inversor unipolar}
+		\caption{Circuito implementado para o inversor cuk integrado unipolar}
 		\label{fig:comp_integ_circ_clean_unip}
 \end{figure}
 
@@ -1449,7 +1466,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 	\label{tab:interv_unip_res}
 \end{table}
 
-\subsubsection{Conversor Ćuk Integrado}
+\subsubsection{Inversor Ćuk Integrado}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
@@ -1470,7 +1487,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 		\multicolumn{1}{|c|}{$2,24 A$}      & \multicolumn{1}{c|}{$7,57 mA$} & \multicolumn{1}{c|}{$125,64 V$}   & \multicolumn{1}{c|}{$0,42 V$} & \multicolumn{1}{c|}{$281,87 W$} & \multicolumn{1}{c|}{$93,96\%$} & \multicolumn{1}{c|}{$25,53\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o conversor cuk integrado com inversor bipolar}
+	\caption{Valores obtidos para o inversor cuk integrado bipolar}
 	\label{tab:integ_bip_res}
 \end{table}
 
@@ -1478,7 +1495,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{integ_Vo_10Io_comp_unip}
-		\caption{Sinais de saída obtidos para o conversor cuk integrado com inversor unipolar}
+		\caption{Sinais de saída obtidos para o inversor cuk integrado unipolar}
 		\label{fig:out_integ_unip}
 \end{figure}
 
@@ -1493,7 +1510,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,86 mA$} & \multicolumn{1}{c|}{$127,07 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$288,33 W$} & \multicolumn{1}{c|}{$96,11\%$} & \multicolumn{1}{c|}{$3,07\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o conversor cuk integrado com inversor unipolar}
+	\caption{Valores obtidos para o inversor cuk integrado unipolar}
 	\label{tab:integ_unip_res}
 \end{table}
 
@@ -1640,7 +1657,7 @@ old_p = p;
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=\linewidth]{comp_integ_circ_clean}
-	\caption{Circuito do conversor cuk integrado com inversor bipolar implementado}	
+	\caption{Circuito do inversor cuk integrado bipolar implementado}	
 \end{sidewaysfigure}
 
 
@@ -1660,7 +1677,7 @@ old_p = p;
 \begin{sidewaysfigure}
 	\centering
 	\includegraphics[width=\linewidth]{comp_integ_circ_clean_unip}
-	\caption{Circuito do conversor cuk integrado com inversor unipolar implementado}	
+	\caption{Circuito do inversor cuk integrado unipolar implementado}	
 \end{sidewaysfigure}
 
 % \vspace{-150pt}
