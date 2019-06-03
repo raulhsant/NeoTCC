@@ -1459,70 +1459,22 @@ São, ao todo, seis conjuntos distintos uma vez que cada implementação propost
 
 Todas as figuras de circuitos desse capítulo são apresentadas também no anexo~\ref{anex:circ_images} em modo paisagem e, portanto, com maior qualidade.
 
-\subsubsection{Conversor Ćuk Convencional}
+\subsection{Conjuntos baseados no conversor cuk convencional}
 % \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
-\begin{figure}[htb]%
+\subsubsection{Inversor cuk convencional bipolar}
+\begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_conv_circ_clean}
-		\caption{Circuito implementado para o conversor cuk convencional com inversor bipolar}
+		\caption{Circuito implementado para o inversor cuk convencional bipolar}
 		\label{fig:comp_conv_circ_clean}
 \end{figure}
-\begin{figure}[htb]%
-	\captionsetup{justification=centering}
-	\centering
-		\includegraphics[width= \linewidth]{comp_conv_circ_clean_unip}
-		\caption{Circuito implementado para o conversor cuk convencional com inversor unipolar}
-		\label{fig:comp_conv_circ_clean_unip}
-\end{figure}
-
-\subsubsection{Conversor Ćuk Entrelaçado de Duas Fases}
-\begin{figure}[H]%
-	\captionsetup{justification=centering}
-	\centering
-		\includegraphics[width= \linewidth]{comp_interv_circ_clean}
-		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor bipolar}
-		\label{fig:comp_interv_circ_clean}
-\end{figure}
-\begin{figure}[H]%
-	\captionsetup{justification=centering}
-	\centering
-		\includegraphics[width= \linewidth]{comp_interv_circ_clean_unip}
-		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor unipolar}
-		\label{fig:comp_interv_circ_clean_unip}
-\end{figure}
-
-\subsubsection{Inversor Ćuk Integrado}
-\begin{figure}[H]%
-	\captionsetup{justification=centering}
-	\centering
-		\includegraphics[width= \linewidth]{comp_integ_circ_clean}
-		\caption{Circuito implementado para o inversor cuk integrado bipolar}
-		\label{fig:comp_integ_circ_clean}
-\end{figure}
-\begin{figure}[H]%
-	\captionsetup{justification=centering}
-	\centering
-		\includegraphics[width= \linewidth]{comp_integ_circ_clean_unip}
-		\caption{Circuito implementado para o inversor cuk integrado unipolar}
-		\label{fig:comp_integ_circ_clean_unip}
-\end{figure}
-
-\chapter{Resultados}
-
-\subsection{Conjuntos Painel-Conversor CC/CC-Inversor-Filtro}
-
-Nessa seção são apresentados os valores de tensão e corrente, rendimento e distorção harmônica total (THD), além das formas de onda para corrente e tensão para cada combinação estudada.
-
-O sinal de corrente apresentado é ampliado em dez vezes para melhor visualização, em relação ao sinal de tensão.
-
-\subsubsection{Conversor Ćuk Convencional}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{conv_Vo_10Io_comp}
-		\caption{Sinais de saída obtidos para o conversor cuk convencional com inversor bipolar}
+		\caption{Sinais de saída obtidos para o inversor cuk convencional bipolar}
 		\label{fig:out_conv_bip}
 \end{figure}
 
@@ -1537,15 +1489,25 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{20,21 mA} & \multicolumn{1}{c|}{$126,62 V$}   & \multicolumn{1}{c|}{$1,13 V$} & \multicolumn{1}{c|}{$286,31 W$} & \multicolumn{1}{c|}{$95,44\%$} & \multicolumn{1}{c|}{$1,20\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o conversor cuk convencional com inversor bipolar}
+	\caption{Valores obtidos para o inversor cuk convencional bipolar}
 	\label{tab:conv_bip_res}
 \end{table}
+
+\subsubsection{Inversor cuk convencional unipolar}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{comp_conv_circ_clean_unip}
+		\caption{Circuito implementado para o inversor cuk convencional unipolar}
+		\label{fig:comp_conv_circ_clean_unip}
+\end{figure}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{conv_Vo_10Io_comp_unip}
-		\caption{Sinais de saída obtidos para o conversor cuk convencional com inversor unipolar}
+		\caption{Sinais de saída obtidos para o inversor cuk convencional unipolar}
 		\label{fig:out_conv_unip}
 \end{figure}
 
@@ -1560,17 +1522,27 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{$2,99 mA$} & \multicolumn{1}{c|}{$126,32 V$}   & \multicolumn{1}{c|}{$0,17 V$} & \multicolumn{1}{c|}{$284,93 W$} & \multicolumn{1}{c|}{$94,98\%$} & \multicolumn{1}{c|}{$1,18\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o conversor cuk convencional com inversor unipolar}
+	\caption{Valores obtidos para o inversor cuk convencional unipolar}
 	\label{tab:conv_unip_res}
 \end{table}
 
-\subsubsection{Conversor Ćuk Entrelaçado de Duas Fases}
+\subsection{Conjuntos baseados no conversor cuk entrelaçado de duas fases}
+
+\subsubsection{Inversor cuk entrelaçado bipolar}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{comp_interv_circ_clean}
+		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor bipolar}
+		\label{fig:comp_interv_circ_clean}
+\end{figure}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{interv_Vo_10Io_comp}
-		\caption{Sinais de saída obtidos para o conversor cuk entrelaçado de duas fases com inversor bipolar}
+		\caption{Sinais de saída obtidos para o inversor cuk entrelaçado bipolar}
 		\label{fig:out_interv_bip}
 \end{figure}
 
@@ -1585,15 +1557,25 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$9,47 mA$} & \multicolumn{1}{c|}{$126,94 V$}   & \multicolumn{1}{c|}{$0,53 V$} & \multicolumn{1}{c|}{$287,73 W$} & \multicolumn{1}{c|}{$95,91\%$} & \multicolumn{1}{c|}{$1,02\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o conversor cuk entrelaçado de duas fases com inversor bipolar}
+	\caption{Valores obtidos para o inversor cuk entrelaçado bipolar}
 	\label{tab:interv_bip_res}
 \end{table}
+
+\subsubsection{Inversor cuk entrelaçado unipolar}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{comp_interv_circ_clean_unip}
+		\caption{Circuito implementado para o conversor cuk entrelaçado de duas fases com inversor unipolar}
+		\label{fig:comp_interv_circ_clean_unip}
+\end{figure}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{interv_Vo_10Io_comp_unip}
-		\caption{Sinais de saída obtidos para o conversor cuk entrelaçado de duas fases com inversor unipolar}
+		\caption{Sinais de saída obtidos para o inversor cuk entrelaçado unipolar}
 		\label{fig:out_interv_unip}
 \end{figure}
 
@@ -1608,17 +1590,27 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,98 mA$} & \multicolumn{1}{c|}{$126,91 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$287,59 W$} & \multicolumn{1}{c|}{$95,86\%$} & \multicolumn{1}{c|}{$1,01\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o conversor cuk entrelaçado de duas fases com inversor unipolar}
+	\caption{Valores obtidos para o inversor cuk entrelaçado unipolar}
 	\label{tab:interv_unip_res}
 \end{table}
 
-\subsubsection{Inversor Ćuk Integrado}
+\subsection{Conjuntos baseados no inversor cuk integrado}
+
+\subsubsection{Inversor cuk integrado bipolar}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{comp_integ_circ_clean}
+		\caption{Circuito implementado para o inversor cuk integrado bipolar}
+		\label{fig:comp_integ_circ_clean}
+\end{figure}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{integ_Vo_10Io_comp}
-		\caption{Sinais de saída obtidos para o conversor cuk integrado com inversor bipolar}
+		\caption{Sinais de saída obtidos para o inversor cuk integrado bipolar}
 		\label{fig:out_integ_bip}
 \end{figure}
 
@@ -1636,6 +1628,17 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 	\caption{Valores obtidos para o inversor cuk integrado bipolar}
 	\label{tab:integ_bip_res}
 \end{table}
+
+
+\subsubsection{Inversor cuk integrado unipolar}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{comp_integ_circ_clean_unip}
+		\caption{Circuito implementado para o inversor cuk integrado unipolar}
+		\label{fig:comp_integ_circ_clean_unip}
+\end{figure}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
@@ -1659,6 +1662,7 @@ O sinal de corrente apresentado é ampliado em dez vezes para melhor visualizaç
 	\caption{Valores obtidos para o inversor cuk integrado unipolar}
 	\label{tab:integ_unip_res}
 \end{table}
+
 
 \chapter{Análise dos Resultados}
 
@@ -1730,118 +1734,104 @@ ESCREVER conclusão sobre o trabalho (resultado esperado/resultado obtido/dificu
 % ---
 \begin{anexosenv}
 
-% Imprime uma página indicando o início dos anexos
-\partanexos
+	% Imprime uma página indicando o início dos anexos
+	\partanexos
 
-% ---
-\chapter{Código da implementação de MPPT utilizado}\label{anex:mppt_code}
+	% ---
+	\chapter{Código da implementação de MPPT utilizado}\label{anex:mppt_code}
 
-\lstset{
-    language         = C,
-    basicstyle       = \ttfamily,
-    keywordstyle     = \bfseries,
-    identifierstyle  = \color{blue},
-    commentstyle     = \color{olive},
-    moredelim        = [s][\color{ForestGreen}]{/**}{*/},
-    stringstyle      = \color{magenta},
-    frame            = single,
-    showstringspaces = false,
-		columns          = flexible
-}
+	\lstset{
+			language         = C,
+			basicstyle       = \ttfamily,
+			keywordstyle     = \bfseries,
+			identifierstyle  = \color{blue},
+			commentstyle     = \color{olive},
+			moredelim        = [s][\color{ForestGreen}]{/**}{*/},
+			stringstyle      = \color{magenta},
+			frame            = single,
+			showstringspaces = false,
+			columns          = flexible
+	}
 
-% [caption = Código C utilizado no PSIM]
-\begin{lstlisting}
-double old_v, old_p, old_out, temp;
+	% [caption = Código C utilizado no PSIM]
+	\begin{lstlisting}
+	double temp = 1;
+	double old_v, old_p, old_out;
 
-double v = in[0];
-double i = in[1];
+	double v = in[0];
+	double i = in[1];
 
-double p = v*i;
+	double p = v*i;
 
-double delta_p = p-old_p;
-double delta_v = v-old_v;
+	double delta_p = p-old_p;
+	double delta_v = v-old_v;
 
-if(delta_p > 0){
-    if(delta_v > 0){
-     temp -= 0.01; 
-    } else if (delta_v  < 0){
-     temp += 0.01;
-    }
-} else if (delta_p < 0){
-    if(delta_v > 0){
-     temp += 0.01;
-    } else if (delta_v < 0){
-     temp -= 0.01; 
-    }
-} else {
-  temp = temp;
-}
+	if(delta_p > 0){
+			if(delta_v > 0){
+			temp -= 0.01; 
+			} else if (delta_v  < 0){
+			temp += 0.01;
+			}
+	} else if (delta_p < 0){
+			if(delta_v > 0){
+			temp += 0.01;
+			} else if (delta_v < 0){
+			temp -= 0.01; 
+			}
+	} else {
+		temp = temp;
+	}
 
-if(temp > 0.95) temp = 0.95;
-if(temp < 0.05) temp = 0.05;
+	if(temp > 0.95) temp = 0.95;
+	if(temp < 0.05) temp = 0.05;
 
-out[0] =  temp;
-old_v = v;
-old_p = p;
+	out[0] =  temp;
+	old_v = v;
+	old_p = p;
 
-\end{lstlisting}
-% ---
+	\end{lstlisting}
+	% ---
 
-\chapter{Circuitos dos Inversores Implementados no PSIM} \label{anex:circ_images}
+	\chapter{Circuitos dos Inversores Implementados no PSIM} \label{anex:circ_images}
 
-\begin{sidewaysfigure}
-	\centering
-	\includegraphics[width=\linewidth]{comp_conv_circ_clean}
-	\caption{Circuito do conversor cuk convencional com inversor bipolar implementado}	
+	\begin{sidewaysfigure}
+		\centering
+		\includegraphics[width=\linewidth]{comp_conv_circ_clean}
+		\caption{Circuito do inversor cuk convencional bipolar implementado}	
 
-\end{sidewaysfigure}
+	\end{sidewaysfigure}
 
-\begin{sidewaysfigure}
-	\centering
-	\includegraphics[width=\linewidth]{comp_interv_circ_clean}
-	\caption{Circuito do conversor cuk entrelaçado de duas fases com inversor bipolar implementado}	
-\end{sidewaysfigure}
+	\begin{sidewaysfigure}
+		\centering
+		\includegraphics[width=\linewidth]{comp_interv_circ_clean}
+		\caption{Circuito do inversor cuk entrelaçado bipolar implementado}	
+	\end{sidewaysfigure}
 
-\begin{sidewaysfigure}
-	\centering
-	\includegraphics[width=\linewidth]{comp_integ_circ_clean}
-	\caption{Circuito do inversor cuk integrado bipolar implementado}	
-\end{sidewaysfigure}
+	\begin{sidewaysfigure}
+		\centering
+		\includegraphics[width=\linewidth]{comp_integ_circ_clean}
+		\caption{Circuito do inversor cuk integrado bipolar implementado}	
+	\end{sidewaysfigure}
 
 
-\begin{sidewaysfigure}
-	\centering
-	\includegraphics[width=\linewidth]{comp_conv_circ_clean_unip}
-	\caption{Circuito do conversor cuk convencional com inversor unipolar implementado}	
+	\begin{sidewaysfigure}
+		\centering
+		\includegraphics[width=\linewidth]{comp_conv_circ_clean_unip}
+		\caption{Circuito do inversor cuk convencional unipolar implementado}
+	\end{sidewaysfigure}
 
-\end{sidewaysfigure}
+	\begin{sidewaysfigure}
+		\centering
+		\includegraphics[width=\linewidth]{comp_interv_circ_clean_unip}
+		\caption{Circuito do inversor cuk entrelaçado unipolar implementado}	
+	\end{sidewaysfigure}
 
-\begin{sidewaysfigure}
-	\centering
-	\includegraphics[width=\linewidth]{comp_interv_circ_clean_unip}
-	\caption{Circuito do conversor cuk entrelaçado de duas fases com inversor unipolar implementado}	
-\end{sidewaysfigure}
+	\begin{sidewaysfigure}
+		\centering
+		\includegraphics[width=\linewidth]{comp_integ_circ_clean_unip}
+		\caption{Circuito do inversor cuk integrado unipolar implementado}	
+	\end{sidewaysfigure}
 
-\begin{sidewaysfigure}
-	\centering
-	\includegraphics[width=\linewidth]{comp_integ_circ_clean_unip}
-	\caption{Circuito do inversor cuk integrado unipolar implementado}	
-\end{sidewaysfigure}
-
-% \vspace{-150pt}
-% \begin{figure}[htb]
-% 	\centering
-% 	% \includegraphics[angle=90, scale=0.5]{comp_conv_circ_clean}
-% 	\rotatebox{90}{\includegraphics[width=0.9\textheight]{comp_conv_circ_clean}}
-% 	\caption{test}	
-% \end{figure}
-
-% \begin{figure}[p]
-% 	\makebox[\linewidth]{
-% 			\includegraphics[width=1.3\linewidth]{comp_conv_circ_clean}
-% 	}
-% 	\caption{Sequence diagram}
-% \end{figure}
 \end{anexosenv}
 
 
