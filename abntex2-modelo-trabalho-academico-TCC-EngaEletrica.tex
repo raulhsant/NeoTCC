@@ -879,7 +879,7 @@ O resistor $R_f$ é responsável por atenuar parte da oscilação de tensão pro
 
 %  O resistor de amortecimento $R_f$ limita os efeitos de ressonância do filtro e pode ser encontrado de forma empírica.
 
-\chapter{Desenvolvimento do Projeto}
+\chapter{Desenvolvimento do Projeto}  \label{cap:project}
 
 Para o desenvolvimento do projeto, primeiramente é necessário definir a potência a ser utilizada no sistema. Após isso, é escolhido um painel fotovoltaico comercial para que seus parâmetros sejam utilizados no modelo utilizado nas simulações. Com as características do painel é possível projetar os conversores CC/CC e, com estes, os inversores responsáveis pela conversão CC/CA.
 
@@ -989,7 +989,7 @@ O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fi
 \end{figure}
 
 
-\section{Projeto dos Conversores CC/CC} \label{cap:project}
+\section{Projeto dos Conversores CC/CC}
 
 Apesar de mais complexos e caros que conversores CC/CC básicos, conversores cuk apresentam melhores características de corrente, tanto de entrada quanto de saída que estas topologias \cite{JOSEPH_2017_Intervealed_CUK} e, por isso foram escolhidos para como objeto de análise deste trabalho.
 
@@ -1453,16 +1453,12 @@ O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o ca
 
 \chapter{Conjuntos Finais}
 
-Neste capítulo são apresentados os conjuntos formados a partir da conexão dos circuitos dimensionados no capítulo~\ref{cap:project}.
+Neste capítulo são apresentados os conjuntos formados a partir da conexão dos circuitos dimensionados no capítulo~\ref{cap:project} e os resultados das simulações executadas com os mesmos.
 
+São, ao todo, seis conjuntos distintos uma vez que cada implementação proposta é conectada a um inversor bipolar e a um inversor unipolar, a fim de avaliar a influência desse estágio. Todos as combinações apresentam, entretanto, o painel fotovoltaico, o rastreador de ponto máximo de potência e o filtro LCL em comum.
 
-\section{Conjuntos Painel-Conversor CC/CC-Inversor-Filtro}
+Todas as figuras de circuitos desse capítulo são apresentadas também no anexo~\ref{anex:circ_images} em modo paisagem e, portanto, com maior qualidade.
 
-Nesse capítulo são apresentados os circuitos dos sistemas compostos pela 
-conexão do painel fotovoltaico aos conversores projetados nas seções~\ref{sec:met_conv_cc} e \ref{sec:met_conv_integ}, com o chaveamento controlado pelo algoritmo de MPPT (seção~\ref{sec:met_mppt}), interligados aos inversores e ao filtro das seções
-~\ref{sec:met_conv_cc_ca} e \ref{sec:met_filt}, respectivamente.
-
-Os circuitos serão expostos nas figuras~\ref{fig:comp_conv_circ_clean} a ~\ref{fig:comp_integ_circ_clean_unip} e no anexo~\ref{anex:circ_images}, com maior qualidade.
 \subsubsection{Conversor Ćuk Convencional}
 % \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
 \begin{figure}[htb]%
