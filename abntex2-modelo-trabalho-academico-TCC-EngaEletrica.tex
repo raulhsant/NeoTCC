@@ -81,6 +81,7 @@
 \usepackage{listings}
 \usepackage[figuresright]{rotating}
 \usepackage{float}
+\usepackage{multirow}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -130,7 +131,7 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Estudo Comparativo de Topologias de Microinversores Para Painéis Fotovoltaicos Conectados à Rede Elétrica}
+\titulo{Estudo de Microinversores Baseados no Conversor Ćuk Para Painéis Fotovoltaicos Conectados à Rede Elétrica}
 \autor{Raul Henrique Santana}
 \local{Belo Horizonte}
 \data{2019}
@@ -486,7 +487,7 @@ As implementações que serão analisadas estão listadas a seguir e serão comb
 
 O capítulo 1 introduz o tema e o objeto de estudo, com uma breve explicação e contextualização do problema. No capítulo 2 é apresentado o estado da arte e o embasamento teórico necessário para o desenvolvimento do trabalho.
 
-No capítulo 3 é descrito o desenvolvimento das etapas do projeto, desde a escolha do painel fotovoltaico utilizado até o dimensionamento do filtro de saída. O capítulo 4 é destinado à exposição e discussão dos resultados apresentados pelos conjuntos finais enquanto no quinto e último capítulo são apresentadas as conclusões obtidas pelo estudo.
+No capítulo 3 é descrito o desenvolvimento das etapas do projeto, desde a escolha do painel fotovoltaico utilizado até o dimensionamento do filtro de saída. O capítulo 4 é destinado à exposição dos conjuntos finais, compostos pela interconexão dos componentes projetados no capitulo anterior. No quinto capítulo são discutidos os resultados apresentados no capítulo anterior, enquanto no sexto e último capítulo são apresentadas as conclusões obtidas pelo estudo.
 
 \chapter{Estado da Arte}
 
@@ -1236,7 +1237,7 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 	\centering
 		\includegraphics[width= \linewidth]{cuk_inter_V_out}
 		\caption{Comportamento da tensão de saída do conversor cuk entrelaçado de duas fases}
-		\label{fig:cuk_inter_ripp_V_out}
+		\label{fig:cuk_inter_V_out}
 \end{figure}
 
 \begin{figure}[H]%
@@ -1465,7 +1466,7 @@ Todas as figuras de circuitos desse capítulo são apresentadas também no anexo
 
 O circuito implementado no PSIM para o conjunto que utiliza o conversor cuk convencional conectado ao inversor bipolar, com rastreamento de ponto máximo de potência é apresentado na figura~\ref{fig:comp_conv_circ_clean}. Além disso, a tabela~\ref{tab:conv_bip_res} apresenta os principais resultados encontrados através da simulação deste circuito.
 
-Na figura~\ref{fig:out_conv_bip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais, considerando frequência base de 60Hz.
+Na figura~\ref{fig:out_conv_bip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais, considerando frequência base de 60Hz. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_conv_bip}.
 
 Já a figura~\ref{fig:comp_conv_var_s_bip} mostra os sinais de entrada e saída do conjunto para alterações na irradiância que alimenta o painel fotovoltaico.
 
@@ -1503,6 +1504,14 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra os sinais de entrada e saída 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
+		\includegraphics[width= \linewidth]{fft_conv_bip}
+		\caption{Espectro de frequências da tensão de saída do inversor cuk convencional bipolar}
+		\label{fig:fft_conv_bip}
+\end{figure}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
 		\includegraphics[width= \linewidth]{comp_conv_var_s}
 		\caption{Sinais de entrada e saída para o inversor cuk convencional bipolar com variação de irradiância}
 		\label{fig:comp_conv_var_s_bip}
@@ -1512,7 +1521,7 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra os sinais de entrada e saída 
 
 O circuito implementado no PSIM para o conjunto que utiliza o conversor cuk convencional conectado ao inversor unipolar, com rastreamento de ponto máximo de potência é apresentado na figura~\ref{fig:comp_conv_circ_clean_unip}. Além disso, a tabela~\ref{tab:conv_unip_res} apresenta os principais resultados encontrados através da simulação deste circuito.
 
-Na figura~\ref{fig:out_conv_unip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais, considerando frequência base de 60Hz.
+Na figura~\ref{fig:out_conv_unip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais, considerando frequência base de 60Hz. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_conv_unip}.
 
 Já a figura~\ref{fig:comp_conv_var_s_unip} mostra os sinais de entrada e saída do conjunto para alterações na irradiância que alimenta o painel fotovoltaico.
 
@@ -1550,6 +1559,14 @@ Já a figura~\ref{fig:comp_conv_var_s_unip} mostra os sinais de entrada e saída
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
+		\includegraphics[width= \linewidth]{fft_conv_unip}
+		\caption{Espectro de frequências da tensão de saída do inversor cuk convencional unipolar}
+		\label{fig:fft_conv_unip}
+\end{figure}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
 		\includegraphics[width= \linewidth]{comp_conv_var_s_unip}
 		\caption{Sinais de entrada e saída para o inversor cuk convencional unipolar com variação de irradiância}
 		\label{fig:comp_conv_var_s_unip}
@@ -1559,7 +1576,7 @@ Já a figura~\ref{fig:comp_conv_var_s_unip} mostra os sinais de entrada e saída
 
 \subsubsection{Inversor cuk entrelaçado bipolar}
 
-A figura~\ref{fig:comp_interv_circ_clean} apresenta o circuito resultante da conexão do conversor cuk entrelaçado de duas fases ao inversor bipolar implementado no PSIM. Além disso, a tabela~\ref{tab:interv_bip_res} apresenta os principais resultados encontrados através da simulação deste circuito. Na figura~\ref{fig:out_interv_bip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais.
+A figura~\ref{fig:comp_interv_circ_clean} apresenta o circuito resultante da conexão do conversor cuk entrelaçado de duas fases ao inversor bipolar implementado no PSIM. Além disso, a tabela~\ref{tab:interv_bip_res} apresenta os principais resultados encontrados através da simulação deste circuito. Na figura~\ref{fig:out_interv_bip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_interv_bip}.
 
 Já a figura~\ref{fig:comp_interv_var_s} mostra os sinais de entrada e saída do conjunto para alterações na irradiância que alimenta o painel fotovoltaico.
 
@@ -1597,6 +1614,14 @@ Já a figura~\ref{fig:comp_interv_var_s} mostra os sinais de entrada e saída do
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
+		\includegraphics[width= \linewidth]{fft_interv_bip}
+		\caption{Espectro de frequências da tensão de saída do inversor cuk entrelaçado bipolar}
+		\label{fig:fft_interv_bip}
+\end{figure}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
 		\includegraphics[width= \linewidth]{comp_interv_var_s}
 		\caption{Sinais de entrada e saída para o inversor cuk entrelaçado bipolar com variação de irradiância}
 		\label{fig:comp_interv_var_s}
@@ -1604,7 +1629,7 @@ Já a figura~\ref{fig:comp_interv_var_s} mostra os sinais de entrada e saída do
 
 \subsubsection{Inversor cuk entrelaçado unipolar}
 
-A figura~\ref{fig:comp_interv_circ_clean_unip} apresenta o circuito resultante da conexão do conversor cuk entrelaçado de duas fases ao inversor unipolar implementado no PSIM. Além disso, a tabela~\ref{tab:interv_unip_res} apresenta os principais resultados encontrados através da simulação deste circuito. Na figura~\ref{fig:out_interv_unip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais.
+A figura~\ref{fig:comp_interv_circ_clean_unip} apresenta o circuito resultante da conexão do conversor cuk entrelaçado de duas fases ao inversor unipolar implementado no PSIM. Além disso, a tabela~\ref{tab:interv_unip_res} apresenta os principais resultados encontrados através da simulação deste circuito. Na figura~\ref{fig:out_interv_unip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_interv_unip}.
 
 Já a figura~\ref{fig:comp_interv_var_s_unip} mostra os sinais de entrada e saída do conjunto para alterações na irradiância que alimenta o painel fotovoltaico.
 
@@ -1642,6 +1667,14 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra os sinais de entrada e saí
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
+		\includegraphics[width= \linewidth]{fft_interv_unip}
+		\caption{Espectro de frequências da tensão de saída do inversor cuk entrelaçado unipolar}
+		\label{fig:fft_interv_unip}
+\end{figure}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
 		\includegraphics[width= \linewidth]{comp_interv_var_s_unip}
 		\caption{Sinais de entrada e saída para o inversor cuk entrelaçado unipolar com variação de irradiância}
 		\label{fig:comp_interv_var_s_unip}
@@ -1651,7 +1684,7 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra os sinais de entrada e saí
 
 \subsubsection{Inversor cuk integrado bipolar}
 
-O circuito implementado no PSIM para o inversor cuk integrado bipolar é apresentado na figura~\ref{fig:comp_integ_circ_clean}, já a figura~\ref{fig:out_integ_bip} mostra os sinais de tensão e corrente de saída, ampliada em dez vezes, além do valor medido para a distorção harmônica total dos mesmos.
+O circuito implementado no PSIM para o inversor cuk integrado bipolar é apresentado na figura~\ref{fig:comp_integ_circ_clean}, já a figura~\ref{fig:out_integ_bip} mostra os sinais de tensão e corrente de saída, ampliada em dez vezes, além do valor medido para a distorção harmônica total dos mesmos. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_integ_bip}.
 
 Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados encontrados através da simulação deste circuito e a figura~\ref{fig:comp_integ_var_s} mostra os sinais de entrada e saída do conjunto para alterações na irradiância que alimenta o painel fotovoltaico.
 
@@ -1689,6 +1722,14 @@ Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
+		\includegraphics[width= \linewidth]{fft_integ_bip}
+		\caption{Espectro de frequências da tensão de saída do inversor cuk integrado bipolar}
+		\label{fig:fft_integ_bip}
+\end{figure}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
 		\includegraphics[width= \linewidth]{comp_integ_var_s}
 		\caption{Sinais de entrada e saída para o inversor cuk integrado bipolar com variação de irradiância}
 		\label{fig:comp_integ_var_s}
@@ -1696,7 +1737,7 @@ Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados
 
 \subsubsection{Inversor cuk integrado unipolar}
 
-O circuito implementado no PSIM para o inversor cuk integrado unipolar é apresentado na figura~\ref{fig:comp_integ_circ_clean_unip}, já a figura~\ref{fig:out_integ_unip} mostra os sinais de tensão e corrente de saída, ampliada em dez vezes, além do valor medido para a distorção harmônica total dos mesmos.
+O circuito implementado no PSIM para o inversor cuk integrado unipolar é apresentado na figura~\ref{fig:comp_integ_circ_clean_unip}, já a figura~\ref{fig:out_integ_unip} mostra os sinais de tensão e corrente de saída, ampliada em dez vezes, além do valor medido para a distorção harmônica total dos mesmos. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_integ_unip}.
 
 Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultados encontrados através da simulação deste circuito e a figura~\ref{fig:comp_integ_var_s_unip} mostra os sinais de entrada e saída do conjunto para alterações na irradiância que alimenta o painel fotovoltaico.
 
@@ -1734,33 +1775,105 @@ Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultado
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
+		\includegraphics[width= \linewidth]{fft_integ_unip}
+		\caption{Espectro de frequências da tensão de saída do inversor cuk integrado unipolar}
+		\label{fig:fft_integ_unip}
+\end{figure}
+
+\begin{figure}[H]%
+	\captionsetup{justification=centering}
+	\centering
 		\includegraphics[width= \linewidth]{comp_integ_var_s_unip}
 		\caption{Sinais de entrada e saída para o inversor cuk integrado unipolar com variação de irradiância}
 		\label{fig:comp_integ_var_s_unip}
 \end{figure}
 
 
-\chapter{Análise dos Resultados}
+\chapter{Análise dos Resultados Obtidos}
 
-ESCREVER análise sobre os resultados encontrados, focar nos resultados obtidos a partir dos circuitos completos. Analisar efeito da MPPT no conversor. Analisar distorção harmonica e rendimento. Explicar alterações.
+% ESCREVER análise sobre os resultados encontrados, focar nos resultados obtidos a partir dos circuitos completos. Analisar efeito da MPPT no conversor. Analisar distorção harmonica e rendimento. Explicar alterações.
+
+%MPPT
+Ao analisar as figuras~\ref{fig:comp_conv_var_s_bip}, \ref{fig:comp_conv_var_s_unip}, \ref{fig:comp_interv_var_s}, \ref{fig:comp_interv_var_s_unip}, \ref{fig:comp_integ_var_s} e \ref{fig:comp_integ_var_s_unip} percebe-se que o sistema de rastreamento de ponto de máxima potência apresenta o mesmo comportamento para todos os conjuntos simulados para alterações da irradiância solar, confirmando o comportamento esperado.
+
+Como pode ser visto na figura~\ref{fig:IV_pv_cs}, o ponto de máxima potência do painel fotovoltaico, para variações da irradiância apresenta aproximadamente a mesma tensão para uma vasta gama de valores, enquanto a corrente máxima gerada é reduzida. 
+
+É possível perceber também, uma variação na tensão de saída do painel e, consequentemente também na corrente fornecida, durante todo o período amostrado. Essa oscilação é esperada devido ao algoritmo de rastreamento utilizado, que oscila continuamente em torno do ponto de máxima potência. Esse comportamento propicia, também uma adequação mais rápida a variações de irradiância, uma vez que a varredura ocorre durante todo o funcionamento do sistema, inclusive após o ponto ótimo ter sido encontrado.
+
+%SINAL DE SAIDA
+Em relação á tensão de saída, enquanto a maior parte das implementações conseguiu fornecer tensão compatível com a conexão à rede elétrica, o inversor integrado bipolar não se comportou como esperado, como pode ser percebido ao se comparar a figura~\ref{fig:out_integ_bip} com as demais figuras que representam o sinal de saída dos conjuntos: \ref{fig:out_conv_bip}, \ref{fig:out_conv_unip}, \ref{fig:out_interv_bip}, \ref{fig:out_interv_unip} e \ref{fig:out_integ_unip}.
+
+Apesar desse inversor apresentar tensão eficaz igual ao valor esperado, de 127V, a tensão fornecida por este apresenta uma componente contínua de aproximadamente 30V. A ausência de nível 0 no estágio inversor faz com que, a tensão fornecida pelo painel não seja filtrada no conversor e apareça na saída do conjunto. O inversor cuk integrado unipolar não apresenta o mesmo problema devido ao nível adicional apresentado pelo seu estágio inversor.
+
+%RENDIMENTO/QUALIDADE
+A tabela~\ref{tab:final_results_quality} apresenta os resultados de rendimento, distorção harmônica total, tensão e corrente de ripple para os seis conjuntos simulados.
+
+Em relação às variações de corrente e tensão, percebe-se que, enquanto os inversores bipolares apresentam valores consideravelmente distintos entre si, os unipolares apresentam valores sempre bem próximos. Esse comportamento indica que o PWM senoidal unipolar utilizado para controlar o estágio inversor dessas implementações é capaz de reduzir a influência do estágio subidor de tensão de tal forma que este possa ser ignorado para essas variáveis. Já entre os inversores bipolares, o inversor integrado apresentou variações menores que os demais o que não era esperado. Entretanto, por apresentar componente contínua não tensão será desconsiderado.
+
+Ao analisar as variações de tensão e corrente de saída dos inversores cuk convencional bipolar e cuk entrelaçado bipolar pode-se perceber que os valores apresentados pela implementação entrelaçada são aproximadamente metade dos apresentados pela convencional. Esse comportamento está de acordo com o esperado, com as oscilações reduzindo de acordo com o aumento do número de fases do inversor.
+
+\begin{table}[htb]
+	\centering
+	\captionsetup{justification=centering}
+	% \resizebox{\textwidth}{!}{%
+	% 	\begin{tabular}{c|l|c|c|c|c|}
+	% 		\cline{3-6}
+	% 		\multicolumn{2}{l|}{\cellcolor[HTML]{FFFFFF}}                                                        & Rendimento & \cellcolor[HTML]{FFFFFF}Variação da tensão de saída & \cellcolor[HTML]{FFFFFF}Variação da corrente de saída & \cellcolor[HTML]{FFFFFF}THD \\ \hline
+	% 		\rowcolor[HTML]{EFEFEF} 
+	% 		\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}}                                            & bipolar  & $95,44\%$  & $1,13V$                                             & $20,21mA$                                             & $1,20\%$                    \\ \cline{2-6} 
+	% 		\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk convencional}} & unipolar & $94,98\%$  & $0,17V$                                             & $2,99mA$                                              & $1,18\%$                    \\ \hline
+	% 		\rowcolor[HTML]{EFEFEF} 
+	% 		\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}}                                            & bipolar  & $95,91\%$  & $0,53V$                                             & $9,47mA$                                              & $1,02\%$                    \\ \cline{2-6} 
+	% 		\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk entrelaçado}}  & unipolar & $95,86\%$  & $0,16V$                                             & $2,98mA$                                              & $1,01\%$                    \\ \hline
+	% 		\rowcolor[HTML]{EFEFEF} 
+	% 		\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}}                                            & bipolar  & $93,96\%$  & $0,42V$                                             & $7,57mA$                                              & $25,53\%$                   \\ \cline{2-6} 
+	% 		\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk integrado}}    & unipolar & $96,11\%$  & $0,16V$                                             & $2,86mA$                                              & $3,07\%$                    \\ \hline
+	% 	\end{tabular}%
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|l|c|c|c|c|}
+		\hline
+		\multicolumn{2}{|l|}{\cellcolor[HTML]{FFFFFF}}                                 & Rendimento & \cellcolor[HTML]{FFFFFF}Variação da tensão de saída & \cellcolor[HTML]{FFFFFF}Variação da corrente de saída & \cellcolor[HTML]{FFFFFF}THD \\ \hline
+		\rowcolor[HTML]{DBDBDB} 
+		\cellcolor[HTML]{FFFFFF}                                            & bipolar  & $95,44\%$  & $1,13V$                                             & $20,21mA$                                             & $1,20\%$                    \\ \cline{2-6} 
+		\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk convencional} & unipolar & $94,98\%$  & $0,17V$                                             & $2,99mA$                                              & $1,18\%$                    \\ \hline
+		\rowcolor[HTML]{DBDBDB} 
+		\cellcolor[HTML]{FFFFFF}                                            & bipolar  & $95,91\%$  & $0,53V$                                             & $9,47mA$                                              & $1,02\%$                    \\ \cline{2-6} 
+		\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk entrelaçado}  & unipolar & $95,86\%$  & $0,16V$                                             & $2,98mA$                                              & $1,01\%$                    \\ \hline
+		\rowcolor[HTML]{DBDBDB} 
+		\cellcolor[HTML]{FFFFFF}                                            & bipolar  & $93,96\%$  & $0,42V$                                             & $7,57mA$                                              & $25,53\%$                   \\ \cline{2-6} 
+		\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk integrado}    & unipolar & $96,11\%$  & $0,16V$                                             & $2,86mA$                                              & $3,07\%$                    \\ \hline
+		\end{tabular}%
+	}
+	\caption{Resultados de rendimento e qualidade do sinal obtidos para os conjuntos finais}
+	\label{tab:final_results_quality}
+\end{table}
+
+Em relação ao rendimento percebe-se que, em geral, inversores unipolares apresentam rendimento um pouco inferior à mesmas implementações bipolares, ou seja, pra se obter sinais de saída menos poluídos o inversor unipolar sacrifica uma pequena parcela da potência gerada, devido a seu terceiro nível, 0, no qual não é transmitida potência para a saída.
+
+A exceção a essa regra é o inversor cuk integrado. Enquanto sua implementação bipolar apresenta o pior rendimento entre os inversores utilizados a implementação unipolar, que resolve o problema de tensão contínua na saída do conjunto apresenta o maior rendimento, de $96,11\%$, enquanto o segundo maior é o do inversor cuk entrelaçado bipolar, de $95,91\%$. Enquanto o resultado do inversor integrado pode ser atribuído ao número reduzido de componentes capazes de dissipar energia dessa implementação, o do inverso entrelaçado está relacionado, principalmente ao menor estresse de chaveamento nos transistores do estágio elevador de tensão, devido ao aumento do número de fases responsáveis por lidar com a mesma potência inserida.
+
+Segundo a recomendação IEEE-519, para sistemas com tensão de barramento inferiores a 1kV a distorção harmônica total deve ser inferior a $8\%$ \cite{IEEE_519}. Dos inversores implementados, apenas o inversor integrado unipolar não respeita esse limite.
+
+Percebe-se, entre as implementações restantes que os inversores que utilizam o controle unipolar apresentam distorção harmônica total um pouco inferior aos que utilizam o controle bipolar, devido à maior atenuação dos harmônicos presentes.
+
+Por fim, apesar de apresentar variações de tensão e corrente de saída próximas aos valores das demais implementações unipolares, o inversor cuk integrado unipolar apresenta distorção harmônica total praticamente três vezes maior que os demais. Esse valor se ocorre, principalmente por uma maior presença do harmônico de terceira ordem devido à menor atenuação dos harmônicos nesse circuito. Essa menor atenuação, por sua vez é devida à simplicidade do circuito, que não apresenta um filtro entre os estágios elevador de tensão e inversor.
 
 \chapter{Conclusão}
 
-ESCREVER conclusão sobre o trabalho (resultado esperado/resultado obtido/dificuldades encontradas/melhorias/trabalhos futuros)
+O desenvolvimento de um sistema para fontes fotovoltaicas conectadas a rede elétrica com microinversores baseados no conversor cuk foi, em geral, bem sucedido. O sistema de rastreamento de ponto máximo de potência implementado agiu da forma esperada em conjunto com os inversores, de modo a manter a tensão estável e o painel fotovoltaico fornecendo a máxima potência para valores variáveis da irradiância solar.
 
-% FALAR SOBRE  STATE OF THE ART EM INVERSORES X MICRONIVERSORES <---> FALAR SOBRE TOPOLOGIAS DE INVERSORES
-% DIFERENÇAS ENTRE MICRONIVERSORES E INVERSORES
-% VANTAGENS MICRONIVERSORES
-% MICRONIVERSORES NOS ULTIMOS anos
+Com exceção do inversor cuk integrado bipolar, as demais implementações foram capazes de fornecer tensão senoidal com amplitude e frequência compatíveis com a rede elétrica e com distorção harmônica máxima abaixo do limite recomendado pela IEEE-519.
 
-% (microinvesores e inversores topologias, pq cuk?)
-% FALAR SOBRE TOPOLOGIA CUK (PQ ESCOLHER ESSA -> fonte de corrente?/ nova leva?)
+Assim como esperado, os inversores unipolares apresentaram melhores resultados em relação à qualidade dos sinais de saída, em detrimento da potência disponibilizada. Além disso, os inversores entrelaçados, mais complexos que os convencionais apresentaram melhores resultados tanto em relação ao rendimento quanto em relação à qualidade do sinal entregue. 
 
+Apesar de mais simples, o inversor integrado apresentou melhor rendimento entre os analisados, sendo um forte candidato para a implementação de microinversores comerciais, já que sua implementação apresenta um custo inferior. Entretanto, esse inversor deve necessariamente apresentar estágio inversor unipolar que apresente um nível de tensão nulo, além dos demais.
 
-% 	FALAR SOBRE TWO PANEL MICROINVERTERS TOPOLOGY
+Para um sistema em que o foco seja, além do rendimento, a menor distorção harmônica possível, pode ser utilizado o inversor cuk entrelaçado de duas fases unipolar, que apresenta rendimento próximo ao do inversor cuk integrado unipolar, mas com distorção harmônica equivalente a um terço à deste ultimo. Essa implementação é, porém mais complexa e cara, devido ao maior número de componentes necessários.
 
+Um sistema composto por inversores integrados unipolares, apesar de ainda apresentarem um controle mais complexo na etapa inversora, representam uma implementação mais barata e menor, além de um ótimo rendimento e se adequar à recomendação técnica de qualidade relativa à distorção harmônica.
 
-% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+Dessa forma, a implementação de um sistema para conexão de fontes fotovoltaicas a rede baseado em microinversores de baixa potência é uma alternativa possível e viável ao atual modelo de inversores de alta potência. 
+
 % ---
 \bookmarksetup{startatroot}% 
 % ---
@@ -1812,7 +1925,6 @@ ESCREVER conclusão sobre o trabalho (resultado esperado/resultado obtido/dificu
 
 	% Imprime uma página indicando o início dos anexos
 	\partanexos
-
 	% ---
 	\chapter{Código da implementação de MPPT utilizado}\label{anex:mppt_code}
 
