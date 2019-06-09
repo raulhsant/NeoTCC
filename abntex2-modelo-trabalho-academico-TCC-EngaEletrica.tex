@@ -742,6 +742,16 @@ O sinal obtido na saída de um inversor que segue esta técnica é, basicamente,
 		\label{fig:vsi_bip_func_graph}
 \end{figure}
 
+A figura~\ref{fig:fft_vsi_bip} demonstra o conteúdo harmônico da tensão de saída desse inversor para uma frequência de chaveamento de 1kHz. É possível perceber a presença dos harmônicos pares e ímpares dessa frequência, de forma que a distorção harmônica total da tensão de saída é de 186\%, considerando o valor esperado como uma onda senoidal de 60Hz.
+
+\begin{figure}[H]%
+	\captionsetup{{justification=centering}}
+	\centering%
+		\includegraphics[width= \linewidth]{fft_vsi_bip}
+		\caption{Conteúdo harmônico da tensão de saída do inversor VSI Bipolar}
+		\label{fig:fft_vsi_bip}
+\end{figure}
+
 \subsection{Inversor com Modulação por Largura de Pulso Unipolar}
 
 Já em um inversor com PWM unipolar apenas os estados 1, 2, 3 e 4 da tabela~\ref{table:VSI_states} são utilizados para gerar o sinal de saída. Dessa forma a tensão alternada obtida apresenta três possíveis valores: $0$, $v_i$ e $-v_i$.
@@ -762,6 +772,18 @@ Essa característica permite que inversores que utilizam a modulação unipolar 
 		\includegraphics[width= \linewidth]{vsi_uni_func}
 		\caption{Formas de onda do inversor VSI com PWM unipolar}
 		\label{fig:vsi_uni_func_graph}
+\end{figure}
+
+A figura~\ref{fig:fft_vsi_unip} demonstra o conteúdo harmônico da tensão de saída desse inversor para uma frequência de chaveamento de 1kHz. É possível perceber a presença apenas dos harmônicos pares dessa frequência, de forma que a distorção harmônica total da tensão de saída é de 95\%, considerando o valor esperado como uma onda senoidal de 60Hz. 
+
+Quando comparada ao valor encontrado para o inversor VSI bipolar, apresentado na figura~\ref{fig:fft_vsi_bip}, a distorção harmônica apresentada para o inversor com controle unipolar equivale a, aproximadamente, metade da distorção harmônica obtida pelo inversor anterior. 
+
+\begin{figure}[H]%
+	\captionsetup{{justification=centering}}
+	\centering%
+		\includegraphics[width= \linewidth]{fft_vsi_uni}
+		\caption{Conteúdo harmônico da tensão de saída do inversor VSI Unipolar}
+		\label{fig:fft_vsi_unip}
 \end{figure}
 
 \section{Inversor Integrado (CC/CA)}
