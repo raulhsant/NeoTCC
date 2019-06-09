@@ -551,15 +551,31 @@ Um conversor Ćuk é um conversor CC-CC baseado na transferência de energia cap
 		\label{fig:conv_cuk_circuit}
 \end{figure}
 
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width= \linewidth]{cuk_conv_In_Out}
-		\caption{Sinais de entrada  e saída do conversor cuk convencional}
-		\label{fig:conv_cuk_In_Out}
-\end{figure}
+% \begin{figure}[htbp]
+% 	\centering
+% 		\includegraphics[width= \linewidth]{cuk_conv_In_Out}
+% 		\caption{Sinais de entrada  e saída do conversor cuk convencional}
+% 		\label{fig:conv_cuk_In_Out}
+% \end{figure}
 
 Quando a chave $S$ está fechada (\textit{ON}), os indutores $L1$ e $L2$ são carregados pela tensão de entrada e capacitor $C1$, respectivamente. O capacitor $C1$ polariza inversamente o diodo $D$ e descarrega fornecendo energia para a carga $R$, o capacitor de filtro $C$ e o indutor de filtro $L2$.
 Com o transistor representado pela chave $S$ em estado aberto(\textit{OFF}), o indutor de entrada $L1$ carrega o capacitor de transferência de energia $C1$. O diodo $D$ conduz as correntes de ambos $L1$ e $L2$ e, portanto, o indutor $L2$ descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
+
+\begin{figure}[H]
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{conv_cuk_signal_details}
+		\caption{Sinais de entrada, saída e tensões no transistor e no diodo do conversor cuk convencional}
+		\label{fig:conv_cuk_In_Out}
+\end{figure}
+
+\begin{figure}[H]
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{conv_cuk_Vo_det}
+		\caption{Tensão de ripple de saída do conversor cuk convencional}
+		\label{fig:conv_cuk_Vo_det}
+\end{figure}
 
 A função de transferência CC desse conversor é dada pela equação~\ref{eq:trans_func_cuk_conv}, na qual $d$ é o ciclo de trabalho (\textit{duty cycle}), $V_s$ a tensão de entrada e $V_o$ a tensão de saída \cite{RASHID_CUK} \cite{JOSEPH_2018_Intervelead_cuk}.
 \begin{equation}
@@ -576,14 +592,14 @@ O capacitor de filtro $C$ mínimo para uma certa tensão de ripple $V_r$ pode se
 	V_{r_{C1}} = \frac{dV_o}{C_1 R f} \label{eq:conv_cuk_rip_c1}
 \end{IEEEeqnarray}
 
-Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ é a frequência de chaveamento do transistor $S$.
+Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ é a frequência de chaveamento do transistor $S$. A figura~\ref{fig:conv_cuk_In_Out} demonstra os sinais de tensão e corrente de entrada e saída do conversor, em estado estacionário, além da tensão no transistor e no diodo do circuito. Já a figura~\ref{fig:conv_cuk_Vo_det} demonstra a tensão de ripple na saída do conversor.
 
 % Vale notar que a função de transferência da equação~\ref{eq:trans_func_cuk_conv} é igual à de um conversor \textit{Buck-Boost}.
 
 % APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO
 \subsection{Conversor Ćuk Entrelaçado}
 
-Um conversor cuk entrelaçado consiste de um capacitor, dois indutores, um transistor e um diodo para cada fase, além do capacitor de filtro que pode ser comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de duas fases.
+Um conversor cuk entrelaçado consiste de  dois conversores cuk convencionais que operam com pulsos defasados nos transistores. A conexão é feita através indutores de saída, que são conectados junto ao capacitor de saída, comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de duas fases. O objetivo principal dessa implementação reduzir o ripple de tensão na saída.
 
 Segundo \citeonline{JOSEPH_2015_Intervealed_CUK}, essa topologia tem o intuito de reduzir o ripple de corrente na entrada e reduzir o stress de chaveamento, sem sacrificar sua eficiência. Para tal, os transistores são ligados um por vez, por um período de ${T_{on}}/{2}$, e somente após passado um período ${T_{off}}/{2}$ do desligamento do transistor anterior. Isso é feito  utilizando-se a técnica de modulação por largura de pulso com deslocamento de fase, \emph{PSPWM}, do inglês \textit{Phase-Shifted Pulse Width Modulation}.
 
@@ -611,12 +627,28 @@ Assumindo uma variação linear na corrente dos indutores, a corrente de ripple 
 	\end{center}
 \end{figure}
 
+% \begin{figure}[htbp]
+% 	\begin{center}
+% 		\includegraphics[width= \linewidth]{cuk_interv_In_Out}
+% 		\caption{Sinais de entrada e saída do conversor cuk entrelaçado de duas fases}
+% 		\label{fig:interv_cuk_In_Out} 
+% 	\end{center}
+% \end{figure}
+
 \begin{figure}[htbp]
-	\begin{center}
-		\includegraphics[width= \linewidth]{cuk_interv_In_Out}
-		\caption{Sinais de entrada e saída do conversor cuk entrelaçado de duas fases}
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{interv_cuk_signal_details}
+		\caption{Sinais de entrada, saída e tensões no transistor e no diodo do conversor cuk entrelaçado de duas fases}
 		\label{fig:interv_cuk_In_Out} 
-	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{interv_cuk_Vo_det}
+		\caption{Tensão de ripple de saída do conversor cuk entrelaçado de duas fases}
+		\label{fig:interv_cuk_Vo_det}
 \end{figure}
 
 Quando ambos os transistores estão desligados, ou seja, no modo 2, os indutores de entrada $L_{1a}$ e $L_{1b}$ são descarregados, fornecendo energia aos capacitores $C_1$ e $C_2$, respectivamente, de forma que, entre $t_1$ e $t_2$, $C_1$ carrega a energia que foi fornecida à carga no modo anterior, enquanto que entre $t_3$ e $t_4$, $C_2$ o faz. Além disso, os indutores $L_2$ e $L_3$ fornecem energia à carga e, portanto são descarregados.
@@ -634,6 +666,8 @@ Através das equações~\ref{eq:rip_interv_1}, \ref{eq:rip_interv_4},\ref{eq:rip
 \begin{equation}
  V_o = - \frac{d \cdot V_d}{1 - d} \label{eq:vo_interv}
 \end{equation}
+
+Na figura~\ref{fig:interv_cuk_In_Out} são apresentadas as formas de onda dos sinais de entrada e saída do conversor cuk entrelaçado, além das tensões sobre os transistores e diodos de cada uma das fases, através dos quais é possível perceber o defasamento no comando das chaves. Já a figura~\ref{fig:interv_cuk_Vo_det} demonstra a tensão de ripple obtida pela simulação dessa implementação, que equivale a 41\% do valor obtido para a simulação do conversor cuk convencional (figura~\ref{fig:conv_cuk_Vo_det}).
 
 \section{Conversores CC/CA - Inversores tipo fonte de tensão (\textit{VSI})}
 
