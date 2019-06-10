@@ -830,6 +830,7 @@ O ponto de máxima potência de sistema de geração solar dependem da irradiaç
 
 Este dispositivo monitora tensão e corrente fornecidas pelo painel fotovoltaico para determinar o ponto de operação no qual este fornecerá a máxima potência disponível, de modo a aumentar, desta forma, a eficiência do painel. Existem vários algoritmos de controle do ponto de máxima potência, e a seguir serão tratados dois, o método P\&O (perturba e observa) e o método da condutância incremental (IC). Estes métodos são amplamente utilizados devido, principalmente, a facilidade de implementação \cite{MPPT_P&O_IC}\cite{Talha_MPPT}.
 
+A figura~\ref{fig:mppt_power_demo} demonstra a irradiância (S), a potência fornecida pelo painel e a potência de saída de um conversor cuk convencional com a utilização de um MPPT utilizando o método de perturba e observa. O possível perceber a acomodação do sistema para obter sempre a máxima potência disponível no painel.   
 
 \subsection{Método Perturba e Observa (P\&O)}
 
@@ -841,7 +842,7 @@ Como já dito, uma das vantagens deste método de MPPT está na simplicidade de 
 
 Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na figura~\ref{fig:PeO_Flux}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=0.65 \linewidth]{p_and_o_flowchart}
 		\caption{Fluxograma do Método P\&O, baseado no diagrama de \citeonline{Talha_MPPT}}
@@ -866,12 +867,21 @@ A principal vantagem desse método em relação ao P\&O está na maior tolerânc
 
 Um fluxograma que representa o funcionamento do algoritmo de condutância incremental pode ser visto na figura~\ref{fig:IncCond_Flux}.
 
-\begin{figure}[H]
+\begin{figure}[htb]
 	\begin{center}
-		\includegraphics[width=0.65 \linewidth]{incCond_flow}
+		\includegraphics[width=0.6 \linewidth]{incCond_flow}
 		\caption{Fluxograma do método de indutância incremental \cite{Talha_MPPT}}
 		\label{fig:IncCond_Flux}
 	\end{center}
+\end{figure}
+
+
+\begin{figure}[H]
+	\captionsetup{justification=centering}
+	\centering
+		\includegraphics[width= \linewidth]{mppt_power_demo}
+		\caption{Potências de entrada e saída de um conversor cuk com MPPT P\&O}
+		\label{fig:mppt_power_demo}
 \end{figure}
 
 \section{Filtro}
@@ -1111,15 +1121,16 @@ Os capacitores $C2$ e $C1$ são calculados a partir das equações~\ref{eq:rip_f
 Com os valores de componentes calculados nas equações~\ref{eq:d_cuk_conv_} a \ref{eq:cuk_conv_C1_final}, ajustados para valores comerciais, foi montado o circuito de um conversor cuk convencional que pode ser visto na figura~\ref{fig:cuk_conv_psim_circ}.
 
 \begin{figure}[htbp]%
+	\captionsetup{justification=centering}
 	\begin{center}%
 		\includegraphics[width=0.95 \linewidth]{conv_cuk_psim_circ}
-		\caption{Circuito do conversor cuk convencional}
+		\caption{Circuito do conversor cuk convencional com comando em malha aberta}
 		\label{fig:cuk_conv_psim_circ}
 	\end{center}
 \end{figure}
 
 A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:conv_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_conv_ripp_I_L1} a \ref{fig:cuk_conv_power_sign_out}.
-\begin{table}[H]
+\begin{table}[htb]
 	\centering
 		\resizebox{0.5\linewidth}{!}{%
 				\begin{tabular}{|
