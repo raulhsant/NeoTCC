@@ -1004,7 +1004,7 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 
 % Please add the following required packages to your document preamble:
 % \usepackage{graphicx}
-\begin{table}[H]
+\begin{table}[htb]
 	\centering
 	\resizebox{0.7 \textwidth}{!}{%
 		\begin{tabular}{|l|c|}
@@ -1019,7 +1019,7 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 	\label{tab:pv_temp}
 \end{table}
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\begin{center}%
 		\includegraphics[width=0.7 \linewidth]{AV_canad_300}
 		\caption{Curvas IxV do painel selecionado \cite{Canadian_Datasheet}}
@@ -1031,7 +1031,7 @@ Para modelar o comportamento do painel no PSIM, foi seguido o procedimento indic
 
 Nas figuras~\ref{fig:pv_psim_param} e \ref{fig:pv_psim_carac} são mostrados os parâmetros e as características, respectivamente, do módulo fotovoltaico utilizado no PSIM.
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\begin{center}%
 		\includegraphics[width=0.7\linewidth]{PV_param}
 		\caption{Parâmetros do módulo fotovoltaico no PSIM}
@@ -1129,7 +1129,8 @@ Com os valores de componentes calculados nas equações~\ref{eq:d_cuk_conv_} a \
 	\end{center}
 \end{figure}
 
-A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:conv_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_conv_ripp_I_L1} a \ref{fig:cuk_conv_power_sign_out}.
+A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:conv_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_conv_ripp_I_L1} a \ref{fig:cuk_conv_power_sign}.
+
 \begin{table}[htb]
 	\centering
 		\resizebox{0.5\linewidth}{!}{%
@@ -1137,7 +1138,7 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 				>{\columncolor[HTML]{C0C0C0}}l |c|}
 				\hline
 				\textbf{Corrente média em $L1$}            			& 9,22A    \\ \hline
-				\textbf{Corrente de ripple em $L1$}        			& 0,92A    \\ \hline
+				\textbf{Corrente de ripple em $L1$}        			& 0,91A    \\ \hline
 				\textbf{Corrente de ripple em $L2$}        			& 0,10A    \\ \hline
 				\textbf{Tensão de ripple em $C1$}          			& 0,94V    \\ \hline
 				\textbf{Tensão de saída média do conversor}     & -179,91V \\ \hline
@@ -1150,14 +1151,14 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 		\label{tab:conv_cuk_results}
 	\end{table}
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_conv_ripp_I_L1}
 		\caption{Corrente de ripple no indutor $L1$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_I_L1}
 \end{figure}
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_conv_ripp_I_L2}
 		\caption{Corrente de ripple no indutor $L2$ do conversor cuk convencional}
@@ -1171,17 +1172,17 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 		\label{fig:cuk_conv_ripp_V_C1}
 \end{figure}
 
-\begin{figure}[H]%
-	\centering
-		\includegraphics[width= \linewidth]{cuk_conv_V_out}
-		\caption{Comportamento da tensão de saída do conversor cuk convencional}
-		\label{fig:cuk_conv_V_out}
-\end{figure}
+% \begin{figure}[H]%
+% 	\centering
+% 		\includegraphics[width= \linewidth]{cuk_conv_V_out}
+% 		\caption{Comportamento da tensão de saída do conversor cuk convencional}
+% 		\label{fig:cuk_conv_V_out}
+% \end{figure}
 
 \begin{figure}[H]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_conv_ripp_V_out2}
-		\caption{Tensão de ripple de saída do conversor cuk convencional}
+		\caption{Tensão de saída do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_V_out_}
 \end{figure}
 
@@ -1191,14 +1192,14 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 		\caption{Potência na entrada e saída do conversor cuk convencional}
 		\label{fig:cuk_conv_power_sign}
 \end{figure}
-\vspace{-5pt}
-\begin{figure}[H]%
-	\centering
-		\includegraphics[width= \linewidth]{cuk_conv_power_sign_out}
-		\caption{Oscilação da potência na saída do conversor cuk convencional}
-		\label{fig:cuk_conv_power_sign_out}
-\end{figure}
-\vspace{-5pt}
+% \vspace{-5pt}
+% \begin{figure}[htb]%
+% 	\centering
+% 		\includegraphics[width= \linewidth]{cuk_conv_power_sign_out}
+% 		\caption{Oscilação da potência na saída do conversor cuk convencional}
+% 		\label{fig:cuk_conv_power_sign_out}
+% \end{figure}
+% \vspace{-5pt}
 
 Percebe-se, a partir dos dados expostos na tabela~\ref{tab:conv_cuk_results} que os ripples desejados foram atingidos. Além disso, o conversor projetado para 300W apresenta um ótimo rendimento, de 99,9\%, com uma oscilação de potência de apenas 0,6\%.
 
@@ -1257,8 +1258,8 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X1}$}}         & 0,91A  & 0,90A  & -					\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X2}$}}         & 0,10A  & 0,10A  & -					\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple em $C_{X1}$}}           & 0,83V  & 0,83A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente média na entrada}}              & -      & -      & 9,23A			\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple na entrada}}          & -      & -      & 0,72A   	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente média na entrada}}              & -      & -      & 9,22A			\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple na entrada}}          & -      & -      & 0,74A   	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão média de saída do conversor}}     & -      & -      & -179,91V	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple de saída do conversor}} & -      & -      & 0,22V   	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Potência de saída média}}                & -      & -      & 299,71W 	\\ \hline
@@ -1285,7 +1286,7 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 		\label{fig:cuk_inter_ripp_I_S}
 \end{figure}
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{cuk_inter_ripp_I_LX2}
@@ -1301,13 +1302,13 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 		\label{fig:cuk_inter_ripp_V_C1}
 \end{figure}
 
-\begin{figure}[H]%
-	\captionsetup{justification=centering}
-	\centering
-		\includegraphics[width= \linewidth]{cuk_inter_V_out}
-		\caption{Comportamento da tensão de saída do conversor cuk entrelaçado de duas fases}
-		\label{fig:cuk_inter_V_out}
-\end{figure}
+% \begin{figure}[H]%
+% 	\captionsetup{justification=centering}
+% 	\centering
+% 		\includegraphics[width= \linewidth]{cuk_inter_V_out}
+% 		\caption{Comportamento da tensão de saída do conversor cuk entrelaçado de duas fases}
+% 		\label{fig:cuk_inter_V_out}
+% \end{figure}
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
@@ -1348,7 +1349,7 @@ Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e 
 \begin{figure}[htpb]%
 	\centering%
 		\includegraphics[width=0.8 \linewidth]{vsi_bipolar_psim_circ}
-		\caption{Inversor VSI Bipolar}
+		\caption{Inversor VSI Bipolar em malha aberta}
 		\label{fig:VSI_bip_circ}
 \end{figure}
 
@@ -1403,21 +1404,21 @@ Sendo assim está presente na figura~\ref{fig:integ_cuk_met} o circuito utilizad
 	\end{center}
 \end{figure}
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_integ_Vout}
 		\caption{Sinal de saída do inversor cuk integrado}
 		\label{fig:cuk_integ_ripp_V_out}
 \end{figure}
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_integ_IL1}
 		\caption{Corrente no indutor $L1$ do inversor cuk integrado}
 		\label{fig:cuk_integ_I_L1}
 \end{figure}
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_integ_ripp_IL1}
 		\caption{Detalhe da oscilação na corrente no indutor $L1$ do inversor cuk integrado}
@@ -1438,7 +1439,7 @@ Sendo assim está presente na figura~\ref{fig:integ_cuk_met} o circuito utilizad
 		\label{fig:cuk_integ_ripp_V_C1}
 \end{figure}
 
-Nas figuras~\ref{fig:cuk_integ_I_L1} a \ref{fig:cuk_integ_ripp_V_C1} é possível perceber a influência do chaveamento dos transistores do inversor utilizado nos sinais da corrente de entrada e da tensão no capacitor $C1$, que apresentam um ruído triangular de alta frequência de aproximadamente 0,92A e 0,6V, respectivamente além de características senoidais.
+Nas figuras~\ref{fig:cuk_integ_I_L1} a \ref{fig:cuk_integ_ripp_V_C1} é possível perceber a influência do chaveamento dos transistores do inversor utilizado nos sinais da corrente de entrada e da tensão no capacitor $C1$, que apresentam um ruído triangular de alta frequência de aproximadamente 0,91A e 0,57V, respectivamente além de características senoidais.
 
 
 \section{Rastreador de ponto de máxima potência (\textit{MPPT})}\label{sec:met_mppt}
@@ -1486,7 +1487,7 @@ Nas figuras~\ref{fig:mppt_conv_data} e \ref{fig:mppt_interv_data} são expostos 
 	\end{center}
 \end{figure}
 
-\begin{figure}[htb]%
+\begin{figure}[H]%
 	\captionsetup{justification=centering}%
 	\begin{center}%
 		\includegraphics[width= \textwidth]{mppt_interv_data}
