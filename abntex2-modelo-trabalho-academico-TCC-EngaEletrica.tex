@@ -1522,9 +1522,9 @@ O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o ca
 	\end{center}
 \end{figure}
 
-\chapter{Conjuntos Finais}
+\chapter{Implementação dos conversores finais}
 
-Neste capítulo são apresentados os conjuntos formados a partir da conexão dos circuitos dimensionados no capítulo~\ref{cap:project} e os resultados das simulações executadas com os mesmos.
+Neste capítulo são apresentados os conversores formados a partir da conexão dos circuitos dimensionados no capítulo~\ref{cap:project} e os resultados das simulações executadas com os mesmos.
 
 São, ao todo, seis conjuntos distintos uma vez que cada implementação proposta é conectada a um inversor bipolar e a um inversor unipolar, a fim de avaliar a influência desse estágio. Todos as combinações apresentam, entretanto, o painel fotovoltaico, o rastreador de ponto máximo de potência e o filtro LCL em comum.
 
@@ -1536,7 +1536,7 @@ Todas as figuras de circuitos desse capítulo são apresentadas também no anexo
 
 O circuito implementado no PSIM para o conjunto que utiliza o conversor cuk convencional conectado ao inversor bipolar, com rastreamento de ponto máximo de potência é apresentado na figura~\ref{fig:comp_conv_circ_clean}. Além disso, a tabela~\ref{tab:conv_bip_res} apresenta os principais resultados encontrados através da simulação deste circuito.
 
-Na figura~\ref{fig:out_conv_bip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais, considerando frequência base de 60Hz. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_conv_bip}.
+Na figura~\ref{fig:out_conv_bip} são apresentados tensão e corrente de saída, ampliada em dez vezes, com informação da distorção harmônica total desses sinais, considerando frequência base de 60Hz. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_conv_bip} e ajuda a compreender a THD apresentada na figura~\ref{fig:out_conv_bip}.
 
 Já a figura~\ref{fig:comp_conv_var_s_bip} mostra os sinais de entrada e saída do conjunto para alterações na irradiância que alimenta o painel fotovoltaico.
 
@@ -1556,7 +1556,7 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra os sinais de entrada e saída 
 		\hline
 		\rowcolor[HTML]{C0C0C0} 
 		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
-		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{20,21 mA} & \multicolumn{1}{c|}{$126,62 V$}   & \multicolumn{1}{c|}{$1,13 V$} & \multicolumn{1}{c|}{$286,31 W$} & \multicolumn{1}{c|}{$95,44\%$} & \multicolumn{1}{c|}{$1,20\%$} \\ \hline
+		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{$20,21 mA$} & \multicolumn{1}{c|}{$126,55 V$}   & \multicolumn{1}{c|}{$1,26 V$} & \multicolumn{1}{c|}{$286,00 W$} & \multicolumn{1}{c|}{$95,33\%$} & \multicolumn{1}{c|}{$0,81\%$} \\ \hline
 		\end{tabular}%
 	}
 	\caption{Valores obtidos para o inversor cuk convencional bipolar}
@@ -1574,7 +1574,7 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra os sinais de entrada e saída 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
 	\centering
-		\includegraphics[width= \linewidth]{fft_conv_bip}
+		\includegraphics[width= \linewidth]{fft_conv_bip_2}
 		\caption{Espectro de frequências da tensão de saída do inversor cuk convencional bipolar}
 		\label{fig:fft_conv_bip}
 \end{figure}
