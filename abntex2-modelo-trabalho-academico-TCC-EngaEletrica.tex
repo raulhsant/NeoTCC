@@ -401,7 +401,7 @@
 	gerada, tanto no condicionamento com a construção e manutenção de subestações quanto na transmissão.
 	% quanto nas perdas que ocorrem durante a transmissão entre diferentes regiões.
 
-	Nesse cenário, a geração distribuída de energia elétrica vem se mostrado cada vez mais uma alternativa viável.
+	Nesse cenário, a geração distribuída de energia elétrica (GD) tem se mostrado cada vez mais uma alternativa viável.
 	Uma rede de geração distribuída pode ser definida como um conjunto de fontes de energia conectadas diretamente 
 	à rede de distribuição ou ao cliente \cite{ACKERMANN2001195}.
 
@@ -419,11 +419,11 @@
 	No conjunto de fontes renováveis, destaca-se a energia fotovoltaica, que converte a energia de raios solares em eletricidade 
 	através de painéis fotovoltaicos (PV). Além de utilizar recurso abundante e não poluir durante a geração, sistemas geradores 
 	fotovoltaicos necessitam de pouca manutenção e utilizam pouco espaço, podendo ser instalados nos tetos dos imóveis.
-	Apesar disso, o custo de instalação destes geradores ainda é elevado e, portanto, é necessário maximizar a eficiência do 
-	sistema. 	
+	Apesar disso, o custo de instalação destes geradores ainda é elevado, portanto, é necessário maximizar a eficiência do 
+	sistema.
 
 	Um painel fotovoltaico apresenta uma resposta não linear à incidência solar sobre sua área e, para que seja extraído deste 
-	a máxima potência possível devem ser utilizados algoritmos de rastreamento de ponto de máxima potência (MPPT). Aliados a 
+	a máxima potência possível, deve-se utilizar algoritmos de rastreamento de ponto de máxima potência (MPPT). Aliados a 
 	estes algoritmos também se fazem necessários inversores de alto rendimento, responsáveis por condicionar a tensão 
 	contínua fornecida pelos painéis em tensão alternada que pode ser injetada diretamente na rede elétrica.
 	
@@ -446,9 +446,12 @@
 
 	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentam comportamento de fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples sua a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
 
+	A fonte de energia utilizada será um painel fotovoltaico com potência de aproximadamente 300W, será escolhido e implementado um algoritmo de MPPT e feita, também,  uma análise da distorção harmônica injetada para cada implementação.
 
-
-	A fonte de energia utilizada será um painel fotovoltaico com potência de aproximadamente 300W, será escolhido e implementado um algoritmo de MPPT e feita, também,  uma análise da distorção harmônica injetada por cada implementação.
+	Devido à limitação de tempo para o desenvolvimento do estudo a atenção está voltada ao inversor, tanto em relação à sua eficiência quanto à qualidade do sinal obtido em sua saída. Dessa forma, sistemas auxiliares importantes para o funcionamento de um inversor comercial não serão implementados.
+		
+	% , portanto, sistemas auxiliares, mesmo que de alta importância para o funcionamento de um inversor comercial, não serão projetados e simulados. Entre esses sistemas podem ser destacados o controle de sincronia da tensão de saída e o sistema de anti ilhamento. Enquanto o primeiro é responsável por garantir que a tensão de saída do conjunto seja compatível com a tensão da rede, que pode variar em torno dos 60Hz o segundo é primordial para a segurança da rede elétrica, principalmente, por evitar que o conjunto injete potência na rede quando esta sofrer algum curto e for desligada. Esses sistemas são ignorados em um primeiro momento, mas devem ser avaliados em trabalhos futuros.
+	
 %
 %	Os circuitos propostos serão simulados no software \emph{PSIM}
 %
@@ -469,19 +472,13 @@ O objetivo principal deste TCC é o estudo, projeto, simulação e análise de u
 As implementações que serão analisadas estão listadas a seguir e serão combinadas com inversores em ponte completa bipolar e unipolar.
 % As topologias de conversores que serão analisadas estão listadas a seguir e enquanto os conversores representam a conversão CC-CC, os inversores representam o estágio de
 
-\begin{itemize}
-	
+\begin{itemize}%
 	\item Conversor Ćuk convencional
-	% com Inversor em Ponte Completa Bipolar
-	%\item Conversor Ćuk convencional com Inversor em Ponte Completa Unipolar
 	\item Conversor Ćuk Entrelaçado de duas fases
-	% com Inversor em Ponte Completa
-	%\item Conversor Ćuk Entrelaçado de duas fases com Inversor em Meia Ponte
 	\item Inversor Ćuk integrado
-	% com Inversor em Ponte Completa
-	%\item Conversor Ćuk integrado com Inversor em Meia Ponte
-	
 \end{itemize}
+
+Deseja-se avaliar o funcionamento, rendimento e qualidade de sinal da saída desses sistemas para verificar, inicialmente, a viabilidade da implementação de microinversores comerciais baseados no conversor cuk. Dessa forma, nesse primeiro estudo, não são implementados controles contra perturbação no sistema, considerando as simulações como sendo ambientes controlados.
 
 \section{Estrutura Geral do Trabalho}
 
@@ -1946,6 +1943,7 @@ Um sistema composto por inversores integrados unipolares, apesar de ainda aprese
 
 Dessa forma, a implementação de um sistema para conexão de fontes fotovoltaicas conectadas à rede baseado em microinversores de baixa potência é uma alternativa possível e viável ao atual modelo de inversores de alta potência. 
 
+Um próximo passo, como produto de outro estudo é a implementação dos sistemas auxiliares necessários para o funcionamento e aprovação de um sistema fotovoltaico conectado à rede elétrica, como o sistema de anti ilhamento, importante para a segurança da rede, e sistemas de controle para o tratamento de perturbações inseridas no sistema. 
 % ---
 \bookmarksetup{startatroot}% 
 % ---
