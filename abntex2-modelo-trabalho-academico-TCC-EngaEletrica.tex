@@ -599,7 +599,7 @@ O funcionamento do conversor cuk entrelaçado de duas fases pode ser descrito em
 
 No modo 1, ocorre a carga do indutor $L_{1a}$ e a descarga do indutor $L_{1b}$, que fornece energia ao capacitor $C_2$. Enquanto isso, o capacitor $C_1$ para a carga.
 
-Assumindo uma variação linear na corrente dos indutores, a corrente de ripple para os indutores nesse modo pode ser calculada com as equações~\ref{eq:rip_interv_1} a \ref{eq:rip_interv_3}, nas quais $t_1$ é o tempo em que o transistor $S_1$ está ligado, $V_d$ a tensão de entrada e $V_{C_1}$ e $V_{C_2}$ a tensão nos capacitores $C_1$ e $C_2$, respectivamente.
+Assumindo uma variação linear na corrente dos indutores, a oscilação de corrente para os indutores nesse modo pode ser calculada com as equações~\ref{eq:rip_interv_1} a \ref{eq:rip_interv_3}, nas quais $t_1$ é o tempo em que o transistor $S_1$ está ligado, $V_d$ a tensão de entrada e $V_{C_1}$ e $V_{C_2}$ a tensão nos capacitores $C_1$ e $C_2$, respectivamente.
 \begin{IEEEeqnarray}{c}
 	\Delta I_{L_{1a}} = \frac{t_1 V_d}{L_{1a}} \label{eq:rip_interv_1} \\
 	\Delta I_{L_{1b}} = \frac{t_1 \left(V_{C_2} - V_d \right)}{L_{1b}} \label{eq:rip_interv_2} \\
@@ -1059,9 +1059,9 @@ As seções~\ref{ssec:d_cuk_conv} a \ref{ssec:cap_cuk_conv} a seguir representam
 	\item Tensão de entrada de $32,5V$, equivalente à tensão máxima do painel fotovoltaico;
 	\item Tensão de saída de $180V$, equivalente à tensão de pico da rede elétrica monofásica;
 	\item Tensão de ripple de saída de $0,5V$;
-	\item Corrente de ripple de $0,1A$ no indutor $L2$;
+	\item Oscilação de corrente de $0,1A$ no indutor $L2$;
 	\item Tensão de ripple de $1V$ no capacitor de transferência $C1$;
-	\item Corrente de ripple de $1A$ no indutor $L1$.
+	\item Oscilação de corrente de $1A$ no indutor $L1$.
 \end{itemize}
 
 Além disso, dados a potência e tensão de saída pode-se encontrar a carga equivalente R:
@@ -1127,8 +1127,8 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 				>{\columncolor[HTML]{F0F0F0}}l |c|}
 				\hline
 				\textbf{Corrente média em $L1$}            			& 9,22A    \\ \hline
-				\textbf{Corrente de ripple em $L1$}        			& 0,91A    \\ \hline
-				\textbf{Corrente de ripple em $L2$}        			& 0,10A    \\ \hline
+				\textbf{Oscilação de corrente em $L1$}        			& 0,91A    \\ \hline
+				\textbf{Oscilação de corrente em $L2$}        			& 0,10A    \\ \hline
 				\textbf{Tensão de ripple em $C1$}          			& 0,94V    \\ \hline
 				\textbf{Tensão de saída média do conversor}     & -179,91V \\ \hline
 				\textbf{Tensão de ripple de saída do conversor} & 0,53V    \\ \hline
@@ -1141,14 +1141,14 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 \begin{figure}[htb]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_conv_ripp_I_L1}
-		\caption{Corrente de ripple no indutor $L1$ do conversor cuk convencional}
+		\caption{Oscilação de corrente no indutor $L1$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_I_L1}
 \end{figure}
 
 \begin{figure}[htb]%
 	\centering
 		\includegraphics[width= \linewidth]{cuk_conv_ripp_I_L2}
-		\caption{Corrente de ripple no indutor $L2$ do conversor cuk convencional}
+		\caption{Oscilação de corrente no indutor $L2$ do conversor cuk convencional}
 		\label{fig:cuk_conv_ripp_I_L2}
 \end{figure}
 
@@ -1244,11 +1244,11 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 				\cline{2-4}
 																																																			& Fase 1 & Fase 2 & -					\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente média em $L_{X1}$}}             & 4,62A  & 4,60A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente de ripple em $L_{X1}$}}         & 0,91A  & 0,90A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente de ripple em $L_{X2}$}}         & 0,10A  & 0,10A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Oscilação de corrente em $L_{X1}$}}         & 0,91A  & 0,90A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Oscilação de corrente em $L_{X2}$}}         & 0,10A  & 0,10A  & -					\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Tensão de ripple em $C_{X1}$}}           & 0,83V  & 0,83A  & -					\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente média na entrada}}              & -      & -      & 9,22A			\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente de ripple na entrada}}          & -      & -      & 0,74A   	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Oscilação de corrente na entrada}}          & -      & -      & 0,74A   	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Tensão média de saída do conversor}}     & -      & -      & -179,91V	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Tensão de ripple de saída do conversor}} & -      & -      & 0,22V   	\\ \hline
 				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Potência de saída média}}                & -      & -      & 299,71W 	\\ \hline
@@ -1261,7 +1261,7 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{cuk_inter_ripp_I_LX1}
-		\caption{Corrente de ripple no indutores $L_{11}$ e $L_{21}$ do conversor cuk entrelaçado de duas fases}
+		\caption{Oscilação de corrente no indutores $L_{11}$ e $L_{21}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_I_L1}
 \end{figure}
 
@@ -1269,7 +1269,7 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{cuk_inter_ripp_I_S}
-		\caption{Corrente de ripple na entrada do conversor cuk entrelaçado de duas fases}
+		\caption{Oscilação de corrente na entrada do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_I_S}
 \end{figure}
 
@@ -1277,7 +1277,7 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{cuk_inter_ripp_I_LX2}
-		\caption{Corrente de ripple nos indutores $L_{12}$ e $L_{22}$ do conversor cuk entrelaçado de duas fases}
+		\caption{Oscilação de corrente nos indutores $L_{12}$ e $L_{22}$ do conversor cuk entrelaçado de duas fases}
 		\label{fig:cuk_inter_ripp_I_L2}
 \end{figure}
 
@@ -1544,7 +1544,7 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra as tensões e correntes de ent
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
 		\rowcolor[HTML]{F0F0F0} 
-		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\textbf{Corrente de saída eficaz} & \textbf{Oscilação de corrente}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{$20,21 mA$} & \multicolumn{1}{c|}{$126,55 V$}   & \multicolumn{1}{c|}{$1,13 V$} & \multicolumn{1}{c|}{$286,00 W$} & \multicolumn{1}{c|}{$95,33\%$} & \multicolumn{1}{c|}{$1,20\%$} \\ \hline
 		\end{tabular}%
 	}
@@ -1601,7 +1601,7 @@ Já a figura~\ref{fig:comp_conv_var_s_unip} mostra as tensões e correntes de en
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
 		\rowcolor[HTML]{F0F0F0} 
-		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\textbf{Corrente de saída eficaz} & \textbf{Oscilação de corrente}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{$2,99 mA$} & \multicolumn{1}{c|}{$126,42 V$}   & \multicolumn{1}{c|}{$0,17 V$} & \multicolumn{1}{c|}{$285,43 W$} & \multicolumn{1}{c|}{$95,13\%$} & \multicolumn{1}{c|}{$1,18\%$} \\ \hline
 		\end{tabular}%
 	}
@@ -1656,7 +1656,7 @@ Já a figura~\ref{fig:comp_interv_var_s} mostra as tensões e correntes de entra
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
 		\rowcolor[HTML]{F0F0F0} 
-		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\textbf{Corrente de saída eficaz} & \textbf{Oscilação de corrente}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$9,47 mA$} & \multicolumn{1}{c|}{$127,13 V$}   & \multicolumn{1}{c|}{$0,53 V$} & \multicolumn{1}{c|}{$288,63 W$} & \multicolumn{1}{c|}{$96,21\%$} & \multicolumn{1}{c|}{$1,02\%$} \\ \hline
 		\end{tabular}%
 	}
@@ -1709,7 +1709,7 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra as tensões e correntes de 
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
 		\rowcolor[HTML]{F0F0F0} 
-		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\textbf{Corrente de saída eficaz} & \textbf{Oscilação de corrente}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,98 mA$} & \multicolumn{1}{c|}{$127,12 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$288,58 W$} & \multicolumn{1}{c|}{$96,19\%$} & \multicolumn{1}{c|}{$1,01\%$} \\ \hline
 		\end{tabular}%
 	}
@@ -1764,7 +1764,7 @@ Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
 		\rowcolor[HTML]{F0F0F0} 
-		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\textbf{Corrente de saída eficaz} & \textbf{Oscilação de corrente}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,24 A$}      & \multicolumn{1}{c|}{$7,57 mA$} & \multicolumn{1}{c|}{$125,63 V$}   & \multicolumn{1}{c|}{$0,42 V$} & \multicolumn{1}{c|}{$281,85 W$} & \multicolumn{1}{c|}{$93,95\%$} & \multicolumn{1}{c|}{$25,32\%$} \\ \hline
 		\end{tabular}%
 	}
@@ -1817,7 +1817,7 @@ Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultado
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
 		\rowcolor[HTML]{F0F0F0} 
-		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
+		\textbf{Corrente de saída eficaz} & \textbf{Oscilação de corrente}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,86 mA$} & \multicolumn{1}{c|}{$127,37 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$289,71 W$} & \multicolumn{1}{c|}{$96,11\%$} & \multicolumn{1}{c|}{$3,07\%$} \\ \hline
 		\end{tabular}%
 	}
@@ -1865,7 +1865,7 @@ Em relação à tensão de saída, enquanto a maior parte das implementações c
 Apesar desse inversor apresentar tensão eficaz igual ao valor esperado, de 127V, a tensão fornecida por este apresenta uma componente contínua de aproximadamente 30V. A ausência de nível 0 no estágio inversor faz com que, a tensão fornecida pelo painel não seja filtrada no conversor e apareça na saída do conversor. O inversor cuk integrado unipolar não apresenta o mesmo problema devido ao nível adicional apresentado pelo seu estágio inversor.
 
 %RENDIMENTO/QUALIDADE
-A tabela~\ref{tab:final_results_quality} apresenta os resultados de rendimento, distorção harmônica total, tensão e corrente de ripple para os seis conversores simulados.
+A tabela~\ref{tab:final_results_quality} apresenta os resultados de rendimento, distorção harmônica total, tensão e oscilação de corrente para os seis conversores simulados.
 
 Em relação às variações de corrente e tensão, percebe-se que, enquanto os inversores bipolares apresentam valores consideravelmente distintos entre si, os unipolares apresentam valores sempre bem próximos. Esse comportamento indica que o PWM senoidal unipolar utilizado para controlar o estágio inversor dessas implementações é capaz de reduzir a influência do estágio subidor de tensão de tal forma que este possa ser ignorado para essas variáveis. Já entre os inversores bipolares, o inversor integrado apresentou variações menores que os demais o que não era esperado. Entretanto, por apresentar componente contínua na tensão será desconsiderado.
 
