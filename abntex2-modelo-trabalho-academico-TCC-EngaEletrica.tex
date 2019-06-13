@@ -678,9 +678,11 @@ No total o circuito apresenta cinco possíveis estados de operação, sendo quat
 
 \begin{table}[h]%
 	\centering
+	\caption{Possíveis estados de operação de um VSI em Ponte Completa}
+	\label{table:VSI_states}
 	\begin{tabular}{|c|c|c|c|c|c|}
 	\hline
-	\rowcolor[HTML]{C0C0C0} 
+	\rowcolor[HTML]{F0F0F0} 
 	\textbf{Estado} & \textbf{$S_{1_+}$} & \textbf{$S_{1_-}$} & \textbf{$S_{2_+}$} & \textbf{$S_{2_-}$} & \textbf{Tensão de Saída} \\ \hline
 	\textit{1}      & Ligado             & Desligado          & Desligado          & Ligado             & $v_i$                    \\ \hline
 	\textit{2}      & Desligado          & Ligado             & Ligado             & Desligado          & $-v_i$                   \\ \hline
@@ -688,8 +690,6 @@ No total o circuito apresenta cinco possíveis estados de operação, sendo quat
 	\textit{4}      & Desligado          & Ligado             & Desligado          & Ligado             & 0                        \\ \hline
 	\textit{5}      & Desligado          & Desligado          & Desligado          & Desligado          & $v_i$ ou $-v_i$          \\ \hline
 	\end{tabular}
-	\caption{Possíveis estados de operação de um VSI em Ponte Completa}
-	\label{table:VSI_states}
 \end{table}
 
 \begin{figure}[htbp]
@@ -960,6 +960,8 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 % \usepackage{graphicx}
 \begin{table}[H]
 	\centering
+	\caption{Características elétricas em STC\textsuperscript{\ref{foot_:STC}} do painel selecionado \cite{Canadian_Datasheet}}
+	\label{tab:pv_elet}
 	\resizebox{0.7 \textwidth}{!}{%
 		\begin{tabular}{l|c|}
 			\cline{2-2}
@@ -977,8 +979,6 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 			\multicolumn{1}{|l|}{Tolerância de potência}           & $0 \sim +5W$                \\ \hline
 		\end{tabular}%
 	}
-	\caption{Características elétricas em STC\textsuperscript{\ref{foot_:STC}} do painel selecionado \cite{Canadian_Datasheet}}
-	\label{tab:pv_elet}
 \end{table}
 
 % \begin{figure}[H]%
@@ -993,6 +993,8 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 % \usepackage{graphicx}
 \begin{table}[htb]
 	\centering
+	\caption{Características de temperatura do painel selecionado \cite{Canadian_Datasheet}}
+	\label{tab:pv_temp}
 	\resizebox{0.7 \textwidth}{!}{%
 		\begin{tabular}{|l|c|}
 			\hline
@@ -1002,8 +1004,6 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 			Temperatura de Operação Nominal do Módulo (NMOT) & $42 \pm 3  ~^oC$  \\ \hline
 		\end{tabular}%
 	}
-	\caption{Características de temperatura do painel selecionado \cite{Canadian_Datasheet}}
-	\label{tab:pv_temp}
 \end{table}
 
 \begin{figure}[htb]%
@@ -1120,9 +1120,11 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 
 \begin{table}[htb]
 	\centering
+	 \caption{Valores medidos para o conversor cuk convencional}
+	 \label{tab:conv_cuk_results}
 		\resizebox{0.5\linewidth}{!}{%
 				\begin{tabular}{|
-				>{\columncolor[HTML]{C0C0C0}}l |c|}
+				>{\columncolor[HTML]{F0F0F0}}l |c|}
 				\hline
 				\textbf{Corrente média em $L1$}            			& 9,22A    \\ \hline
 				\textbf{Corrente de ripple em $L1$}        			& 0,91A    \\ \hline
@@ -1134,8 +1136,6 @@ A partir da simulação do circuito da figura~\ref{fig:cuk_conv_psim_circ} no PS
 				\textbf{Oscilação da potência de saída}         & 1,77W    \\ \hline
 				\end{tabular}%
 		}
-		\caption{Valores medidos para o conversor cuk convencional}
-		\label{tab:conv_cuk_results}
 	\end{table}
 
 \begin{figure}[htb]%
@@ -1237,24 +1237,24 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 
 \begin{table}[htbp]
 	\centering
+	\caption{Valores medidos para o conversor cuk entrelaçado de duas fases}
+	\label{tab:inter_cuk_results}
 		\resizebox{0.6\linewidth}{!}{%
 		\begin{tabular}{l|c|c|c|}
 				\cline{2-4}
 																																																			& Fase 1 & Fase 2 & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente média em $L_{X1}$}}             & 4,62A  & 4,60A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X1}$}}         & 0,91A  & 0,90A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple em $L_{X2}$}}         & 0,10A  & 0,10A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple em $C_{X1}$}}           & 0,83V  & 0,83A  & -					\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente média na entrada}}              & -      & -      & 9,22A			\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Corrente de ripple na entrada}}          & -      & -      & 0,74A   	\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão média de saída do conversor}}     & -      & -      & -179,91V	\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Tensão de ripple de saída do conversor}} & -      & -      & 0,22V   	\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Potência de saída média}}                & -      & -      & 299,71W 	\\ \hline
-				\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}\textbf{Oscilação da potência de saída}}         & -      & -      & 0,72W   	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente média em $L_{X1}$}}             & 4,62A  & 4,60A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente de ripple em $L_{X1}$}}         & 0,91A  & 0,90A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente de ripple em $L_{X2}$}}         & 0,10A  & 0,10A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Tensão de ripple em $C_{X1}$}}           & 0,83V  & 0,83A  & -					\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente média na entrada}}              & -      & -      & 9,22A			\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Corrente de ripple na entrada}}          & -      & -      & 0,74A   	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Tensão média de saída do conversor}}     & -      & -      & -179,91V	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Tensão de ripple de saída do conversor}} & -      & -      & 0,22V   	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Potência de saída média}}                & -      & -      & 299,71W 	\\ \hline
+				\multicolumn{1}{|l|}{\cellcolor[HTML]{F0F0F0}\textbf{Oscilação da potência de saída}}         & -      & -      & 0,72W   	\\ \hline
 			\end{tabular}%
 		}
-		\caption{Valores medidos para o conversor cuk entrelaçado de duas fases}
-		\label{tab:inter_cuk_results}
 	\end{table}
 
 \begin{figure}[htb]%
@@ -1538,16 +1538,16 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra os sinais de entrada e saída 
 \begin{table}[H]
 	\captionsetup{justification=centering}
 	\centering
+	\caption{Valores obtidos para o inversor cuk convencional bipolar}
+	\label{tab:conv_bip_res}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
-		\rowcolor[HTML]{C0C0C0} 
+		\rowcolor[HTML]{F0F0F0} 
 		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{$20,21 mA$} & \multicolumn{1}{c|}{$126,55 V$}   & \multicolumn{1}{c|}{$1,13 V$} & \multicolumn{1}{c|}{$286,00 W$} & \multicolumn{1}{c|}{$95,33\%$} & \multicolumn{1}{c|}{$1,20\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o inversor cuk convencional bipolar}
-	\label{tab:conv_bip_res}
 \end{table}
 
 \begin{figure}[H]%
@@ -1595,16 +1595,16 @@ Já a figura~\ref{fig:comp_conv_var_s_unip} mostra os sinais de entrada e saída
 \begin{table}[htb]
 	\captionsetup{justification=centering}
 	\centering
+	\caption{Valores obtidos para o inversor cuk convencional unipolar}
+	\label{tab:conv_unip_res}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
-		\rowcolor[HTML]{C0C0C0} 
+		\rowcolor[HTML]{F0F0F0} 
 		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,26 A$}      & \multicolumn{1}{c|}{$2,99 mA$} & \multicolumn{1}{c|}{$126,42 V$}   & \multicolumn{1}{c|}{$0,17 V$} & \multicolumn{1}{c|}{$285,43 W$} & \multicolumn{1}{c|}{$95,13\%$} & \multicolumn{1}{c|}{$1,18\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o inversor cuk convencional unipolar}
-	\label{tab:conv_unip_res}
 \end{table}
 
 \begin{figure}[htb]%
@@ -1650,16 +1650,16 @@ Já a figura~\ref{fig:comp_interv_var_s} mostra os sinais de entrada e saída do
 \begin{table}[htb]
 	\captionsetup{justification=centering}
 	\centering
+	\caption{Valores obtidos para o inversor cuk entrelaçado bipolar}
+	\label{tab:interv_bip_res}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
-		\rowcolor[HTML]{C0C0C0} 
+		\rowcolor[HTML]{F0F0F0} 
 		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$9,47 mA$} & \multicolumn{1}{c|}{$127,13 V$}   & \multicolumn{1}{c|}{$0,53 V$} & \multicolumn{1}{c|}{$288,63 W$} & \multicolumn{1}{c|}{$96,21\%$} & \multicolumn{1}{c|}{$1,02\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o inversor cuk entrelaçado bipolar}
-	\label{tab:interv_bip_res}
 \end{table}
 
 \begin{figure}[htb]%
@@ -1703,16 +1703,16 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra os sinais de entrada e saí
 \begin{table}[htb]
 	\captionsetup{justification=centering}
 	\centering
+	\caption{Valores obtidos para o inversor cuk entrelaçado unipolar}
+	\label{tab:interv_unip_res}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
-		\rowcolor[HTML]{C0C0C0} 
+		\rowcolor[HTML]{F0F0F0} 
 		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,98 mA$} & \multicolumn{1}{c|}{$127,12 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$288,58 W$} & \multicolumn{1}{c|}{$96,19\%$} & \multicolumn{1}{c|}{$1,01\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o inversor cuk entrelaçado unipolar}
-	\label{tab:interv_unip_res}
 \end{table}
 
 \begin{figure}[htb]%
@@ -1758,16 +1758,16 @@ Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados
 \begin{table}[htb]
 	\captionsetup{justification=centering}
 	\centering
+	\caption{Valores obtidos para o inversor cuk integrado bipolar}
+	\label{tab:integ_bip_res}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
-		\rowcolor[HTML]{C0C0C0} 
+		\rowcolor[HTML]{F0F0F0} 
 		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,24 A$}      & \multicolumn{1}{c|}{$7,57 mA$} & \multicolumn{1}{c|}{$125,63 V$}   & \multicolumn{1}{c|}{$0,42 V$} & \multicolumn{1}{c|}{$281,85 W$} & \multicolumn{1}{c|}{$93,95\%$} & \multicolumn{1}{c|}{$25,32\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o inversor cuk integrado bipolar}
-	\label{tab:integ_bip_res}
 \end{table}
 
 \begin{figure}[htb]%
@@ -1811,16 +1811,16 @@ Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultado
 \begin{table}[htb]
 	\captionsetup{justification=centering}
 	\centering
+	\caption{Valores obtidos para o inversor cuk integrado unipolar}
+	\label{tab:integ_unip_res}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|l|l|l|l|l|}
 		\hline
-		\rowcolor[HTML]{C0C0C0} 
+		\rowcolor[HTML]{F0F0F0} 
 		\textbf{Corrente de saída eficaz} & \textbf{Corrente de ripple}   & \textbf{Tensão de saída eficaz} & \textbf{Tensão de Ripple}   & \textbf{Potência de saída}    & \textbf{Rendimento}   & \textbf{THD}                \\ \hline
 		\multicolumn{1}{|c|}{$2,27 A$}      & \multicolumn{1}{c|}{$2,86 mA$} & \multicolumn{1}{c|}{$127,37 V$}   & \multicolumn{1}{c|}{$0,16 V$} & \multicolumn{1}{c|}{$289,71 W$} & \multicolumn{1}{c|}{$96,11\%$} & \multicolumn{1}{c|}{$3,07\%$} \\ \hline
 		\end{tabular}%
 	}
-	\caption{Valores obtidos para o inversor cuk integrado unipolar}
-	\label{tab:integ_unip_res}
 \end{table}
 
 \begin{figure}[htb]%
@@ -1871,41 +1871,29 @@ Em relação às variações de corrente e tensão, percebe-se que, enquanto os 
 
 Ao analisar as variações de tensão e corrente de saída dos inversores cuk convencional bipolar e cuk entrelaçado bipolar pode-se perceber que os valores apresentados pela implementação entrelaçada são aproximadamente metade dos apresentados pela convencional. Esse comportamento está de acordo com o esperado, com as oscilações reduzindo de acordo com o aumento do número de fases do inversor.
 
+
 \begin{table}[htb]
 	\centering
 	\captionsetup{justification=centering}
-	% \resizebox{\textwidth}{!}{%
-	% 	\begin{tabular}{c|l|c|c|c|c|}
-	% 		\cline{3-6}
-	% 		\multicolumn{2}{l|}{\cellcolor[HTML]{FFFFFF}}                                                        & Rendimento & \cellcolor[HTML]{FFFFFF}Variação da tensão de saída & \cellcolor[HTML]{FFFFFF}Variação da corrente de saída & \cellcolor[HTML]{FFFFFF}THD \\ \hline
-	% 		\rowcolor[HTML]{EFEFEF} 
-	% 		\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}}                                            & bipolar  & $95,44\%$  & $1,13V$                                             & $20,21mA$                                             & $1,20\%$                    \\ \cline{2-6} 
-	% 		\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk convencional}} & unipolar & $94,98\%$  & $0,17V$                                             & $2,99mA$                                              & $1,18\%$                    \\ \hline
-	% 		\rowcolor[HTML]{EFEFEF} 
-	% 		\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}}                                            & bipolar  & $95,91\%$  & $0,53V$                                             & $9,47mA$                                              & $1,02\%$                    \\ \cline{2-6} 
-	% 		\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk entrelaçado}}  & unipolar & $95,86\%$  & $0,16V$                                             & $2,98mA$                                              & $1,01\%$                    \\ \hline
-	% 		\rowcolor[HTML]{EFEFEF} 
-	% 		\multicolumn{1}{|c|}{\cellcolor[HTML]{FFFFFF}}                                            & bipolar  & $93,96\%$  & $0,42V$                                             & $7,57mA$                                              & $25,53\%$                   \\ \cline{2-6} 
-	% 		\multicolumn{1}{|c|}{\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk integrado}}    & unipolar & $96,11\%$  & $0,16V$                                             & $2,86mA$                                              & $3,07\%$                    \\ \hline
-	% 	\end{tabular}%
+	\caption{Resultados de rendimento e qualidade do sinal obtidos para os conversores propostos}
+	\label{tab:final_results_quality}
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|c|l|c|c|c|c|}
 		\hline
 		\multicolumn{2}{|l|}{\cellcolor[HTML]{FFFFFF}}                                 & Rendimento & \cellcolor[HTML]{FFFFFF}Variação da tensão de saída & \cellcolor[HTML]{FFFFFF}Variação da corrente de saída & \cellcolor[HTML]{FFFFFF}THD \\ \hline
-		\rowcolor[HTML]{DBDBDB} 
+		\rowcolor[HTML]{F0F0F0} 
 		\cellcolor[HTML]{FFFFFF}                                            & bipolar  & $95,33\%$  & $1,13V$                                             & $20,21mA$                                             & $1,20\%$                    \\ \cline{2-6} 
 		\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk convencional} & unipolar & $95,13\%$  & $0,17V$                                             & $2,99mA$                                              & $1,18\%$                    \\ \hline
-		\rowcolor[HTML]{DBDBDB} 
+		\rowcolor[HTML]{F0F0F0} 
 		\cellcolor[HTML]{FFFFFF}                                            & bipolar  & $96,21\%$  & $0,53V$                                             & $9,47mA$                                              & $1,02\%$                    \\ \cline{2-6} 
 		\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk entrelaçado}  & unipolar & $96,19\%$  & $0,16V$                                             & $2,98mA$                                              & $1,01\%$                    \\ \hline
-		\rowcolor[HTML]{DBDBDB} 
+		\rowcolor[HTML]{F0F0F0} 
 		\cellcolor[HTML]{FFFFFF}                                            & bipolar  & $93,95\%$  & $0,42V$                                             & $7,57mA$                                              & $25,32\%$                   \\ \cline{2-6} 
 		\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk integrado}    & unipolar & $96,11\%$  & $0,16V$                                             & $2,86mA$                                              & $3,07\%$                    \\ \hline
 		\end{tabular}%
 	}
-	\caption{Resultados de rendimento e qualidade do sinal obtidos para os conversores propostos}
-	\label{tab:final_results_quality}
 \end{table}
+
 
 Em relação ao rendimento percebe-se que, em geral, inversores unipolares apresentam rendimento um pouco inferior às mesmas implementações bipolares, ou seja, pra se obter sinais de saída menos poluídos o inversor unipolar sacrifica uma pequena parcela da potência gerada, devido a seu terceiro nível, 0, no qual não é transmitida potência para a saída.
 
