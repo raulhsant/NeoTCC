@@ -165,7 +165,7 @@
 	    pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
 		colorlinks=true,       	% false: boxed links; true: colored links
-    	linkcolor=blue,          	           % color of internal links
+    	linkcolor=black,          	           % color of internal links
     	citecolor=blue,        		% color of links to bibliography
     	filecolor=magenta,      		% color of file links
 		urlcolor=blue,
@@ -201,7 +201,7 @@
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
-% \pretextual
+\pretextual
 
 % ---
 % Capa
@@ -218,8 +218,6 @@
 % ---
 % Dedicatória
 % ---
-\begin{comment}
-
 
 	\begin{dedicatoria}
 	   \vspace*{\fill}
@@ -229,43 +227,36 @@
 	   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
 	\end{dedicatoria}
 
-\end{comment}
 % ---
 
 % ---
 % Agradecimentos
 % ---
 
-\begin{comment}
-
 	\begin{agradecimentos}
-	Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-	Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-	Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
-	projeto abn\TeX\ foram extraídos de
-	\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
-	contribuíram para que a produção de trabalhos acadêmicos conforme
-	as normas ABNT com \LaTeX\ fosse possível.
+		Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
+		Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+		Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
+		projeto abn\TeX\ foram extraídos de
+		\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+		contribuíram para que a produção de trabalhos acadêmicos conforme
+		as normas ABNT com \LaTeX\ fosse possível.
 
-	Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-	da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
-	Brasília (CPAI), ao grupo de usuários
-	\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-	novos voluntários do grupo
-	\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
-	\url{http://abntex2.googlecode.com/}}~que contribuíram e que ainda
-	contribuirão para a evolução do \abnTeX.
+		Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+		da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+		Brasília (CPAI), ao grupo de usuários
+		\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+		novos voluntários do grupo
+		\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+		\url{http://abntex2.googlecode.com/}}~que contribuíram e que ainda
+		contribuirão para a evolução do \abnTeX.
 	\end{agradecimentos}
 
-\end{comment}
 % ---
 
 % ---
 % Epígrafe
 % ---
-\begin{comment}
-
-
 	\begin{epigrafe}
 			\vspace*{\fill}
 		\begin{flushright}
@@ -277,7 +268,6 @@
 		\end{flushright}
 	\end{epigrafe}
 
-\end{comment}
 % ---
 
 % ---
@@ -374,8 +364,8 @@
 % ---
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-%\cleardoublepage
-%\clearpage
+\cleardoublepage
+% \clearpage
 % ---
 
 % ----------------------------------------------------------
@@ -484,7 +474,7 @@ Deseja-se avaliar o funcionamento, rendimento e qualidade de sinal da saída des
 
 O capítulo 1 introduz o tema e o objeto de estudo, com uma breve explicação e contextualização do problema. No capítulo 2 é apresentado o estado da arte e o embasamento teórico necessário para o desenvolvimento do trabalho.
 
-No capítulo 3 é descrito o desenvolvimento das etapas do projeto, desde a escolha do painel fotovoltaico utilizado até o dimensionamento do filtro de saída. O capítulo 4 é destinado à exposição dos conjuntos finais, compostos pela interconexão dos componentes projetados no capitulo anterior. No quinto capítulo são discutidos os resultados apresentados no capítulo anterior, enquanto no sexto e último capítulo são apresentadas as conclusões obtidas pelo estudo.
+No capítulo 3 é descrito o desenvolvimento das etapas do projeto, desde a escolha do painel fotovoltaico utilizado até o dimensionamento do filtro de saída. O capítulo 4 é destinado à exposição dos conversores propostos, compostos pela interconexão dos componentes projetados no capitulo anterior. No quinto capítulo são discutidos os resultados apresentados no capítulo anterior, enquanto no sexto e último capítulo são apresentadas as conclusões obtidas pelo estudo.
 
 \chapter{Estado da Arte}
 
@@ -1519,15 +1509,15 @@ O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o ca
 	\end{center}
 \end{figure}
 
-\chapter{Implementação dos conversores finais}
+\chapter{Implementação dos conversores propostos}
 
 Neste capítulo são apresentados os conversores formados a partir da conexão dos circuitos dimensionados no capítulo~\ref{cap:project} e os resultados das simulações executadas com os mesmos.
 
-São, ao todo, seis conjuntos distintos uma vez que cada implementação proposta é conectada a um inversor bipolar e a um inversor unipolar, a fim de avaliar a influência desse estágio. Todos as combinações apresentam, entretanto, o painel fotovoltaico, o rastreador de ponto máximo de potência e o filtro LCL em comum.
+São, ao todo, seis conversores distintos uma vez que cada implementação proposta é conectada a um inversor bipolar e a um inversor unipolar, a fim de avaliar a influência desse estágio. Todos as combinações apresentam, entretanto, o painel fotovoltaico, o rastreador de ponto máximo de potência e o filtro LCL em comum.
 
 Todas as figuras de circuitos desse capítulo são apresentadas também no anexo~\ref{anex:circ_images} em modo paisagem e, portanto, com maior qualidade.
 
-\subsection{Conjuntos baseados no conversor cuk convencional}
+\subsection{Conversores baseados no conversor cuk convencional}
 % \subsubsection{Conversor Ćuk Convencional com Inversor VSI Bipolar}
 \subsubsection{Inversor cuk convencional bipolar}
 
@@ -1641,7 +1631,7 @@ Já a figura~\ref{fig:comp_conv_var_s_unip} mostra os sinais de entrada e saída
 		\label{fig:comp_conv_var_s_unip}
 \end{figure}
 
-\subsection{Conjuntos baseados no conversor cuk entrelaçado de duas fases}
+\subsection{Conversores baseados no conversor cuk entrelaçado de duas fases}
 
 \subsubsection{Inversor cuk entrelaçado bipolar}
 
@@ -1749,7 +1739,7 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra os sinais de entrada e saí
 		\label{fig:comp_interv_var_s_unip}
 \end{figure}
 
-\subsection{Conjuntos baseados no inversor cuk integrado}
+\subsection{Conversores baseados no inversor cuk integrado}
 
 \subsubsection{Inversor cuk integrado bipolar}
 
@@ -1863,19 +1853,19 @@ Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultado
 % ESCREVER análise sobre os resultados encontrados, focar nos resultados obtidos a partir dos circuitos completos. Analisar efeito da MPPT no conversor. Analisar distorção harmonica e rendimento. Explicar alterações.
 
 %MPPT
-Ao analisar as figuras~\ref{fig:comp_conv_var_s_bip}, \ref{fig:comp_conv_var_s_unip}, \ref{fig:comp_interv_var_s}, \ref{fig:comp_interv_var_s_unip}, \ref{fig:comp_integ_var_s} e \ref{fig:comp_integ_var_s_unip} percebe-se que o sistema de rastreamento de ponto de máxima potência apresenta o mesmo comportamento para todos os conjuntos simulados para alterações da irradiância solar, confirmando o comportamento esperado.
+Ao analisar as figuras~\ref{fig:comp_conv_var_s_bip}, \ref{fig:comp_conv_var_s_unip}, \ref{fig:comp_interv_var_s}, \ref{fig:comp_interv_var_s_unip}, \ref{fig:comp_integ_var_s} e \ref{fig:comp_integ_var_s_unip} percebe-se que o sistema de rastreamento de ponto de máxima potência apresenta o mesmo comportamento para todos os conversores simulados para alterações da irradiância solar, confirmando o comportamento esperado.
 
 Como pode ser visto na figura~\ref{fig:IV_pv_cs}, o ponto de máxima potência do painel fotovoltaico para variações da irradiância apresenta, aproximadamente, a mesma tensão para uma vasta gama de valores enquanto a corrente máxima gerada é reduzida. 
 
 É possível perceber também, uma variação na tensão de saída do painel e, consequentemente, também na corrente fornecida durante todo o período amostrado. Essa oscilação é esperada devido ao algoritmo de rastreamento utilizado, que oscila continuamente em torno do ponto de máxima potência. Esse comportamento propicia também uma adequação mais rápida a variações de irradiância, uma vez que a varredura ocorre durante todo o funcionamento do sistema, inclusive após o ponto ótimo ter sido encontrado.
 
 %SINAL DE SAIDA
-Em relação à tensão de saída, enquanto a maior parte das implementações conseguiu fornecer tensão compatível com a conexão à rede elétrica, o inversor integrado bipolar não se comportou como esperado, como pode ser percebido ao se comparar a figura~\ref{fig:out_integ_bip} com as demais figuras que representam o sinal de saída dos conjuntos: \ref{fig:out_conv_bip}, \ref{fig:out_conv_unip}, \ref{fig:out_interv_bip}, \ref{fig:out_interv_unip} e \ref{fig:out_integ_unip}.
+Em relação à tensão de saída, enquanto a maior parte das implementações conseguiu fornecer tensão compatível com a conexão à rede elétrica, o inversor integrado bipolar não se comportou como esperado, como pode ser percebido ao se comparar a figura~\ref{fig:out_integ_bip} com as demais figuras que representam o sinal de saída dos conversores: \ref{fig:out_conv_bip}, \ref{fig:out_conv_unip}, \ref{fig:out_interv_bip}, \ref{fig:out_interv_unip} e \ref{fig:out_integ_unip}.
 
 Apesar desse inversor apresentar tensão eficaz igual ao valor esperado, de 127V, a tensão fornecida por este apresenta uma componente contínua de aproximadamente 30V. A ausência de nível 0 no estágio inversor faz com que, a tensão fornecida pelo painel não seja filtrada no conversor e apareça na saída do conjunto. O inversor cuk integrado unipolar não apresenta o mesmo problema devido ao nível adicional apresentado pelo seu estágio inversor.
 
 %RENDIMENTO/QUALIDADE
-A tabela~\ref{tab:final_results_quality} apresenta os resultados de rendimento, distorção harmônica total, tensão e corrente de ripple para os seis conversores finais simulados.
+A tabela~\ref{tab:final_results_quality} apresenta os resultados de rendimento, distorção harmônica total, tensão e corrente de ripple para os seis conversores simulados.
 
 Em relação às variações de corrente e tensão, percebe-se que, enquanto os inversores bipolares apresentam valores consideravelmente distintos entre si, os unipolares apresentam valores sempre bem próximos. Esse comportamento indica que o PWM senoidal unipolar utilizado para controlar o estágio inversor dessas implementações é capaz de reduzir a influência do estágio subidor de tensão de tal forma que este possa ser ignorado para essas variáveis. Já entre os inversores bipolares, o inversor integrado apresentou variações menores que os demais o que não era esperado. Entretanto, por apresentar componente contínua na tensão será desconsiderado.
 
@@ -1913,7 +1903,7 @@ Ao analisar as variações de tensão e corrente de saída dos inversores cuk co
 		\multirow{-2}{*}{\cellcolor[HTML]{FFFFFF}Inversor cuk integrado}    & unipolar & $96,11\%$  & $0,16V$                                             & $2,86mA$                                              & $3,07\%$                    \\ \hline
 		\end{tabular}%
 	}
-	\caption{Resultados de rendimento e qualidade do sinal obtidos para os conjuntos finais}
+	\caption{Resultados de rendimento e qualidade do sinal obtidos para os conversores propostos}
 	\label{tab:final_results_quality}
 \end{table}
 
