@@ -420,8 +420,7 @@
 %	Por executarem papel primordial na geração fotovoltaica e representarem cerca de 50\% de seu custo de implantação, a eficiência 
 %	destes dispositivos  
  
-	Por serem o elo de ligação entre o painel fotovoltaico e o sistema elétrico residencial e da concessionária, em sistemas \textit{on-grid} além de representarem uma parcela considerável do custo total da implantação do gerador os inversores apresentam 
-	grande impacto na eficiência final do sistema de geração e, portanto, faz-se pertinente uma análise comparativa de custo e eficiência destes.
+	Por serem o elo de ligação entre o painel fotovoltaico e o sistema elétrico residencial e da concessionária, em sistemas \textit{on-grid} além de representarem uma parcela considerável do custo total da implantação do gerador os inversores apresentam grande impacto na eficiência final do sistema de geração e, portanto, faz-se pertinente uma análise comparativa de custo e eficiência destes.
 
 
 	A tensão disponibilizada por painéis fotovoltaicos é geralmente de baixa amplitude, sendo necessário o aumento da tensão através da associação de painéis série-paralelo. Além disso, pode ser utilizado um conversor CC-CC elevador de tensão anterior à conversão da tensão contínua em alternada. A utilização de um conversor subidor de tensão pode ser evitado em casos nos quais vários painéis são conectados em série de modo que a tensão de saída do conversor seja maior que a tensão de pico da rede. Esta configuração  é, entretanto, pouco usual em sistemas de baixa potência devido à necessidade de se garantir uma tensão mínima fornecida pelos painéis. Sendo assim, as topologias mais comuns de inversores para sistemas fotovoltaicos utilizam um estágio elevador de tensão e um estágio inversor conectados em série \cite{LUIGIJUNIOR_ev_int}.
@@ -552,7 +551,7 @@ Com o transistor representado pela chave $S$ em estado aberto(\textit{OFF}), o i
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{conv_cuk_signal_details}
-		\caption{Formas de onda de corrente de entrada e saída (a),tensão de entrada e saída(b) e de tensões no transistor e no diodo (c) do conversor cuk convencional}
+		\caption{Formas de onda de corrente de entrada e saída (a),tensão de entrada e saída (b) e de tensões no transistor e no diodo (c) do conversor cuk convencional}
 		\label{fig:conv_cuk_In_Out}
 \end{figure}
 
@@ -722,10 +721,10 @@ A forma de onda obtida na saída de um inversor que segue esta técnica é, basi
 % \end{equation}
 \vspace{-10pt}
 \begin{figure}[htbp]%
-	\captionsetup{{justification=centering}}
+	\captionsetup{justification=centering}
 	\centering%
 		\includegraphics[width= \linewidth]{vsi_bip_func}
-		\caption{Formas de onda do inversor VSI com PWM bipolar}
+		\caption{Formas de onda do inversor VSI com PWM bipolar: (a) tensões de portadora e modulante, tensões entres os transistores (b) $S_{1_+}$ e $S_{2_-}$, (c) $S_{1_-}$ e $S_{2_+}$ e (d) tensões de referência e saída}
 		\label{fig:vsi_bip_func_graph}
 \end{figure}
 
@@ -754,10 +753,10 @@ Segundo \citeonline{RASHID_VSI}, devido ás tensões de fase ($V_{aN}$ e $v_{bN}
 Essa característica permite que inversores que utilizam a modulação unipolar utilizem filtros menores para obter tensão e corrente de alta qualidade, utilizando a mesma frequência de chaveamento que inversores com modulação bipolar\cite{RASHID_VSI}.
 
 \begin{figure}[htbp]%
-	\captionsetup{{justification=centering}}
+	\captionsetup{justification=centering}
 	\centering%
 		\includegraphics[width= \linewidth]{vsi_uni_func}
-		\caption{Formas de onda do inversor VSI com PWM unipolar}
+		\caption{Formas de onda do inversor VSI com PWM bipolar: (a) tensões de portadora e modulantes, tensões nos transistores (b) $S_{1_-}$, (c) $S_{1_+}$, (d) $S_{2_-}$, (e) $S_{2_+}$ e (f)~tensões de referência e saída}
 		\label{fig:vsi_uni_func_graph}
 \end{figure}
 
@@ -806,7 +805,7 @@ A figura~\ref{fig:integ_cuk_In_Out_zoom} apresenta as formas de onda das tensõe
 	\centering
 		\captionsetup{{justification=centering}}
 		\includegraphics[width= \linewidth]{cuk_integ_In_Out_zoom_2}
-		\caption{Tensões (a) e correntes(b) de entrada e saída do inversor cuk integrado em regime permanente}
+		\caption{Tensões (a) e correntes (b) de entrada e saída do inversor cuk integrado em regime permanente}
 		\label{fig:integ_cuk_In_Out_zoom}
 \end{figure}
 
@@ -856,7 +855,7 @@ Um fluxograma que representa o funcionamento do algoritmo de condutância increm
 
 \begin{figure}[htb]
 	\begin{center}
-		\includegraphics[width=0.6 \linewidth]{incCond_flow}
+		\includegraphics[width=0.55 \linewidth]{incCond_flow}
 		\caption{Fluxograma do método de indutância incremental \cite{Talha_MPPT}}
 		\label{fig:IncCond_Flux}
 	\end{center}
@@ -867,7 +866,7 @@ Um fluxograma que representa o funcionamento do algoritmo de condutância increm
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{mppt_power_demo}
-		\caption{Potências de entrada e saída de um conversor cuk com MPPT P\&O}
+		\caption{Irradiância no painel (a), potências de entrada (b) e saída (c) de um conversor cuk com MPPT P\&O}
 		\label{fig:mppt_power_demo}
 \end{figure}
 
@@ -1358,7 +1357,7 @@ Para o sinal de portadora foi utilizada uma fonte de sinal triangular de 1kHz e 
 \begin{figure}[H]%
 	\centering%
 		\includegraphics[width=0.85 \linewidth]{vsi_unipolar_psim_circ}
-		\caption{Inversor VSI Unipolar}
+		\caption{Inversor VSI Unipolar em malha aberta}
 		\label{fig:VSI_uni_circ}
 \end{figure}
 
@@ -1460,7 +1459,7 @@ Nas figuras~\ref{fig:mppt_conv_data} e \ref{fig:mppt_interv_data} são expostos 
 	\captionsetup{justification=centering}%
 	\begin{center}%
 		\includegraphics[width= \textwidth]{mppt_conv_data}
-		\caption{Comportamento do ciclo de trabalho e da potência de saída para alterações de irradiância para o conversor cuk convencional}
+		\caption{Comportamento do ciclo de trabalho (a) e da potência de saída (c) para alterações de irradiância (b) para o conversor cuk convencional}
 		\label{fig:mppt_conv_data}
 	\end{center}
 \end{figure}
@@ -1478,11 +1477,11 @@ Nas figuras~\ref{fig:mppt_conv_data} e \ref{fig:mppt_interv_data} são expostos 
 	\captionsetup{justification=centering}%
 	\begin{center}%
 		\includegraphics[width= \textwidth]{mppt_interv_data}
-		\caption{Comportamento do ciclo de trabalho e da potência de saída para alterações de irradiância para o conversor cuk entrelaçado}
+		\caption{Comportamento do ciclo de trabalho (a) e da potência de saída (c) para alterações de irradiância (b) para o conversor cuk entrelaçado}
 		\label{fig:mppt_interv_data}
 	\end{center}
 \end{figure}
-
+\vspace{20pt}
 \section{Filtro}\label{sec:met_filt}
 
 Os componentes do filtro são encontrados a partir das equações~\ref{eq:lcl_zb} a \ref{eq:lcl_rf}.
@@ -1570,7 +1569,7 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra as tensões e correntes de ent
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_conv_var_s}
-		\caption{Irradiância incidente no painel (a), tensões de entrada e saída (b) e correntes de entrada e saída (c) para o inversor cuk convencional bipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk convencional bipolar com variação de irradiância}
 		\label{fig:comp_conv_var_s_bip}
 \end{figure}
 
@@ -1627,7 +1626,7 @@ Já a figura~\ref{fig:comp_conv_var_s_unip} mostra as tensões e correntes de en
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_conv_var_s_unip}
-		\caption{Irradiância incidente no painel (a), tensões de entrada e saída (b) e correntes de entrada e saída (c) para o inversor cuk convencional unipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk convencional unipolar com variação de irradiância}
 		\label{fig:comp_conv_var_s_unip}
 \end{figure}
 
@@ -1682,7 +1681,7 @@ Já a figura~\ref{fig:comp_interv_var_s} mostra as tensões e correntes de entra
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_interv_var_s}
-		\caption{Irradiância incidente no painel (a), tensões de entrada e saída (b) e correntes de entrada e saída (c) para o inversor cuk entrelaçado bipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk entrelaçado bipolar com variação de irradiância}
 		\label{fig:comp_interv_var_s}
 \end{figure}
 
@@ -1735,7 +1734,7 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra as tensões e correntes de 
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_interv_var_s_unip}
-		\caption{Irradiância incidente no painel (a), tensões de entrada e saída (b) e correntes de entrada e saída (c) para o inversor cuk entrelaçado unipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk entrelaçado unipolar com variação de irradiância}
 		\label{fig:comp_interv_var_s_unip}
 \end{figure}
 
@@ -1790,17 +1789,17 @@ Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_integ_var_s}
-		\caption{Irradiância incidente no painel (a), tensões de entrada e saída (b) e correntes de entrada e saída (c) para o inversor cuk integrado bipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk integrado bipolar com variação de irradiância}
 		\label{fig:comp_integ_var_s}
 \end{figure}
-
+% \vspace{-50pt}
 \subsubsection{Inversor cuk integrado unipolar}
 
 O circuito implementado no PSIM para o inversor cuk integrado unipolar é apresentado na figura~\ref{fig:comp_integ_circ_clean_unip}, já a figura~\ref{fig:out_integ_unip} mostra as formas de onda de tensão e corrente de saída, ampliada em dez vezes. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_integ_unip},  com informação da distorção harmônica total da tensão, considerando frequência base de 60Hz.
 
 Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultados encontrados através da simulação deste circuito e a figura~\ref{fig:comp_integ_var_s_unip} mostra as tensões e correntes de entrada e saída do conversor para alterações na irradiância que alimenta o painel fotovoltaico.
 
-\begin{figure}[H]%
+\begin{figure}[htb]%
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_integ_circ_clean_unip}
@@ -1843,7 +1842,7 @@ Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultado
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_integ_var_s_unip}
-		\caption{Irradiância incidente no painel (a), tensões de entrada e saída (b) e correntes de entrada e saída (c) para o inversor cuk integrado unipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk integrado unipolar com variação de irradiância}
 		\label{fig:comp_integ_var_s_unip}
 \end{figure}
 
@@ -1907,21 +1906,25 @@ Por fim, apesar de apresentar variações de tensão e corrente de saída próxi
 
 \chapter{Conclusão}
 
-O desenvolvimento de um sistema para fontes fotovoltaicas conectadas a rede elétrica com microinversores baseados no conversor cuk foi, em geral, bem sucedido. O sistema de rastreamento de ponto máximo de potência implementado agiu da forma esperada em conjunto com os inversores, de modo a manter a tensão estável e o painel fotovoltaico fornecendo a máxima potência para valores variáveis da irradiância solar.
+% O desenvolvimento de um sistema para fontes fotovoltaicas conectadas a rede elétrica com microinversores baseados no conversor cuk apresenta Características vantajosas em relação à implementação baseada em inversores de grande porte, mais comum na atualidade. Primeiramente, a utilização dos conversores cuk evita que a corrente de saída do painel fotovoltaico apresente pulsos, 
+
+O desenvolvimento de um sistema para fontes fotovoltaicas conectadas à rede elétrica com microinversores baseados no conversor cuk apresenta vantagens em relação à implementações mais comuns. Uma dessas vantagens é a redução e, até ausência de pulsos na corrente de saída do painel fotovoltaico.
+
+O sistema de rastreamento de ponto máximo de potência implementado agiu da forma esperada em conjunto com os inversores, de modo a manter a tensão estável e o painel fotovoltaico fornecendo a máxima potência para valores variáveis da irradiância solar.
 
 Com exceção do inversor cuk integrado bipolar, as demais implementações foram capazes de fornecer tensão senoidal com amplitude e frequência compatíveis com a rede elétrica e com distorção harmônica máxima dentro do limite recomendado pela IEEE-519.
 
-Assim como esperado, os inversores unipolares apresentaram melhores resultados em relação à qualidade das formas de onde presentes na saída, em detrimento da potência disponibilizada. Além disso, os inversores entrelaçados, mais complexos que os convencionais apresentaram melhores resultados tanto em relação ao rendimento quanto em relação à qualidade da potência entregue. 
+Assim como esperado, os inversores unipolares apresentaram melhores resultados em relação à qualidade das formas de onde presentes na saída, em detrimento da potência disponibilizada. Além disso, os conversores entrelaçados, mais complexos que os convencionais apresentaram melhores resultados tanto em relação ao rendimento quanto em relação à qualidade da potência entregue. 
 
-Apesar de mais simples, o inversor integrado apresentou rendimento superior à implementação convencional, sendo um forte candidato para a implementação de microinversores comerciais, já que sua implementação apresenta um custo inferior. Entretanto, esse inversor deve necessariamente apresentar estágio inversor unipolar.
+Apesar de mais simples, o conversor cuk integrado apresentou rendimento superior à implementação convencional, sendo um forte candidato para a implementação de microinversores comerciais por, principalmente, permitir a montagem de inversores com menores dimensões físicas. Entretanto, esse inversor deve, necessariamente, apresentar estágio inversor unipolar.
 
-Para um sistema em que o foco seja, além do rendimento, a menor distorção harmônica possível, podem ser utilizadas as implementações entrelaçadas, que apresentam os melhores rendimentos entre os inversores analisados. Esses inversores são, porém, mais complexos e caros devido ao maior número de componentes necessários.
+Para um sistema em que o foco seja, além do rendimento, a menor distorção harmônica possível, podem ser utilizadas as implementações entrelaçadas, que apresentam os melhores rendimentos entre os inversores analisados. Esses inversores são, porém, mais complexos e maiores que as demais opções analisadas.
 
-Um sistema composto por inversores integrados unipolares, apesar de ainda apresentarem um controle mais complexo na etapa inversora, representam uma implementação mais barata com rendimento pŕoximo ao obtido pelos inversores entrelaçados, além de se adequar à recomendação técnica de qualidade relativa à distorção harmônica.
+Um sistema composto por inversores integrados unipolares, apesar de ainda apresentar um controle mais complexo na etapa inversora, representa uma implementação simplificada com rendimento pŕoximo ao obtido pelos inversores entrelaçados, além de se adequar à recomendação técnica de qualidade relativa à distorção harmônica. Com isso, para casos em que as dimensões físicas do dispositivo são um fator determinante, essa implementação se apresenta como alternativa viável.
 
-Dessa forma, a implementação de um sistema para conexão de fontes fotovoltaicas conectadas à rede baseado em microinversores de baixa potência é uma alternativa possível e viável ao atual modelo de inversores de alta potência. 
+Dessa forma, a implementação de um sistema para conexão de fontes fotovoltaicas conectadas à rede baseado em microinversores de baixa potência é uma opção possível e viável ao atual modelo de inversores de alta potência. 
 
-Um próximo passo, como produto de outro estudo é a implementação dos sistemas auxiliares necessários para o funcionamento e aprovação de um sistema fotovoltaico conectado à rede elétrica, como o sistema de anti ilhamento, importante para a segurança da rede, e sistemas de controle para o tratamento de perturbações inseridas no sistema. 
+Um próximo passo, como produto de outro estudo é, primeiramente, a implementação dos sistemas auxiliares necessários para o funcionamento e aprovação de um sistema fotovoltaico conectado à rede elétrica, como o sistema de anti ilhamento, importante para a segurança da rede, e sistemas de controle para o tratamento de perturbações inseridas no sistema. 
 % ---
 \bookmarksetup{startatroot}% 
 % ---
