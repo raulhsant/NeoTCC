@@ -39,7 +39,7 @@
 	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	openany,
 	onseside,
-	%twoside,			% para impressão em verso e anverso. Oposto a oneside
+	% twoside,			% para impressão em verso e anverso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -206,25 +206,27 @@
 % ---
 % Capa
 % ---
+\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 \imprimircapa
 % ---
 
 % ---
 % Folha de rosto
 % ---
+\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 \imprimirfolhaderosto
 % ---
 
 % ---
 % Dedicatória
 % ---
-
+\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{dedicatoria}
 	   \vspace*{\fill}
 	   \centering
 	   \noindent
-	   \textit{ Este trabalho é dedicado às crianças adultas que,\\
-	   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+	   \textit{ Este trabalho é dedicado ao amor da minha vida,\\
+	   		Talita.} \vspace*{\fill}
 	\end{dedicatoria}
 
 % ---
@@ -232,24 +234,17 @@
 % ---
 % Agradecimentos
 % ---
-
+\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{agradecimentos}
-		Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-		Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-		Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
-		projeto abn\TeX\ foram extraídos de
-		\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
-		contribuíram para que a produção de trabalhos acadêmicos conforme
-		as normas ABNT com \LaTeX\ fosse possível.
 
-		Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-		da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
-		Brasília (CPAI), ao grupo de usuários
-		\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-		novos voluntários do grupo
-		\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
-		\url{http://abntex2.googlecode.com/}}~que contribuíram e que ainda
-		contribuirão para a evolução do \abnTeX.
+	Gostaria de agradecer primeiramente à minha família pela paciência e apoio,em especial à minha noiva, Talita, que suportou esse tempo distante e me apoio como possível quando necessário.  
+
+	Também gostaria de agradecer a todos os professores que, de alguma forma me ajudaram a chegar até aqui. 
+
+	Agradeço ao professor Pedro Donoso pela paciência e ajuda na realização deste trabalho e a todos os professores que, de alguma forma me ajudaram a chegar até aqui.
+	
+	Agradeço também aos meus amigos, os da Strider que vejo todos os dias úteis e os que deixei de ver por algum tempo mas mesmo assim me auxiliaram direta ou indiretamente nesta jornada.
+
 	\end{agradecimentos}
 
 % ---
@@ -257,14 +252,11 @@
 % ---
 % Epígrafe
 % ---
+\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{epigrafe}
 			\vspace*{\fill}
 		\begin{flushright}
-			\textit{``Não vos amoldeis às estruturas deste mundo, \\
-			mas transformai-vos pela renovação da mente, \\
-			a fim de distinguir qual é a vontade de Deus: \\
-			o que é bom, o que Lhe é agradável, o que é perfeito.\\
-			(Bíblia Sagrada, Romanos 12, 2)}
+			\textit{Se o conhecimento pode criar problemas, não é através da ignorância que podemos solucioná-los. - Issac Asimov}
 		\end{flushright}
 	\end{epigrafe}
 
@@ -274,37 +266,39 @@
 % RESUMOS
 % ---
 % resumo em português
-\begin{comment}
 
 	\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+	\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{resumo}
-	Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
-	objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
-	destes itens dependem do tipo de resumo (informativo ou indicativo) e do
-	tratamento que cada item recebe no documento original. O resumo deve ser
-	precedido da referência do documento, com exceção do resumo inserido no
-	próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
-	resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
-	ponto e finalizadas também por ponto.
+	
+		A geração distribuída de energia elétrica vem se mostrando nos últimos anos uma alternativa interessante à geração centralizada, que corresponde à maior parte da energia gerada no país. A energia fotovoltaica se destaca entre as principais fontes do cenário de geração distribuída por apresentar custo inferior às demais alternativas e necessitar de pouca manutenção.
 
-	\textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+		Entretanto, sistemas de geração fotovoltaica ainda apresentam custo de instalação alto, além de ocuparem espaço considerável. Para reduzir o custo e espaço necessários e aumentar a otimizar a produção de energia por painel fotovoltaico podem ser utilizados microinversores, acomodados junto aos próprios painéis fotovoltaicos, como opção aos inversores de grande porte. 
+
+		O enfoque deste trabalho é a simulação de microinversores baseados em implementações do conversor cuk para sistemas de geração conectados à rede elétrica a fim de analisar o rendimento e a qualidade da potência obtida por estes. Foram observados rendimentos de até $96,21\%$  para o inversor em malha aberta, o que indica a potencial viabilidade da utilização desses inversores para a geração fotovoltaica conectada à rede.
+
+	\vspace{\onelineskip}
+	\noindent
+	\textbf{Palavras-chaves}: Eficiência. Conversor. Ćuk. CC-CC. CC-CA. MPPT. Geração. Fotovoltaico 
 	\end{resumo}
 
+	\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	% resumo em inglês
 	\begin{resumo}[Abstract]
-	\begin{otherlanguage*}{english}
-		This is the english abstract.
+		\begin{otherlanguage*}{english}
+
+		Distributed generation of electric power had emerged in recent years as an interesting alternative to centralized generation, which represents the majority of the power generated in Brazil. Photovoltaic energy stands out on the distributed generation scenario due to it's lower cost and the little maintenance required, compared to it's alternatives. 
+
+		However, photovoltaic generation systems still have high installation cost,besides taking up considerable space. In order to reduce the cost and space required microinverters, accommodated on the photovoltaic panels themselves, can be used as an alternative to the more conventional high power and large inverters. Besides that, the relationship between microinverter and panel let to the optimization of the energy production on each panel.
+
+		The focus of this work is the simulation  of microinverters based on implementations of the cuk converter for systems connected to the electric grid in order the analyze it's efficiency and quality of power delivered. Efficiencies as high as $96.21\%$ was observed, which indicates the potential feasibility of the use of these inverters for grid-connected photovoltaic generation systems.
 
 		\vspace{\onelineskip}
-	
-		\noindent 
-		\textbf{Key-words}: latex. abntex. text editoration.
+		\noindent
+		\textbf{Key-words}: Efficiency. Converter. DC-DC. DC-AC. MPPT. Photovoltaic. 
 	\end{otherlanguage*}
 	\end{resumo}
 
-\end{comment}
-
-% \begin{comment}
 	% ---
 	% inserir lista de ilustrações
 	% ---
@@ -364,8 +358,8 @@
 % ---
 \pdfbookmark[0]{\contentsname}{toc}
 \tableofcontents*
-\cleardoublepage
-% \clearpage
+% \cleardoublepage
+\clearpage
 % ---
 
 % ----------------------------------------------------------
@@ -402,8 +396,7 @@
 	a redução do carregamento e das perdas nas redes, o adiamento de investimentos em expansão e distribuição e a redução 
 	do impacto ambiental \cite{ANEEL_GD}.
 
-	A principal vantagem na adesão ao sistema distribuído para o consumidor final é a capacidade de fornecer seu 
-	excedente de produção à rede local, de modo a obter uma redução ainda maior do valor pago à concessionária de 
+	A principal vantagem na adesão ao sistema distribuído para o consumidor final é a capacidade de fornecer seu excedente de produção à rede local, de modo a obter uma redução ainda maior do valor pago à concessionária de 
 	energia no fim de cada mês.
 
 	No conjunto de fontes renováveis, destaca-se a energia fotovoltaica, que converte a energia de raios solares em eletricidade 
@@ -438,7 +431,7 @@
 	A fonte de energia utilizada será um painel fotovoltaico com potência de aproximadamente 300W, será escolhido e implementado um algoritmo de MPPT e feita, também,  uma análise da distorção harmônica injetada para cada implementação.
 
 	Devido à limitação de tempo para o desenvolvimento do estudo a atenção está voltada ao inversor, tanto em relação à sua eficiência quanto à qualidade da potência obtida em sua saída. Dessa forma, sistemas auxiliares importantes para o funcionamento de um inversor comercial não serão implementados.
-		
+
 	% , portanto, sistemas auxiliares, mesmo que de alta importância para o funcionamento de um inversor comercial, não serão projetados e simulados. Entre esses sistemas podem ser destacados o controle de sincronia da tensão de saída e o sistema de anti ilhamento. Enquanto o primeiro é responsável por garantir que a tensão de saída do conjunto seja compatível com a tensão da rede, que pode variar em torno dos 60Hz o segundo é primordial para a segurança da rede elétrica, principalmente, por evitar que o conjunto injete potência na rede quando esta sofrer algum curto e for desligada. Esses sistemas são ignorados em um primeiro momento, mas devem ser avaliados em trabalhos futuros.
 	
 %
@@ -467,7 +460,7 @@ As implementações que serão analisadas estão listadas a seguir e serão comb
 	\item Inversor Ćuk integrado
 \end{itemize}
 
-Deseja-se avaliar o funcionamento, rendimento e qualidade da potência da saída desses sistemas para verificar, inicialmente, a viabilidade da implementação de microinversores comerciais baseados no conversor cuk. Dessa forma, nesse primeiro estudo, não são implementados controles contra perturbação no sistema, considerando as simulações como sendo ambientes controlados.
+Deseja-se avaliar o funcionamento, rendimento e qualidade da potência da saída desses sistemas para verificar, inicialmente, a viabilidade da implementação de microinversores comerciais baseados no conversor cuk. Dessa forma, nesse primeiro estudo, não são implementados controles contra perturbação no sistema e os inversores são, portanto, analisados em malha aberta.
 
 \section{Estrutura Geral do Trabalho}
 
@@ -1908,23 +1901,23 @@ Por fim, apesar de apresentar variações de tensão e corrente de saída próxi
 
 % O desenvolvimento de um sistema para fontes fotovoltaicas conectadas a rede elétrica com microinversores baseados no conversor cuk apresenta Características vantajosas em relação à implementação baseada em inversores de grande porte, mais comum na atualidade. Primeiramente, a utilização dos conversores cuk evita que a corrente de saída do painel fotovoltaico apresente pulsos, 
 
-O desenvolvimento de um sistema para fontes fotovoltaicas conectadas à rede elétrica com microinversores baseados no conversor cuk apresenta vantagens em relação à implementações mais comuns. Uma dessas vantagens é a redução e, até ausência de pulsos na corrente de saída do painel fotovoltaico.
+O desenvolvimento de um sistema para fontes fotovoltaicas conectadas à rede elétrica com microinversores baseados no conversor cuk apresenta vantagens em relação à implementações mais comuns. Uma dessas vantagens é a redução de pulsos na corrente no transistor de chaveamento, além da menor oscilação na corrente fornecida pelo painel fotovoltaico.
 
 O sistema de rastreamento de ponto máximo de potência implementado agiu da forma esperada em conjunto com os inversores, de modo a manter a tensão estável e o painel fotovoltaico fornecendo a máxima potência para valores variáveis da irradiância solar.
 
-Com exceção do inversor cuk integrado bipolar, as demais implementações foram capazes de fornecer tensão senoidal com amplitude e frequência compatíveis com a rede elétrica e com distorção harmônica máxima dentro do limite recomendado pela IEEE-519.
+Com exceção do inversor cuk integrado bipolar, todas as demais implementações foram capazes de fornecer tensão senoidal com amplitude e frequência compatíveis com a rede elétrica e com distorção harmônica máxima dentro do limite recomendado pela IEEE-519.
 
-Assim como esperado, os inversores unipolares apresentaram melhores resultados em relação à qualidade das formas de onde presentes na saída, em detrimento da potência disponibilizada. Além disso, os conversores entrelaçados, mais complexos que os convencionais apresentaram melhores resultados tanto em relação ao rendimento quanto em relação à qualidade da potência entregue. 
+Como esperado, os inversores unipolares apresentaram melhores resultados em relação à qualidade das formas de onde presentes na saída, em detrimento da potência disponibilizada. Além disso, os conversores entrelaçados, mais complexos que os convencionais, apresentaram os melhores resultados tanto em relação ao rendimento quanto em relação à qualidade da potência entregue entre os conversores propostos. 
 
-Apesar de mais simples, o conversor cuk integrado apresentou rendimento superior à implementação convencional, sendo um forte candidato para a implementação de microinversores comerciais por, principalmente, permitir a montagem de inversores com menores dimensões físicas. Entretanto, esse inversor deve, necessariamente, apresentar estágio inversor unipolar.
+Apesar de mais simples, o inversor cuk integrado apresentou rendimento superior à implementação convencional, sendo um forte candidato para a implementação de microinversores comerciais por, principalmente, permitir a montagem de inversores com menores dimensões físicas. Entretanto, esse inversor deve, necessariamente, apresentar estágio inversor unipolar.
 
 Para um sistema em que o foco seja, além do rendimento, a menor distorção harmônica possível, podem ser utilizadas as implementações entrelaçadas, que apresentam os melhores rendimentos entre os inversores analisados. Esses inversores são, porém, mais complexos e maiores que as demais opções analisadas.
 
-Um sistema composto por inversores integrados unipolares, apesar de ainda apresentar um controle mais complexo na etapa inversora, representa uma implementação simplificada com rendimento pŕoximo ao obtido pelos inversores entrelaçados, além de se adequar à recomendação técnica de qualidade relativa à distorção harmônica. Com isso, para casos em que as dimensões físicas do dispositivo são um fator determinante, essa implementação se apresenta como alternativa viável.
+Um sistema composto por inversores integrados unipolares, apesar de ainda apresentar um controle mais complexo na etapa inversora, representa uma implementação simplificada com rendimento próximo ao obtido pelos inversores entrelaçados, além de se adequar à recomendação técnica de qualidade relativa à distorção harmônica. Com isso, para casos em que as dimensões físicas do dispositivo são um fator determinante, essa implementação se apresenta como alternativa viável.
 
 Dessa forma, a implementação de um sistema para conexão de fontes fotovoltaicas conectadas à rede baseado em microinversores de baixa potência é uma opção possível e viável ao atual modelo de inversores de alta potência. 
 
-Um próximo passo, como produto de outro estudo é, primeiramente, a implementação dos sistemas auxiliares necessários para o funcionamento e aprovação de um sistema fotovoltaico conectado à rede elétrica, como o sistema de anti ilhamento, importante para a segurança da rede, e sistemas de controle para o tratamento de perturbações inseridas no sistema. 
+Um próximo passo, como produto de outro estudo é a implementação dos sistemas auxiliares necessários para o funcionamento e aprovação de um sistema fotovoltaico conectado à rede elétrica, como o sistema de anti ilhamento, importante para a segurança da rede, e sistemas de controle para o tratamento de perturbações inseridas no sistema para a análise do conversor em malha fechada.
 % ---
 \bookmarksetup{startatroot}% 
 % ---
