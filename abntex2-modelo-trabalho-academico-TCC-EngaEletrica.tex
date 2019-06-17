@@ -273,7 +273,7 @@
 	
 		A geração distribuída de energia elétrica vem se mostrando nos últimos anos uma alternativa interessante à geração centralizada, que corresponde à maior parte da energia gerada no país. A energia fotovoltaica se destaca entre as principais fontes do cenário de geração distribuída por apresentar custo inferior às demais alternativas e necessitar de pouca manutenção.
 
-		Entretanto, sistemas de geração fotovoltaica ainda apresentam custo de instalação alto, além de ocuparem espaço considerável. Para reduzir o custo e espaço necessários e aumentar a otimizar a produção de energia por painel fotovoltaico podem ser utilizados microinversores, acomodados junto aos próprios painéis fotovoltaicos, como opção aos inversores de grande porte. 
+		Entretanto, sistemas de geração fotovoltaica ainda apresentam custo de instalação alto, além de ocuparem espaço considerável. Para reduzir o custo e espaço necessários e otimizar a produção de energia por painel fotovoltaico podem ser utilizados microinversores, acomodados junto aos próprios painéis fotovoltaicos, como opção aos inversores de grande porte. 
 
 		O enfoque deste trabalho é a simulação de microinversores baseados em implementações do conversor cuk para sistemas de geração conectados à rede elétrica a fim de analisar o rendimento e a qualidade da potência obtida por estes. Foram observados rendimentos de até $96,21\%$  para o inversor em malha aberta, o que indica a potencial viabilidade da utilização desses inversores para a geração fotovoltaica conectada à rede.
 
@@ -374,7 +374,7 @@
 
 \section{Motivação}
 
-	A geração de energia elétrica no Brasil é fortemente caracterizada por um modelo geração centralizada e faz uso 
+	A geração de energia elétrica no Brasil é fortemente caracterizada por um modelo de geração centralizada e faz uso 
 	do conceito de economias de escala \cite{MACHADO2016290}.
 	Nesse modelo, plantas de grande porte geram toda a energia, que é transmitida e distribuída aos
 	consumidores, ou seja, a energia é gerada de forma centralizada e posteriormente entregue ao destino final.
@@ -418,15 +418,15 @@
 
 	A tensão disponibilizada por painéis fotovoltaicos é geralmente de baixa amplitude, sendo necessário o aumento da tensão através da associação de painéis série-paralelo. Além disso, pode ser utilizado um conversor CC-CC elevador de tensão anterior à conversão da tensão contínua em alternada. A utilização de um conversor subidor de tensão pode ser evitado em casos nos quais vários painéis são conectados em série de modo que a tensão de saída do conversor seja maior que a tensão de pico da rede. Esta configuração  é, entretanto, pouco usual em sistemas de baixa potência devido à necessidade de se garantir uma tensão mínima fornecida pelos painéis. Sendo assim, as topologias mais comuns de inversores para sistemas fotovoltaicos utilizam um estágio elevador de tensão e um estágio inversor conectados em série \cite{LUIGIJUNIOR_ev_int}.
 
-	Com o intuito de reduzir o custo e o espaço ocupado por inversores responsáveis por lidar com a energia gerada por uma série de painéis fotovoltaicos, vem sido estudada a utilização de microinversores \cite{Bouzguenda_smart_grid_inv}, inversores de menor potência, montados atrás de cada painel, pelo qual são responsáveis pela otimização da geração e pelo condicionamento da energia gerada. A principal vantagem na utilização de microinversores está no fato de estes isolarem os efeitos de sombreamento entre painéis \cite{Nezamuddin_des_eff_micro}.
+	Com o intuito de reduzir o custo e o espaço ocupado por inversores responsáveis por lidar com a energia gerada por uma série de painéis fotovoltaicos, vem sido estudada a utilização de microinversores \cite{Bouzguenda_smart_grid_inv}, inversores de menor potência, montados atrás de cada painel, ao qual são responsáveis pela otimização da geração e pelo condicionamento da energia gerada. A principal vantagem na utilização de microinversores está no fato de estes isolarem os efeitos de sombreamento entre painéis \cite{Nezamuddin_des_eff_micro}.
 
 
 	Os microinversores também são compostos, em geral, por dois estágios. O primeiro responsável por elevar a tensão fornecida pelo painel, além de sua operação no ponto de máxima potência e o segundo responsável por gerar a corrente alternada de modo a assegurar a correta conexão com a rede elétrica \cite{Nezamuddin_des_eff_micro}. Podem ser utilizadas, também, topologias integradas que buscam a simplificação e redução de componentes do circuito através da conexão direta entre os estágios \cite{LUIGI_int_top} \cite{LUIGIJUNIOR_ev_int}.
 
 	
-	É proposto nesse trabalho uma análise de diferentes implementações de microinversores para sistemas fotovoltaicos baseadas na estrutura CC-CC Ćuk. Serão estudados inversores com conversores Ćuk, Ćuk entrelaçado e o inversor Ćuk integrado-, esse último proposto por \cite{LUIGI_int_top}.
+	É proposto nesse trabalho uma análise de diferentes implementações de microinversores para sistemas fotovoltaicos baseadas na estrutura CC-CC Ćuk. Serão estudados inversores com conversores Ćuk, Ćuk entrelaçado e o inversor Ćuk integrado, esse último proposto por \cite{LUIGI_int_top}.
 
-	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentam comportamento de fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples sua a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
+	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentam comportamento de fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
 
 	A fonte de energia utilizada será um painel fotovoltaico com potência de aproximadamente 300W, será escolhido e implementado um algoritmo de MPPT e feita, também,  uma análise da distorção harmônica injetada para cada implementação.
 
