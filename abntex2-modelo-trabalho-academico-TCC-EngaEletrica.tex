@@ -36,10 +36,10 @@
 \documentclass[
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
-	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	openany,
-	onseside,
-	% twoside,			% para impressão em verso e anverso. Oposto a oneside
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	% openany,
+	% onseside,
+	twoside,			% para impressão em verso e anverso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -206,21 +206,21 @@
 % ---
 % Capa
 % ---
-\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+% \AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 \imprimircapa
 % ---
 
 % ---
 % Folha de rosto
 % ---
-\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+% \AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 \imprimirfolhaderosto
 % ---
 
 % ---
 % Dedicatória
 % ---
-\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+% \AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{dedicatoria}
 	   \vspace*{\fill}
 	   \centering
@@ -234,16 +234,16 @@
 % ---
 % Agradecimentos
 % ---
-\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+% \AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{agradecimentos}
 
-	Gostaria de agradecer primeiramente à minha família pela paciência e apoio,em especial à minha noiva, Talita, que suportou esse tempo distante e me apoio como possível quando necessário.  
+	Gostaria de agradecer primeiramente à minha família pela paciência e apoio, em especial à minha noiva, Talita, que suportou esse tempo distante e me apoiou como possível quando necessário.  
 
 	Também gostaria de agradecer a todos os professores que, de alguma forma me ajudaram a chegar até aqui. 
 
 	Agradeço ao professor Pedro Donoso pela paciência e ajuda na realização deste trabalho e a todos os professores que, de alguma forma me ajudaram a chegar até aqui.
 	
-	Agradeço também aos meus amigos, os da Strider que vejo todos os dias úteis e os que deixei de ver por algum tempo mas mesmo assim me auxiliaram direta ou indiretamente nesta jornada.
+	Agradeço também aos meus amigos, os da Strider que vejo todos os dias úteis e os que deixei de ver por algum tempo, mas mesmo assim me auxiliaram direta ou indiretamente nesta jornada.
 
 	\end{agradecimentos}
 
@@ -252,7 +252,7 @@
 % ---
 % Epígrafe
 % ---
-\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+% \AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{epigrafe}
 			\vspace*{\fill}
 		\begin{flushright}
@@ -268,7 +268,7 @@
 % resumo em português
 
 	\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
-	\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+	% \AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	\begin{resumo}
 	
 		A geração distribuída de energia elétrica vem se mostrando nos últimos anos uma alternativa interessante à geração centralizada, que corresponde à maior parte da energia gerada no país. A energia fotovoltaica se destaca entre as principais fontes do cenário de geração distribuída por apresentar custo inferior às demais alternativas e necessitar de pouca manutenção.
@@ -282,7 +282,7 @@
 	\textbf{Palavras-chaves}: Eficiência. Conversor. Ćuk. CC-CC. CC-CA. MPPT. Geração. Fotovoltaico 
 	\end{resumo}
 
-	\AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+	% \AtBeginShipoutNext{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
 	% resumo em inglês
 	\begin{resumo}[Abstract]
 		\begin{otherlanguage*}{english}
@@ -424,9 +424,9 @@
 	Os microinversores também são compostos, em geral, por dois estágios. O primeiro responsável por elevar a tensão fornecida pelo painel, além de sua operação no ponto de máxima potência e o segundo responsável por gerar a corrente alternada de modo a assegurar a correta conexão com a rede elétrica \cite{Nezamuddin_des_eff_micro}. Podem ser utilizadas, também, topologias integradas que buscam a simplificação e redução de componentes do circuito através da conexão direta entre os estágios \cite{LUIGI_int_top} \cite{LUIGIJUNIOR_ev_int}.
 
 	
-	É proposto nesse trabalho uma análise de diferentes implementações de microinversores para sistemas fotovoltaicos baseadas na estrutura CC-CC Ćuk. Serão estudados inversores com conversores Ćuk, Ćuk entrelaçado e o inversor Ćuk integrado, esse último proposto por \cite{LUIGI_int_top}.
+	É proposto nesse trabalho uma análise de diferentes implementações de microinversores para sistemas fotovoltaicos baseadas na estrutura CC-CC Ćuk. Serão estudados inversores com conversores Ćuk, Ćuk entrelaçado e o inversor Ćuk integrado, esse último proposto por~\cite{LUIGI_int_top}.
 
-	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentam comportamento de fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
+	A utilização de conversores Ćuk se faz interessante devido ao fato de estes apresentarem comportamento de fonte de corrente \cite{LUIGIJUNIOR_ev_int}, o que torna mais simples a conexão de sua saída à rede elétrica, que apresenta o comportamento de uma fonte de tensão, já que devem ser mantidos os níveis de tensão independente da corrente drenada. Isso elimina a necessidade de impedâncias em série entre o inversor e a rede elétrica, utilizadas para limitar a corrente de saída do inversor, as quais são necessárias quando este apresenta características de fonte de tensão. Além disso, o conversor Ćuk apresenta baixo ripple de corrente, o que resulta em baixas perdas e melhor eficiência na conversão \cite{Shawky_perform_anal}.
 
 	A fonte de energia utilizada será um painel fotovoltaico com potência de aproximadamente 300W, será escolhido e implementado um algoritmo de MPPT e feita, também,  uma análise da distorção harmônica injetada para cada implementação.
 
@@ -466,7 +466,7 @@ Deseja-se avaliar o funcionamento, rendimento e qualidade da potência da saída
 
 O capítulo 1 introduz o tema e o objeto de estudo, com uma breve explicação e contextualização do problema. No capítulo 2 é apresentado o estado da arte e o embasamento teórico necessário para o desenvolvimento do trabalho.
 
-No capítulo 3 é descrito o desenvolvimento das etapas do projeto, desde a escolha do painel fotovoltaico utilizado até o dimensionamento do filtro de saída. O capítulo 4 é destinado à exposição dos conversores propostos, compostos pela interconexão dos componentes projetados no capitulo anterior. No quinto capítulo são discutidos os resultados apresentados no capítulo anterior, enquanto no sexto e último capítulo são apresentadas as conclusões obtidas pelo estudo.
+No capítulo 3 é descrito o desenvolvimento das etapas do projeto, desde a escolha do painel fotovoltaico utilizado até o dimensionamento do filtro de saída. O capítulo 4 é destinado à exposição dos conversores propostos, compostos pela interconexão dos componentes projetados no capitulo anterior. No capítulo 5 são discutidos os resultados apresentados no capítulo anterior, enquanto no sexto e último capítulo são apresentadas as conclusões obtidas pelo estudo.
 
 \chapter{Estado da Arte}
 
@@ -475,7 +475,7 @@ No capítulo 3 é descrito o desenvolvimento das etapas do projeto, desde a esco
 O circuito equivalente de células fotovoltaicas pode ser representado por uma fonte de corrente, como pode ser visto na figura ~\ref{fig:model_PV}. Este modelo é amplamente aceito e utilizado em trabalhos relacionados a energia fotovoltaica e seu comportamento é descrito pelas equações~\ref{IPV_} a \ref{VOCPV}, nas quais $i_{pv}$ é a corrente e $V$ a tensão de saída da célula solar, respectivamente. 
 $I_{ph}$ é a fotocorrente e $I_r$ a corrente reversa de saturação da célula, $R_s$ e $R_p$ são as resistências série e shunt, $q$ é a carga do elétron e $\eta$ é o fator de idealidade da junção p-n. $k$ é a constante de Boltzmann, $T$ representa a temperatura ambiente, em Kelvins e $G$ representa a densidade de potência da irradiação solar. 
 $T_r$ é a temperatura nominal, em Kelvins (298K), $I_{sc}$ é a corrente de curto circuito em condições padrão de teste(\textit{STC}) ($T_r = 25^oC$ e $G =1kW/m^2$), $ \alpha $ é o coeficiente de temperatura, $I_rr$ é a corrente de saturação reversa em \textit{STC} e $E_g$ é o \textit{gap} de energia entre as bandas (1.1eV).
-$V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de células por painel e $M_s$ é o número de painéis conectados em série \cite{PV-Teory}.
+$V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de células por painel e $M_s$ o número de painéis conectados em série \cite{PV-Teory}.
 \begin{IEEEeqnarray} {c}
 	i_{pv} = I_{ph} - I_r \left[ 
 		\mathrm{e}^{q\left(\left(V+i_{pv}R_s\right)/\eta kT\right)} -1
@@ -502,7 +502,7 @@ $V_{oc}$ é a tensão de circuito aberto das células, $N_s$ é o número de cé
 	\end{center}
 \end{figure}
 
-A partir das equações ~\ref{IPV_},~\ref{IPH_},~\ref{IR_} e ~\ref{IRR_} é possível inferir a existência das relações entre a corrente de saída do painel fotovoltaico, sua temperatura e a irradiação solar. De fato, quanto maior a temperatura da célula, menor sua tensão de circuito aberto e, portanto, mais rápida sua variação de corrente. Já em relação à irradiação solar, quanto menor a magnitude desta, menor a corrente máxima da célula, relação clara ao analisar a equação~\ref{IPH_}.
+A partir das equações ~\ref{IPV_},~\ref{IPH_},~\ref{IR_} e~\ref{IRR_} é possível inferir a existência das relações entre a corrente de saída do painel fotovoltaico, sua temperatura e a irradiação solar. De fato, quanto maior a temperatura da célula, menor sua tensão de circuito aberto e, portanto, mais rápida sua variação de corrente. Já em relação à irradiação solar, quanto menor a magnitude desta, menor a corrente máxima da célula, relação clara ao analisar a equação~\ref{IPH_}.
 
 Na figura~\ref{fig:iv_pv_} são apresentadas curvas I-V para diferentes valores de irradiação solar e temperatura de painel, para servirem de demonstração da influência dessas variáveis no comportamento do painel.
 
@@ -521,12 +521,12 @@ Na figura~\ref{fig:iv_pv_} são apresentadas curvas I-V para diferentes valores 
 
 \subsection{Conversor Ćuk Convencional}
 
-Um conversor Ćuk é um conversor CC-CC baseado na transferência de energia capacitiva que é capaz de fornecer tensão maior ou menor que sua tensão de entrada, com polaridade invertida. Seu circuito pode ser visto na figura~\ref{fig:conv_cuk_circuit}. 
+Um conversor Ćuk é um conversor CC-CC, baseado na transferência de energia capacitiva, que é capaz de fornecer tensão maior ou menor que sua tensão de entrada, com polaridade invertida. Seu circuito pode ser visto na figura~\ref{fig:conv_cuk_circuit}. 
 
 \begin{figure}[htbp]
 	\centering
 		\includegraphics[width=0.55 \linewidth]{conv_cuk_circuit}
-		\caption{Conversor Ćuk convencional \cite{RASHID_CUK}}
+		\caption{Conversor Ćuk Convencional \cite{RASHID_CUK}}
 		\label{fig:conv_cuk_circuit}
 \end{figure}
 
@@ -538,13 +538,13 @@ Um conversor Ćuk é um conversor CC-CC baseado na transferência de energia cap
 % \end{figure}
 
 Quando a chave $S$ está fechada (\textit{ON}), os indutores $L1$ e $L2$ são carregados pela tensão de entrada e capacitor $C1$, respectivamente. O capacitor $C1$ polariza inversamente o diodo $D$ e descarrega fornecendo energia para a carga $R$, o capacitor de filtro $C$ e o indutor de filtro $L2$.
-Com o transistor representado pela chave $S$ em estado aberto(\textit{OFF}), o indutor de entrada $L1$ carrega o capacitor de transferência de energia $C1$. O diodo $D$ conduz as correntes de ambos $L1$ e $L2$ e, portanto, o indutor $L2$ descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
+Com o transistor representado pela chave $S$ em estado aberto (~\textit{OFF}), o indutor de entrada $L1$ carrega o capacitor de transferência de energia $C1$. O diodo $D$ conduz as correntes de ambos $L1$ e $L2$ e, portanto, o indutor $L2$ descarrega fornecendo energia à carga \cite{RASHID_CUK} \cite{JOSEPH_2015_Intervealed_CUK}. 
 
 \begin{figure}[H]
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{conv_cuk_signal_details}
-		\caption{Formas de onda de corrente de entrada e saída (a),tensão de entrada e saída (b) e de tensões no transistor e no diodo (c) do conversor cuk convencional}
+		\caption{Formas de onda de corrente de entrada e saída (a), tensão de entrada e saída (b) e de tensões no transistor e no diodo (c) do conversor cuk convencional}
 		\label{fig:conv_cuk_In_Out}
 \end{figure}
 
@@ -561,6 +561,7 @@ A função de transferência CC desse conversor é dada pela equação~\ref{eq:t
 	M_v = \frac{V_o}{V_s}= - \frac{d}{1-d}
 	\label{eq:trans_func_cuk_conv}
 \end{equation}
+
 O conversor Ćuk opera em modo de condução contínua para $L1$ > $L_{b1}$ e $L2$ > $L_{b2}$ pelas equações~\ref{eq:cuk_conv_CCM_limits_l1} e ~\ref{eq:cuk_conv_CCM_limits_l2}.
 
 O capacitor de filtro $C$ mínimo para uma certa tensão de ripple $V_r$ pode ser encontrado utilizando a equação~\ref{eq:rip_filt_conv_cuk}. Já a tensão de ripple no capacitor $C1$ pode ser estimada pela equação~\ref{eq:conv_cuk_rip_c1}.
@@ -578,7 +579,7 @@ Nas equações~\ref{eq:cuk_conv_CCM_limits_l1} a \ref{eq:rip_filt_conv_cuk} $f$ 
 % APRESENTA MODELO, PRINCIPIOS E INTRO AO PROJETO
 \subsection{Conversor Ćuk Entrelaçado}
 
-Um conversor cuk entrelaçado consiste de  dois conversores cuk convencionais que operam com pulsos defasados nos transistores. A conexão é feita através indutores de saída, que são conectados junto ao capacitor de saída, comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de duas fases. O objetivo principal dessa implementação reduzir o ripple de tensão na saída.
+Um conversor cuk entrelaçado consiste de dois conversores cuk convencionais que operam com pulsos defasados nos transistores. A conexão é feita através dos indutores de saída, que são conectados junto ao capacitor de saída, comum entre todas as fases. A figura~\ref{fig:interv_cuk_conv} apresenta o circuito de um conversor cuk entrelaçado de duas fases. O objetivo principal dessa implementação reduzir o ripple de tensão na saída.
 
 Segundo \citeonline{JOSEPH_2015_Intervealed_CUK}, essa topologia tem o intuito de reduzir o ripple de corrente na entrada e reduzir o stress de chaveamento, sem sacrificar sua eficiência. Para tal, os transistores são ligados um por vez, por um período de ${T_{on}}/{2}$, e somente após passado um período ${T_{off}}/{2}$ do desligamento do transistor anterior. Isso é feito  utilizando-se a técnica de modulação por largura de pulso com deslocamento de fase, \emph{PSPWM}, do inglês \textit{Phase-Shifted Pulse Width Modulation}.
 
@@ -589,7 +590,7 @@ O funcionamento do conversor cuk entrelaçado de duas fases pode ser descrito em
 	\item Modo 3 ($t_2$-$t_3$): $S_1$ desligado e $S_2$ ligado.
 \end{itemize}
 
-No modo 1, ocorre a carga do indutor $L_{1a}$ e a descarga do indutor $L_{1b}$, que fornece energia ao capacitor $C_2$. Enquanto isso, o capacitor $C_1$ para a carga.
+No modo 1, ocorre a carga do indutor $L_{1a}$ e a descarga do indutor $L_{1b}$, que fornece energia ao capacitor $C_2$. Enquanto isso, o capacitor $C_1$ alimenta a carga.
 
 Assumindo uma variação linear na corrente dos indutores, a oscilação de corrente para os indutores nesse modo pode ser calculada com as equações~\ref{eq:rip_interv_1} a \ref{eq:rip_interv_3}, nas quais $t_1$ é o tempo em que o transistor $S_1$ está ligado, $V_d$ a tensão de entrada e $V_{C_1}$ e $V_{C_2}$ a tensão nos capacitores $C_1$ e $C_2$, respectivamente.
 \begin{IEEEeqnarray}{c}
@@ -662,11 +663,11 @@ Na figura~\ref{fig:interv_cuk_In_Out} são apresentadas as formas de onda das te
 % 	\end{center}
 % \end{figure}
 
-O inversor de tensão é responsável por converter uma tensão contínua em outra alternada, com frequência e amplitude bem definidas. A topologia de um inversor tipo fonte de tensão, \emph{VSI}, do inglês \textit{Voltage Source Inverter} monofásico em ponte completa pode ser vista na figura~\ref{fig:vsi_1fas}. 
+O inversor de tensão é responsável por converter uma tensão contínua em outra alternada, com frequência e amplitude bem definidas. A topologia de um inversor tipo fonte de tensão, \emph{VSI}, do inglês \textit{Voltage Source Inverter}, monofásico em ponte completa pode ser vista na figura~\ref{fig:vsi_1fas}. 
 
-É facilmente perceptível que, caso ambos um transistores de uma das pernas do circuito estejam em condução simultaneamente haverá um curto-circuito na tensão de entrada $v_i$, que corresponde á tensão de barramento CC que alimenta o circuito. Dessa forma deve-se sempre garantir que apenas um dos transistores em cada perna conduza em um certo período de tempo.
+É facilmente perceptível que, caso ambos os transistores de uma das pernas do circuito estejam em condução simultaneamente haverá um curto-circuito na tensão de entrada $v_i$, que corresponde á tensão de barramento CC que alimenta o circuito. Dessa forma deve-se sempre garantir que apenas um dos transistores em cada perna conduza em um certo período de tempo.
 
-No total o circuito apresenta cinco possíveis estados de operação, sendo quatro com tensão de saída definida(estados 1 a 4) e um com tensão indefinida(estado 5). O estados e sua tensão de saída correspondente são \cite{RASHID_VSI}:
+No total o circuito apresenta cinco possíveis estados de operação, sendo quatro com tensão de saída definida (estados 1 a 4) e um com tensão indefinida (estado 5). Os estados e suas tensões de saída correspondentes são~\cite{RASHID_VSI}:
 
 \begin{table}[h]%
 	\centering
@@ -687,20 +688,20 @@ No total o circuito apresenta cinco possíveis estados de operação, sendo quat
 \begin{figure}[htbp]
 	\begin{center}
 		\includegraphics[width=0.65 \linewidth]{vsi_1fas}
-		\caption{Inversor VSI monofásico em ponte completa \cite{RASHID_VSI}}
+		\caption{Inversor VSI monofásico em ponte completa~\cite{RASHID_VSI}}
 		\label{fig:vsi_1fas}
 	\end{center}
 \end{figure}
 
-Como um inversor deve ser capaz de fornecer tensão com amplitude \emph{bem definida}, o estado 5 deve ser evitado. Para isso, a modulação utilizada deve garantir que a todo momento um, e apenas um, dos transistores de cada perna esteja conduzindo corrente. Várias técnicas de modulação podem ser aplicadas a inversores VSI de ponte completa, entre elas as de PWM bipolar e unipolar\cite{RASHID_VSI}.
+Como um inversor deve ser capaz de fornecer tensão com amplitude \emph{bem definida}, o estado 5 deve ser evitado. Para isso, a modulação utilizada deve garantir que a todo momento um, e apenas um, dos transistores de cada perna esteja conduzindo corrente. Várias técnicas de modulação podem ser aplicadas a inversores VSI de ponte completa, entre elas as de PWM bipolar e unipolar~\cite{RASHID_VSI}.
 
 \subsection{Inversor com Modulação por Largura de Pulso Bipolar}
 
 No inversor com PWM bipolar apenas os estados 1 e 2 da tabela~\ref{table:VSI_states} são utilizados para gerar a tensão de saída, de modo que este apresenta apenas dois valores, $v_i$ e $-v_i$.
 
-Deseja-se que a tensão alternada na saída siga uma forma de onda que,para este trabalho é senoidal. A técnica de PWM baseada em sinal de portadora atende a essa questão ao definir os estados dos transistores a partir da comparação entre um sinal que corresponde à saída desejada $v_m$, chamado de modulante, e uma forma de onda triangular $v_p$, chamada de portadora.
+Deseja-se que a tensão alternada na saída siga uma forma de onda que, para este trabalho é senoidal. A técnica de PWM baseada em sinal de portadora atende a essa questão ao definir os estados dos transistores a partir da comparação entre um sinal que corresponde à saída desejada $v_m$, chamado de modulante, e uma forma de onda triangular $v_p$, chamada de portadora.
 
-Define-se que, enquanto o sinal modulante é maior que a portadora, o estado 1 é acionado, ou seja, os transistores $S_{1_+}$ e $S_{2_-}$ entram em condução, enquanto so transistores $S_{1_-}$ e $S_{2_+}$ são desligados. O estado 2 é acionado quando o sinal de portadora apresenta maior tensão que o sinal modulante. 
+Define-se que, enquanto o sinal modulante é maior que a portadora, o estado 1 é acionado, ou seja, os transistores $S_{1_+}$ e $S_{2_-}$ entram em condução, enquanto os transistores $S_{1_-}$ e $S_{2_+}$ são desligados. O estado 2 é acionado quando o sinal de portadora apresenta maior tensão que o sinal modulante. 
 
 A forma de onda obtida na saída de um inversor que segue esta técnica é, basicamente, senoidal e apresenta amplitude fundamental $\hat{v}_o$ a qual satisfaz a expressão~\ref{eq:VSI_bip_vo}, onde $m_a$ é o índice de modulação, ou razão de modulação de amplitude, representada pela equação~\ref{eq:mod_ind_bip} \cite{RASHID_VSI}.
 % \vspace{-10pt}
@@ -741,9 +742,10 @@ Neste tipo de modulação são utilizados dois sinais modulantes $v_m$ e $-v_m$.
 	v_o = v_{aN} - v_{bN} \label{eq:VSI_uni_2}\\
 	\hat{v}_o = 2 \cdot \hat{v}_{aN} = v_i m_a \label{eq:VSI_uni_vo}
 \end{IEEEeqnarray}
+
 Segundo \citeonline{RASHID_VSI}, devido ás tensões de fase ($V_{aN}$ e $v_{bN}$) serem idênticas e defasadas de 180º, a tensão de saída não apresenta harmônicos pares, presentes em inversores que utilizam o método de modulação bipolar. 
 
-Essa característica permite que inversores que utilizam a modulação unipolar utilizem filtros menores para obter tensão e corrente de alta qualidade, utilizando a mesma frequência de chaveamento que inversores com modulação bipolar\cite{RASHID_VSI}.
+Essa característica permite que inversores que utilizam a modulação unipolar utilizem filtros menores para obter tensão e corrente de alta qualidade, utilizando a mesma frequência de chaveamento que inversores com modulação bipolar~\cite{RASHID_VSI}.
 
 \begin{figure}[htbp]%
 	\captionsetup{justification=centering}
@@ -768,7 +770,7 @@ Quando comparada ao valor encontrado para o inversor VSI bipolar, apresentado na
 \section{Inversor Integrado (CC/CA)}
 \subsection{Inversor Ćuk Integrado}
 
-A integração de estágios consiste na união dos estágios subidor de tensão(CC-CA) e inversor (CC-CA) em um único estágio CC-CA, com o circuito mais simples e com menor número componentes. 
+A integração de estágios consiste na união dos estágios subidor de tensão (CC-CA) e inversor (CC-CA) em um único estágio CC-CA, com o circuito mais simples e com menor número de componentes. 
 
 Segundo proposto por \citeonline{LUIGI_int_top}, a primeira simplificação do conversor cuk integrado ao inversor de tensão em ponte completa é a retirada do capacitor e do indutor de filtro na saída no estágio elevador de tensão, ou seja, no barramento CC. Dessa forma, tensão e corrente do primeiro estágio são entregues diretamente ao inversor. A segunda, e última simplificação possível nessa integração é a retirada do diodo do conversor cuk, uma vez que os diodos anti-paralelos do inversor são capazes de efetuar sua função.
 
@@ -805,19 +807,19 @@ A figura~\ref{fig:integ_cuk_In_Out_zoom} apresenta as formas de onda das tensõe
 
 \section{Rastreador de ponto de máxima potência (\textit{MPPT})}
 
-O ponto de máxima potência de sistema de geração solar dependem da irradiação solar e da temperatura das células geradoras e, portanto, o rastreamento deste ponto de operação deve ser feito de forma constante. Para esse controle é geralmente utilizado um rastreador de ponto de máxima potência, \emph{MPPT}, do inglês \textit{Maximum Power Point Tracker} \cite{Talha_MPPT}. 
+O ponto de máxima potência de um sistema de geração solar depende da irradiação solar e da temperatura das células geradoras e, portanto, o rastreamento deste ponto de operação deve ser feito de forma constante. Para esse controle é geralmente utilizado um rastreador de ponto de máxima potência, \emph{MPPT}, do inglês \textit{Maximum Power Point Tracker}~\cite{Talha_MPPT}. 
 
 Este dispositivo monitora tensão e corrente fornecidas pelo painel fotovoltaico para determinar o ponto de operação no qual este fornecerá a máxima potência disponível, de modo a aumentar, desta forma, a eficiência do painel. Existem vários algoritmos de controle do ponto de máxima potência, e a seguir serão tratados dois, o método P\&O (perturba e observa) e o método da condutância incremental (IC). Estes métodos são amplamente utilizados devido, principalmente, a facilidade de implementação \cite{MPPT_P&O_IC}\cite{Talha_MPPT}.
 
-A figura~\ref{fig:mppt_power_demo} mostra a irradiância (S), a potência fornecida pelo painel e a potência de saída de um conversor cuk convencional com a utilização de um MPPT utilizando o método de perturba e observa. O possível perceber a acomodação do sistema para obter sempre a máxima potência disponível no painel.   
+A figura~\ref{fig:mppt_power_demo} mostra a irradiância (S), a potência fornecida pelo painel e a potência de saída de um conversor cuk convencional com a utilização de um MPPT utilizando o método de perturba e observa. É possível observar a acomodação do sistema para obter sempre a máxima potência disponível no painel.   
 
 \subsection{Método Perturba e Observa (P\&O)}
 
-Neste método, é inserida na tensão de operação do painel fotovoltaico uma pequena perturbação, que pode ser positiva ou negativa, de acordo com a necessidade. Caso após a perturbação a potência fornecida aumenta, então é aplicada outra perturbação no mesmo sentido da anterior. Quando a potência reduz após a alteração da tensão a perturbação é invertida. Esse processo é repetido periodicamente até encontrar o ponto de operação desejado\cite{Talha_MPPT}.
+Neste método, é inserida na tensão de operação do painel fotovoltaico uma pequena perturbação, que pode ser positiva ou negativa, de acordo com a necessidade. Caso após a perturbação a potência fornecida aumente, é aplicada outra perturbação no mesmo sentido da anterior. Quando a potência reduz após a alteração da tensão a perturbação é invertida. Esse processo é repetido periodicamente até encontrar o ponto de operação desejado~\cite{Talha_MPPT}.
 
-A constante perturbação da tensão faz com que a potência fornecida pelo painel varie. Desta forma o ponto de máxima potência nunca é completamente atingido, já que o sistema fica oscilando em torno deste. Para reduzir a influência dessa oscilação, a amplitude da perturbação é mantida sempre baixa \cite{MPPT_P&O_IC}.
+A constante perturbação da tensão faz com que a potência fornecida pelo painel apresente variações. Desta forma o ponto de máxima potência nunca é completamente atingido, já que o sistema fica oscilando em torno deste. Para reduzir a influência dessa oscilação, a amplitude da perturbação é mantida sempre baixa~\cite{MPPT_P&O_IC}.
 
-Como já dito, uma das vantagens deste método de MPPT está na simplicidade de sua implementação mas, além disso, apresenta alta eficiência para irradiância solar alta e constante. Já entre as desvantagens estão a possibilidade de falha para variações abruptas de irradiância e o fato de o ponto de máxima potência não ser devidamente atingido, principalmente\cite{MPPT_P&O_IC}.
+Uma das vantagens deste método de MPPT está na simplicidade de sua implementação, além disso, apresenta alta eficiência para irradiância solar alta e constante. Já entre as desvantagens estão a possibilidade de falha para variações abruptas de irradiância e o fato de o ponto de máxima potência não ser devidamente atingido, principalmente~\cite{MPPT_P&O_IC}.
 
 Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na figura~\ref{fig:PeO_Flux}.
 
@@ -831,7 +833,7 @@ Um fluxograma que representa o funcionamento do algoritmo P\&O pode ser visto na
 
 \subsection{Método de Condutância Incremental (IC)}
 
-Este método se baseia no princípio de que a inclinação da potência, em relação à tensão é zero no ponto de máxima potência, positiva à esquerda e negativa à direita deste. Além disso, a perturbação no ciclo de trabalho pode ser parada quando o ponto de máxima potência é encontrado. Enquanto esta condição não é satisfeita a direção da perturbação é definida pela relação entre $\frac{\Delta I}{\Delta V}$ e $\frac{I}{V}$ \cite{Talha_MPPT}\cite{MPPT_P&O_IC}.
+Este método se baseia no princípio de que a inclinação da potência, em relação à tensão é zero no ponto de máxima potência, positiva à esquerda e negativa à direita deste. Além disso, a perturbação no ciclo de trabalho pode ser parada quando o ponto de máxima potência é encontrado. Enquanto esta condição não é satisfeita a direção da perturbação é definida pela relação entre $\frac{\Delta I}{\Delta V}$ e $\frac{I}{V}$~\cite{Talha_MPPT}~\cite{MPPT_P&O_IC}.
 
 Dessa forma, quando a equação~\ref{eq:incCond_mai0} é satisfeita, a perturbação seguinte é positiva e, para a equação~\ref{eq:incCond_men0}, negativa.
 \begin{align}%
@@ -840,16 +842,16 @@ Dessa forma, quando a equação~\ref{eq:incCond_mai0} é satisfeita, a perturba�
 	\frac{\Delta I}{\Delta V} + \frac{I}{V} &< 0 \qquad \text{Direita do ponto de máxima potência} \label{eq:incCond_men0}
 \end{align}
 
-Devido a ruído e erros de medição, a situação da equação~\ref{eq:incCond_at_mpp} é raramente satisfeita e, portanto, utiliza-se de uma tolerância $\epsilon$ tal qual, se o módulo da soma descrita na equação~\ref{eq:incCond_at_mpp} for menor que o valor de $\epsilon$, é definido que o ponto de máxima potência foi encontrado e as perturbações são interrompidas\cite{Talha_MPPT}.
+Devido a ruído e erros de medição, a situação da equação~\ref{eq:incCond_at_mpp} é raramente satisfeita e, portanto, utiliza-se de uma tolerância $\epsilon$ tal qual, se o módulo da soma descrita na equação~\ref{eq:incCond_at_mpp} for menor que o valor de $\epsilon$, é definido que o ponto de máxima potência foi encontrado e as perturbações são interrompidas~\cite{Talha_MPPT}.
 
-A principal vantagem desse método em relação ao P\&O está na maior tolerância a variações rápidas irradiação solar, além do fato de ser capaz de interromper as perturbações após o ponto de operação ter sido definido. Entretanto, o custo e a complexidade do sistema são suas principais desvantagens\cite{MPPT_P&O_IC}.
+A principal vantagem desse método em relação ao P\&O está na maior tolerância a variações rápidas da irradiação solar, além do fato de ser capaz de interromper as perturbações após o ponto de operação ter sido definido. Entretanto, o custo e a complexidade do sistema são suas principais desvantagens~\cite{MPPT_P&O_IC}.
 
 Um fluxograma que representa o funcionamento do algoritmo de condutância incremental pode ser visto na figura~\ref{fig:IncCond_Flux}.
 
 \begin{figure}[htb]
 	\begin{center}
 		\includegraphics[width=0.55 \linewidth]{incCond_flow}
-		\caption{Fluxograma do método de indutância incremental \cite{Talha_MPPT}}
+		\caption{Fluxograma do método de indutância incremental~\cite{Talha_MPPT}}
 		\label{fig:IncCond_Flux}
 	\end{center}
 \end{figure}
@@ -865,20 +867,20 @@ Um fluxograma que representa o funcionamento do algoritmo de condutância increm
 
 \section{Filtro}
 
-Para conectar o sistema a rede elétrica é necessário filtrar a tensão gerada a fim para reduzir os harmônicos presentes e fazer com que a forma de onda resultante se assemelhe à uma senoide, e não a um trem de pulsos. Esse processo é feito com a inclusão de um filtro passivo entre o inversor e a rede da concessionária de energia.
+Para conectar o sistema a rede elétrica é necessário filtrar a tensão gerada a fim de reduzir os harmônicos presentes e fazer com que a forma de onda resultante se assemelhe à uma senoide, e não a um trem de pulsos. Esse processo é feito com a inclusão de um filtro passivo entre o inversor e a rede da concessionária de energia.
 
-Podem ser empregados três diferentes tipos de filtros L, LC e LCL. Destes, o último é mais utilizado atualmente devido a sua maior eficiência e ao fato de minimizar a distorção da corrente injetada na rede elétrica\cite{LCL_FILTER}\cite{LCL_FILTER_Reznik}.
+Podem ser empregados três diferentes tipos de filtros L, LC e LCL. Destes, o último é mais utilizado atualmente devido a sua maior eficiência e ao fato de minimizar a distorção da corrente injetada na rede elétrica~\cite{LCL_FILTER}~\cite{LCL_FILTER_Reznik}.
 
 A topologia do filtro LCL pode ser vista na figura~\ref{fig:lcl_filt_top}.
 
 \begin{figure}[htbp]%
 	\centering
 		\includegraphics[width=0.7 \linewidth]{lcl_filt_top}
-		\caption{Topologia do filtro LCL monofásico\cite{LCL_FILTER}}
+		\caption{Topologia do filtro LCL monofásico~\cite{LCL_FILTER}}
 		\label{fig:lcl_filt_top}
 \end{figure}
 
-Para o projeto do filtro LCL, inicialmente é necessário encontrar os valores de impedância e capacitância base, $Z_b$ e $C_b$, de acordo com as equações~\ref{eq:lcl_zb} e ~\ref{eq:lcl_cb} nas quais $P_n$ é a potência nominal do sistema, $V_g$ a tensão nominal da rede, e $f$ a frequência da rede elétrica.
+Para o projeto do filtro LCL, inicialmente é necessário encontrar os valores de impedância e capacitância base, $Z_b$ e $C_b$, de acordo com as equações~\ref{eq:lcl_zb} e~\ref{eq:lcl_cb} nas quais $P_n$ é a potência nominal do sistema, $V_g$ a tensão nominal da rede, e $f$ a frequência da rede elétrica.
 \begin{IEEEeqnarray}{c}%
 	Z_b = \frac{V_g^2}{P_n} \label{eq:lcl_zb}\\
 	C_b = \frac{1}{2 \pi f Z_b} \label{eq:lcl_cb}
@@ -931,7 +933,7 @@ O resistor $R_f$ é responsável por atenuar parte da oscilação de tensão pro
 
 Para o desenvolvimento do projeto, primeiramente é necessário definir a potência a ser utilizada no sistema. Após isso, é escolhido um painel fotovoltaico comercial para que seus parâmetros sejam utilizados no modelo utilizado nas simulações. Com as características do painel é possível projetar os conversores CC/CC e, com estes, os inversores responsáveis pela conversão CC/CA.
 
-Com os inversores funcionais, são projetados os sistemas de rastreamento de máxima potência, responsável por otimizar a potência obtida do painel fotovoltaico e o filtro LCL, que condiciona a forma de onda quadradas obtida pelos inversores a uma senoide que pode ser conectada à rede elétrica.
+Com os inversores funcionais, são projetados os sistemas de rastreamento de máxima potência, responsável por otimizar a potência obtida do painel fotovoltaico e o filtro LCL, que condiciona a forma de onda quadrada obtida pelos inversores a uma senoide que pode ser conectada à rede elétrica.
 
 Como no projeto estão em estudos microinversores os quais são conectados a um único painel fotovoltaico, foi escolhido um painel de potência média no mercado, de 300W. Os conversores serão baseados no conversor cuk, sendo estes o conversor cuk convencional e o conversor cuk entrelaçado de duas fases, além do inversor cuk integrado, composto por uma simplificação do conversor cuk convencional conectado a um inversor.
 
@@ -1006,7 +1008,7 @@ O comportamento da curva IxV do modelo para diferentes temperaturas e irradiânc
 	\end{center}
 \end{figure}
 
-Para modelar o comportamento do painel no PSIM, foi seguido o procedimento indicado no tutorial \cite{PSIM_PV}. Utiliza-se, portanto, informações das presentes nas tabelas~\ref{tab:pv_elet} e \ref{tab:pv_temp}, já da figura~\ref{fig:IV_pv_cs} é extraída a inclinação $\frac{dV}{dI}$ na tensão de circuito aberto $V_{OC}$, que é de $-0,4 V/A$.
+Para modelar o comportamento do painel no PSIM, foi seguido o procedimento indicado no tutorial \cite{PSIM_PV}. Utiliza-se, portanto, informações presentes nas tabelas~\ref{tab:pv_elet} e \ref{tab:pv_temp}, já da figura~\ref{fig:IV_pv_cs} é extraída a inclinação $\frac{dV}{dI}$ na tensão de circuito aberto $V_{OC}$, que é de $-0,4 V/A$.
 
 Nas figuras~\ref{fig:pv_psim_param} e \ref{fig:pv_psim_carac} são mostrados os parâmetros e as características, respectivamente, do módulo fotovoltaico utilizado no PSIM.
 
@@ -1039,7 +1041,7 @@ O circuito que representa o painel fotovoltaico pode ser visto na figura~\ref{fi
 
 \section{Projeto dos Conversores CC/CC}
 
-Apesar de mais complexos e caros que conversores CC/CC básicos, conversores cuk apresentam melhores características de corrente, tanto de entrada quanto de saída que estas topologias \cite{JOSEPH_2017_Intervealed_CUK} e, por isso foram escolhidos para como objeto de análise deste trabalho.
+Apesar de mais complexos e caros que conversores CC/CC básicos, conversores cuk apresentam melhores características de corrente, tanto de entrada quanto de saída que estas topologias~\cite{JOSEPH_2017_Intervealed_CUK} e, por isso foram escolhidos como objeto de análise deste trabalho.
 
 \subsection{Dimensionamento do Conversor Ćuk Convencional} \label{ssec:cuk_conv_met}
 
@@ -1064,7 +1066,7 @@ Além disso, dados a potência e tensão de saída pode-se encontrar a carga equ
 
 \subsubsection{Ciclo de Trabalho}\label{ssec:d_cuk_conv}
 
-O ciclo de trabalho do conversor cuk é encontrado a partir de seus valores de tensão de entrada e saída desejados. Utilizando a função de transferência deste circuito, definida na equação~\ref{eq:trans_func_cuk_conv} e com as tensões de entrada e saída, encontra-se o \textit{duty cycle} encontrado na equação~\ref{eq:d_cuk_conv_}.
+O ciclo de trabalho do conversor cuk é encontrado a partir de seus valores de tensão de entrada e saída desejados. Utilizando a função de transferência deste circuito, definida na equação~\ref{eq:trans_func_cuk_conv} e com as tensões de entrada e saída, encontra-se o \textit{duty cycle} da equação~\ref{eq:d_cuk_conv_}.
 
 \begin{equation}%
 	d = \frac{V_{o}}{V_{o}+V_{s}} = 0,847 \label{eq:d_cuk_conv_}
@@ -1185,7 +1187,7 @@ Percebe-se, a partir dos dados expostos na tabela~\ref{tab:conv_cuk_results} que
 
 \subsection{Dimensionamento do Conversor Ćuk Entrelaçado}
 
-O conversor cuk entrelaçado apresenta como principal vantagem ao conversor cuk convencional, menores ripples de corrente, já que a corrente de entrada é dividida entre as fases do mesmo \cite{JOSEPH_2015_Intervealed_CUK}\cite{JOSEPH_2017_Intervealed_CUK}. Essa característica também reduz o estresse de chaveamento dos transistores, implicando numa melhor qualidade da potência obtida e entregue pelo conversor \cite{JOSEPH_2017_Intervealed_CUK}.
+O conversor cuk entrelaçado apresenta como principal vantagem ao conversor cuk convencional, menores ripples de corrente, já que a corrente de entrada é dividida entre as fases do mesmo~\cite{JOSEPH_2015_Intervealed_CUK}~\cite{JOSEPH_2017_Intervealed_CUK}. Essa característica também reduz o estresse de chaveamento dos transistores, implicando numa melhor qualidade da potência obtida e entregue pelo conversor~\cite{JOSEPH_2017_Intervealed_CUK}.
 
 Para a definição dos valores de componentes do conversor cuk entrelaçado serão utilizados os mesmos parâmetros de projeto do conversor cuk convencional. Além disso, os cálculos serão efetuados para uma das fases e os componentes encontrados serão replicados para todas as fases do circuito.
 
@@ -1225,7 +1227,7 @@ Percebe-se que o pwm de cada braço, apesar de apresentar o mesmo ciclo de traba
 	\end{center}
 \end{figure}
 
-A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circuit} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:inter_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_inter_ripp_I_L1} a \ref{fig:cuk_inter_power_sign_out}.\
+A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circuit} no PSIM, obteve-se os valores de média e ripple presentes na tabela~\ref{tab:inter_cuk_results}. Além disso, as formas de onda verificadas são apresentadas na figuras~\ref{fig:cuk_inter_ripp_I_L1} a~\ref{fig:cuk_inter_power_sign_out}.
 
 \begin{table}[htbp]
 	\centering
@@ -1313,7 +1315,7 @@ A partir da simulação do circuito da figura~\ref{fig:interv_cuk_conv_psim_circ
 		\label{fig:cuk_inter_power_sign_out}
 \end{figure}
 
-De acordo com os resultados presentes na tabela~\ref{tab:inter_cuk_results}, foram obtidos os valores desejados cada uma das fases do conversor. Se comparados aos valores referentes aos resultados do conversor cuk convencional, tabela~\ref{tab:conv_cuk_results}, é possível perceber que, enquanto cada uma das fases do conversor cuk entrelaçado apresenta ripple de corrente igual ao encontrado na entrada do conversor cuk convencional, a variação da corrente na entrada do conversor cuk entrelaçado é equivalente a 78\% da encontrada na outra implementação.
+De acordo com os resultados presentes na tabela~\ref{tab:inter_cuk_results}, foram obtidos os valores desejados para cada uma das fases do conversor. Se comparados aos valores referentes aos resultados do conversor cuk convencional, tabela~\ref{tab:conv_cuk_results}, é possível perceber que, enquanto cada uma das fases do conversor cuk entrelaçado apresenta ripple de corrente igual ao encontrado na entrada do conversor cuk convencional, a variação da corrente na entrada do conversor cuk entrelaçado é equivalente a 78\% da encontrada na outra implementação.
 
 Além da melhoria de qualidade da corrente de entrada no circuito, o conversor cuk entrelaçado também apresentou tensão de ripple equivalente a 58\% menor e oscilação de potência equivalente a 41\% dos valores apresentados pela implementação convencional, apesar de apresentar mesmo rendimento que este, considerando-se valores médios de potência.
 
@@ -1366,7 +1368,7 @@ Para analisar as características deste inversor foi simulado o circuito da figu
 % \section{Inversor Integrado (CC/CA)}\label{sec:met_conv_integ}
 \subsection{Inversor Ćuk Integrado}
 
-O inversor cuk integrado é uma versão simplificada do conversor convencional, descrito na seção~\ref{ssec:cuk_conv_met}. Nesta implementação, os componentes responsáveis pela filtragem da tensão e corrente de saída do conversor ($L2$ e $C2$) são removidos e é incorporado ao capacitor $C1$ um inversor, diretamente. Os diodos paralelos aos transistores do inversor executam a função do diodo, que também é descartado.
+O inversor cuk integrado é uma versão simplificada do conversor convencional, descrito na seção~\ref{ssec:cuk_conv_met}. Nesta implementação, os componentes responsáveis pela filtragem da tensão e corrente de saída do conversor ($L2$ e $C2$) são removidos, e é incorporado diretamente ao capacitor $C1$ um inversor. Os diodos paralelos aos transistores do inversor executam a função do diodo, que também é descartado.
 
 Dessa forma, tanto o ciclo de trabalho quanto os valores dos componentes restantes, $L1$ e $C1$ podem ser encontrados através das equações do conversor cuk convencional, sendo estas as equações~\ref{eq:d_cuk_conv_}, \ref{eq:cuk_conv_L1} e \ref{eq:cuk_conv_C1_final}, respectivamente.
 
@@ -1437,7 +1439,7 @@ Para facilitar a inserção da MPPT nos circuitos, foi montado um sub-circuito, 
 	\end{center}
 \end{figure}
 
-Nas figuras~\ref{fig:mppt_conv_data} e \ref{fig:mppt_interv_data} são expostos os comportamentos dos conversores cuk convencional e entrelaçado de duas fases quando alimentados pelo painel fotovoltaico juntamento com o MPPT implementado. Os circuitos utilizados podem ser vistos nas figuras~\ref{fig:mppt_conv_circ} e \ref{fig:mppt_interv_circ}.
+Nas figuras~\ref{fig:mppt_conv_data} e \ref{fig:mppt_interv_data} são expostos os comportamentos dos conversores cuk convencional e entrelaçado de duas fases quando alimentados pelo painel fotovoltaico juntamento com o MPPT implementado. Os circuitos utilizados podem ser vistos nas figuras~\ref{fig:mppt_conv_circ} e~\ref{fig:mppt_interv_circ}.
 
 \begin{figure}[htb]%
 	\captionsetup{justification=centering}%
@@ -1475,11 +1477,12 @@ Nas figuras~\ref{fig:mppt_conv_data} e \ref{fig:mppt_interv_data} são expostos 
 	\end{center}
 \end{figure}
 \vspace{20pt}
+
 \section{Filtro}\label{sec:met_filt}
 
 Os componentes do filtro são encontrados a partir das equações~\ref{eq:lcl_zb} a \ref{eq:lcl_rf}.
 
-O filtro é projetado para um inversor de $300W$, conectado a rede monofásica, com tensão de barramento CC de $210V$ e frequência de chaveamento de $15kHz$. Utilizando esses parâmetros, são encontrados os componentes representados pelas equações~\ref{eq:lcl_l1_met} a \ref{eq:lcl_c_met}.
+O filtro é projetado para um inversor de 300W, conectado a rede monofásica, com tensão de barramento CC de $210V$ e frequência de chaveamento de $15kHz$. Utilizando esses parâmetros, são encontrados os componentes representados pelas equações~\ref{eq:lcl_l1_met} a~\ref{eq:lcl_c_met}.
 \begin{IEEEeqnarray}{c}%
 	L_1 = 9,88mH \label{eq:lcl_l1_met}\\
 	L_2 = 68,4 \mu H \label{eq:lcl_l2_met}\\
@@ -1505,7 +1508,7 @@ O filtro resultante pode ser visto na figura~\ref{fig:lcl_filter_impl}, com o ca
 
 Neste capítulo são apresentados os conversores formados a partir da conexão dos circuitos dimensionados no capítulo~\ref{cap:project} e os resultados das simulações executadas com os mesmos.
 
-São, ao todo, seis conversores distintos uma vez que cada implementação proposta é conectada a um inversor bipolar e a um inversor unipolar, a fim de avaliar a influência desse estágio. Todos as combinações apresentam, entretanto, o painel fotovoltaico, o rastreador de ponto máximo de potência e o filtro LCL em comum.
+São, ao todo, seis conversores distintos uma vez que cada implementação proposta é conectada a um inversor bipolar e a um inversor unipolar, a fim de avaliar a influência desse estágio. Todas as combinações apresentam entretanto, o painel fotovoltaico, o rastreador de ponto máximo de potência e o filtro LCL em comum.
 
 Todas as figuras de circuitos desse capítulo são apresentadas também no anexo~\ref{anex:circ_images} em modo paisagem e, portanto, com maior qualidade.
 
@@ -1562,7 +1565,7 @@ Já a figura~\ref{fig:comp_conv_var_s_bip} mostra as tensões e correntes de ent
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_conv_var_s}
-		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk convencional bipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c) de entrada e saída para o inversor cuk convencional bipolar com variação de irradiância}
 		\label{fig:comp_conv_var_s_bip}
 \end{figure}
 
@@ -1619,7 +1622,7 @@ Já a figura~\ref{fig:comp_conv_var_s_unip} mostra as tensões e correntes de en
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_conv_var_s_unip}
-		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk convencional unipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c) de entrada e saída para o inversor cuk convencional unipolar com variação de irradiância}
 		\label{fig:comp_conv_var_s_unip}
 \end{figure}
 
@@ -1674,7 +1677,7 @@ Já a figura~\ref{fig:comp_interv_var_s} mostra as tensões e correntes de entra
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_interv_var_s}
-		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk entrelaçado bipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c) de entrada e saída para o inversor cuk entrelaçado bipolar com variação de irradiância}
 		\label{fig:comp_interv_var_s}
 \end{figure}
 
@@ -1727,7 +1730,7 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra as tensões e correntes de 
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_interv_var_s_unip}
-		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk entrelaçado unipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c) de entrada e saída para o inversor cuk entrelaçado unipolar com variação de irradiância}
 		\label{fig:comp_interv_var_s_unip}
 \end{figure}
 
@@ -1737,7 +1740,7 @@ Já a figura~\ref{fig:comp_interv_var_s_unip} mostra as tensões e correntes de 
 
 O circuito implementado no PSIM para o inversor cuk integrado bipolar é apresentado na figura~\ref{fig:comp_integ_circ_clean}, já a figura~\ref{fig:out_integ_bip} mostra as formas de onda de tensão e corrente de saída, ampliada em dez vezes. O espectro de frequências da tensão de saída obtida pode ser analisada na figura~\ref{fig:fft_integ_bip},  com informação da distorção harmônica total da tensão, considerando frequência base de 60Hz.
 
-Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados encontrados através da simulação deste circuito e a figura~\ref{fig:comp_integ_var_s} mmostra as tensões e correntes de entrada e saída do conversor para alterações na irradiância que alimenta o painel fotovoltaico.
+Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados encontrados através da simulação deste circuito e a figura~\ref{fig:comp_integ_var_s} mostra as tensões e correntes de entrada e saída do conversor para alterações na irradiância que alimenta o painel fotovoltaico.
 
 \begin{figure}[H]%
 	\captionsetup{justification=centering}
@@ -1782,7 +1785,7 @@ Além disso, a tabela~\ref{tab:integ_bip_res} apresenta os principais resultados
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_integ_var_s}
-		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk integrado bipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c) de entrada e saída para o inversor cuk integrado bipolar com variação de irradiância}
 		\label{fig:comp_integ_var_s}
 \end{figure}
 % \vspace{-50pt}
@@ -1835,7 +1838,7 @@ Além disso, a tabela~\ref{tab:integ_unip_res} apresenta os principais resultado
 	\captionsetup{justification=centering}
 	\centering
 		\includegraphics[width= \linewidth]{comp_integ_var_s_unip}
-		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c)de entrada e saída para o inversor cuk integrado unipolar com variação de irradiância}
+		\caption{Irradiância incidente no painel~(a), tensões~(b) e correntes~(c) de entrada e saída para o inversor cuk integrado unipolar com variação de irradiância}
 		\label{fig:comp_integ_var_s_unip}
 \end{figure}
 
@@ -1849,7 +1852,7 @@ Ao analisar as figuras~\ref{fig:comp_conv_var_s_bip}, \ref{fig:comp_conv_var_s_u
 
 Como pode ser visto na figura~\ref{fig:IV_pv_cs}, o ponto de máxima potência do painel fotovoltaico para variações da irradiância apresenta, aproximadamente, a mesma tensão para uma vasta gama de valores enquanto a corrente máxima gerada é reduzida. 
 
-É possível perceber também, uma variação na tensão de saída do painel e, consequentemente, também na corrente fornecida durante todo o período amostrado. Essa oscilação é esperada devido ao algoritmo de rastreamento utilizado, que oscila continuamente em torno do ponto de máxima potência. Esse comportamento propicia também uma adequação mais rápida a variações de irradiância, uma vez que a varredura ocorre durante todo o funcionamento do sistema, inclusive após o ponto ótimo ter sido encontrado.
+É possível perceber uma variação na tensão de saída do painel e, consequentemente, na corrente fornecida durante todo o período amostrado. Essa oscilação é esperada devido ao algoritmo de rastreamento utilizado, que oscila continuamente em torno do ponto de máxima potência. Esse comportamento propicia também uma adequação mais rápida a variações de irradiância, uma vez que a varredura ocorre durante todo o funcionamento do sistema, inclusive após o ponto ótimo ter sido encontrado.
 
 %SINAL DE SAIDA
 Em relação à tensão de saída, enquanto a maior parte das implementações conseguiu fornecer tensão compatível com a conexão à rede elétrica, o inversor integrado bipolar não se comportou como esperado, como pode ser percebido ao se comparar a figura~\ref{fig:out_integ_bip} com as demais figuras que representam as formas de onda presentes na saída dos conversores: \ref{fig:out_conv_bip}, \ref{fig:out_conv_unip}, \ref{fig:out_interv_bip}, \ref{fig:out_interv_unip} e \ref{fig:out_integ_unip}.
@@ -1859,7 +1862,7 @@ Apesar desse inversor apresentar tensão eficaz igual ao valor esperado, de 127V
 %RENDIMENTO/QUALIDADE
 A tabela~\ref{tab:final_results_quality} apresenta os resultados de rendimento, distorção harmônica total, tensão e oscilação de corrente para os seis conversores simulados.
 
-Em relação às variações de corrente e tensão, percebe-se que, enquanto os inversores bipolares apresentam valores consideravelmente distintos entre si, os unipolares apresentam valores sempre bem próximos. Esse comportamento indica que o PWM senoidal unipolar utilizado para controlar o estágio inversor dessas implementações é capaz de reduzir a influência do estágio subidor de tensão de tal forma que este possa ser ignorado para essas variáveis. Já entre os inversores bipolares, o inversor integrado apresentou variações menores que os demais o que não era esperado. Entretanto, por apresentar componente contínua na tensão será desconsiderado.
+Em relação às variações de corrente e tensão, percebe-se que, enquanto os inversores bipolares apresentam valores consideravelmente distintos entre si, os unipolares apresentam valores sempre bem próximos. Esse comportamento indica que o PWM senoidal unipolar utilizado para controlar o estágio inversor dessas implementações é capaz de reduzir a influência do estágio subidor de tensão de tal forma que este possa ser ignorado para essas variáveis. Já entre os inversores bipolares, o inversor integrado apresentou variações menores que os demais, o que não era esperado. Entretanto, por apresentar componente contínua na tensão será desconsiderado.
 
 Ao analisar as variações de tensão e corrente de saída dos inversores cuk convencional bipolar e cuk entrelaçado bipolar pode-se perceber que os valores apresentados pela implementação entrelaçada são aproximadamente metade dos apresentados pela convencional. Esse comportamento está de acordo com o esperado, com as oscilações reduzindo de acordo com o aumento do número de fases do inversor.
 
@@ -1887,15 +1890,15 @@ Ao analisar as variações de tensão e corrente de saída dos inversores cuk co
 \end{table}
 
 
-Em relação ao rendimento percebe-se que, em geral, inversores unipolares apresentam rendimento um pouco inferior às mesmas implementações bipolares, ou seja, pra se obter formas de onda de saída menos poluídos o inversor unipolar sacrifica uma pequena parcela da potência gerada, devido a seu terceiro nível, 0, no qual não é transmitida potência para a saída.
+Em relação ao rendimento percebe-se que, em geral, inversores unipolares apresentam rendimento um pouco inferior às mesmas implementações bipolares, ou seja, para se obter formas de onda de saída menos poluídos o inversor unipolar sacrifica uma pequena parcela da potência gerada, devido a seu terceiro nível, 0, no qual não é transmitida potência para a saída.
 
-A exceção a essa regra é o inversor cuk integrado. Enquanto sua implementação bipolar apresenta o pior rendimento entre os inversores utilizados a implementação unipolar, que resolve o problema de tensão contínua na saída do conversor apresenta o terceiro maior rendimento, de $96,11\%$, inferior apenas ao apresentado pelas implementações do inversor cuk entrelaçado, $95,21\%$ para o inversor bipolar e $95,19\%$ para o unipolar. Enquanto o resultado do inversor integrado pode ser atribuído ao número reduzido de componentes capazes de dissipar energia dessa implementação, o dos inversores entrelaçados está relacionado, principalmente ao menor estresse de chaveamento nos transistores do estágio elevador de tensão, devido ao aumento do número de fases responsáveis por lidar com a mesma potência inserida.
+A exceção a essa regra é o inversor cuk integrado. Enquanto sua implementação bipolar apresenta o pior rendimento entre os inversores utilizados a implementação unipolar, que resolve o problema de tensão contínua na saída do conversor, apresenta o terceiro maior rendimento, de $96,11\%$, inferior apenas ao apresentado pelas implementações do inversor cuk entrelaçado, $95,21\%$ para o inversor bipolar e $95,19\%$ para o unipolar. Enquanto o resultado do inversor integrado pode ser atribuído ao número reduzido de componentes capazes de dissipar energia dessa implementação, o dos inversores entrelaçados está relacionado, principalmente ao menor estresse de chaveamento nos transistores do estágio elevador de tensão, devido ao aumento do número de fases responsáveis por lidar com a mesma potência inserida.
 
 Segundo a recomendação IEEE-519, para sistemas com tensão de barramento inferiores a 1kV a distorção harmônica total deve ser inferior a $8\%$ \cite{IEEE_519}. Dos inversores implementados, apenas o inversor integrado bipolar não respeita esse limite. Esta implementação apresenta, além da componente contínua já comentada, valores mais significativos que as demais nas componentes harmônicas da frequência fundamental de segunda e terceira ordem, principalmente, como pode ser percebido através da comparação das figuras~\ref{fig:fft_conv_bip}, \ref{fig:fft_conv_unip}, \ref{fig:fft_interv_bip}, \ref{fig:fft_interv_unip}, \ref{fig:fft_integ_bip} e \ref{fig:fft_integ_unip}. 
 
 Percebe-se, entre as implementações restantes, que os inversores que utilizam o controle unipolar apresentam distorção harmônica total um pouco inferior aos que utilizam o controle bipolar devido, principalmente, à ausência dos componentes harmônicas pares da frequência base na tensão de saída, como pode ser visto nas figuras~\ref{fig:fft_conv_unip}, \ref{fig:fft_interv_unip} e \ref{fig:fft_integ_unip}.
 
-Por fim, apesar de apresentar variações de tensão e corrente de saída próximas aos valores das demais implementações unipolares, o inversor cuk integrado unipolar apresenta distorção harmônica total praticamente três vezes maior que os demais. Esse valor ocorre, principalmente por uma maior presença do harmônico de terceira ordem (180Hz), como pode ser visto na figura~\ref{fig:fft_integ_unip}, devido à menor atenuação dos harmônicos nesse circuito que, por sua vez, é devida à simplicidade do circuito, o qual não apresenta um filtro entre os estágios elevador de tensão e inversor. O harmônico de segunda ordem (120Hz) não está presente nesse inversor, assim como em sua implementação bipolar, como já citado.
+Por fim, apesar de apresentar variações de tensão e corrente de saída próximas aos valores das demais implementações unipolares, o inversor cuk integrado unipolar apresenta distorção harmônica total praticamente três vezes maior que os demais. Esse valor ocorre, principalmente por uma maior presença do harmônico de terceira ordem (180Hz), como pode ser visto na figura~\ref{fig:fft_integ_unip}, devida à menor atenuação dos harmônicos nesse circuito que, por sua vez, é decorrente da simplicidade do circuito, o qual não apresenta um filtro entre os estágios elevador de tensão e inversor. O harmônico de segunda ordem (120Hz) não está presente nesse inversor, assim como em sua implementação bipolar, como já citado.
 
 \chapter{Conclusão}
 
@@ -1907,7 +1910,7 @@ O sistema de rastreamento de ponto máximo de potência implementado agiu da for
 
 Com exceção do inversor cuk integrado bipolar, todas as demais implementações foram capazes de fornecer tensão senoidal com amplitude e frequência compatíveis com a rede elétrica e com distorção harmônica máxima dentro do limite recomendado pela IEEE-519.
 
-Como esperado, os inversores unipolares apresentaram melhores resultados em relação à qualidade das formas de onde presentes na saída, em detrimento da potência disponibilizada. Além disso, os conversores entrelaçados, mais complexos que os convencionais, apresentaram os melhores resultados tanto em relação ao rendimento quanto em relação à qualidade da potência entregue entre os conversores propostos. 
+Como esperado, os inversores unipolares apresentaram melhores resultados em relação à qualidade das formas de onda presentes na saída, em detrimento da potência disponibilizada. Além disso, os conversores entrelaçados, mais complexos que os convencionais, apresentaram os melhores resultados tanto em relação ao rendimento quanto em relação à qualidade da potência entregue entre os conversores propostos. 
 
 Apesar de mais simples, o inversor cuk integrado apresentou rendimento superior à implementação convencional, sendo um forte candidato para a implementação de microinversores comerciais por, principalmente, permitir a montagem de inversores com menores dimensões físicas. Entretanto, esse inversor deve, necessariamente, apresentar estágio inversor unipolar.
 
@@ -1917,7 +1920,7 @@ Um sistema composto por inversores integrados unipolares, apesar de ainda aprese
 
 Dessa forma, a implementação de um sistema para conexão de fontes fotovoltaicas conectadas à rede baseado em microinversores de baixa potência é uma opção possível e viável ao atual modelo de inversores de alta potência. 
 
-Um próximo passo, como produto de outro estudo é a implementação dos sistemas auxiliares necessários para o funcionamento e aprovação de um sistema fotovoltaico conectado à rede elétrica, como o sistema de anti ilhamento, importante para a segurança da rede, e sistemas de controle para o tratamento de perturbações inseridas no sistema para a análise do conversor em malha fechada.
+Um próximo passo, como produto de outro estudo é a implementação dos sistemas auxiliares necessários para o funcionamento e aprovação de um sistema fotovoltaico conectado à rede elétrica, como o sistema de anti-ilhamento, importante para a segurança da rede, e sistemas de controle para o tratamento de perturbações inseridas no sistema para a análise do conversor em malha fechada.
 % ---
 \bookmarksetup{startatroot}% 
 % ---
